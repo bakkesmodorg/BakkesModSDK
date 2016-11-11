@@ -7,7 +7,7 @@
 #include "GameEventWrapper.h"
 #include "tutorialwrapper.h"
 #include "serverwrapper.h"
-
+#include "replaydirectorwrapper.h"
 
 class BAKKESMOD_PLUGIN_IMPORT GameWrapper
 {
@@ -18,11 +18,14 @@ public:
 	~GameWrapper();
 
 	bool IsInTutorial();
+	bool IsInReplay();
+
 	GameEventWrapper				GetGameEvent();
 	TutorialWrapper					GetGameEventAsTutorial();
 	ServerWrapper					GetGameEventAsServer();
 	CarWrapper						GetLocalCar();
-
+	GameEventWrapper				GetReplayGameEvent();
+	ReplayDirectorWrapper			GetReplayDirector();
 	void							SetTimeout(std::function<void(GameWrapper*)> theLambda, long long time); //time in MS
 
 	//Must be used when calling game functions or changing game data from a thread
