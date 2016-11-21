@@ -1,6 +1,9 @@
+#include "stdafx.h"
 #pragma once
 #include "wrapperstructs.h"
 #include "actorwrapper.h"
+//#include "arraywrapper.h"
+//#include "touchwrapper.h"
 
 class BAKKESMOD_PLUGIN_IMPORT BallWrapper : public ActorWrapper
 {
@@ -10,7 +13,9 @@ public:
 	BallWrapper(const BallWrapper& other);
 	BallWrapper& operator=(BallWrapper rhs);
 	~BallWrapper();
+	
 	float GetLastTouchTime();
+	//ArrayWrapper<TouchWrapper> GetTouches();
 
 private:
 	struct Impl;

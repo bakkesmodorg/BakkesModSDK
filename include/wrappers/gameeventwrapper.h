@@ -14,6 +14,7 @@ public:
 	~GameEventWrapper();
 	BallWrapper GetBall();
 	bool IsTraining(int type);
+	bool IsInFreePlay();
 	bool IsServer();
 
 private:

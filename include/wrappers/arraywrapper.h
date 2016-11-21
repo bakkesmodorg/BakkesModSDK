@@ -3,7 +3,7 @@
 #include "carwrapper.h"
 #include "teamwrapper.h"
 #include "ballwrapper.h"
-
+//#include "touchwrapper.h"
 template<typename T> 
 class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper
 {
@@ -20,7 +20,11 @@ private:
 	std::unique_ptr<Impl> pimpl;
 };
 
-
+//
 template class ArrayWrapper<TeamWrapper>;
 template class ArrayWrapper<CarWrapper>;
 template class ArrayWrapper<BallWrapper>;
+#ifdef IS_PLUGIN:
+
+//template class ArrayWrapper<TouchWrapper>;
+#endif

@@ -23,8 +23,31 @@ struct Vector {
 	inline Vector operator-(Vector v2) {
 		return Vector(X - v2.X, Y - v2.Y, Z - v2.Z);
 	}
+
+	inline Vector operator/(Vector v2) {
+		return Vector(X / v2.X, Y / v2.Y, Z / v2.Z);
+	}
 };
 
+static inline int fixRotator(int newRotation) {
+	if (newRotation >= 32767) {
+		newRotation = -32767 + (newRotation - 32767);
+	}
+	else if (newRotation <= -32767) { //-35000 
+		newRotation = 32767 + (newRotation + 32767);
+	}
+	return newRotation;
+}
+
+static inline int fixPitch(int newRotation) {
+	if (newRotation >= 16383) {
+		newRotation = -16383 + (newRotation - 16383);
+	}
+	else if (newRotation <= -16383) { //-35000 
+		newRotation = 16383 + (newRotation + 16383);
+	}
+	return newRotation;
+}
 
 struct Rotator {
 	int Pitch, Yaw, Roll;
@@ -37,14 +60,18 @@ struct Rotator {
 
 
 	inline Rotator operator+(Rotator v2) {
-		return Rotator(Pitch + v2.Pitch, Yaw + v2.Yaw, Roll + v2.Roll);
+		return Rotator(fixPitch(Pitch + v2.Pitch), fixRotator(Yaw + v2.Yaw), fixRotator(Roll +v2.Roll));
 	}
 
 	inline Rotator operator*(Rotator v2) {
-		return Rotator(Pitch * v2.Pitch, Yaw * v2.Yaw, Roll * v2.Roll);
+		return Rotator(fixPitch(Pitch * v2.Pitch), fixRotator(Yaw * v2.Yaw), fixRotator(Roll * v2.Roll));
 	}
 
 	inline Rotator operator-(Rotator v2) {
-		return Rotator(Pitch - v2.Pitch, Yaw - v2.Yaw, Roll - v2.Roll);
+		return Rotator(fixPitch(Pitch - v2.Pitch), fixRotator(Yaw - v2.Yaw), fixRotator(Roll - v2.Roll));
+	}
+
+	inline Rotator operator/(Rotator v2) {
+		return Rotator(fixPitch(Pitch / v2.Pitch), fixRotator(Yaw / v2.Yaw), fixRotator(Roll / v2.Roll));
 	}
 };

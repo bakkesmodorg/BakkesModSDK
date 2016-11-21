@@ -17,6 +17,7 @@ public:
 	float getCvarFloat(std::string cvar, float defaultValue = 0.0f); //public
 	bool getCvarBool(std::string cvar, bool defaultValue = false); //public
 	void setCvar(std::string cvar, std::string value); //public
+	void log(std::string text);
 
 private:
 	struct Impl;
