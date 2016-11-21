@@ -19,6 +19,12 @@ public:
 	Vector GetGoalLocation(int goalNumber = 0);
 	void SetPodiumTime(int podiumTime);
 
+	float GetGameSpeed();
+	void SetGameSpeed(float newSpeed);
+
+	float GetSecondsElapsed();
+
+
 	BallWrapper SpawnBall(Vector position, bool wake, bool spawnCannon=false);
 	ArrayWrapper<BallWrapper> GetBalls();
 	bool RemoveBall(BallWrapper ball);
