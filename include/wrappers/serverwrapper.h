@@ -14,6 +14,7 @@ public:
 	int GetTimeRemaining();
 	void SetTimeRemaining(int timeRemaining);
 	TeamWrapper GetTeam(int teamNum);
+	ArrayWrapper<ActorWrapper> GetPRIs();
 	ArrayWrapper<TeamWrapper> GetTeams();
 	ArrayWrapper<CarWrapper> GetPlayers();
 	Vector GetGoalLocation(int goalNumber = 0);

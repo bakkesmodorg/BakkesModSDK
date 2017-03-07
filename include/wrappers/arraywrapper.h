@@ -21,6 +21,7 @@ private:
 };
 
 //
+template class ArrayWrapper<ActorWrapper>;
 template class ArrayWrapper<TeamWrapper>;
 template class ArrayWrapper<CarWrapper>;
 template class ArrayWrapper<BallWrapper>;

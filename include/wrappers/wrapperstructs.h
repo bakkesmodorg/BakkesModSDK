@@ -29,7 +29,7 @@ struct Vector {
 	}
 };
 
-static inline int fixRotator(int newRotation) {
+static inline float fixRotator(float newRotation) {
 	if (newRotation >= 32767) {
 		newRotation = -32767 + (newRotation - 32767);
 	}
@@ -39,7 +39,7 @@ static inline int fixRotator(int newRotation) {
 	return newRotation;
 }
 
-static inline int fixPitch(int newRotation) {
+static inline float fixPitch(float newRotation) {
 	if (newRotation >= 16383) {
 		newRotation = -16383 + (newRotation - 16383);
 	}
@@ -50,11 +50,11 @@ static inline int fixPitch(int newRotation) {
 }
 
 struct Rotator {
-	int Pitch, Yaw, Roll;
+	float Pitch, Yaw, Roll;
 
 	Rotator(FRotator r);
-	Rotator(int pitch, int yaw, int roll) : Pitch(pitch), Yaw(yaw), Roll(roll) {}
-	Rotator(int def) : Pitch(def), Yaw(def), Roll(def) {}
+	Rotator(float pitch, float yaw, float roll) : Pitch(pitch), Yaw(yaw), Roll(roll) {}
+	Rotator(float def) : Pitch(def), Yaw(def), Roll(def) {}
 	Rotator() : Rotator(0) {}
 	operator FRotator();
 
