@@ -48,6 +48,8 @@ public:
 	void DisableGoalReset();
 	void EnableGoalReset();
 	
+	void SpawnCar();
+
 	//Speed from 0 to 2000 pls
 	Vector GenerateShot(Vector startPos, Vector destination, float speed);
 	Vector GenerateGoalAimLocation(int goalNumber, Vector currentBallLocation);

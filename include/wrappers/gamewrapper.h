@@ -19,12 +19,13 @@ public:
 
 	bool IsInTutorial();
 	bool IsInReplay();
+	bool IsInCustomTraining();
 
 	GameEventWrapper				GetGameEvent();
 	TutorialWrapper					GetGameEventAsTutorial();
 	ServerWrapper					GetGameEventAsServer();
 	CarWrapper						GetLocalCar();
-	GameEventWrapper				GetReplayGameEvent();
+	ServerWrapper					GetReplayGameEvent();
 	ReplayDirectorWrapper			GetReplayDirector();
 	void							SetTimeout(std::function<void(GameWrapper*)> theLambda, long long time); //time in MS
 

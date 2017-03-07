@@ -2,9 +2,9 @@
 #include <memory>
 #include <cstdint>
 #include "ballwrapper.h"
+#include "carwrapper.h"
 
-
-class BAKKESMOD_PLUGIN_IMPORT GameEventWrapper
+class BAKKESMOD_PLUGIN_IMPORT GameEventWrapper : public ActorWrapper
 {
 
 public:
@@ -16,6 +16,8 @@ public:
 	bool IsTraining(int type);
 	bool IsInFreePlay();
 	bool IsServer();
+	void KickBots();
+	CarWrapper GetPRICar(int idx);
 
 private:
 	struct Impl;

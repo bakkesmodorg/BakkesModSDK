@@ -1,8 +1,11 @@
 #pragma once
 #include "wrapperstructs.h"
+class ActorWrapper;
+typedef std::function<void(ActorWrapper, string)> EventCallback;
 
 class BAKKESMOD_PLUGIN_IMPORT ActorWrapper
 {
+	
 public:
 	std::uintptr_t memory_address;
 	ActorWrapper(std::uintptr_t mem);
@@ -24,10 +27,13 @@ public:
 	void Stop();
 	
 	void Freeze();
+	void ListenForEvents(EventCallback callbackk);
+
 	
 
 private:
 	struct Impl;
 	std::unique_ptr<Impl> pimpl;
+	
 };
 

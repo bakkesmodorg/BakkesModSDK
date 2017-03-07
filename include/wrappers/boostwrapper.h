@@ -20,6 +20,8 @@ public:
 	bool IsUnlimitedBoost();
 	void SetUnlimitedBoost(bool unlimited);
 
+	bool IsActive();
+	void SetActive(bool act);
 private:
 	struct Impl;
 	std::unique_ptr<Impl> pimpl;

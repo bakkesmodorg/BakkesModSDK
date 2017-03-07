@@ -20,6 +20,7 @@ public:
 	void SetCarRotation(Rotator rotation);
 	void EnableGravity(bool enable);
 	BoostWrapper GetBoost();
+	void ForceBoost(bool force);
 
 	void Unfreeze();
 private:
