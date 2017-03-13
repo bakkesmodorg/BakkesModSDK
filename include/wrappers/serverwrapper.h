@@ -14,7 +14,7 @@ public:
 	int GetTimeRemaining();
 	void SetTimeRemaining(int timeRemaining);
 	TeamWrapper GetTeam(int teamNum);
-	ArrayWrapper<ActorWrapper> GetPRIs();
+	ArrayWrapper<PriWrapper> GetPRIs();
 	ArrayWrapper<TeamWrapper> GetTeams();
 	ArrayWrapper<CarWrapper> GetPlayers();
 	Vector GetGoalLocation(int goalNumber = 0);
@@ -25,7 +25,7 @@ public:
 
 	float GetSecondsElapsed();
 
-
+	int GetScoredOnTeam();
 	BallWrapper SpawnBall(Vector position, bool wake, bool spawnCannon=false);
 	ArrayWrapper<BallWrapper> GetBalls();
 	bool RemoveBall(BallWrapper ball);

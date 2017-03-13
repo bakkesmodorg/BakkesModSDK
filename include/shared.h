@@ -11,3 +11,7 @@
 #include <vector>
 using namespace std;
 typedef void(*CVarChange) (std::vector<std::string>);
+enum HookMode {
+	HookMode_Pre = 0,
+	HookMode_Post = 1 // test this shiz
+};

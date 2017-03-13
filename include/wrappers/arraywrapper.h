@@ -2,6 +2,7 @@
 #include "actorwrapper.h"
 #include "carwrapper.h"
 #include "teamwrapper.h"
+#include "priwrapper.h"
 #include "ballwrapper.h"
 //#include "touchwrapper.h"
 template<typename T> 
@@ -25,6 +26,7 @@ template class ArrayWrapper<ActorWrapper>;
 template class ArrayWrapper<TeamWrapper>;
 template class ArrayWrapper<CarWrapper>;
 template class ArrayWrapper<BallWrapper>;
+template class ArrayWrapper<PriWrapper>;
 #ifdef IS_PLUGIN:
 
 //template class ArrayWrapper<TouchWrapper>;

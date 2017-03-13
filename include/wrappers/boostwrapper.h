@@ -1,6 +1,7 @@
 #pragma once
 #include "wrapperstructs.h"
-class BAKKESMOD_PLUGIN_IMPORT BoostWrapper
+#include "actorwrapper.h"
+class BAKKESMOD_PLUGIN_IMPORT BoostWrapper : public ActorWrapper
 {
 
 
