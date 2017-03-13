@@ -15,6 +15,9 @@ public:
 	~BallWrapper();
 	
 	float GetLastTouchTime();
+	bool IsExploded();
+	void StopDoingShit();
+	void SetGravityScale(int scale);
 	//ArrayWrapper<TouchWrapper> GetTouches();
 
 private:

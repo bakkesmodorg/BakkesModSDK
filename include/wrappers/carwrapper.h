@@ -2,6 +2,9 @@
 #include "actorwrapper.h"
 #include "boostwrapper.h"
 #include "wrapperstructs.h"
+
+class PriWrapper;
+
 class BAKKESMOD_PLUGIN_IMPORT CarWrapper : public ActorWrapper
 {
 public:
@@ -17,12 +20,17 @@ public:
 	bool HasJumped();
 	bool HasDoubleJumped();
 
+	bool IsBoostCheap();
+	void SetBoostCheap(bool b);
 	void SetCarRotation(Rotator rotation);
 	void EnableGravity(bool enable);
 	BoostWrapper GetBoost();
 	void ForceBoost(bool force);
-
+	string GetOwnerName();
+	//bool IsBoostCheap();
+	//void SetBoostCheap(bool bBoost);
 	void Unfreeze();
+	PriWrapper GetPRI();
 private:
 	struct Impl;
 	std::unique_ptr<Impl> pimpl;

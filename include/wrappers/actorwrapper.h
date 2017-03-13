@@ -1,7 +1,9 @@
 #pragma once
 #include "wrapperstructs.h"
-class ActorWrapper;
-typedef std::function<void(ActorWrapper, string)> EventCallback;
+#include <functional>
+#include <memory>
+extern class ActorWrapper;
+typedef std::function<void(ActorWrapper, string, void* params)> EventCallback;
 
 class BAKKESMOD_PLUGIN_IMPORT ActorWrapper
 {
@@ -27,9 +29,11 @@ public:
 	void Stop();
 	
 	void Freeze();
-	void ListenForEvents(EventCallback callbackk);
+	void ListenForEvents(EventCallback callbackk, HookMode hm = HookMode_Pre); //Careful when using Post, might corrupt stack!
 
-	
+	Vector GetAngularVelocity();
+	void SetAngularVelocity(Vector v, bool addToCurrent=false);
+	bool IsNull();
 
 private:
 	struct Impl;
