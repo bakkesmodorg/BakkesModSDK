@@ -31,6 +31,9 @@ public:
 	//void SetBoostCheap(bool bBoost);
 	void Unfreeze();
 	PriWrapper GetPRI();
+
+	ControllerInput GetInput();
+	void SetInput(ControllerInput input);
 private:
 	struct Impl;
 	std::unique_ptr<Impl> pimpl;
