@@ -1,9 +1,7 @@
-
 #pragma once
 #include "wrapperstructs.h"
 #include "actorwrapper.h"
-//#include "arraywrapper.h"
-//#include "touchwrapper.h"
+
 
 class BAKKESMOD_PLUGIN_IMPORT BallWrapper : public ActorWrapper
 {

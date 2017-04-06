@@ -13,7 +13,7 @@ class BAKKESMOD_PLUGIN_IMPORT ConsoleWrapper
 {
 
 public:
-	ConsoleWrapper(std::uintptr_t mem);
+	ConsoleWrapper(std::uintptr_t mem, long pluginType);
 	ConsoleWrapper(const ConsoleWrapper& other);
 	ConsoleWrapper& operator=(ConsoleWrapper rhs);
 	~ConsoleWrapper();
@@ -28,7 +28,7 @@ public:
 	bool getCvarBool(std::string cvar, bool defaultValue = false); //public
 	void setCvar(std::string cvar, std::string value); //public
 	void log(std::string text, LogLevel lvl = LOG_INFO);
-
+	void executeCommandNoLog(std::string command);
 private:
 	struct Impl;
 	std::unique_ptr<Impl> pimpl;
