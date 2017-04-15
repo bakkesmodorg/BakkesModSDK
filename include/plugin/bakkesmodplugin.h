@@ -3,6 +3,14 @@
 #include "../wrappers/consolewrapper.h"
 #define BAKKESMOD_PLUGIN_API_VERSION 1
 
+
+const unsigned char PLUGINTYPE_FREEPLAY = 0x01;
+const unsigned char PLUGINTYPE_CUSTOM_TRAINING = 0x02;
+const unsigned char	PLUGINTYPE_SPECTATOR = 0x04;
+const unsigned char PLUGINTYPE_BOTAI = 0x08;
+const unsigned char PLUGINTYPE_REPLAY = 0x10;
+const unsigned char PLUGINTYPE_THREADED = 0x20;
+
 namespace bakkesmod {
 	namespace plugin {
 
@@ -15,7 +23,7 @@ namespace bakkesmod {
 			const char* className;
 			const char* pluginName;
 			const char* pluginVersion;
-			int gameEvent;
+			const unsigned long pluginType;
 			GetPluginFunc initializeFunc;
 		};
 
@@ -25,7 +33,7 @@ namespace bakkesmod {
     BAKKESMOD_PLUGIN_API_VERSION,       \
     __FILE__
 
-#define BAKKESMOD_PLUGIN(classType, pluginName, pluginVersion, gameEvent)     \
+#define BAKKESMOD_PLUGIN(classType, pluginName, pluginVersion, pluginType)     \
 	extern "C" { \
       BAKKESMOD_PLUGIN_EXPORT bakkesmod::plugin::BakkesModPlugin* getPlugin()     \
       {                                                      \
@@ -38,7 +46,7 @@ namespace bakkesmod {
           #classType,                                        \
           pluginName,                                        \
           pluginVersion,                                     \
-		  gameEvent,										 \
+		  pluginType,										 \
           getPlugin                                          \
 	  };                                                     \
 	}
