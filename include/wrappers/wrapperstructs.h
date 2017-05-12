@@ -38,29 +38,35 @@ struct PredictionInfo {
 	bool HitWall;
 	bool HitFloor;
 };
-
+//Player rotation Min(-16364, -32768, -32768)
+//Player rotation Max(16340, 32764, 32764)
 
 static inline float fixRotator(float newRotation) {
-	if (newRotation >= 32767) {
-		newRotation -= 65535;
-		//newRotation = -32767 + (newRotation - 32767);
-	}
-	else if (newRotation <= -32767) { //-35000 
-		newRotation += 65535;
-		//newRotation = 32767 + (newRotation + 32767);
-	}
+	newRotation = (((int)newRotation + 32768) % (32768 + 32764)) - 32768;
+	newRotation = (((int)newRotation - 32764) % (32768 + 32764)) + 32764;
+	//if (newRotation >= 32767) {
+	//	newRotation -= 65535;
+	//	//newRotation = -32767 + (newRotation - 32767);
+	//}
+	//else if (newRotation <= -32767) { //-35000 
+	//	newRotation += 65535;
+	//	//newRotation = 32767 + (newRotation + 32767);
+	//}
 	return newRotation;
 }
 
 static inline float fixPitch(float newRotation) {
-	if (newRotation >= 16383) {
-		newRotation -= 32767;
-		//newRotation = -16383 + (newRotation - 16383);
-	}
-	else if (newRotation <= -16383) { //-35000 
-		newRotation += 32767;
-		//newRotation = 16383 + (newRotation + 16383);
-	}
+	newRotation = (((int)newRotation + 16364) % (16364 + 16340)) - 16364;
+	newRotation = (((int)newRotation - 16340) % (16364 + 16340)) + 16340;
+
+	//if (newRotation >= 16383) {
+	//	newRotation -= 32767;
+	//	//newRotation = -16383 + (newRotation - 16383);
+	//}
+	//else if (newRotation <= -16383) { //-35000 
+	//	newRotation += 32767;
+	//	//newRotation = 16383 + (newRotation + 16383);
+	//}
 	return newRotation;
 }
 
@@ -94,15 +100,15 @@ struct Rotator {
 	}
 
 	inline Rotator operator*(Rotator v2) {
-		return Rotator(fixPitch(Pitch * v2.Pitch), fixPitch(Yaw * v2.Yaw), fixPitch(Roll * v2.Roll));
+		return Rotator(fixPitch(Pitch * v2.Pitch), fixRotator(Yaw * v2.Yaw), fixRotator(Roll * v2.Roll));
 	}
 
 	inline Rotator operator-(Rotator v2) {
-		return Rotator(fixPitch(Pitch - v2.Pitch), fixPitch(Yaw - v2.Yaw), fixPitch(Roll - v2.Roll));
+		return Rotator(fixPitch(Pitch - v2.Pitch), fixRotator(Yaw - v2.Yaw), fixRotator(Roll - v2.Roll));
 	}
 
 	inline Rotator operator/(Rotator v2) {
-		return Rotator(fixPitch(Pitch / v2.Pitch), fixPitch(Yaw / v2.Yaw), fixPitch(Roll / v2.Roll));
+		return Rotator(fixPitch(Pitch / v2.Pitch), fixRotator(Yaw / v2.Yaw), fixRotator(Roll / v2.Roll));
 	}
 };
 

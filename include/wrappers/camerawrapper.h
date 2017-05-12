@@ -20,6 +20,8 @@ public:
 	POV GetPOV();
 	void SetPOV(POV pov); 
 
+	ActorWrapper GetCameraAsActor();
+	Vector linterp(Vector start, Vector end, float elapsed, float speed);
 private:
 	struct Impl;
 	std::unique_ptr<Impl> pimpl;

@@ -30,6 +30,9 @@ public:
 	
 	void Freeze();
 	void ListenForEvents(EventCallback callbackk, HookMode hm = HookMode_Pre); //Careful when using Post, might corrupt stack!
+	//Not yet implemented unlisten
+	void UnlistenForEvents(EventCallback cb);
+	bool IsHooked();
 
 	Vector GetAngularVelocity();
 	void SetAngularVelocity(Vector v, bool addToCurrent=false);
