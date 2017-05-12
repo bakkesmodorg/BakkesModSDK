@@ -30,6 +30,8 @@ public:
 	ArrayWrapper<BallWrapper> GetBalls();
 	bool RemoveBall(BallWrapper ball);
 	void MoveToGround(ActorWrapper ac, float heightCheck = 4096.0f);
+
+	void SetSecondsElapsed(float sec);
 private:
 	struct Impl;
 	std::unique_ptr<Impl> pimpl;

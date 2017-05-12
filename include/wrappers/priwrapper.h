@@ -30,6 +30,7 @@ public:
 	int GetTeamIndex();
 	string GetPlayerName();
 	CarWrapper GetCar();
+	int GetBody();
 	//int GetTeamScore();
 	//int GetTeamSize();
 	//string GetTeamName();
