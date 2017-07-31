@@ -8,34 +8,37 @@ class PriWrapper;
 class BAKKESMOD_PLUGIN_IMPORT CarWrapper : public ActorWrapper
 {
 public:
-	CarWrapper(std::uintptr_t mem);
-	CarWrapper(const CarWrapper& other);
-	CarWrapper& operator=(CarWrapper rhs);
-	~CarWrapper();
-	//void Stop();
+	CONSTRUCTORS(CarWrapper)
 
-	bool IsDriving();
-	bool IsOnGround();
+	//AUTO GENERATED
+	GETSETH(bool, IsDriving)
+	GETSETH(bool, IsOnGround)
+	GETSETH(bool, HasJumped)
+	GETSETH(bool, HasDoubleJumped)
+	GETSETH(float, AddedBallForceMultiplier)
+	GETSETH(bool, DisableGravity)
+	GETSETH(bool, DemolishOnOpposingGround)
+	GETSETH(bool, WasOnOpposingGround)
+	GETSETH(bool, DemolishOnGoalZone)
+	GETSETH(bool, WasInGoalZone)
+	GETSETH(bool, OverrideHandbrakeOn)
+	GETSETH(bool, OverrideBoostOn)
+	GETSETH(float, AddedCarForceMultiplier)
+	GETSETH(float, MaxTimeForDodge)
+	GETSETH(float, LastWheelsHitBallTime)
+	BoostWrapper GetBoost();
+	PriWrapper GetPRI();
 
-	bool HasJumped();
-	bool HasDoubleJumped();
-
+	//SELF IMPLEMENTED
 	bool IsBoostCheap();
 	void SetBoostCheap(bool b);
 	void SetCarRotation(Rotator rotation);
-	void EnableGravity(bool enable);
-	BoostWrapper GetBoost();
 	void ForceBoost(bool force);
 	string GetOwnerName();
-	//bool IsBoostCheap();
-	//void SetBoostCheap(bool bBoost);
 	void Unfreeze();
-	PriWrapper GetPRI();
-
 	ControllerInput GetInput();
 	void SetInput(ControllerInput input);
 private:
-	struct Impl;
-	std::unique_ptr<Impl> pimpl;
+	PIMPL
 };
 

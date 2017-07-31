@@ -7,10 +7,7 @@ typedef void(*DrawCallback) (CanvasWrapper);
 class BAKKESMOD_PLUGIN_IMPORT CanvasWrapper
 {
 public:
-	CanvasWrapper(std::uintptr_t mem);
-	CanvasWrapper(const CanvasWrapper& other);
-	CanvasWrapper& operator=(CanvasWrapper rhs);
-	~CanvasWrapper();
+	CONSTRUCTORS(CanvasWrapper)
 
 	void SetPosition(Vector2 pos);
 	Vector2 GetPosition();
@@ -20,8 +17,8 @@ public:
 	void DrawString(string text);
 	void DrawLine(Vector2 start, Vector2 end);
 	void DrawRect(Vector2 start, Vector2 end);
+	Vector2 Project(Vector location);
 
 private:
-	struct Impl;
-	std::unique_ptr<Impl> pimpl;
+	PIMPL
 };

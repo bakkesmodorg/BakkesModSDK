@@ -10,10 +10,8 @@ class BAKKESMOD_PLUGIN_IMPORT ActorWrapper
 	
 public:
 	std::uintptr_t memory_address;
-	ActorWrapper(std::uintptr_t mem);
-	ActorWrapper(const ActorWrapper& other);
-	ActorWrapper& operator=(ActorWrapper rhs);
-	~ActorWrapper();
+	CONSTRUCTORS(ActorWrapper)
+
 	Vector GetLocation();
 	void SetLocation(Vector location);
 
@@ -38,9 +36,12 @@ public:
 	void SetAngularVelocity(Vector v, bool addToCurrent=false);
 	bool IsNull();
 
+	Vector GetAccel();
+	Rotator GetRotRate();
+
+
 private:
-	struct Impl;
-	std::unique_ptr<Impl> pimpl;
+	PIMPL
 	
 };
 

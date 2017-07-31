@@ -6,36 +6,35 @@
 class BAKKESMOD_PLUGIN_IMPORT PriWrapper : public ActorWrapper
 {
 public:
-	PriWrapper(std::uintptr_t mem);
-	PriWrapper(const PriWrapper& other);
-	PriWrapper& operator=(PriWrapper rhs);
-	~PriWrapper();
+	CONSTRUCTORS(PriWrapper)
 
-	int GetScore();
-	int GetGoals();
-	int GetAssists();
-	int GetSaves();
-	int GetShots();
-	int GetDemolishes();
-	bool IsUsingSecondaryCamera();
-	bool IsUsingFreeCamera();
-	int GetBallTouchCount();
-	int GetCarTouchCount();
-	int GetRespawnTimeRemaining();
-	bool IsReady();
-	bool IsSpectator();
-	float GetPing();
-	bool IsBot();
-	int GetPlayerID();
+	//AUTO GENERATED
+	GETSETH(int, Score)
+	GETSETH(int, Goals)
+	GETSETH(int, Assists)
+	GETSETH(int, Saves)
+	GETSETH(int, Shots)
+	GETSETH(int, Demolishes)
+	GETSETH(bool, UsingSecondaryCamera)
+	GETSETH(bool, UsingFreeCamera)
+	GETSETH(int, BallTouchCount)
+	GETSETH(int, CarTouchCount)
+	GETSETH(int, RespawnTimeRemaining)
+	GETSETH(bool, Ready)
+	GETSETH(float, ExactPing)
+	GETSETH(bool, IsBot)
+	GETSETH(int, PlayerID)
+	CarWrapper GetCar();
+
+	//SELF IMPLEMENTED
 	int GetTeamIndex();
 	string GetPlayerName();
-	CarWrapper GetCar();
+	bool IsSpectator();
 	int GetBody();
 	//int GetTeamScore();
 	//int GetTeamSize();
 	//string GetTeamName();
 private:
-	struct Impl;
-	std::unique_ptr<Impl> pimpl;
+	PIMPL
 };
 

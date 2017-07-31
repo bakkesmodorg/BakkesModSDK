@@ -29,6 +29,7 @@ public:
 	void setCvar(std::string cvar, std::string value); //public
 	void log(std::string text, LogLevel lvl = LOG_INFO);
 	void executeCommandNoLog(std::string command);
+	void logToChatbox(std::string text);
 private:
 	struct Impl;
 	std::unique_ptr<Impl> pimpl;

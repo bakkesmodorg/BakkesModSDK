@@ -1,53 +1,40 @@
 #pragma once
 #include "serverwrapper.h"
 #include "carwrapper.h"
+
 class BAKKESMOD_PLUGIN_IMPORT TutorialWrapper : public ServerWrapper
 {
 public:
-	TutorialWrapper(std::uintptr_t mem);
-	TutorialWrapper(const TutorialWrapper& other);
-	TutorialWrapper& operator=(TutorialWrapper rhs);
-	~TutorialWrapper();
+	CONSTRUCTORS(TutorialWrapper)
 
-	int GetTeamNum();
-	int GetBallGoalNum(); //Can be both
-	bool IsScoreAllowedBothGoals();
-	void SetScoreAllowedBothGoals(bool b);
+	//AUTO GENERATED
+	GETSETH(int, TeamNum)
+	GETSETH(int, RedoCount)
+	GETSETH(int, RedoTotal)
+	GETSETH(float, CountdownTimeLeft)
+	GETSETH(int, BallGoalNum)
+	GETSETH(bool, OnlyScoreInBallGoalNum)
+	GETSETH(bool, IsUnlimitedBoost)
+	GETSETH(bool, ShowBoostMeter)
+	GETSETH(float, BallBounceScale)
+	GETSETH(Vector, BallSpawnLocation)
+	GETSETH(Vector, BallStartVelocity)
+	GETSETH(Vector, TotalFieldExtent)
 
+	//SELF IMPLEMENTED
 	void Redo();
-
-	int GetRedoCount();
-	void SetRedoCount(int redoCount);
-
-	int GetRedoTotal();
-	void SetRedoTotal(int redoTotal);
-
-	float GetCountdownTime();
-	void SetCountdownTime(float countdownTime);
-
-	Vector GetBallSpawnLocation();
-	void SetBallSpawnLocation(Vector v);
-
-	Vector GetBallStartVelocity();
-	void SetBallStartVelocity(Vector v);
-
 	Vector GetCarSpawnLocation();
 	void SetCarSpawnLocation(Vector v);
-
 	Rotator GetCarSpawnRotation();
 	void SetCarSpawnRotation(Rotator v);
-
 	CarWrapper GetGameCar();
 
-	bool IsUnlimitedBoost();
-	void SetUnlimitedBoost(bool unlimitedBoost);
-
-	bool IsBallMovingTowardsGoal(int goalNo);
+	bool IsBallMovingTowardsGoal(int goalNo, BallWrapper bw);
 	bool IsInGoal(Vector vec);
 
 	void DisableGoalReset();
 	void EnableGoalReset();
-	
+
 	void SpawnCar(int body = 0);
 
 	//Speed from 0 to 2000 pls
@@ -58,7 +45,6 @@ public:
 
 	void SpawnCar2();
 private:
-	struct Impl;
-	std::unique_ptr<Impl> pimpl;
+	PIMPL
 };
 
