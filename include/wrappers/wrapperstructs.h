@@ -1,6 +1,13 @@
 #pragma once
 #include "../shared.h"
 #include "linmath.h"
+#include <algorithm> 
+static inline double clamp(double x, double lower, double upper)
+{
+	return min(upper, max(x, lower));
+}
+
+
 struct FVector;
 struct FRotator;
 struct Vector {
@@ -28,6 +35,68 @@ struct Vector {
 	inline Vector operator/(Vector v2) {
 		return Vector(X / v2.X, Y / v2.Y, Z / v2.Z);
 	}
+
+	/*inline Vector operator==(Vector v2) 
+	{
+		return X == v2.X && Y == v2.Y && Z = v2.Z;
+	}*/
+
+	inline float magnitude() 
+	{
+		return sqrt(X * X + Y * Y + Z * Z);
+	}
+
+	inline void normalize() 
+	{
+		float magnitudez = magnitude();
+		X = X / magnitudez;
+		Y = Y / magnitudez;
+		Z = Z / magnitudez;
+	}
+
+	inline Vector clone() 
+	{
+		return Vector(X, Y, Z);
+	}
+
+	static inline float dot(Vector v1, Vector v2) 
+	{
+		return v1.X * v2.X + v1.Y * v2.Y + v1.Z * v2.Z;
+	}
+
+	static inline Vector cross(Vector v1, Vector v2)
+	{
+		float x = v1.Y * v2.Z - v1.Z * v2.Y;
+		float y = v1.Z * v2.X - v1.X * v2.Z;
+		float z = v1.X * v2.Y - v1.Y * v2.X;
+		return Vector(x, y, z);
+	}
+
+	static inline Vector lerp(Vector v1, Vector v2, float t)
+	{
+		float x = (1.0f - t) * v1.X + t * v2.X;
+		float y = (1.0f - t) * v1.Y + t * v2.Y;
+		float z = (1.0f - t) * v1.Z + t * v2.Z;
+		return Vector(x, y, z);
+	}
+
+	static inline Vector slerp(Vector v1, Vector v2, float t)
+	{
+		Vector a = v1.clone();
+		Vector b = v2.clone();
+
+		float dot = Vector::dot(a, b);
+		//dot = clamp(dot, -1.0f, 1.0f);
+
+		float theta = acos(dot) * t;
+
+		Vector relVector = b - (a * dot);
+		relVector.normalize();
+		float cosTheta = cos(theta);
+		float sinTheta = sin(theta);
+		return a * cosTheta + relVector * sinTheta;
+	}
+
 };
 
 
@@ -41,7 +110,8 @@ struct PredictionInfo {
 //Player rotation Min(-16364, -32768, -32768)
 //Player rotation Max(16340, 32764, 32764)
 
-static inline float fixRotator(float newRotation) {
+static inline float fixRotator(float newRotation) {// F THIS FOR NOW
+	return newRotation;
 	newRotation = (((int)newRotation + 32768) % (32768 + 32764)) - 32768;
 	newRotation = (((int)newRotation - 32764) % (32768 + 32764)) + 32764;
 	//if (newRotation >= 32767) {
@@ -55,9 +125,10 @@ static inline float fixRotator(float newRotation) {
 	return newRotation;
 }
 
-static inline float fixPitch(float newRotation) {
-	newRotation = (((int)newRotation + 16364) % (16364 + 16340)) - 16364;
-	newRotation = (((int)newRotation - 16340) % (16364 + 16340)) + 16340;
+static inline float fixPitch(float newRotation) {// F THIS FOR NOW
+	return newRotation;
+	newRotation = (((int)newRotation + 16384) % (32768)) - 16384;
+	newRotation = (((int)newRotation - 16384) % (32768)) + 16384;
 
 	//if (newRotation >= 16383) {
 	//	newRotation -= 32767;
@@ -71,16 +142,18 @@ static inline float fixPitch(float newRotation) {
 }
 
 struct ControllerInput {
-	float Throttle = 0.0f;
-	float Steer = 0.0f;
-	float Pitch = 0.0f;
-	float Yaw = 0.0f;
-	float Roll = 0.0f;
+	float Throttle = .0f;
+	float Steer = .0f;
+	float Pitch = .0f;
+	float Yaw = .0f;
+	float Roll = .0f;
+	float DodgeForward = .0f;
+	float DodgeStrafe = .0f;
 	bool Jump = false;
-	bool Jumped = false;
 	bool ActivateBoost = false;
 	bool HoldingBoost = false;
 	bool Handbrake = false;
+	bool Jumped = false;
 };
 
 //Player rotation Min(-16364, -32768, -32768)
@@ -132,3 +205,17 @@ struct ProfileCameraSettings
 	float                                              Stiffness;                                        		// 0x0010 (0x0004) [0x0000000000000000]              
 	float                                              SwivelSpeed;                                      		// 0x0014 (0x0004) [0x0000000000000000]              
 };
+
+#define CONSTRUCTORS(name)\
+name(std::uintptr_t mem);\
+name(const name& other);\
+name& operator=(name rhs);\
+~name();
+
+#define PIMPL \
+struct Impl;\
+std::unique_ptr<Impl> pimpl;
+
+#define GETSETH(type, name) \
+void Set##name(type name);\
+type Get##name();

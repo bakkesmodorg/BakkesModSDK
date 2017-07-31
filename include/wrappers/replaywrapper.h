@@ -9,10 +9,14 @@ public:
 	ReplayWrapper& operator=(ReplayWrapper rhs);
 	~ReplayWrapper();
 
+
 	ActorWrapper GetViewTarget();
 	float GetReplayTimeElapsed();
 
+	int GetCurrentReplayFrame();
+	void AddKeyFrame(int frame, string name);
+	void RemoveKeyFrame(int frame);
+	void SkipToTime(float time);
 private:
-	struct Impl;
-	std::unique_ptr<Impl> pimpl;
+	PIMPL
 };

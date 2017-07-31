@@ -7,19 +7,19 @@ class BAKKESMOD_PLUGIN_IMPORT BallWrapper : public ActorWrapper
 {
 
 public:
-	BallWrapper(std::uintptr_t mem);
-	BallWrapper(const BallWrapper& other);
-	BallWrapper& operator=(BallWrapper rhs);
-	~BallWrapper();
-	
+	CONSTRUCTORS(BallWrapper)
+
+	//AUTO GENERATED
+	GETSETH(int, GravityScale)
+	GETSETH(float, ExplosionTime)
+
+	//SELF IMPLEMENTED
 	float GetLastTouchTime();
 	bool IsExploded();
 	void StopDoingShit();
-	void SetGravityScale(int scale);
 	//ArrayWrapper<TouchWrapper> GetTouches();
 
 private:
-	struct Impl;
-	std::unique_ptr<Impl> pimpl;
+	PIMPL
 };
 

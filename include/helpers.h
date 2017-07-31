@@ -8,6 +8,8 @@
 #include <locale>
 #include <stdlib.h>
 #include <Windows.h>
+#include <iomanip>
+
 using namespace std;
 
 static inline int random(int min, int max) {
@@ -16,6 +18,13 @@ static inline int random(int min, int max) {
 
 static inline float random(float min, float max) {
 	return min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (max - min)));
+}
+
+static inline float random_with_exclude(float min, float max, float minExclude, float maxExclude) {
+	float total_exclude = maxExclude - minExclude;
+	float new_max = max - total_exclude;
+	float result = random(min, new_max);
+	return result > minExclude ? result + total_exclude : result;
 }
 
 static inline bool string_ends_with(std::string const & value, std::string const & ending)
@@ -32,20 +41,64 @@ static inline bool is_parsable(std::string val) {
 	return string_starts_with(val, "(") && string_ends_with(val, ")") && val.find(",") != std::string::npos;
 }
 
+static inline unsigned int split(const std::string &txt, std::vector<std::string> &strs, char ch)
+{
+	unsigned int pos = txt.find(ch);
+	unsigned int initialPos = 0;
+	strs.clear();
+
+	// Decompose statement
+	while (pos != std::string::npos) {
+		strs.push_back(txt.substr(initialPos, pos - initialPos));
+		initialPos = pos + 1;
+
+		pos = txt.find(ch, initialPos);
+	}
+
+	// Add the last one
+	strs.push_back(txt.substr(initialPos, min(pos, txt.size()) - initialPos));
+	return strs.size();
+}
+
+static inline float get_safe_float_range(std::string val) 
+{
+	string lower = val.substr(1, val.find(","));
+	string upper = val.substr(val.find(",") + 1, val.size() - 1);
+	float lowFloat = stof(lower);
+	float highFloat = stof(upper);
+	if (lowFloat > highFloat) {
+		float temp = highFloat;
+		highFloat = lowFloat;
+		lowFloat = temp;
+	}
+	return random(lowFloat, highFloat);
+}
+
+static inline float get_safe_float_range_exclude(std::string val) 
+{
+	val = val.substr(1, val.size() - 1);
+	std::vector<string> values;
+	int range = random(0, floor(split(val, values, ',') / 2) - 1);
+	float lower = stof(values.at(range * 2));
+	float upper = stof(values.at(range * 2 + 1));
+	return random(lower, upper);
+}
+
 static inline float get_safe_float(std::string val) {
 	try {
 		if (is_parsable(val))
 		{
-			string lower = val.substr(1, val.find(","));
-			string upper = val.substr(val.find(",") + 1, val.size() - 1);
-			float lowFloat = stof(lower);
-			float highFloat = stof(upper);
-			if (lowFloat > highFloat) {
-				float temp = highFloat;
-				highFloat = lowFloat;
-				lowFloat = temp;
+			return get_safe_float_range_exclude(val);
+			/*int comma_amount = std::count(val.begin(), val.end(), ',');
+			if (comma_amount == 3) 
+			{
+				return get_safe_float_range_exclude(val);
 			}
-			return random(lowFloat, highFloat);
+			else 
+			{
+				return get_safe_float_range(val);
+			}*/
+			
 		}
 		return stof(val);
 	}
@@ -185,24 +238,7 @@ static std::istream& safeGetline(std::istream& is, std::string& t)
 	}
 }
 
-static inline unsigned int split(const std::string &txt, std::vector<std::string> &strs, char ch)
-{
-	unsigned int pos = txt.find(ch);
-	unsigned int initialPos = 0;
-	strs.clear();
 
-	// Decompose statement
-	while (pos != std::string::npos) {
-		strs.push_back(txt.substr(initialPos, pos - initialPos));
-		initialPos = pos + 1;
-
-		pos = txt.find(ch, initialPos);
-	}
-
-	// Add the last one
-	strs.push_back(txt.substr(initialPos, min(pos, txt.size()) - initialPos));
-	return strs.size();
-}
 
 // trim from start
 static inline std::string &ltrim(std::string &s) {
@@ -258,4 +294,25 @@ static inline long long milliseconds_now() {
 	else {
 		return GetTickCount();
 	}
+}
+
+template <typename T>
+std::string to_string_with_precision(const T a_value, const int n = 4)
+{
+	if (a_value <= 0.01f && a_value >= -0.01f)
+		return "0.0000";
+	std::ostringstream out;
+	out << std::fixed << std::setprecision(n) << a_value;
+	return out.str();
+}
+
+template<typename T>
+void write_pod(std::ofstream& out, T& t)
+{
+	out.write(reinterpret_cast<char*>(&t), sizeof(T));
+}
+template<typename T>
+void read_pod(std::ifstream& in, T& t)
+{
+	in.read(reinterpret_cast<char*>(&t), sizeof(T));
 }

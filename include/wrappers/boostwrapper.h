@@ -4,27 +4,32 @@
 class BAKKESMOD_PLUGIN_IMPORT BoostWrapper : public ActorWrapper
 {
 
-
 public:
-	BoostWrapper(std::uintptr_t mem);
-	BoostWrapper(const BoostWrapper& other);
-	BoostWrapper& operator=(BoostWrapper rhs);
-	~BoostWrapper();
+	CONSTRUCTORS(BoostWrapper)
 
-	float GetMaxBoostAmount();
-	float GetStartBoostAmount();
+	//AUTO GENERATED
+	GETSETH(float, MaxBoostAmount)
+	GETSETH(float, StartBoostAmount)
+	GETSETH(bool, IsActive)
+	GETSETH(float, BoostConsumptionRate)
+	GETSETH(float, BoostForce)
+	GETSETH(float, MinBoostTime)
+	GETSETH(float, RechargeRate)
+	GETSETH(float, RechargeDelay)
+	GETSETH(bool, OnlyApplyRechargeToMyHalf)
+	GETSETH(bool, OnlyApplyRechargeToOpposingHalf)
+	GETSETH(bool, DemolishOnEmptyMyHalf)
+	GETSETH(bool, DemolishOnEmptyOpposingHalf)
+	GETSETH(bool, CachedOnMyHalf)
 
 	float GetCurrentBoostAmount();
+	bool GetIsUnlimitedBoost();
+
+	//SELF IMPLEMENTED
 	void SetBoostAmount(float amount);
 	void AddBoostAmount(float amount);
-
-	bool IsUnlimitedBoost();
-	void SetUnlimitedBoost(bool unlimited);
-
-	bool IsActive();
-	void SetActive(bool act);
+	void SetIsUnlimitedBoost(bool unlimited);
 private:
-	struct Impl;
-	std::unique_ptr<Impl> pimpl;
+	PIMPL
 };
 
