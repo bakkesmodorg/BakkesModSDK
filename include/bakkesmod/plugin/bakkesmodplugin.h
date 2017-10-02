@@ -1,17 +1,12 @@
 #pragma once
-#include "bakkesmod/wrappers/CVarManagerWrapper.h"
-#include "bakkesmod/wrappers/GameWrapper.h"
 #include "bakkesmodsdk.h"
+#include "bakkesmod\wrappers\cvarmanagerwrapper.h"
+#include "bakkesmod\wrappers\gamewrapper.h"
 #include <memory>
-//#include <windows.h>
-
-#ifndef _WINDEF_
-class HINSTANCE__; // Forward or never
-typedef HINSTANCE__* HINSTANCE;
-#endif
 
 namespace BakkesMod {
 	namespace Plugin {
+
 		class BakkesModPlugin;
 		typedef uintptr_t(*GetPluginFunc)();
 		typedef void(*deleteFunc)();
@@ -33,6 +28,7 @@ namespace BakkesMod {
     BAKKESMOD_PLUGIN_API_VERSION,       \
     __FILE__
 
+
 #define BAKKESMOD_PLUGIN(classType, pluginName, pluginVersion, pluginType)     \
 static std::shared_ptr<classType> singleton;\
 	extern "C" { \
@@ -46,7 +42,7 @@ static std::shared_ptr<classType> singleton;\
       }                                                      \
 	  BAKKESMOD_PLUGIN_EXPORT void deleteMe() { \
 			if(singleton) \
-				singleton = nullptr;\
+				singleton.reset();\
 		}\
       BAKKESMOD_PLUGIN_EXPORT BakkesMod::Plugin::PluginInfo exports =  \
       {                                                      \
@@ -60,12 +56,11 @@ static std::shared_ptr<classType> singleton;\
 	  };                                                     \
 	}
 
+
 		class BAKKESMOD_PLUGIN_EXPORT BakkesModPlugin
 		{
 		public:
-            __pragma(warning(suppress:4251));
 			std::shared_ptr<CVarManagerWrapper> cvarManager;
-            __pragma(warning(suppress:4251));
 			std::shared_ptr<GameWrapper> gameWrapper;
 			virtual void onLoad() {};
 
@@ -73,26 +68,6 @@ static std::shared_ptr<classType> singleton;\
 			virtual void onUnload() {};
 		};
 
-
-		struct LoadedPlugin {
-			std::shared_ptr<PluginInfo> _details;
-			std::shared_ptr<BakkesModPlugin> _plugin;
-			HINSTANCE _instance;
-			std::string _filename;
-			std::shared_ptr<std::type_index> _typeid;
-
-			LoadedPlugin(std::shared_ptr<PluginInfo> details, std::shared_ptr<BakkesModPlugin> plugin, HINSTANCE instance, std::string filename) {
-				_details = details;
-				_plugin = plugin;
-				_instance = instance;
-				_filename = filename;
-				_typeid = std::make_shared<std::type_index>(typeid(*plugin));
-			}
-			~LoadedPlugin() {
-				//_details.get()->delFunc();
-				/*if (_instance)
-					FreeLibrary(_instance);*/
-			}
-		};
 	}
 }
+

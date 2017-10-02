@@ -1,6 +1,7 @@
 #pragma once
 #include "actorwrapper.h"
 #include "wrapperstructs.h"
+
 class BAKKESMOD_PLUGIN_IMPORT CameraWrapper
 {
 public:

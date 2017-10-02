@@ -1,15 +1,19 @@
 #pragma once
+#include "bakkesmod/plugin/bakkesmodsdk.h"
+#include "objectwrapper.h"
 #include "wrapperstructs.h"
 #include <functional>
 #include <memory>
+#include <string>
+using namespace std;
 extern class ActorWrapper;
 typedef std::function<void(ActorWrapper, string, void* params)> EventCallback;
 
-class BAKKESMOD_PLUGIN_IMPORT ActorWrapper
+class BAKKESMOD_PLUGIN_IMPORT ActorWrapper : public ObjectWrapper
 {
 	
 public:
-	std::uintptr_t memory_address;
+	
 	CONSTRUCTORS(ActorWrapper)
 
 	Vector GetLocation();
@@ -25,11 +29,7 @@ public:
 	void SetTorque(Vector torq);
 
 	void Stop();
-	
-	void Freeze();
-	void ListenForEvents(EventCallback callbackk, HookMode hm = HookMode_Pre); //Careful when using Post, might corrupt stack!
-	//Not yet implemented unlisten
-	void UnlistenForEvents(EventCallback cb);
+
 	bool IsHooked();
 
 	Vector GetAngularVelocity();
