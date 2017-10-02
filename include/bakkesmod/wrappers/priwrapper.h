@@ -1,8 +1,10 @@
 #pragma once
-#include "carwrapper.h"
-#include "boostwrapper.h"
+#include "actorwrapper.h"
 #include "wrapperstructs.h"
-
+class TeamWrapper;
+class BoostWrapper;
+class PriWrapper;
+class CarWrapper;
 class BAKKESMOD_PLUGIN_IMPORT PriWrapper : public ActorWrapper
 {
 public:
@@ -25,6 +27,7 @@ public:
 	GETSETH(bool, IsBot)
 	GETSETH(int, PlayerID)
 	CarWrapper GetCar();
+	TeamWrapper GetTeam();
 
 	//SELF IMPLEMENTED
 	int GetTeamIndex();

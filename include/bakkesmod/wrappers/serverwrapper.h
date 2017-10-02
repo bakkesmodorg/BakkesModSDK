@@ -19,7 +19,7 @@ public:
 	GETSETH(int, GameTime)
 	GETSETH(int, MaxScore)
 	GETSETH(int, TotalGameTimePlayed)
-	GETSETH(int, GamesPlayed)
+	//GETSETH(int, GamesPlayed)
 	GETSETH(bool, PlayReplays)
 	GETSETH(bool, BallHasBeenHit)
 	GETSETH(bool, OverTime)

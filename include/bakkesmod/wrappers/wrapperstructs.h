@@ -1,15 +1,20 @@
 #pragma once
-#include "../shared.h"
+//#include "../shared.h"
 #include "linmath.h"
 #include <algorithm> 
-static inline double clamp(double x, double lower, double upper)
-{
-	return min(upper, max(x, lower));
-}
+
+#define CONST_RadToUnrRot                                        10430.3783504704527
+#define CONST_UnrRotToRad                                        0.00009587379924285
+
+//static inline double clamp(double x, double lower, double upper)
+//{
+//	return min(upper, max(x, lower));
+//}
 
 
 struct FVector;
 struct FRotator;
+
 struct Vector {
 	float X, Y, Z;
 
@@ -36,17 +41,17 @@ struct Vector {
 		return Vector(X / v2.X, Y / v2.Y, Z / v2.Z);
 	}
 
-	/*inline Vector operator==(Vector v2) 
+	/*inline Vector operator==(Vector v2)
 	{
-		return X == v2.X && Y == v2.Y && Z = v2.Z;
+	return X == v2.X && Y == v2.Y && Z = v2.Z;
 	}*/
 
-	inline float magnitude() 
+	inline float magnitude()
 	{
 		return sqrt(X * X + Y * Y + Z * Z);
 	}
 
-	inline void normalize() 
+	inline void normalize()
 	{
 		float magnitudez = magnitude();
 		X = X / magnitudez;
@@ -54,12 +59,13 @@ struct Vector {
 		Z = Z / magnitudez;
 	}
 
-	inline Vector clone() 
+	inline Vector clone()
 	{
 		return Vector(X, Y, Z);
 	}
 
-	static inline float dot(Vector v1, Vector v2) 
+
+	static inline float dot(Vector v1, Vector v2)
 	{
 		return v1.X * v2.X + v1.Y * v2.Y + v1.Z * v2.Z;
 	}
@@ -96,6 +102,7 @@ struct Vector {
 		float sinTheta = sin(theta);
 		return a * cosTheta + relVector * sinTheta;
 	}
+
 
 };
 
@@ -169,7 +176,7 @@ struct Rotator {
 
 
 	inline Rotator operator+(Rotator v2) {
-		return Rotator(fixPitch(Pitch + v2.Pitch), fixRotator(Yaw + v2.Yaw), fixRotator(Roll +v2.Roll));
+		return Rotator(fixPitch(Pitch + v2.Pitch), fixRotator(Yaw + v2.Yaw), fixRotator(Roll + v2.Roll));
 	}
 
 	inline Rotator operator*(Rotator v2) {
@@ -183,6 +190,7 @@ struct Rotator {
 	inline Rotator operator/(Rotator v2) {
 		return Rotator(fixPitch(Pitch / v2.Pitch), fixRotator(Yaw / v2.Yaw), fixRotator(Roll / v2.Roll));
 	}
+
 };
 
 struct POV {
@@ -205,6 +213,31 @@ struct ProfileCameraSettings
 	float                                              Stiffness;                                        		// 0x0010 (0x0004) [0x0000000000000000]              
 	float                                              SwivelSpeed;                                      		// 0x0014 (0x0004) [0x0000000000000000]              
 };
+
+
+
+static Rotator inline VectorToRotator(Vector vVector)
+{
+	Rotator rRotation;
+
+	rRotation.Yaw = atan2(vVector.Y, vVector.X) * CONST_RadToUnrRot;
+	rRotation.Pitch = atan2(vVector.Z, sqrt((vVector.X * vVector.X) + (vVector.Y * vVector.Y))) * CONST_RadToUnrRot;
+	rRotation.Roll = 0;
+
+	return rRotation;
+}
+
+static inline Vector RotatorToVector(Rotator R)
+{
+	Vector vec;
+	float fYaw = R.Yaw * CONST_UnrRotToRad;
+	float fPitch = R.Pitch * CONST_UnrRotToRad;
+	float CosPitch = cos(fPitch);
+	vec.X = cos(fYaw) * CosPitch;
+	vec.Y = sin(fYaw) * CosPitch;
+	vec.Z = sin(fPitch);
+	return vec;
+}
 
 #define CONSTRUCTORS(name)\
 name(std::uintptr_t mem);\

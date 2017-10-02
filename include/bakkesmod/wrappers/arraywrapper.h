@@ -1,9 +1,6 @@
 #pragma once
 #include "actorwrapper.h"
-#include "carwrapper.h"
-#include "teamwrapper.h"
-#include "priwrapper.h"
-#include "ballwrapper.h"
+
 template<typename T> 
 class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper
 {
@@ -20,6 +17,11 @@ private:
 	std::unique_ptr<Impl> pimpl;
 };
 
+
+class ActorWrapper;
+class CarWrapper;
+class BallWrapper;
+class PriWrapper;
 //
 template class ArrayWrapper<ActorWrapper>;
 //template class ArrayWrapper<TeamWrapper>;
@@ -27,8 +29,3 @@ template class ArrayWrapper<CarWrapper>;
 //template class ArrayWrapper<TouchWrapper>;
 template class ArrayWrapper<BallWrapper>;
 template class ArrayWrapper<PriWrapper>;
-
-
-#ifdef IS_PLUGIN:
-
-#endif

@@ -1,8 +1,8 @@
 #pragma once
 #include "actorwrapper.h"
-#include "boostwrapper.h"
 #include "wrapperstructs.h"
 
+class BoostWrapper;
 class PriWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT CarWrapper : public ActorWrapper

@@ -1,7 +1,7 @@
 #pragma once
 #include "wrapperstructs.h"
 #include "actorwrapper.h"
-extern class CanvasWrapper;
+class CanvasWrapper;
 typedef void(*DrawCallback) (CanvasWrapper);
 
 class BAKKESMOD_PLUGIN_IMPORT CanvasWrapper

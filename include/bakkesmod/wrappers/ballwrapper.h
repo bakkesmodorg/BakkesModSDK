@@ -12,11 +12,12 @@ public:
 	//AUTO GENERATED
 	GETSETH(int, GravityScale)
 	GETSETH(float, ExplosionTime)
+	GETSETH(char, HitTeamNum)
 
 	//SELF IMPLEMENTED
 	float GetLastTouchTime();
 	bool IsExploded();
-	void StopDoingShit();
+	//void StopDoingShit();
 	//ArrayWrapper<TouchWrapper> GetTouches();
 
 private:

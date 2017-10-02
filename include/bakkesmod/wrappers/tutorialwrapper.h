@@ -1,6 +1,7 @@
 #pragma once
 #include "serverwrapper.h"
-#include "carwrapper.h"
+
+class CarWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT TutorialWrapper : public ServerWrapper
 {
