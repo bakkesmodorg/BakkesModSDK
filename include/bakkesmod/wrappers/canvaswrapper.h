@@ -1,8 +1,7 @@
 #pragma once
 #include "wrapperstructs.h"
 #include "actorwrapper.h"
-class CanvasWrapper;
-typedef void(*DrawCallback) (CanvasWrapper);
+
 
 class BAKKESMOD_PLUGIN_IMPORT CanvasWrapper
 {
@@ -18,7 +17,7 @@ public:
 	void DrawLine(Vector2 start, Vector2 end);
 	void DrawRect(Vector2 start, Vector2 end);
 	Vector2 Project(Vector location);
-
+	Vector2 GetSize();
 private:
 	PIMPL
 };
