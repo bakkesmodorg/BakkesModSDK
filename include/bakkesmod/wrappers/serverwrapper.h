@@ -53,6 +53,7 @@ public:
 	void ResetBalls();
 	void SetGameStateTime(int time);
 	void SetAllDriving(bool allDriving);
+	bool HasAuthority();
 
 private:
 	PIMPL

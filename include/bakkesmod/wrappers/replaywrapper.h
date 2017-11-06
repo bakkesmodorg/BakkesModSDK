@@ -16,7 +16,11 @@ public:
 	int GetCurrentReplayFrame();
 	void AddKeyFrame(int frame, string name);
 	void RemoveKeyFrame(int frame);
+	void SkipToFrame(int frame);
 	void SkipToTime(float time);
+	
+	void StartPlaybackAtFrame(int frame);
+	void StartPlaybackAtTime(float time);
 private:
 	PIMPL
 };

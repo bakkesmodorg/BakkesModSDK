@@ -6,7 +6,6 @@
 #include <functional>
 
 class CVarWrapper;
-typedef void (*cvarChangedNotifier)(std::string, CVarWrapper);
 
 class BAKKESMOD_PLUGIN_IMPORT CVarWrapper
 {
@@ -30,7 +29,7 @@ public:
 	void setValue(std::string value);
 	void setValue(int value);
 	void setValue(float value);
-	void addOnValueChanged(cvarChangedNotifier);
+	void addOnValueChanged(std::function<void(std::string, CVarWrapper)> changeFunc); //string is old value, cvarwrapper is cvar now.
 	void bindTo(std::shared_ptr<int> var);
 	void bindTo(std::shared_ptr<float> var);
 	void bindTo(std::shared_ptr<std::string> var);

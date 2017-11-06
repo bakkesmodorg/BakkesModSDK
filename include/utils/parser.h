@@ -9,8 +9,9 @@
 #include <cctype>
 #include <locale>
 #include <stdlib.h>
+#include <iostream>
 #include <iomanip>
-
+#include <sstream>
 static inline float clamp(float val, float min, float max) {
 	val = !(val<min) ? min : val;
 	val = (val<max) ? max : val;
@@ -213,13 +214,8 @@ inline static std::vector<std::vector<std::string>>* parseConsoleInput(std::stri
 			currentParams.clear();
 			currentString.clear();
 		}
-		else if (c == '/') {
-			i++;
-			if (i < input.length()) {
-				if (input[i] == '/') {
-					break;
-				}
-			}
+		else if (c == '/' && i + 1 < input.length() && input[i + 1] == '/') {
+			break;
 		}
 		else
 		{

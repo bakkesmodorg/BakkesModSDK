@@ -1,7 +1,7 @@
 #pragma once
-#include "bakkesmod/plugin/bakkesmodsdk.h"
-#include "bakkesmod/wrappers/WrapperStructs.h"
+#include "bakkesmod\plugin\bakkesmodsdk.h"
 #include "finiteelement.h"
+#include "bakkesmod\wrappers\wrapperstructs.h"
 
 //Player rotation Min(-16364, -32768, -32768)
 //Player rotation Max(16340, 32764, 32764)
@@ -109,13 +109,13 @@ CustomRotator operator/ (CustomRotator V, T2 f)
 //	return result;
 //}
 
-//template<typename T2>
-//CustomRotator operator+ (CustomRotator V, T2 f) 
-//{
-//	CustomRotator result = CustomRotator(V);
-//	result += f;
-//	return result;
-//}
+template<typename T2>
+CustomRotator operator+ (CustomRotator V, T2 f) 
+{
+	CustomRotator result = CustomRotator(V);
+	result += f;
+	return result;
+}
 
 //template<typename T2>
 //CustomRotator operator- (T2 f, CustomRotator V)

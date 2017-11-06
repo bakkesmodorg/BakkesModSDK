@@ -41,6 +41,7 @@ struct Vector {
 		return Vector(X / v2.X, Y / v2.Y, Z / v2.Z);
 	}
 
+
 	/*inline Vector operator==(Vector v2)
 	{
 	return X == v2.X && Y == v2.Y && Z = v2.Z;
@@ -202,6 +203,10 @@ struct POV {
 struct Vector2 {
 	int X;
 	int Y;
+	Vector2 minus(Vector2 other)
+	{
+		return{ X - other.X,  Y - other.Y };
+	}
 };
 
 struct ProfileCameraSettings
@@ -238,6 +243,52 @@ static inline Vector RotatorToVector(Rotator R)
 	vec.Z = sin(fPitch);
 	return vec;
 }
+
+enum CARBODY
+{
+	CAR_BACKFIRE = 21,
+	CAR_BREAKOUT = 22,
+	CAR_BREAKOUTTYPES = 1416,
+	CAR_OCTANE = 23,
+	CAR_OCTANEZSR = 1568,
+	CAR_PALADIN = 24,
+	CAR_ROADHOG = 25,
+	CAR_ROADHOGXL = 1300,
+	CAR_GIZMO = 26,
+	CAR_SWEETTOOTH = 27, //Will just spawn merc i guess, ps4 exclusive
+	CAR_XDEVIL = 28,
+	CAR_XDEVILMK2 = 1159,
+	CAR_HOTSHOT = 29,
+	CAR_MERC = 30,
+	CAR_VENOM = 31,
+	CAR_TAKUMI = 402,
+	CAR_TAKUMIRXT = 1295,
+	CAR_DOMINUS = 403,
+	CAR_DOMINUSGT = 1018,
+	CAR_SCARAB = 404,
+	CAR_ZIPPY = 523,
+	CAR_DELOREAN = 597,
+	CAR_RIPPER = 600,
+	CAR_GROG = 607,
+	CAR_ARMADILLO = 625, //gears of war car, XBOX exclusive?
+	CAR_WARTHOG = 723, //Halo car, XBOX exclusive
+	CAR_BATMOBILE = 803,
+	CAR_MASAMUNE = 1171,
+	CAR_MARAUDER = 1172,
+	CAR_AFTERSHOCK = 1286,
+	CAR_ESPER = 1317,
+	CAR_PROTEUS = 1475,
+	CAR_TRITON = 1478,
+	CAR_VULCAN = 1533,
+	CAR_TWINMILL = 1603,
+	CAR_BONESHAKER = 1623,
+	CAR_ENDO = 1624,
+	CAR_ICECHARGER = 1675,
+	CAR_MANTIS = 1691,
+	CAR_JOGER619RS = 1856,
+	CAR_CENTIO = 1919,
+	CAR_ANIMUSGP = 1932,
+};
 
 #define CONSTRUCTORS(name)\
 name(std::uintptr_t mem);\
