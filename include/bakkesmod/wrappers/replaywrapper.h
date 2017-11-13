@@ -12,7 +12,7 @@ public:
 
 	ActorWrapper GetViewTarget();
 	float GetReplayTimeElapsed();
-
+	int GetReplayFPS();
 	int GetCurrentReplayFrame();
 	void AddKeyFrame(int frame, string name);
 	void RemoveKeyFrame(int frame);
