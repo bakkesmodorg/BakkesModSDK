@@ -16,11 +16,11 @@ public:
 	GETSETH(float, MinBoostTime)
 	GETSETH(float, RechargeRate)
 	GETSETH(float, RechargeDelay)
-	GETSETH(bool, OnlyApplyRechargeToMyHalf)
-	GETSETH(bool, OnlyApplyRechargeToOpposingHalf)
-	GETSETH(bool, DemolishOnEmptyMyHalf)
-	GETSETH(bool, DemolishOnEmptyOpposingHalf)
-	GETSETH(bool, CachedOnMyHalf)
+	//GETSETH(bool, OnlyApplyRechargeToMyHalf) //These methods are removed as of RL 1.39
+	//GETSETH(bool, OnlyApplyRechargeToOpposingHalf)
+	//GETSETH(bool, DemolishOnEmptyMyHalf)
+	//GETSETH(bool, DemolishOnEmptyOpposingHalf)
+	//GETSETH(bool, CachedOnMyHalf)
 
 	float GetCurrentBoostAmount();
 	bool GetIsUnlimitedBoost();
