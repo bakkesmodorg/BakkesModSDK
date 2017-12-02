@@ -39,6 +39,7 @@ public:
 	Vector GetAccel();
 	Rotator GetRotRate();
 
+	string GetState();
 
 private:
 	PIMPL

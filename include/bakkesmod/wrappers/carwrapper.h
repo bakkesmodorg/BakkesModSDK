@@ -3,6 +3,8 @@
 #include "wrapperstructs.h"
 
 class BoostWrapper;
+class JumpWrapper;
+class DoubleJumpWrapper;
 class PriWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT CarWrapper : public ActorWrapper
@@ -10,22 +12,24 @@ class BAKKESMOD_PLUGIN_IMPORT CarWrapper : public ActorWrapper
 public:
 	CONSTRUCTORS(CarWrapper)
 
-	//AUTO GENERATED
-	GETSETH(bool, IsDriving)
-	GETSETH(bool, IsOnGround)
-	GETSETH(bool, HasJumped)
-	GETSETH(bool, HasDoubleJumped)
-	GETSETH(float, AddedBallForceMultiplier)
-	GETSETH(bool, DisableGravity)
-	GETSETH(bool, DemolishOnOpposingGround)
-	GETSETH(bool, WasOnOpposingGround)
-	GETSETH(bool, DemolishOnGoalZone)
-	GETSETH(bool, WasInGoalZone)
-	GETSETH(bool, OverrideHandbrakeOn)
-	GETSETH(bool, OverrideBoostOn)
-	GETSETH(float, AddedCarForceMultiplier)
-	GETSETH(float, MaxTimeForDodge)
-	GETSETH(float, LastWheelsHitBallTime)
+		//AUTO GENERATED
+		GETSETH(bool, IsDriving)
+		GETSETH(bool, IsOnGround)
+		GETSETH(bool, HasJumped)
+		GETSETH(bool, HasDoubleJumped)
+		GETSETH(float, AddedBallForceMultiplier)
+		GETSETH(bool, DisableGravity)
+		GETSETH(bool, DemolishOnOpposingGround)
+		GETSETH(bool, WasOnOpposingGround)
+		GETSETH(bool, DemolishOnGoalZone)
+		GETSETH(bool, WasInGoalZone)
+		GETSETH(bool, OverrideHandbrakeOn)
+		GETSETH(bool, OverrideBoostOn)
+		GETSETH(float, AddedCarForceMultiplier)
+		GETSETH(float, MaxTimeForDodge)
+		GETSETH(float, LastWheelsHitBallTime)
+		DoubleJumpWrapper GetDoubleJumpComponent();
+		JumpWrapper GetJumpComponent();
 	BoostWrapper GetBoost();
 	PriWrapper GetPRI();
 
