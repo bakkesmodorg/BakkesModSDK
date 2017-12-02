@@ -26,6 +26,7 @@ public:
 	bool IsInTutorial();
 	bool IsInReplay();
 	bool IsInCustomTraining();
+	bool IsSpectatingInOnlineGame();
 
 	GameEventWrapper				GetGameEvent();
 	TutorialWrapper					GetGameEventAsTutorial();
@@ -35,7 +36,7 @@ public:
 	CarWrapper						GetLocalCar();
 	CameraWrapper					GetCamera();
 	
-	void							SetTimeout(std::function<void(GameWrapper*)> theLambda, float time); //time in MS
+	void							SetTimeout(std::function<void(GameWrapper*)> theLambda, float time); //time in seconds
 	void							Execute(std::function<void(GameWrapper*)> theLambda); //Use this when calling from a different thread
 	void							RegisterDrawable(std::function<void(CanvasWrapper)> callback);
 	string							GetFNameByIndex(int index);
