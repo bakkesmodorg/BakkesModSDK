@@ -109,13 +109,13 @@ CustomRotator operator/ (CustomRotator V, T2 f)
 //	return result;
 //}
 
-template<typename T2>
-CustomRotator operator+ (CustomRotator V, T2 f) 
-{
-	CustomRotator result = CustomRotator(V);
-	result += f;
-	return result;
-}
+//template<typename T2>
+//CustomRotator operator+ (CustomRotator V, T2 f) 
+//{
+//	CustomRotator result = CustomRotator(V);
+//	result += f;
+//	return result;
+//}
 
 //template<typename T2>
 //CustomRotator operator- (T2 f, CustomRotator V)

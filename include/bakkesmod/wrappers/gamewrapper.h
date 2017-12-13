@@ -47,6 +47,7 @@ public:
 
 	void							LogToChatbox(string text);
 	bool							IsKeyPressed(int keyName);
+	void							ExecuteUnrealCommand(string command);
 public:
 	struct Impl;
 	std::unique_ptr<Impl> pimpl;
