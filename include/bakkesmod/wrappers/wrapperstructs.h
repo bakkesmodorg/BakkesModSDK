@@ -303,3 +303,6 @@ std::unique_ptr<Impl> pimpl;
 #define GETSETH(type, name) \
 void Set##name(type name);\
 type Get##name();
+
+#define GETH(type, name)\
+type Get##name();

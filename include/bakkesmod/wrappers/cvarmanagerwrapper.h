@@ -19,7 +19,7 @@ public:
 	void registerNotifier(std::string cvar, commandNotifier notifier);
 	void registerNotifier(std::string cvar, std::function<void(std::vector<std::string>)> notifier);
 
-	CVarWrapper registerCvar(std::string cvar, std::string defaultValue, std::string desc = "", bool searchAble = true, bool hasMin = false, float min = 0, bool hasMax = false, float max = 0);
+	CVarWrapper registerCvar(std::string cvar, std::string defaultValue, std::string desc = "", bool searchAble = true, bool hasMin = false, float min = 0, bool hasMax = false, float max = 0, bool saveToCfg = true);
 	
 	void log(std::string text);
 	CVarWrapper getCvar(std::string cvar);
