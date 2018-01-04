@@ -6,7 +6,7 @@ class BoostWrapper;
 class JumpWrapper;
 class DoubleJumpWrapper;
 class PriWrapper;
-
+class VehicleSimWrapper;
 class BAKKESMOD_PLUGIN_IMPORT CarWrapper : public ActorWrapper
 {
 public:
@@ -28,10 +28,25 @@ public:
 		GETSETH(float, AddedCarForceMultiplier)
 		GETSETH(float, MaxTimeForDodge)
 		GETSETH(float, LastWheelsHitBallTime)
+
+		GETSETH(float, StickyForceGround)
+		GETSETH(float, StickyForceWall)
+
+		GETH(int, NumWheelContacts);
+		GETH(int, NumWheelWorldContacts);
+		GETH(Vector, GroundNormal)
+		GETH(float, TimeOnGround)
+		GETH(float, TimeOffGround)
+		GETH(float, ForwardSpeed)
+		GETH(bool, IsOnGround2)
+		GETH(bool, IsOnWall)
+
+
 		DoubleJumpWrapper GetDoubleJumpComponent();
 		JumpWrapper GetJumpComponent();
 	BoostWrapper GetBoost();
 	PriWrapper GetPRI();
+	VehicleSimWrapper GetVehicleSim();
 
 	//SELF IMPLEMENTED
 	bool IsBoostCheap();
