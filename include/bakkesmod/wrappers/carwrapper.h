@@ -57,6 +57,9 @@ public:
 	void Unfreeze();
 	ControllerInput GetInput();
 	void SetInput(ControllerInput input);
+	void Destroy();
+	void Demolish();
+	int GetLoadoutBody();
 private:
 	PIMPL
 };

@@ -47,14 +47,17 @@ public:
 	ArrayWrapper<BallWrapper> GetBalls();
 	bool RemoveBall(BallWrapper ball);
 	void MoveToGround(ActorWrapper ac, float heightCheck = 4096.0f);
-	void SpawnBotWithAI(tick_func tf);
-	ControllerInput GetUserInput();
+	//void SpawnBotWithAI(tick_func tf);
+	//ControllerInput GetUserInput();
 	void StartCountdown();
 	void ResetBalls();
+	void ResetPlayers();
+	void DestroyCars();
 	void SetGameStateTime(int time);
 	void SetAllDriving(bool allDriving);
 	bool HasAuthority();
 
+	void SpawnCar(int carBody, string name);
 private:
 	PIMPL
 };
