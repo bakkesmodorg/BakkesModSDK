@@ -36,7 +36,7 @@ public:
 	void DisableGoalReset();
 	void EnableGoalReset();
 
-	void SpawnCar(int body = 0);
+	//void SpawnCar(int body = 0);
 
 	//Speed from 0 to 2000 pls
 	Vector GenerateShot(Vector startPos, Vector destination, float speed);
@@ -44,7 +44,7 @@ public:
 	Vector GetGoalExtent(int goalNumber = 0);
 
 
-	void SpawnCar2();
+	//void SpawnCar2();
 private:
 	PIMPL
 };
