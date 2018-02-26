@@ -133,6 +133,14 @@ static inline float fixRotator(float newRotation) {// F THIS FOR NOW
 	return newRotation;
 }
 
+struct LinearColor
+{
+	float                                              R;                                                		// 0x0000 (0x0004) [0x0000000000000001]              ( CPF_Edit )
+	float                                              G;                                                		// 0x0004 (0x0004) [0x0000000000000001]              ( CPF_Edit )
+	float                                              B;                                                		// 0x0008 (0x0004) [0x0000000000000001]              ( CPF_Edit )
+	float                                              A;                                                		// 0x000C (0x0004) [0x0000000000000001]              ( CPF_Edit )
+};
+
 static inline float fixPitch(float newRotation) {// F THIS FOR NOW
 	return newRotation;
 	newRotation = (((int)newRotation + 16384) % (32768)) - 16384;
@@ -289,6 +297,26 @@ enum CARBODY
 	CAR_CENTIO = 1919,
 	CAR_ANIMUSGP = 1932,
 };
+
+struct RBState
+{
+	struct Vector                                     Location;                                         		// 0x0000 (0x000C) [0x0000000000000000]              
+	struct Rotator                                    Rotation;                                         		// 0x000C (0x000C) [0x0000000000000000]              
+	struct Vector                                     LinearVelocity;                                   		// 0x0018 (0x000C) [0x0000000000000000]              
+	struct Vector                                     AngularVelocity;                                  		// 0x0024 (0x000C) [0x0000000000000000]              
+	unsigned long                                     bSleeping : 1;                                    		// 0x0030 (0x0004) [0x0000000000000000] [0x00000001] 
+	unsigned long                                     bNewData : 1;                                     		// 0x0030 (0x0004) [0x0000000000000000] [0x00000002] 
+	float                                             Time;                                             		// 0x0034 (0x0004) [0x0000000000000000]              
+};
+
+struct WorldContactData
+{
+	unsigned long                                     bHasContact : 1;                                  		// 0x0000 (0x0004) [0x0000000000000000] [0x00000001] 
+	struct Vector                                     Location;                                         		// 0x0004 (0x000C) [0x0000000000000000]              
+	struct Vector                                     Velocity;                                         		// 0x0010 (0x000C) [0x0000000000000000]              
+	struct Vector                                     Normal;                                           		// 0x001C (0x000C) [0x0000000000000000]              
+};
+
 
 #define CONSTRUCTORS(name)\
 name(std::uintptr_t mem);\

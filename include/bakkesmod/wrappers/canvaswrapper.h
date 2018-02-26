@@ -1,6 +1,6 @@
 #pragma once
-#include "wrapperstructs.h"
-#include "actorwrapper.h"
+#include "WrapperStructs.h"
+#include "./Engine/ActorWrapper.h"
 
 
 class BAKKESMOD_PLUGIN_IMPORT CanvasWrapper
