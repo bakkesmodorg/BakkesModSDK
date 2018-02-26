@@ -1,0 +1,170 @@
+#pragma once
+template<class T> class ArrayWrapper;
+#include "../WrapperStructs.h"
+#include ".././Engine/ObjectWrapper.h"
+class PrimitiveComponentWrapper;
+
+class BAKKESMOD_PLUGIN_IMPORT ActorWrapper : public ObjectWrapper {
+public:
+	CONSTRUCTORS(ActorWrapper)
+
+	//BEGIN SELF IMPLEMENTED
+	Vector GetLocation();
+	void SetLocation(Vector location);
+	Vector GetVelocity();
+	void SetVelocity(Vector velocity);
+	void AddVelocity(Vector velocity);
+	Rotator GetRotation();
+	void SetRotation(Rotator rotation);
+	void SetTorque(Vector torq);
+	void Stop();
+	Vector GetAngularVelocity();
+	void SetAngularVelocity(Vector v, bool addToCurrent);
+	bool IsNull();
+	//END SELF IMPLEMENTED
+
+	//AUTO-GENERATED FROM FIELDS
+	float GetDrawScale();
+	void SetDrawScale(float newDrawScale);
+	Vector GetDrawScale3D();
+	void SetDrawScale3D(Vector newDrawScale3D);
+	Vector GetPrePivot();
+	void SetPrePivot(Vector newPrePivot);
+	float GetCustomTimeDilation();
+	void SetCustomTimeDilation(float newCustomTimeDilation);
+	unsigned char GetPhysics();
+	void SetPhysics(unsigned char newPhysics);
+	unsigned char GetRemoteRole();
+	void SetRemoteRole(unsigned char newRemoteRole);
+	unsigned char GetRole();
+	void SetRole(unsigned char newRole);
+	unsigned char GetCollisionType();
+	void SetCollisionType(unsigned char newCollisionType);
+	unsigned char GetReplicatedCollisionType();
+	void SetReplicatedCollisionType(unsigned char newReplicatedCollisionType);
+	ActorWrapper GetOwner();
+	ActorWrapper GetBase();
+	unsigned long GetbStatic();
+	unsigned long GetbHidden();
+	unsigned long GetbNoDelete();
+	void SetbNoDelete(unsigned long newbNoDelete);
+	unsigned long GetbDeleteMe();
+	void SetbDeleteMe(unsigned long newbDeleteMe);
+	unsigned long GetbTicked();
+	void SetbTicked(unsigned long newbTicked);
+	unsigned long GetbOnlyOwnerSee();
+	void SetbOnlyOwnerSee(unsigned long newbOnlyOwnerSee);
+	unsigned long GetbTickIsDisabled();
+	void SetbTickIsDisabled(unsigned long newbTickIsDisabled);
+	unsigned long GetbWorldGeometry();
+	void SetbWorldGeometry(unsigned long newbWorldGeometry);
+	unsigned long GetbIgnoreRigidBodyPawns();
+	void SetbIgnoreRigidBodyPawns(unsigned long newbIgnoreRigidBodyPawns);
+	unsigned long GetbOrientOnSlope();
+	void SetbOrientOnSlope(unsigned long newbOrientOnSlope);
+	unsigned long GetbIsMoving();
+	unsigned long GetbAlwaysEncroachCheck();
+	void SetbAlwaysEncroachCheck(unsigned long newbAlwaysEncroachCheck);
+	unsigned long GetbHasAlternateTargetLocation();
+	unsigned long GetbAlwaysRelevant();
+	unsigned long GetbGameInstanceRelevant();
+	unsigned long GetbReplicateInstigator();
+	unsigned long GetbReplicateMovement();
+	unsigned long GetbUpdateSimulatedPosition();
+	void SetbUpdateSimulatedPosition(unsigned long newbUpdateSimulatedPosition);
+	unsigned long GetbDemoRecording();
+	void SetbDemoRecording(unsigned long newbDemoRecording);
+	unsigned long GetbDemoOwner();
+	void SetbDemoOwner(unsigned long newbDemoOwner);
+	unsigned long GetbForceDemoRelevant();
+	void SetbForceDemoRelevant(unsigned long newbForceDemoRelevant);
+	unsigned long GetbNetInitialRotation();
+	void SetbNetInitialRotation(unsigned long newbNetInitialRotation);
+	unsigned long GetbReplicateRigidBodyLocation();
+	void SetbReplicateRigidBodyLocation(unsigned long newbReplicateRigidBodyLocation);
+	unsigned long GetbKillDuringLevelTransition();
+	void SetbKillDuringLevelTransition(unsigned long newbKillDuringLevelTransition);
+	unsigned long GetbPostRenderIfNotVisible();
+	void SetbPostRenderIfNotVisible(unsigned long newbPostRenderIfNotVisible);
+	unsigned long GetbForceNetUpdate();
+	void SetbForceNetUpdate(unsigned long newbForceNetUpdate);
+	unsigned long GetbPendingNetUpdate();
+	void SetbPendingNetUpdate(unsigned long newbPendingNetUpdate);
+	unsigned long GetbGameRelevant();
+	void SetbGameRelevant(unsigned long newbGameRelevant);
+	unsigned long GetbMovable();
+	void SetbMovable(unsigned long newbMovable);
+	unsigned long GetbCanTeleport();
+	void SetbCanTeleport(unsigned long newbCanTeleport);
+	unsigned long GetbAlwaysTick();
+	void SetbAlwaysTick(unsigned long newbAlwaysTick);
+	unsigned long GetbBlocksNavigation();
+	void SetbBlocksNavigation(unsigned long newbBlocksNavigation);
+	unsigned long GetBlockRigidBody();
+	void SetBlockRigidBody(unsigned long newBlockRigidBody);
+	unsigned long GetbCollideWhenPlacing();
+	void SetbCollideWhenPlacing(unsigned long newbCollideWhenPlacing);
+	unsigned long GetbCollideActors();
+	void SetbCollideActors(unsigned long newbCollideActors);
+	unsigned long GetbCollideWorld();
+	void SetbCollideWorld(unsigned long newbCollideWorld);
+	unsigned long GetbCollideComplex();
+	void SetbCollideComplex(unsigned long newbCollideComplex);
+	unsigned long GetbBlockActors();
+	void SetbBlockActors(unsigned long newbBlockActors);
+	unsigned long GetbBlocksTeleport();
+	void SetbBlocksTeleport(unsigned long newbBlocksTeleport);
+	unsigned long GetbPhysRigidBodyOutOfWorldCheck();
+	void SetbPhysRigidBodyOutOfWorldCheck(unsigned long newbPhysRigidBodyOutOfWorldCheck);
+	unsigned long GetbComponentOutsideWorld();
+	unsigned long GetbRigidBodyWasAwake();
+	void SetbRigidBodyWasAwake(unsigned long newbRigidBodyWasAwake);
+	unsigned long GetbCallRigidBodyWakeEvents();
+	void SetbCallRigidBodyWakeEvents(unsigned long newbCallRigidBodyWakeEvents);
+	unsigned long GetbBounce();
+	void SetbBounce(unsigned long newbBounce);
+	unsigned long GetbEditable();
+	void SetbEditable(unsigned long newbEditable);
+	unsigned long GetbLockLocation();
+	void SetbLockLocation(unsigned long newbLockLocation);
+	float GetNetUpdateTime();
+	void SetNetUpdateTime(float newNetUpdateTime);
+	float GetNetUpdateFrequency();
+	void SetNetUpdateFrequency(float newNetUpdateFrequency);
+	float GetNetPriority();
+	void SetNetPriority(float newNetPriority);
+	float GetLastNetUpdateTime();
+	float GetTimeSinceLastTick();
+	float GetLifeSpan();
+	float GetCreationTime();
+	float GetLastRenderTime();
+	PrimitiveComponentWrapper GetCollisionComponent();
+
+	//AUTO-GENERATED FUNCTION PROXIES
+	void ForceNetUpdate2();
+	bool WillOverlap(Vector& PosA, Vector& VelA, Vector& PosB, Vector& VelB, float StepSize, float Radius, float* Time);
+	void eventReplicationEnded();
+	void eventPostDemoRewind();
+	bool IsInPersistentLevel(unsigned long bIncludeLevelStreamingPersistent);
+	void SetHUDLocation(Vector& NewHUDLocation);
+	void eventSpawnedByKismet();
+	Vector GetTargetLocation(ActorWrapper RequestedBy, unsigned long bRequestAlternateLoc);
+	unsigned char eventScriptGetTeamNum();
+	unsigned char GetTeamNum2();
+	void PawnBaseDied();
+	bool IsPlayerOwned();
+	bool IsStationary();
+	Vector GetGravityAcceleration();
+	Vector GetGravityDirection();
+	float GetGravityZ();
+	bool IsOverlapping(ActorWrapper A);
+	bool ContainsPoint(Vector& Spot);
+	void SetTickIsDisabled(unsigned long bInDisabled);
+	void SetPhysics2(unsigned char newPhysics);
+	Vector GetAggregateBaseVelocity(ActorWrapper TestBase);
+	bool IsOwnedBy(ActorWrapper TestActor);
+	bool IsBasedOn(ActorWrapper TestActor);
+	float GetTerminalVelocity();
+private:
+	PIMPL
+};
