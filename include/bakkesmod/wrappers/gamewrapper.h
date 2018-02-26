@@ -10,7 +10,7 @@ class GameEventWrapper;
 class TutorialWrapper;
 class ServerWrapper;
 class CameraWrapper;
-class ReplayWrapper;
+//class ReplayWrapper;
 class CanvasWrapper;
 class CarWrapper;
 
@@ -28,10 +28,9 @@ public:
 	bool IsInCustomTraining();
 	bool IsSpectatingInOnlineGame();
 
-	GameEventWrapper				GetGameEvent();
 	TutorialWrapper					GetGameEventAsTutorial();
 	ServerWrapper					GetGameEventAsServer();
-	ReplayWrapper					GetGameEventAsReplay();
+	//ReplayWrapper					GetGameEventAsReplay();
 
 	CarWrapper						GetLocalCar();
 	CameraWrapper					GetCamera();
@@ -39,6 +38,7 @@ public:
 	void							SetTimeout(std::function<void(GameWrapper*)> theLambda, float time); //time in seconds
 	void							Execute(std::function<void(GameWrapper*)> theLambda); //Use this when calling from a different thread
 	void							RegisterDrawable(std::function<void(CanvasWrapper)> callback);
+	void							UnregisterDrawables(); //Can only unregister every drawable for now, sorry!
 	string							GetFNameByIndex(int index);
 	int								GetFNameIndexByString(string name);
 	void							HookEvent(string eventName, std::function<void(std::string eventName)> callback);

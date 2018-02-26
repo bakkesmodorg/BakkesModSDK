@@ -23,6 +23,10 @@ public:
 	
 	void log(std::string text);
 	CVarWrapper getCvar(std::string cvar);
+
+	void backupCfg(std::string path);
+	void backupBinds(std::string path);
+	void loadCfg(std::string path);
 private:
 	struct Impl;
 	std::unique_ptr<Impl> pimpl;
