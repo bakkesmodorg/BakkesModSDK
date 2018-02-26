@@ -1,17 +1,12 @@
 #pragma once
 template<class T> class ArrayWrapper;
-template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/TeamGameEventWrapper.h"
-class ControllerWrapper;
-class PlayerControllerWrapper;
-class CarWrapper;
-class ReplayDirectorWrapper;
 class TeamWrapper;
 class ActorWrapper;
-class PriWrapper;
 class BallWrapper;
-class GoalWrapper;
+class PriWrapper;
+class CarWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT ServerWrapper : public TeamGameEventWrapper {
 public:
@@ -19,25 +14,11 @@ public:
 
 	//BEGIN SELF IMPLEMENTED
 	BallWrapper GetBall();
-	void SpawnCar(int carBody, std::string name);
-	void SpawnBot(int carBody, std::string name);
-	BallWrapper SpawnBall(const Vector position, bool wake, bool spawnCannon);
+	void SpawnCar(int carBody, string name);
+	BallWrapper SpawnBall(Vector position, bool wake, bool spawnCannon);
 	bool HasAuthority();
 	GETSETH(float, GameSpeed)
-	GETSETH(float, SecondsElapsed)	
-		
-		CarWrapper GetGameCar();
-	bool IsBallMovingTowardsGoal(int goalNo, BallWrapper bw);
-	bool IsInGoal(Vector vec);
-	void DisableGoalReset();
-	void EnableGoalReset();
-	//void SpawnCar(int body = 0);
-	//Speed from 0 to 2000 pls
-	Vector GenerateShot(Vector startPos, Vector destination, float speed);
-	Vector GenerateGoalAimLocation(int goalNumber, Vector currentBallLocation);
-	Vector GetGoalExtent(int goalNumber = 0);
-	Vector GetGoalLocation(int goalNumber = 0);//END SELF IMPLEMENTED
-		//END SELF IMPLEMENTED
+	GETSETH(float, SecondsElapsed)	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
 	CarWrapper GetTestCarArchetype();
@@ -56,18 +37,16 @@ public:
 	void SetMaxScore(int newMaxScore);
 	int GetAutoBalanceDifference();
 	void SetAutoBalanceDifference(int newAutoBalanceDifference);
+	int GetLastTrialTime();
+	void SetLastTrialTime(int newLastTrialTime);
 	float GetScoreSlomoTime();
 	void SetScoreSlomoTime(float newScoreSlomoTime);
 	float GetGameTimeRemaining();
 	void SetGameTimeRemaining(float newGameTimeRemaining);
 	int GetSecondsRemaining();
 	void SetSecondsRemaining(int newSecondsRemaining);
-	int GetWaitTimeRemaining();
-	void SetWaitTimeRemaining(int newWaitTimeRemaining);
 	float GetTotalGameTimePlayed();
 	void SetTotalGameTimePlayed(float newTotalGameTimePlayed);
-	float GetOvertimeTimePlayed();
-	void SetOvertimeTimePlayed(float newOvertimeTimePlayed);
 	unsigned long GetbRoundActive();
 	void SetbRoundActive(unsigned long newbRoundActive);
 	unsigned long GetbPlayReplays();
@@ -78,30 +57,27 @@ public:
 	void SetbOverTime(unsigned long newbOverTime);
 	unsigned long GetbUnlimitedTime();
 	void SetbUnlimitedTime(unsigned long newbUnlimitedTime);
+	unsigned long GetbPlayedGameStartMusic();
+	void SetbPlayedGameStartMusic(unsigned long newbPlayedGameStartMusic);
+	unsigned long GetbKickOnTrialEnd();
+	void SetbKickOnTrialEnd(unsigned long newbKickOnTrialEnd);
 	unsigned long GetbNoContest();
 	void SetbNoContest(unsigned long newbNoContest);
 	unsigned long GetbDisableGoalDelay();
 	void SetbDisableGoalDelay(unsigned long newbDisableGoalDelay);
+	unsigned long GetbDisableSpawnInRedZone();
+	void SetbDisableSpawnInRedZone(unsigned long newbDisableSpawnInRedZone);
 	unsigned long GetbShowNoScorerGoalMessage();
 	void SetbShowNoScorerGoalMessage(unsigned long newbShowNoScorerGoalMessage);
 	unsigned long GetbMatchEnded();
 	void SetbMatchEnded(unsigned long newbMatchEnded);
-	unsigned long GetbShowIntroScene();
-	void SetbShowIntroScene(unsigned long newbShowIntroScene);
-	unsigned long GetbClubMatch();
-	void SetbClubMatch(unsigned long newbClubMatch);
 	int GetNextSpawnIndex();
 	void SetNextSpawnIndex(int newNextSpawnIndex);
-	ReplayDirectorWrapper GetReplayDirectorArchetype();
-	void SetReplayDirectorArchetype(ReplayDirectorWrapper newReplayDirectorArchetype);
-	ReplayDirectorWrapper GetReplayDirector();
-	void SetReplayDirector(ReplayDirectorWrapper newReplayDirector);
 	ArrayWrapper<BallWrapper> GetGameBalls();
 	int GetTotalGameBalls();
 	void SetTotalGameBalls(int newTotalGameBalls);
 	float GetPostGoalTime();
 	void SetPostGoalTime(float newPostGoalTime);
-	ArrayWrapper<GoalWrapper> GetGoals();
 	int GetSecondsRemainingCountdown();
 	void SetSecondsRemainingCountdown(int newSecondsRemainingCountdown);
 	Vector GetFieldCenter();
@@ -126,14 +102,20 @@ public:
 	void SetFurthestGoal(float newFurthestGoal);
 	unsigned char GetReplicatedScoredOnTeam();
 	void SetReplicatedScoredOnTeam(unsigned char newReplicatedScoredOnTeam);
-	unsigned char GetReplicatedServerPerformanceState();
-	void SetReplicatedServerPerformanceState(unsigned char newReplicatedServerPerformanceState);
 	int GetRoundNum();
 	void SetRoundNum(int newRoundNum);
+	float GetKickIdleReplayOffset();
+	void SetKickIdleReplayOffset(float newKickIdleReplayOffset);
 	float GetAssistMaxTime();
 	void SetAssistMaxTime(float newAssistMaxTime);
 	float GetBallHasBeenHitStartDelay();
 	void SetBallHasBeenHitStartDelay(float newBallHasBeenHitStartDelay);
+	float GetLowFPSRate();
+	void SetLowFPSRate(float newLowFPSRate);
+	float GetLowFPSTimeThreshold();
+	void SetLowFPSTimeThreshold(float newLowFPSTimeThreshold);
+	float GetLowFPSTime();
+	void SetLowFPSTime(float newLowFPSTime);
 	float GetPodiumDelay();
 	void SetPodiumDelay(float newPodiumDelay);
 	float GetPodiumTime();
@@ -146,93 +128,52 @@ public:
 	void SetLobbyTime(float newLobbyTime);
 	int GetLobbySpawnRestartTime();
 	void SetLobbySpawnRestartTime(int newLobbySpawnRestartTime);
-	PlayerControllerWrapper GetPauser();
-	void SetPauser(PlayerControllerWrapper newPauser);
 
 	//AUTO-GENERATED FUNCTION PROXIES
-	int GetPlayerCarCount();
-	void ReplicateSkillTiers();
-	void RemoveTeamSelection();
-	void CheckStart();
-	void StartLobbyTimer();
-	void HandleCountdownTick();
-	void CheckForCountdownAction();
-	void LobbyCountdownTick();
-	bool CanSpawnBots();
-	void StartRound();
-	void EndRound();
-	void SetBallEventListeners(BallWrapper Ball, unsigned long bListen);
-	bool CanAwardPoints();
-	void HandleCarTouch(BallWrapper Ball, CarWrapper HitCar, unsigned char HitType);
-	void SetBallHasBeenHit2();
-	int DetermineScoreTouchIndex(BallWrapper Ball, GoalWrapper Goal);
-	int DetermineAssistTouchIndex(BallWrapper Ball, int ScoreIdx);
-	void UpdateTotalGameTimePlayed(float DeltaTime);
-	void UpdateGameTime(float DeltaTime);
-	bool CanUpdateGameTime();
-	void StartReplay();
-	void HandleReplayFinished(ReplayDirectorWrapper InReplay);
-	void GotoPodiumSpotlight();
-	void UpdateSpotlight();
-	void SpawnPodiumCars();
-	bool CanEnableCarPodiumMovement();
-	void FinishEvent();
-	bool __GameEvent_Soccar_TA__UpdateTeamScores(TeamWrapper T);
-	void __GameEvent_Soccar_TA__SubmitMatchComplete(PriWrapper PRI);
-	void __GameEvent_Soccar_TA__CheckStart(TeamWrapper T);
-	void __GameEvent_Soccar_TA__EndState(TeamWrapper T);
-	void __ReplicatedServerPerformanceState__ChangeNotifyFunc();
-	void __bClubMatch__ChangeNotifyFunc();
-	void __bShowIntroScene__ChangeNotifyFunc();
-	void __WaitTimeRemaining__ChangeNotifyFunc();
-	void CheckJoinInProgress(PriWrapper PRI);
-	bool AllowDynamicCrowd();
-	void AddBallTrajectory(BallWrapper InBall);
 	bool ShowScorerGoalMessage();
 	bool CanUseBallCam();
 	bool DisableStatXP();
+	void SetDisableSpawnInRedZone(unsigned long bInDisableSpawnInRedZone);
 	void SetDisableGoalDelay(unsigned long bInDisableGoalDelay);
 	void ForceMatchStart();
-	void RemoveLocalPlayer(PlayerControllerWrapper Player);
-	void AddLocalPlayer(PlayerControllerWrapper Player);
-	void DestroyGoalIndicators(PlayerControllerWrapper Player);
-	void CreateGoalIndicators(PlayerControllerWrapper Player);
 	void BeginHighlightsReplay();
-	bool ShouldCountUp();
 	bool ShouldAllowVoteToForfeit();
 	bool ShouldHaveLeaveMatchPenalty();
-	void SetPaused(PlayerControllerWrapper InPauser, unsigned long bInPaused);
 	bool ShouldCountdownResumeFromPause();
-	void SetScoreAndTime(PlayerControllerWrapper PC, int NewScoreTeam0, int NewScoreTeam1, int InGameTimeRemaining, unsigned long bInOvertime, unsigned long bRestartRound);
 	void SaveLocalPlayerStats();
 	bool ShouldPlayReplay();
 	bool ShouldRecordReplay();
 	void OnBallHasBeenHit();
-	BallWrapper SpawnBall2(Vector& SpawnLoc, unsigned long bWake, unsigned long bSpawnCannon, std::string BallArch);
 	int GetTotalScore();
 	void HandleCarSet(PriWrapper InPRI);
-    void RemovePlayer(ControllerWrapper Player);
 	void RemovePRI(PriWrapper PRI);
 	void AddPRI(PriWrapper PRI);
+	void PlayGameStartMusic();
+	void PlayGoalScoredSounds();
+	void ReplicateGoalScoreStinger();
 	void OnMatchWinnerSet();
-	void OnGameWinnerSet();
+	void PlayGameOverStinger();
+	void StopInGameMusic();
+	void StartInGameMusic();
+	void ClearReplicatedMusicStinger();
 	int MVPSort(PriWrapper A, PriWrapper B);
-	void HandleHitGoal(BallWrapper Ball, GoalWrapper Goal);
 	void ClearReplicatedScoredOnTeam();
 	void TriggerScoreChangedEvent();
 	void HandleScoreUpdated(TeamWrapper Team);
 	void OnAllTeamsCreated();
 	void TriggerGoalScoreEvent(int TeamScoredOn, CarWrapper Scorer);
+	bool CanAwardAchievements();
+	bool AllowScoreboard();
 	void SetTotalGameBalls2(int TotalBalls);
 	void RecordRecentPlayers();
 	void UpdateStats();
 	void NotifyKismetOfCurrentTime();
-	bool EnoughTimePassedToForfeit();
 	void OnGameTimeUpdated();
 	void OnOvertimeUpdated();
 	void ForceOvertime();
 	void StartOvertime();
 	bool OnMyHalf(Vector& TestLocation, unsigned char TeamNum);
+	bool InGoalZone(Vector& TestLocation);
 	TeamWrapper GetWinningTeam();
 	void ResetPickups();
 	void ResetPlayers();
@@ -246,30 +187,20 @@ public:
 	void StartNewRound();
 	void CheckForAutoBalance();
 	bool HasWinner();
-	void SubmitMatch2();
-	void SubmitMatchComplete2();
+	void SubmitSkillMatch();
 	void OnMatchEnded();
 	bool ShouldDoPodiumSpotlight();
+	void SubmitChallengePlayedGame();
 	void EndGame();
-	void UpdateTeamScores2();
 	void StartNewGame();
 	void ResetGame();
-	void ClearReplicatedStatEvent();
 	void eventDestroyed();
-	void InitBotDetection();
 	void InitCrowdManager();
 	void InitField();
 	void InitGameObserver();
+	void InitMatchRecorder();
 	void OnInit();
 	void InitMutators();
-	void OnClubMatch();
-	bool CanInitClubMatch();
-	void AssignCustomTeamSettings();
-	void InitGame2(std::string Options);
-	std::string GetMatchGUID();
-	void SetMatchGUID(std::string s);
-	void EventGameWinnerSet(ServerWrapper GameEvent);
-	void EventGoalScored(ServerWrapper GameEvent, BallWrapper Ball, GoalWrapper Goal, int ScoreIndex, int AssistIdx);
 private:
 	PIMPL
 };

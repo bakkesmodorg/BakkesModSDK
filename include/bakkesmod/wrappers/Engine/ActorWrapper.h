@@ -1,10 +1,8 @@
 #pragma once
 template<class T> class ArrayWrapper;
-template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ObjectWrapper.h"
 class PrimitiveComponentWrapper;
-class WorldInfoWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT ActorWrapper : public ObjectWrapper {
 public:
@@ -12,19 +10,17 @@ public:
 
 	//BEGIN SELF IMPLEMENTED
 	Vector GetLocation();
-	void SetLocation(const Vector location);
+	void SetLocation(Vector location);
 	Vector GetVelocity();
-	void SetVelocity(const Vector velocity);
-	void AddVelocity(const Vector velocity);
+	void SetVelocity(Vector velocity);
+	void AddVelocity(Vector velocity);
 	Rotator GetRotation();
-	void SetRotation(const Rotator rotation);
-	void SetTorque(const Vector torq);
+	void SetRotation(Rotator rotation);
+	void SetTorque(Vector torq);
 	void Stop();
 	Vector GetAngularVelocity();
-	void SetAngularVelocity(const Vector v, bool addToCurrent);
+	void SetAngularVelocity(Vector v, bool addToCurrent);
 	bool IsNull();
-	explicit operator bool();
-	WorldInfoWrapper GetWorldInfo();
 	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
@@ -34,8 +30,6 @@ public:
 	void SetDrawScale3D(Vector newDrawScale3D);
 	Vector GetPrePivot();
 	void SetPrePivot(Vector newPrePivot);
-	UnrealColor GetEditorIconColor();
-	void SetEditorIconColor(UnrealColor newEditorIconColor);
 	float GetCustomTimeDilation();
 	void SetCustomTimeDilation(float newCustomTimeDilation);
 	unsigned char GetPhysics();
@@ -52,8 +46,6 @@ public:
 	ActorWrapper GetBase();
 	unsigned long GetbStatic();
 	unsigned long GetbHidden();
-	unsigned long GetbHiddenSelf();
-	void SetbHiddenSelf(unsigned long newbHiddenSelf);
 	unsigned long GetbNoDelete();
 	void SetbNoDelete(unsigned long newbNoDelete);
 	unsigned long GetbDeleteMe();
@@ -75,6 +67,7 @@ public:
 	void SetbAlwaysEncroachCheck(unsigned long newbAlwaysEncroachCheck);
 	unsigned long GetbHasAlternateTargetLocation();
 	unsigned long GetbAlwaysRelevant();
+	unsigned long GetbGameInstanceRelevant();
 	unsigned long GetbReplicateInstigator();
 	unsigned long GetbReplicateMovement();
 	unsigned long GetbUpdateSimulatedPosition();
@@ -95,8 +88,6 @@ public:
 	void SetbPostRenderIfNotVisible(unsigned long newbPostRenderIfNotVisible);
 	unsigned long GetbForceNetUpdate();
 	void SetbForceNetUpdate(unsigned long newbForceNetUpdate);
-	unsigned long GetbForcePacketUpdate();
-	void SetbForcePacketUpdate(unsigned long newbForcePacketUpdate);
 	unsigned long GetbPendingNetUpdate();
 	void SetbPendingNetUpdate(unsigned long newbPendingNetUpdate);
 	unsigned long GetbGameRelevant();
@@ -143,23 +134,13 @@ public:
 	float GetNetPriority();
 	void SetNetPriority(float newNetPriority);
 	float GetLastNetUpdateTime();
-	float GetLastForcePacketUpdateTime();
-	void SetLastForcePacketUpdateTime(float newLastForcePacketUpdateTime);
 	float GetTimeSinceLastTick();
 	float GetLifeSpan();
 	float GetCreationTime();
 	float GetLastRenderTime();
-	unsigned long long GetHiddenEditorViews();
-	void SetHiddenEditorViews(unsigned long long newHiddenEditorViews);
-	ArrayWrapper<ActorWrapper> GetAttached();
-	Vector GetRelativeLocation();
-	void SetRelativeLocation(Vector newRelativeLocation);
-	Rotator GetRelativeRotation();
-	void SetRelativeRotation(Rotator newRelativeRotation);
 	PrimitiveComponentWrapper GetCollisionComponent();
 
 	//AUTO-GENERATED FUNCTION PROXIES
-	void ForceNetUpdatePacket();
 	void ForceNetUpdate2();
 	bool WillOverlap(Vector& PosA, Vector& VelA, Vector& PosB, Vector& VelB, float StepSize, float Radius, float* Time);
 	void eventReplicationEnded();
@@ -170,21 +151,16 @@ public:
 	Vector GetTargetLocation(ActorWrapper RequestedBy, unsigned long bRequestAlternateLoc);
 	unsigned char eventScriptGetTeamNum();
 	unsigned char GetTeamNum2();
+	void PawnBaseDied();
 	bool IsPlayerOwned();
 	bool IsStationary();
-	void eventDebugMessagePlayer(std::string msg);
 	Vector GetGravityAcceleration();
 	Vector GetGravityDirection();
 	float GetGravityZ();
 	bool IsOverlapping(ActorWrapper A);
 	bool ContainsPoint(Vector& Spot);
-	void eventFellOutOfWorld();
 	void SetTickIsDisabled(unsigned long bInDisabled);
 	void SetPhysics2(unsigned char newPhysics);
-	void SetHidden2(unsigned long bNewHidden);
-	void ChartData(std::string DataName, float DataValue);
-	void DrawDebugString(Vector& TextLocation, std::string Text, ActorWrapper TestBaseActor, UnrealColor& TextColor, float Duration);
-	void DrawDebugCone(Vector& Origin, Vector& Direction, float Length, float AngleWidth, float AngleHeight, int NumSides, UnrealColor& DrawColor, unsigned long bPersistentLines);
 	Vector GetAggregateBaseVelocity(ActorWrapper TestBase);
 	bool IsOwnedBy(ActorWrapper TestActor);
 	bool IsBasedOn(ActorWrapper TestActor);

@@ -1,15 +1,10 @@
 #pragma once
 template<class T> class ArrayWrapper;
-template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/ServerWrapper.h"
-class PlayerControllerWrapper;
-class UnrealStringWrapper;
-class CarWrapper;
-class GameEventWrapper;
-class BallWrapper;
-class GoalWrapper;
 class TeamWrapper;
+class BallWrapper;
+class CarWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT TutorialWrapper : public ServerWrapper {
 public:
@@ -70,7 +65,6 @@ public:
 	void SetWaveSpawnCount(int newWaveSpawnCount);
 	int GetRandomSpawnIndex();
 	void SetRandomSpawnIndex(int newRandomSpawnIndex);
-	UnrealStringWrapper GetStartMessageArchetype();
 	Vector GetBallSpawnLocation();
 	void SetBallSpawnLocation(Vector newBallSpawnLocation);
 	int GetPointsScoredThisRound();
@@ -91,12 +85,6 @@ public:
 	void SetRedoTotal(int newRedoTotal);
 
 	//AUTO-GENERATED FUNCTION PROXIES
-	void InitIntro();
-	void OnLoadingMovieClosed();
-	void StartTimers();
-	void UpdateMVP();
-	bool AllowDynamicCrowd();
-	void SetTutorialTip(std::string NewTip);
 	void SetShowBoostMeter(unsigned long bShow);
 	float GetStepLoc(int Steps, float TotalDist, unsigned long bIncrement, int* Out_CurrentStep);
 	Vector GetDebugLocationInExtent(Vector& Extent);
@@ -126,6 +114,8 @@ public:
 	void OnPlayerRestarted(CarWrapper PlayerCar);
 	unsigned char GetTrainingType();
 	void EndGame();
+	bool CanAwardAchievements();
+	bool AllowScoreboard();
 	Vector GetRandomLocationInExtent(Vector& Extent);
 	bool Chance(int Chances);
 	int GetOppositeTeamNum();
@@ -137,30 +127,22 @@ public:
 	CarWrapper GetGamePawn();
 	void ResetGameEvent();
 	void CheckForReset();
-	float GetGoalViewWidth(GoalWrapper Goal, Vector& ViewerLoc);
-	bool IsBallMovingTowardsGoal2(GoalWrapper Goal, BallWrapper Ball, float MinVelocityForDestroy, float InGoalDepth);
 	void SetGoalDepth2();
 	int GetShuffledSpawnIndex();
 	void DestroyCannon();
 	void SetCannonOrientation(Vector& NewLocation, Rotator& NewRotation);
-	BallWrapper SpawnBall(Vector& SpawnLoc, unsigned long bWake, unsigned long bSpawnCannon, std::string BallArch);
 	void InitBallEffects();
 	void InitBallVelocity();
 	Vector GetRandomGoalAimLocation(int InTeamNum, Vector& BallLoc);
-	Vector GetGoalExtent2(GoalWrapper Goal);
 	void SetBallVelocity(Vector& InitialVelocity, BallWrapper Ball);
 	void InitGameSetup(CarWrapper Car);
-	bool ShouldAllowSuperBoost();
 	void OnVehicleSetup(CarWrapper Car);
 	void HandleVehicleSetup(CarWrapper Car);
 	void InitCrowdManager();
 	void HandleScoreUpdated(TeamWrapper Team);
 	void SetDifficulty2(int InDifficulty);
 	void UpdateStats();
-	void AddLocalPlayer(PlayerControllerWrapper Player);
-	void HandlePlayerResetTraining(GameEventWrapper GameEvent);
 	void OnInit();
-	void EventTutorialTipChanged(TutorialWrapper GameEvent, std::string NewTip);
 private:
 	PIMPL
 };

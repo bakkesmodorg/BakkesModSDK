@@ -4,6 +4,7 @@
 #include <functional>
 #include <memory>
 #include <string>
+using namespace std;
 
 class BAKKESMOD_PLUGIN_IMPORT ObjectWrapper
 {
