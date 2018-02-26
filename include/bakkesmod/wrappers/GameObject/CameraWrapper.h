@@ -1,13 +1,10 @@
 #pragma once
 template<class T> class ArrayWrapper;
-template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
-#include ".././GameObject/CameraXWrapper.h"
-class ActorWrapper;
+#include ".././Engine/ActorWrapper.h"
 class RBActorWrapper;
-class WrapperStructs;
 
-class BAKKESMOD_PLUGIN_IMPORT CameraWrapper : public CameraXWrapper {
+class BAKKESMOD_PLUGIN_IMPORT CameraWrapper : public ActorWrapper {
 public:
 	CONSTRUCTORS(CameraWrapper)
 
@@ -25,19 +22,14 @@ public:
 	float GetFOV();
 	void SetLockedFOV(bool lock);
 	ActorWrapper GetCameraAsActor();
-	std::string GetCameraState();
-	void SetCameraState(std::string stateName);
+	string GetCameraState();
 	Vector linterp(Vector start, Vector end, float elapsed, float speed);	//END SELF IMPLEMENTED
-	std::string GetFocusActor();
-	bool SetFocusActor(std::string actorName);
-    bool SetFlyCamBallTargetMode();
 
 	//AUTO-GENERATED FROM FIELDS
 	float GetSwivelFastSpeed();
 	void SetSwivelFastSpeed(float newSwivelFastSpeed);
 	float GetSwivelDieRate();
 	void SetSwivelDieRate(float newSwivelDieRate);
-	StructArrayWrapper<ProfileCameraSettings> GetCameraPresetSettings();
 	float GetHorizontalSplitscreenHeightOffset();
 	void SetHorizontalSplitscreenHeightOffset(float newHorizontalSplitscreenHeightOffset);
 	float GetHorizontalSplitscreenFOVOffset();

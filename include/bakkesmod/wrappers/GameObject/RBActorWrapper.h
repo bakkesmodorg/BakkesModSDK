@@ -1,9 +1,7 @@
 #pragma once
 template<class T> class ArrayWrapper;
-template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ActorWrapper.h"
-class FXActorWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT RBActorWrapper : public ActorWrapper {
 public:
@@ -36,10 +34,6 @@ public:
 	Vector GetSyncErrorLocation();
 	float GetSyncErrorAngle();
 	Vector GetSyncErrorAxis();
-	FXActorWrapper GetFXActorArchetype();
-	void SetFXActorArchetype(FXActorWrapper newFXActorArchetype);
-	FXActorWrapper GetFXActor();
-	void SetFXActor(FXActorWrapper newFXActor);
 	int GetLastRBCollisionsFrame();
 	RBActorWrapper GetWeldedActor();
 	RBActorWrapper GetWeldedTo();
@@ -63,8 +57,6 @@ public:
 	RBState GetCurrentRBState();
 	int GetPhysicsFrame();
 	float GetPhysicsTime();
-	void InitAk();
-	void eventPreBeginPlay();
 private:
 	PIMPL
 };

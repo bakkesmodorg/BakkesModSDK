@@ -1,19 +1,14 @@
 #pragma once
 template<class T> class ArrayWrapper;
-template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
-#include "../UniqueIDWrapper.h"
 #include ".././Engine/ActorWrapper.h"
-class UnrealStringWrapper;
-class TeamInfoWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT PlayerReplicationInfoWrapper : public ActorWrapper {
 public:
 	CONSTRUCTORS(PlayerReplicationInfoWrapper)
 
 	//BEGIN SELF IMPLEMENTED
-	OnlinePlatform GetPlatform();
-	//END SELF IMPLEMENTED
+	unsigned long long GetSteamID();	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
 	int GetScore();
@@ -26,12 +21,8 @@ public:
 	void SetTTSSpeaker(unsigned char newTTSSpeaker);
 	int GetNumLives();
 	void SetNumLives(int newNumLives);
-	UnrealStringWrapper GetPlayerName();
-	UnrealStringWrapper GetOldName();
 	int GetPlayerID();
 	void SetPlayerID(int newPlayerID);
-	TeamInfoWrapper GetTeam();
-	void SetTeam(TeamInfoWrapper newTeam);
 	unsigned long GetbAdmin();
 	void SetbAdmin(unsigned long newbAdmin);
 	unsigned long GetbIsSpectator();
@@ -46,6 +37,8 @@ public:
 	void SetbOutOfLives(unsigned long newbOutOfLives);
 	unsigned long GetbBot();
 	void SetbBot(unsigned long newbBot);
+	unsigned long GetbHasBeenWelcomed();
+	void SetbHasBeenWelcomed(unsigned long newbHasBeenWelcomed);
 	unsigned long GetbIsInactive();
 	void SetbIsInactive(unsigned long newbIsInactive);
 	unsigned long GetbFromPreviousLevel();
@@ -56,46 +49,53 @@ public:
 	void SetbUnregistered(unsigned long newbUnregistered);
 	int GetStartTime();
 	void SetStartTime(int newStartTime);
-	UnrealStringWrapper GetStringSpectating();
-	UnrealStringWrapper GetStringUnknown();
 	int GetKills();
 	void SetKills(int newKills);
 	float GetExactPing();
 	void SetExactPing(float newExactPing);
-	UnrealStringWrapper GetSavedNetworkAddress();
-	[[deprecated("Use GetUniqueIdWrapper instead")]]
-	SteamID GetUniqueId();//DEPRECATED
-	[[deprecated("Use SetUniqueId that takes UniqueIDWrapper instead")]]
-	void SetUniqueId(SteamID newUniqueId);//DEPRECATED
-
-	UniqueIDWrapper GetUniqueIdWrapper();
-	void SetUniqueId(UniqueIDWrapper newUniqueId);
+	int GetStatConnectionCounts();
+	void SetStatConnectionCounts(int newStatConnectionCounts);
+	int GetStatPingTotals();
+	void SetStatPingTotals(int newStatPingTotals);
+	int GetStatPingMin();
+	void SetStatPingMin(int newStatPingMin);
+	int GetStatPingMax();
+	void SetStatPingMax(int newStatPingMax);
+	int GetStatPKLTotal();
+	void SetStatPKLTotal(int newStatPKLTotal);
+	int GetStatPKLMin();
+	void SetStatPKLMin(int newStatPKLMin);
+	int GetStatPKLMax();
+	void SetStatPKLMax(int newStatPKLMax);
+	int GetStatMaxInBPS();
+	void SetStatMaxInBPS(int newStatMaxInBPS);
+	int GetStatAvgInBPS();
+	void SetStatAvgInBPS(int newStatAvgInBPS);
+	int GetStatMaxOutBPS();
+	void SetStatMaxOutBPS(int newStatMaxOutBPS);
+	int GetStatAvgOutBPS();
+	void SetStatAvgOutBPS(int newStatAvgOutBPS);
 
 	//AUTO-GENERATED FUNCTION PROXIES
+	bool IsPrimaryPlayer();
 	void UnregisterPlayerFromSession();
 	void RegisterPlayerWithSession();
 	bool IsInvalidName();
 	unsigned char GetTeamNum();
-	[[deprecated("Use SetUniqueId2 that takes UniqueIDWrapper instead")]]
-	void SetUniqueId2(SteamID& PlayerUniqueId);//DEPRECATED
-	void SetUniqueId2(UniqueIDWrapper& PlayerUniqueId);
 	void SeamlessTravelTo(PlayerReplicationInfoWrapper NewPRI);
 	void IncrementDeaths(int Amt);
 	void CopyProperties(PlayerReplicationInfoWrapper PRI);
 	void OverrideWith(PlayerReplicationInfoWrapper PRI);
 	PlayerReplicationInfoWrapper Duplicate();
 	void SetWaitingPlayer(unsigned long B);
-	void eventSetPlayerName(std::string S);
 	void Reset();
 	void eventDestroyed();
 	void Unregister2();
+	bool ShouldBroadCastWelcomeMessage(unsigned long bExiting);
 	void UpdatePing(float TimeStamp);
 	void RemoteUserDataReplicated();
-	void SetPlayerTeam(TeamInfoWrapper NewTeam);
 	void eventClientFillRemoteUserData();
 	void eventPostBeginPlay();
-	void eventOnOwnerChanged();
-	void eventConstruct();
 private:
 	PIMPL
 };

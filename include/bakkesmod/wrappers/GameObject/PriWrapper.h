@@ -1,17 +1,12 @@
 #pragma once
 template<class T> class ArrayWrapper;
-template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
-#include ".././GameObject/PriXWrapper.h"
-class UnrealStringWrapper;
-class CarWrapper;
+#include ".././GameObject/PlayerReplicationInfoWrapper.h"
 class GameEventWrapper;
-class FXActorWrapper;
 class AirControlComponentWrapper;
-class ClubDetailsWrapper;
-class UniqueIDWrapper;
+class CarWrapper;
 
-class BAKKESMOD_PLUGIN_IMPORT PriWrapper : public PriXWrapper {
+class BAKKESMOD_PLUGIN_IMPORT PriWrapper : public PlayerReplicationInfoWrapper {
 public:
 	CONSTRUCTORS(PriWrapper)
 
@@ -60,8 +55,10 @@ public:
 	void SetbUsingFreecam(unsigned long newbUsingFreecam);
 	unsigned long GetbIsInSplitScreen();
 	void SetbIsInSplitScreen(unsigned long newbIsInSplitScreen);
-	unsigned long GetbStartVoteToForfeitDisabled();
-	void SetbStartVoteToForfeitDisabled(unsigned long newbStartVoteToForfeitDisabled);
+	unsigned long GetbDeveloper();
+	void SetbDeveloper(unsigned long newbDeveloper);
+	unsigned long GetbVoteToForfeitDisabled();
+	void SetbVoteToForfeitDisabled(unsigned long newbVoteToForfeitDisabled);
 	unsigned long GetbUsingItems();
 	void SetbUsingItems(unsigned long newbUsingItems);
 	unsigned long GetPlayerHistoryValid();
@@ -78,25 +75,14 @@ public:
 	void SetWaitingStartTime(int newWaitingStartTime);
 	float GetTotalGameTimePlayed();
 	void SetTotalGameTimePlayed(float newTotalGameTimePlayed);
-	ProfileCameraSettings GetCameraSettings();
-	void SetCameraSettings(ProfileCameraSettings newCameraSettings);
 	unsigned char GetCameraPitch();
 	void SetCameraPitch(unsigned char newCameraPitch);
 	unsigned char GetCameraYaw();
 	void SetCameraYaw(unsigned char newCameraYaw);
 	unsigned char GetPawnType();
 	void SetPawnType(unsigned char newPawnType);
-	unsigned char GetReplicatedWorstNetQualityBeyondLatency();
-	void SetReplicatedWorstNetQualityBeyondLatency(unsigned char newReplicatedWorstNetQualityBeyondLatency);
-
-	[[deprecated("Use GetPartyLeaderID instead")]]
-	SteamID GetPartyLeader();//DEPRECATED
-	[[deprecated("Use SetPartyLeader that takes UniqueIDWrapper instead")]]
-	void SetPartyLeader(SteamID newPartyLeader);//DEPRECATED
-
-	UniqueIDWrapper GetPartyLeaderID();
-	void SetPartyLeader(UniqueIDWrapper newPartyLeader);
-
+	int GetTotalXP();
+	void SetTotalXP(int newTotalXP);
 	float GetDodgeInputThreshold();
 	void SetDodgeInputThreshold(float newDodgeInputThreshold);
 	float GetSteeringSensitivity();
@@ -119,46 +105,30 @@ public:
 	void SetCarTouches(int newCarTouches);
 	PriWrapper GetReplacingBotPRI();
 	void SetReplacingBotPRI(PriWrapper newReplacingBotPRI);
-	unsigned long long GetClubID();
-	void SetClubID(unsigned long long newClubID);
-	UnrealStringWrapper GetPublicIP();
-	int GetSpectatorShortcut();
-	void SetSpectatorShortcut(int newSpectatorShortcut);
-	ClubDetailsWrapper GetClubDetails();
 
 	//AUTO-GENERATED FUNCTION PROXIES
-	void __ClubID__ChangeNotifyFunc();
-	void __PREI__ChangeNotifyFunc();
-	void __ReplicatedWorstNetQualityBeyondLatency__ChangeNotifyFunc();
 	void eventDestroyed();
-	void OnSpectatorShortcutChanged();
-	void SetSpectatorShortcut2(int InShortcut);
-	void ServerSetPublicIP(std::string IP);
 	void OnUniqueIdChanged();
-	void UpdatePlayerAvatarBorder();
 	void UpdatePlayerBanner();
-	void ClientAchievementProgression(int AchievementId, unsigned char AchievementType, float Progress, float MaxProgress);
+	void BindCarDelegates(unsigned long bBind);
 	void ClientUnlockAchievement(int AchievementId, unsigned char AchievementType);
-	void ServerSetPlayerActivatedFX(FXActorWrapper FX);
 	void UpdateCarLocalPlayer();
 	void OnReplacingBotPRIChanged();
 	void OnTeamChanged();
 	void ClearBotReplacement();
-	void ReportCheater(std::string Reason);
 	bool ValidateLoadoutTeamPaints();
 	bool ValidateLoadoutSlots();
 	void ValidateLoadoutDLC();
-	void OnStartVoteToForfeitDisabledChanged();
-	void SetStartVoteToForfeitDisabled(unsigned long bDisabled);
+	void OnVoteToForfeitDisabled();
+	void DisablebVoteToForfeit();
 	void ServerVoteToForfeit();
 	void SetUserCarPreferences(float NewDodgeThreshold, float NewSteeringSensitivity, float NewAirControlSensitivity);
 	void ServerSetUserCarPreferences(float NewDodgeThreshold, float NewSteeringSensitivity, float NewAirControlSensitivity);
-	int ValidateUserInt(std::string Reason, int NewValue, int Min, int Max);
-	float ValidateUserFloat(std::string Reason, float NewValue, float Min, float Max);
+	void ServerSetTotalXP(int NewXP);
+	void OnTotalXPChanged();
 	void OnPawnTypeChanged();
 	void SetWaitingPlayer(unsigned long B);
 	void SetPawnType2(unsigned char NewPawnType);
-	bool IsPlayer();
 	bool IsEditor();
 	bool IsSpectator();
 	void ServerSpectate();
@@ -181,7 +151,6 @@ public:
 	void OnRespawnTimeRemainingChanged();
 	void SetRespawnTime2(int NewTime);
 	void ClientScoredGoal(Vector& BallHitLocation);
-	void OnScoredGoal(Vector& BallHitLocation);
 	void OnRep_SteeringSensitivity();
 	void OnRep_ClientScorePoint();
 	void ResetScore();
@@ -190,7 +159,6 @@ public:
 	bool CanAwardTimeRestrictedStatEvent();
 	void RecordTimeRestrictedStatEvent();
 	void ResetTimeRestrictedStatEvent();
-	int GetMatchXP();
 	void CommitStats();
 	void UpdateFromLoadout();
 	void UpdateUserCarPreferences(AirControlComponentWrapper AirControlComponent);
@@ -204,33 +172,18 @@ public:
 	bool AreLoadoutsSet();
 	void OnLoadoutsOnlineSet();
 	void OnLoadoutsSet2();
-	void RemoveCertifiedProductStat(unsigned long long InstanceID);
-	void InitLoadoutAttributesForTeam(PriXWrapper PRI);
 	bool ShouldValidateOnlineProducts();
 	void OnSplitScreenStatusChanged();
 	void ServerSplitScreenStatusChanged(unsigned long bInSplitScreen);
 	void UpdateSplitScreenStatus();
 	void OnPartyLeaderChanged();
-	[[deprecated("Function definition is empty and thus will not work")]]
-	void ServerSetPartyLeader(SteamID& InPartyLeader, unsigned long bInParty);//DEPRECATED
-	[[deprecated("Function definition is empty and thus will not work")]]
-	void SetPartyLeader2(SteamID& InPartyLeader, unsigned long bInParty);//DEPRECATED
 	void UpdatePartyStatus();
 	void OnSkillTierChanged();
 	void ReplicateSkillTier(int NewTier);
 	void OnTitleChanged();
-	void SyncPlayerTitle();
-	void UpdateTitleFromLoadout();
-	void UpdateTitle2();
+	void UpdateTitle();
 	void GetNewFriendKey();
 	void ServerSetPlayerHistoryKey(unsigned char* HistoryKeyArray);
-	void OnRep_UniqueId();
-	void EventOwnerChanged(PriWrapper PRI);
-	void EventSpectatorShortcutChanged(PriWrapper PRI);
-	void EventServerAchievementProgression(PriWrapper PRI, int AchievementId, unsigned char AchievementType, float Progress, float MaxProgress);
-	void EventStartVoteToForfeitDisabledChanged(PriWrapper PRI);
-	void EventCarPreUpdate(PriWrapper PRI);
-	void EventVanityChanged();
 private:
 	PIMPL
 };
