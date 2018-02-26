@@ -1,15 +1,11 @@
 #pragma once
 template<class T> class ArrayWrapper;
-template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././Engine/ObjectWrapper.h"
 
 class BAKKESMOD_PLUGIN_IMPORT PrimitiveComponentWrapper : public ObjectWrapper {
 public:
 	CONSTRUCTORS(PrimitiveComponentWrapper)
-
-	_NODISCARD bool IsNull() const;
-	explicit operator bool() const;
 
 	//AUTO-GENERATED FROM FIELDS
 	unsigned char GetRBChannel();

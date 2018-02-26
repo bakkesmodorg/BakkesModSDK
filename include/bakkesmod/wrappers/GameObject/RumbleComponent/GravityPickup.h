@@ -1,10 +1,9 @@
 #pragma once
 template<class T> class ArrayWrapper;
-template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././GameObject/RumbleComponent/RumblePickupComponentWrapper.h"
-class BallWrapper;
 class CarWrapper;
+class BallWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT GravityPickup : public RumblePickupComponentWrapper {
 public:
@@ -27,6 +26,7 @@ public:
 	void SetPrevBall(BallWrapper newPrevBall);
 
 	//AUTO-GENERATED FUNCTION PROXIES
+	void HandleHitBall(CarWrapper InCar, BallWrapper Ball);
 	void UpdateVisual();
 	void ApplyForces(float ActiveTime);
 	void PickupEnd();

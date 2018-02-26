@@ -1,6 +1,5 @@
 #pragma once
 template<class T> class ArrayWrapper;
-template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././GameObject/RumbleComponent/RumblePickupComponentWrapper.h"
 class RBActorWrapper;
@@ -42,8 +41,6 @@ public:
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	void ApplyForces(float ActiveTime);
-	void PlayCarSFX(RBActorWrapper InActor);
-	void PlayBallSFX(RBActorWrapper InActor);
 private:
 	PIMPL
 };

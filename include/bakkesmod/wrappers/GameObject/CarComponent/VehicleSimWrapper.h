@@ -1,18 +1,14 @@
 #pragma once
 template<class T> class ArrayWrapper;
-template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././Engine/ObjectWrapper.h"
+class WheelWrapper;
 class VehicleWrapper;
 class CarWrapper;
-class WheelWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT VehicleSimWrapper : public ObjectWrapper {
 public:
 	CONSTRUCTORS(VehicleSimWrapper)
-
-	_NODISCARD bool IsNull() const;
-	explicit operator bool() const;
 
 	//AUTO-GENERATED FROM FIELDS
 	ArrayWrapper<WheelWrapper> GetWheels();

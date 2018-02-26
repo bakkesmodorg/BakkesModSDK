@@ -1,6 +1,5 @@
 #pragma once
 template<class T> class ArrayWrapper;
-template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././GameObject/CarComponent/CarComponentWrapper.h"
 
@@ -26,10 +25,6 @@ public:
 	void SetLastBoostAmountRequestTime(float newLastBoostAmountRequestTime);
 	float GetLastBoostAmount();
 	void SetLastBoostAmount(float newLastBoostAmount);
-	unsigned long GetbPendingConfirmBoostAmount();
-	void SetbPendingConfirmBoostAmount(unsigned long newbPendingConfirmBoostAmount);
-	unsigned long GetbNoBoost();
-	void SetbNoBoost(unsigned long newbNoBoost);
 	float GetBoostForce();
 	void SetBoostForce(float newBoostForce);
 	float GetMinBoostTime();
@@ -40,24 +35,25 @@ public:
 	void SetRechargeDelay(float newRechargeDelay);
 	int GetUnlimitedBoostRefCount();
 	void SetUnlimitedBoostRefCount(int newUnlimitedBoostRefCount);
+	unsigned long GetbUnlimitedBoost();
+	void SetbUnlimitedBoost(unsigned long newbUnlimitedBoost);
+	unsigned long GetbNoBoost();
+	void SetbNoBoost(unsigned long newbNoBoost);
 	unsigned char GetReplicatedBoostAmount();
 	void SetReplicatedBoostAmount(unsigned char newReplicatedBoostAmount);
 
 	//AUTO-GENERATED FUNCTION PROXIES
-	bool ShouldPredictBoostConsumption();
 	void ReadReplicatedBoostAmount();
 	void eventSetReplicatedBoostAmount();
 	void ApplyForces(float ActiveTime);
 	void ClientGiveBoost(float Amount);
-	void ConfirmBoostAmount2();
-	void SendConfirmBoostAmount();
+	void ConfirmBoostAmount();
 	void ClientFixBoostAmount(float TimeStamp, float Amount);
 	void ServerConfirmBoostAmount(float TimeStamp, float Amount);
 	void SetRechargeDelay2(float InRechargeDelay);
 	void SetRechargeRate2(float InRechargeRate);
 	void SetNoBoost(unsigned long Enabled);
 	void SetUnlimitedBoost2(unsigned long Enabled);
-	void SetUnlimitedBoostDelayed(unsigned long Enabled);
 	void SetBoostModifier2(float Modifier);
 	void SetBoostAmount(float Amount);
 	void GiveBoost2(float Amount);

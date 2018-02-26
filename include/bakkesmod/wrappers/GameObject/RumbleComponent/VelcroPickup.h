@@ -1,11 +1,10 @@
 #pragma once
 template<class T> class ArrayWrapper;
-template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././GameObject/RumbleComponent/RumblePickupComponentWrapper.h"
-class BallWrapper;
-class CarWrapper;
 class RBActorWrapper;
+class CarWrapper;
+class BallWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT VelcroPickup : public RumblePickupComponentWrapper {
 public:
@@ -46,6 +45,7 @@ public:
 	void HandleCarTouch(BallWrapper InBall, CarWrapper InCar, unsigned char HitType);
 	void PickupEnd();
 	void OnBallHit();
+	void HandleHitBall(CarWrapper InCar, BallWrapper InBall);
 	void PickupStart();
 private:
 	PIMPL

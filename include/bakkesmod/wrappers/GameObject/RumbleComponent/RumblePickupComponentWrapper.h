@@ -1,21 +1,17 @@
 #pragma once
 template<class T> class ArrayWrapper;
-template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././GameObject/CarComponent/CarComponentWrapper.h"
-class BoostWrapper;
-class UnrealStringWrapper;
-class CarWrapper;
 class RBActorWrapper;
-class FXActorWrapper;
 class BallWrapper;
+class BoostWrapper;
+class CarWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT RumblePickupComponentWrapper : public CarComponentWrapper {
 public:
 	CONSTRUCTORS(RumblePickupComponentWrapper)
 
 	//AUTO-GENERATED FROM FIELDS
-	UnrealStringWrapper GetPickupName();
 	unsigned long GetbHudIgnoreUseTime();
 	void SetbHudIgnoreUseTime(unsigned long newbHudIgnoreUseTime);
 	unsigned long GetbHasActivated();
@@ -24,10 +20,6 @@ public:
 	void SetbIsActive(unsigned long newbIsActive);
 	float GetActivationDuration();
 	void SetActivationDuration(float newActivationDuration);
-	FXActorWrapper GetPickupFXArchetype();
-	void SetPickupFXArchetype(FXActorWrapper newPickupFXArchetype);
-	FXActorWrapper GetPickupFX();
-	void SetPickupFX(FXActorWrapper newPickupFX);
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	bool HasActivated2();

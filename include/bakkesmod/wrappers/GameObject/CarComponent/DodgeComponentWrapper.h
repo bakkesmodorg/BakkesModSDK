@@ -1,6 +1,5 @@
 #pragma once
 template<class T> class ArrayWrapper;
-template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././GameObject/CarComponent/CarComponentWrapper.h"
 
@@ -47,7 +46,6 @@ public:
 	void SetDodgeDirection(Vector newDodgeDirection);
 
 	//AUTO-GENERATED FUNCTION PROXIES
-	void SetDodgeSettings();
 	void ApplyTorqueForces(float ActiveTime);
 	void ApplyDodgeImpulse();
 	Vector GetDodgeImpulse2(Vector& DodgeDir);
