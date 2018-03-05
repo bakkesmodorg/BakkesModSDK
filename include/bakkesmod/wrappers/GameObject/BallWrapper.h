@@ -2,8 +2,8 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/RBActorWrapper.h"
-class CarWrapper;
 class ServerWrapper;
+class CarWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT BallWrapper : public RBActorWrapper {
 public:

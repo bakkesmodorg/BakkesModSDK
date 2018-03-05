@@ -2,8 +2,8 @@
 template<class T> class ArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././Engine/ObjectWrapper.h"
-class WheelWrapper;
 class VehicleWrapper;
+class WheelWrapper;
 class CarWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT VehicleSimWrapper : public ObjectWrapper {

@@ -10,7 +10,7 @@ class GameEventWrapper;
 class TutorialWrapper;
 class ServerWrapper;
 class CameraWrapper;
-//class ReplayWrapper;
+class ReplayWrapper;
 class CanvasWrapper;
 class CarWrapper;
 
@@ -30,7 +30,7 @@ public:
 
 	TutorialWrapper					GetGameEventAsTutorial();
 	ServerWrapper					GetGameEventAsServer();
-	//ReplayWrapper					GetGameEventAsReplay();
+	ReplayWrapper					GetGameEventAsReplay();
 
 	CarWrapper						GetLocalCar();
 	CameraWrapper					GetCamera();

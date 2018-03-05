@@ -3,9 +3,9 @@ template<class T> class ArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././GameObject/CarComponent/CarComponentWrapper.h"
 class RBActorWrapper;
+class CarWrapper;
 class BallWrapper;
 class BoostWrapper;
-class CarWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT RumblePickupComponentWrapper : public CarComponentWrapper {
 public:

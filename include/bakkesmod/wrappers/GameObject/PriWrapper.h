@@ -2,9 +2,9 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/PlayerReplicationInfoWrapper.h"
-class GameEventWrapper;
 class AirControlComponentWrapper;
 class CarWrapper;
+class GameEventWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT PriWrapper : public PlayerReplicationInfoWrapper {
 public:

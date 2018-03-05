@@ -2,17 +2,17 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/VehicleWrapper.h"
-class RumblePickupComponentWrapper;
-class RBActorWrapper;
-class GameEventWrapper;
-class ActorWrapper;
-class WheelWrapper;
-class FlipCarComponentWrapper;
-class DoubleJumpComponentWrapper;
-class BallWrapper;
-class CarComponentWrapper;
 class PriWrapper;
+class GameEventWrapper;
+class WheelWrapper;
+class DoubleJumpComponentWrapper;
+class RumblePickupComponentWrapper;
+class CarComponentWrapper;
 class PrimitiveComponentWrapper;
+class BallWrapper;
+class RBActorWrapper;
+class ActorWrapper;
+class FlipCarComponentWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT CarWrapper : public VehicleWrapper {
 public:

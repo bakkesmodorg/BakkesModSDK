@@ -3,8 +3,8 @@ template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/ServerWrapper.h"
 class TeamWrapper;
-class BallWrapper;
 class CarWrapper;
+class BallWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT TutorialWrapper : public ServerWrapper {
 public:
