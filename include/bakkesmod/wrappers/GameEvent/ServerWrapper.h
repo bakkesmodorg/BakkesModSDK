@@ -3,10 +3,10 @@ template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/TeamGameEventWrapper.h"
 class TeamWrapper;
-class ActorWrapper;
-class BallWrapper;
 class PriWrapper;
 class CarWrapper;
+class BallWrapper;
+class ActorWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT ServerWrapper : public TeamGameEventWrapper {
 public:

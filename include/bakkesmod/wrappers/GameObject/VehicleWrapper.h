@@ -2,12 +2,12 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/RBActorWrapper.h"
-class AirControlComponentWrapper;
+class DodgeComponentWrapper;
 class VehicleSimWrapper;
+class PriWrapper;
+class AirControlComponentWrapper;
 class JumpComponentWrapper;
 class BoostWrapper;
-class DodgeComponentWrapper;
-class PriWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT VehicleWrapper : public RBActorWrapper {
 public:
