@@ -1,6 +1,5 @@
 #pragma once
 #include "./GameEvent/ServerWrapper.h"
-class ReplayWrapper;
 class BAKKESMOD_PLUGIN_IMPORT ReplayServerWrapper : public ServerWrapper
 {
 public:
@@ -9,11 +8,10 @@ public:
 	ReplayServerWrapper& operator=(ReplayServerWrapper rhs);
 	~ReplayServerWrapper();
 	ActorWrapper GetViewTarget();
-	ReplayWrapper GetReplay();
 	float GetReplayTimeElapsed();
 	int GetReplayFPS();
 	int GetCurrentReplayFrame();
-	void AddKeyFrame(int frame, std::string name);
+	void AddKeyFrame(int frame, string name);
 	void RemoveKeyFrame(int frame);
 	void SkipToFrame(int frame);
 	void SkipToTime(float time);

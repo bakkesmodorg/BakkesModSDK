@@ -175,11 +175,11 @@ struct ControllerInput {
 //Player rotation Min(-16364, -32768, -32768)
 //Player rotation Max(16340, 32764, 32764)
 struct Rotator {
-	float Pitch, Yaw, Roll;
+	int Pitch, Yaw, Roll;
 
 	Rotator(FRotator r);
-	Rotator(float pitch, float yaw, float roll) : Pitch(pitch), Yaw(yaw), Roll(roll) {}
-	Rotator(float def) : Pitch(def), Yaw(def), Roll(def) {}
+	Rotator(int pitch, int yaw, int roll) : Pitch(pitch), Yaw(yaw), Roll(roll) {}
+	Rotator(int def) : Pitch(def), Yaw(def), Roll(def) {}
 	Rotator() : Rotator(0) {}
 	operator FRotator();
 
@@ -316,6 +316,10 @@ struct WorldContactData
 	struct Vector                                     Velocity;                                         		// 0x0010 (0x000C) [0x0000000000000000]              
 	struct Vector                                     Normal;                                           		// 0x001C (0x000C) [0x0000000000000000]              
 };
+
+
+
+
 
 
 #define CONSTRUCTORS(name)\

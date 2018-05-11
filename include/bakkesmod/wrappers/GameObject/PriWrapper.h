@@ -2,8 +2,8 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/PlayerReplicationInfoWrapper.h"
-class AirControlComponentWrapper;
 class CarWrapper;
+class AirControlComponentWrapper;
 class GameEventWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT PriWrapper : public PlayerReplicationInfoWrapper {
@@ -81,6 +81,8 @@ public:
 	void SetCameraYaw(unsigned char newCameraYaw);
 	unsigned char GetPawnType();
 	void SetPawnType(unsigned char newPawnType);
+	unsigned char GetReplicatedWorstNetQualityBeyondLatency();
+	void SetReplicatedWorstNetQualityBeyondLatency(unsigned char newReplicatedWorstNetQualityBeyondLatency);
 	int GetTotalXP();
 	void SetTotalXP(int newTotalXP);
 	float GetDodgeInputThreshold();
@@ -107,6 +109,8 @@ public:
 	void SetReplacingBotPRI(PriWrapper newReplacingBotPRI);
 
 	//AUTO-GENERATED FUNCTION PROXIES
+	void __ClubID__ChangeNotifyFunc();
+	void __ReplicatedWorstNetQualityBeyondLatency__ChangeNotifyFunc();
 	void eventDestroyed();
 	void OnUniqueIdChanged();
 	void UpdatePlayerBanner();
@@ -126,9 +130,11 @@ public:
 	void ServerSetUserCarPreferences(float NewDodgeThreshold, float NewSteeringSensitivity, float NewAirControlSensitivity);
 	void ServerSetTotalXP(int NewXP);
 	void OnTotalXPChanged();
+	void SetTotalXP2(int NewXP);
 	void OnPawnTypeChanged();
 	void SetWaitingPlayer(unsigned long B);
 	void SetPawnType2(unsigned char NewPawnType);
+	bool IsPlayer();
 	bool IsEditor();
 	bool IsSpectator();
 	void ServerSpectate();

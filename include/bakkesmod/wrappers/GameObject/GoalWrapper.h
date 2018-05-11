@@ -1,18 +1,12 @@
 #pragma once
 template<class T> class ArrayWrapper;
-template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ObjectWrapper.h"
-class FXActorWrapper;
 class ActorWrapper;
-class UnrealStringWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT GoalWrapper : public ObjectWrapper {
 public:
 	CONSTRUCTORS(GoalWrapper)
-
-	_NODISCARD bool IsNull() const;
-	explicit operator bool() const;
 
 	//AUTO-GENERATED FROM FIELDS
 	ActorWrapper GetGoalOrientation();
@@ -20,9 +14,6 @@ public:
 	ArrayWrapper<ActorWrapper> GetOverrideGoalIndicatorOrientations();
 	unsigned char GetTeamNum();
 	void SetTeamNum(unsigned char newTeamNum);
-	FXActorWrapper GetScoreFX();
-	void SetScoreFX(FXActorWrapper newScoreFX);
-	UnrealStringWrapper GetGoalIndicatorArchetype();
 	unsigned long GetbNoGoalIndicator();
 	void SetbNoGoalIndicator(unsigned long newbNoGoalIndicator);
 	unsigned long GetbOnlyGoalsFromDirection();
@@ -47,24 +38,21 @@ public:
 	void SetLocation(Vector newLocation);
 	Vector GetDirection();
 	void SetDirection(Vector newDirection);
-	Vector GetRight();
-	void SetRight(Vector newRight);
-	Vector GetUp();
-	void SetUp(Vector newUp);
 	Rotator GetRotation();
 	void SetRotation(Rotator newRotation);
+	Vector GetLocalMin();
+	void SetLocalMin(Vector newLocalMin);
+	Vector GetLocalMax();
+	void SetLocalMax(Vector newLocalMax);
 	Vector GetLocalExtent();
 	void SetLocalExtent(Vector newLocalExtent);
 	Vector GetWorldCenter();
 	void SetWorldCenter(Vector newWorldCenter);
 	Vector GetWorldExtent();
 	void SetWorldExtent(Vector newWorldExtent);
-	Vector GetWorldFrontCenter();
-	void SetWorldFrontCenter(Vector newWorldFrontCenter);
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	Vector GetGoalFocusExtentCenter();
-	void Init();
 	void eventBeginPlay();
 private:
 	PIMPL

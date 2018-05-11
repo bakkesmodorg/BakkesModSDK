@@ -1,24 +1,14 @@
 #pragma once
 template<class T> class ArrayWrapper;
-template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ObjectWrapper.h"
 class ActorWrapper;
-class UnrealStringWrapper;
-#ifdef __cpp_lib_filesystem
-#include <filesystem>
-#endif
-#undef GetCurrentTime
 
 class BAKKESMOD_PLUGIN_IMPORT ReplayWrapper : public ObjectWrapper {
 public:
 	CONSTRUCTORS(ReplayWrapper)
 
-	_NODISCARD bool IsNull() const;
-	explicit operator bool() const;
-
 	//AUTO-GENERATED FROM FIELDS
-	UnrealStringWrapper GetReplayName();
 	int GetEngineVersion();
 	void SetEngineVersion(int newEngineVersion);
 	int GetLicenseeVersion();
@@ -27,17 +17,12 @@ public:
 	void SetNetVersion(int newNetVersion);
 	int GetReplayVersion();
 	void SetReplayVersion(int newReplayVersion);
-	int GetReplayLastSaveVersion();
-	void SetReplayLastSaveVersion(int newReplayLastSaveVersion);
 	int GetGameVersion();
 	void SetGameVersion(int newGameVersion);
 	int GetBuildID();
 	void SetBuildID(int newBuildID);
 	int GetChangelist();
 	void SetChangelist(int newChangelist);
-	UnrealStringWrapper GetBuildVersion();
-	int GetReserveMegabytes();
-	void SetReserveMegabytes(int newReserveMegabytes);
 	float GetRecordFPS();
 	void SetRecordFPS(float newRecordFPS);
 	float GetKeyframeDelay();
@@ -46,12 +31,8 @@ public:
 	void SetMaxChannels(int newMaxChannels);
 	int GetMaxReplaySizeMB();
 	void SetMaxReplaySizeMB(int newMaxReplaySizeMB);
-	UnrealStringWrapper GetFilename();
-	UnrealStringWrapper GetId();
-	UnrealStringWrapper GetDate();
 	int GetNumFrames();
 	void SetNumFrames(int newNumFrames);
-	UnrealStringWrapper GetPlayerName();
 	unsigned long GetbFileCorrupted();
 	void SetbFileCorrupted(unsigned long newbFileCorrupted);
 	unsigned long GetbForceKeyframe();
@@ -78,21 +59,11 @@ public:
 	void SetPlayersOnlyTicks(int newPlayersOnlyTicks);
 
 	//AUTO-GENERATED FUNCTION PROXIES
-	float GetPlaybackTime();
 	bool IsFromBeforeGameVersion(unsigned char BeforeGameVersion);
 	bool IsFromBeforeReplayVersion(unsigned char BeforeReplayVersion);
-	void SetReplayName(std::string NewName);
 	void RemoveTimelineKeyframe(int KeyframeIndex);
 	void eventTrimData(int FirstKeyframe, int FirstFrame);
 	ReplayWrapper CreateCopy(float StartTime);
-	void ImportReplay(std::string Path);
-	void ExportReplay(std::string Path);
-#ifdef __cpp_lib_filesystem
-	void ImportReplay(std::filesystem::path Path);
-	void ExportReplay(std::filesystem::path Path);
-#endif
-
-
 	void SkipToFrame(int frame, unsigned long bFlush);
 	void SkipToTime(float Time, unsigned long bFlush);
 	float GetReplayTimeSeconds();

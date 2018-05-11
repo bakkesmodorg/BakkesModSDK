@@ -2,9 +2,9 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/GameEventWrapper.h"
-class TeamWrapper;
-class PriWrapper;
 class CarWrapper;
+class PriWrapper;
+class TeamWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT TeamGameEventWrapper : public GameEventWrapper {
 public:

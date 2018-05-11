@@ -2,10 +2,12 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/TeamGameEventWrapper.h"
-class TeamWrapper;
-class PriWrapper;
 class CarWrapper;
 class BallWrapper;
+class PriWrapper;
+class GoalWrapper;
+class TeamWrapper;
+class ReplayDirectorWrapper;
 class ActorWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT ServerWrapper : public TeamGameEventWrapper {
@@ -17,6 +19,7 @@ public:
 	void SpawnCar(int carBody, string name);
 	BallWrapper SpawnBall(Vector position, bool wake, bool spawnCannon);
 	bool HasAuthority();
+	int GetCurrentReplayFrame();
 	GETSETH(float, GameSpeed)
 	GETSETH(float, SecondsElapsed)	//END SELF IMPLEMENTED
 
@@ -57,8 +60,6 @@ public:
 	void SetbOverTime(unsigned long newbOverTime);
 	unsigned long GetbUnlimitedTime();
 	void SetbUnlimitedTime(unsigned long newbUnlimitedTime);
-	unsigned long GetbPlayedGameStartMusic();
-	void SetbPlayedGameStartMusic(unsigned long newbPlayedGameStartMusic);
 	unsigned long GetbKickOnTrialEnd();
 	void SetbKickOnTrialEnd(unsigned long newbKickOnTrialEnd);
 	unsigned long GetbNoContest();
@@ -71,13 +72,22 @@ public:
 	void SetbShowNoScorerGoalMessage(unsigned long newbShowNoScorerGoalMessage);
 	unsigned long GetbMatchEnded();
 	void SetbMatchEnded(unsigned long newbMatchEnded);
+	unsigned long GetbShowIntroScene();
+	void SetbShowIntroScene(unsigned long newbShowIntroScene);
+	unsigned long GetbClubMatch();
+	void SetbClubMatch(unsigned long newbClubMatch);
 	int GetNextSpawnIndex();
 	void SetNextSpawnIndex(int newNextSpawnIndex);
+	ReplayDirectorWrapper GetReplayDirectorArchetype();
+	void SetReplayDirectorArchetype(ReplayDirectorWrapper newReplayDirectorArchetype);
+	ReplayDirectorWrapper GetReplayDirector();
+	void SetReplayDirector(ReplayDirectorWrapper newReplayDirector);
 	ArrayWrapper<BallWrapper> GetGameBalls();
 	int GetTotalGameBalls();
 	void SetTotalGameBalls(int newTotalGameBalls);
 	float GetPostGoalTime();
 	void SetPostGoalTime(float newPostGoalTime);
+	ArrayWrapper<GoalWrapper> GetGoals();
 	int GetSecondsRemainingCountdown();
 	void SetSecondsRemainingCountdown(int newSecondsRemainingCountdown);
 	Vector GetFieldCenter();
@@ -102,6 +112,8 @@ public:
 	void SetFurthestGoal(float newFurthestGoal);
 	unsigned char GetReplicatedScoredOnTeam();
 	void SetReplicatedScoredOnTeam(unsigned char newReplicatedScoredOnTeam);
+	unsigned char GetReplicatedServerPerformanceState();
+	void SetReplicatedServerPerformanceState(unsigned char newReplicatedServerPerformanceState);
 	int GetRoundNum();
 	void SetRoundNum(int newRoundNum);
 	float GetKickIdleReplayOffset();
@@ -130,6 +142,12 @@ public:
 	void SetLobbySpawnRestartTime(int newLobbySpawnRestartTime);
 
 	//AUTO-GENERATED FUNCTION PROXIES
+	bool __GameEvent_Soccar_TA__UpdateTeamScores(TeamWrapper T);
+	void __GameEvent_Soccar_TA__CheckStart(TeamWrapper T);
+	void __ReplicatedServerPerformanceState__ChangeNotifyFunc();
+	void __bShowIntroScene__ChangeNotifyFunc();
+	bool AllowDynamicCrowd();
+	void AddBallTrajectory(BallWrapper InBall);
 	bool ShowScorerGoalMessage();
 	bool CanUseBallCam();
 	bool DisableStatXP();
@@ -148,15 +166,10 @@ public:
 	void HandleCarSet(PriWrapper InPRI);
 	void RemovePRI(PriWrapper PRI);
 	void AddPRI(PriWrapper PRI);
-	void PlayGameStartMusic();
-	void PlayGoalScoredSounds();
-	void ReplicateGoalScoreStinger();
 	void OnMatchWinnerSet();
-	void PlayGameOverStinger();
-	void StopInGameMusic();
-	void StartInGameMusic();
-	void ClearReplicatedMusicStinger();
+	void OnGameWinnerSet();
 	int MVPSort(PriWrapper A, PriWrapper B);
+	void HandleHitGoal(BallWrapper Ball, GoalWrapper Goal);
 	void ClearReplicatedScoredOnTeam();
 	void TriggerScoreChangedEvent();
 	void HandleScoreUpdated(TeamWrapper Team);
@@ -190,10 +203,11 @@ public:
 	void SubmitSkillMatch();
 	void OnMatchEnded();
 	bool ShouldDoPodiumSpotlight();
-	void SubmitChallengePlayedGame();
 	void EndGame();
+	void UpdateTeamScores2();
 	void StartNewGame();
 	void ResetGame();
+	void ClearReplicatedStatEvent();
 	void eventDestroyed();
 	void InitCrowdManager();
 	void InitField();
@@ -201,6 +215,9 @@ public:
 	void InitMatchRecorder();
 	void OnInit();
 	void InitMutators();
+	void AssignCustomTeamSettings();
+	void EventGameWinnerSet(ServerWrapper GameEvent);
+	void EventGoalScored(ServerWrapper GameEvent, BallWrapper Ball, GoalWrapper Goal, int ScoreIndex, int AssistIdx);
 private:
 	PIMPL
 };

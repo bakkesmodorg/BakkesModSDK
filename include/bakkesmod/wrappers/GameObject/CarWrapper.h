@@ -2,17 +2,17 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/VehicleWrapper.h"
-class PriWrapper;
-class GameEventWrapper;
-class WheelWrapper;
-class DoubleJumpComponentWrapper;
-class RumblePickupComponentWrapper;
-class CarComponentWrapper;
+class RBActorWrapper;
 class PrimitiveComponentWrapper;
 class BallWrapper;
-class RBActorWrapper;
-class ActorWrapper;
+class PriWrapper;
+class RumblePickupComponentWrapper;
 class FlipCarComponentWrapper;
+class GameEventWrapper;
+class WheelWrapper;
+class CarComponentWrapper;
+class DoubleJumpComponentWrapper;
+class ActorWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT CarWrapper : public VehicleWrapper {
 public:
@@ -29,7 +29,9 @@ public:
 	void SetInput(ControllerInput input);
 	void Destroy();
 	void Demolish();
-	int GetLoadoutBody();	//END SELF IMPLEMENTED
+	int GetLoadoutBody();
+	void EquipProduct(int itemID);
+	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
 	ArrayWrapper<CarComponentWrapper> GetDefaultCarComponents();
@@ -91,16 +93,12 @@ public:
 	void CopyPushFactorCurve();
 	void ClearAttacker();
 	void NotifyNewAttacker(PriWrapper Attacker);
-	void UpdateTeamIndicator();
 	void UpdateBallIndicator();
 	void eventOnSuperSonicChanged();
 	void eventOnGroundChanged();
 	void DemolishDestroyTimer();
 	void Demolish2(RBActorWrapper Demolisher);
-	bool IsBumperHit_Extent(Vector& HitLocation);
-	bool IsBumperHit_CarAngle(CarWrapper OtherCar);
-	bool IsBumperHit_HitNormalAngle(Vector& HitNormal);
-	bool IsBumperHit2(CarWrapper OtherCar, Vector& HitLocation, Vector& HitNormal);
+	bool IsCarWithinForwardEllipticalCone(CarWrapper OtherCar, float YawAngleDegrees, float PitchAngleDegrees);
 	bool Teleport(Vector& SpawnLocation, Rotator& SpawnRotation, unsigned long bStopVelocity, unsigned long bUpdateRotation, float ExtraForce);
 	void OnJumpReleased();
 	void OnJumpPressed();

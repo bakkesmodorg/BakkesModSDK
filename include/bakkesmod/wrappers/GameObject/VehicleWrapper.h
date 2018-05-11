@@ -2,12 +2,12 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/RBActorWrapper.h"
-class DodgeComponentWrapper;
+class JumpComponentWrapper;
 class VehicleSimWrapper;
 class PriWrapper;
-class AirControlComponentWrapper;
-class JumpComponentWrapper;
+class DodgeComponentWrapper;
 class BoostWrapper;
+class AirControlComponentWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT VehicleWrapper : public RBActorWrapper {
 public:
@@ -16,14 +16,6 @@ public:
 	//AUTO-GENERATED FROM FIELDS
 	VehicleSimWrapper GetVehicleSim();
 	void SetVehicleSim(VehicleSimWrapper newVehicleSim);
-	float GetStickyForceGround();
-	void SetStickyForceGround(float newStickyForceGround);
-	float GetStickyForceWall();
-	void SetStickyForceWall(float newStickyForceWall);
-	float GetAutoFlipTorque();
-	void SetAutoFlipTorque(float newAutoFlipTorque);
-	float GetAutoFlipForce();
-	void SetAutoFlipForce(float newAutoFlipForce);
 	unsigned long GetbDriving();
 	void SetbDriving(unsigned long newbDriving);
 	unsigned long GetbReplicatedHandbrake();
@@ -34,8 +26,6 @@ public:
 	void SetbSuperSonic(unsigned long newbSuperSonic);
 	unsigned long GetbPodiumMode();
 	void SetbPodiumMode(unsigned long newbPodiumMode);
-	unsigned long GetbDebugNetworkWhenDriving();
-	void SetbDebugNetworkWhenDriving(unsigned long newbDebugNetworkWhenDriving);
 	ControllerInput GetInput();
 	void SetInput(ControllerInput newInput);
 	unsigned char GetReplicatedThrottle();
@@ -60,6 +50,7 @@ public:
 	void SetTimeBelowSupersonicSpeed(float newTimeBelowSupersonicSpeed);
 
 	//AUTO-GENERATED FUNCTION PROXIES
+	void ForceNetPacketIfNearBall();
 	float GetForwardSpeed();
 	float GetTimeOffGround();
 	float GetTimeOnGround();
@@ -72,6 +63,7 @@ public:
 	void eventSetVehicleInput(ControllerInput& NewInput);
 	void EnablePodiumMode();
 	void SetDriving(unsigned long bDrive);
+	void InitAudioParams();
 	void OnPRIChanged();
 	void OnControllerChanged();
 	void UnPossessed();

@@ -2,12 +2,16 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ActorWrapper.h"
-class CarWrapper;
 class PriWrapper;
+class CarWrapper;
+class BoostPickupWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT GameEventWrapper : public ActorWrapper {
 public:
 	CONSTRUCTORS(GameEventWrapper)
+
+
+	ArrayWrapper<BoostPickupWrapper> GetBoostPickups();
 
 	//AUTO-GENERATED FROM FIELDS
 	unsigned char GetGameMode();
@@ -63,11 +67,13 @@ public:
 	void SetIdleKickWarningTime(float newIdleKickWarningTime);
 	PriWrapper GetGameOwner();
 	void SetGameOwner(PriWrapper newGameOwner);
+	int GetReplicatedRoundCountDownNumber();
+	void SetReplicatedRoundCountDownNumber(int newReplicatedRoundCountDownNumber);
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	bool SuppressModalDialogs();
 	bool ShouldShowBallIndicator();
-	void CheckForBannedPlayers();
+	void CheckInitiatedForfeit(PriWrapper PRI);
 	bool AllowSplitScreenPlayer();
 	void ConditionalStartSpectatorMatch();
 	bool IsPlayingLan();
@@ -100,6 +106,7 @@ public:
 	float GetRealDeltaTime(float ElapsedTime);
 	void SetTimeDilation(float NewTimeDilation);
 	void ClearRespawnList();
+	void ReplaceBotsWithAwaitingPlayers();
 	int GetRespawnTime2();
 	void RemoveCar(CarWrapper Car);
 	void AddCar(CarWrapper Car);

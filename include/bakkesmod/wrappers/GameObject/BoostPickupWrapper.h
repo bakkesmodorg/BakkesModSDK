@@ -1,6 +1,5 @@
 #pragma once
 template<class T> class ArrayWrapper;
-template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/VehiclePickupWrapper.h"
 class CarWrapper;
@@ -12,8 +11,6 @@ public:
 	//AUTO-GENERATED FROM FIELDS
 	float GetBoostAmount();
 	void SetBoostAmount(float newBoostAmount);
-	unsigned char GetBoostType();
-	void SetBoostType(unsigned char newBoostType);
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	void PlayPickedUpFX();
