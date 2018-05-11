@@ -53,28 +53,6 @@ public:
 	void SetKills(int newKills);
 	float GetExactPing();
 	void SetExactPing(float newExactPing);
-	int GetStatConnectionCounts();
-	void SetStatConnectionCounts(int newStatConnectionCounts);
-	int GetStatPingTotals();
-	void SetStatPingTotals(int newStatPingTotals);
-	int GetStatPingMin();
-	void SetStatPingMin(int newStatPingMin);
-	int GetStatPingMax();
-	void SetStatPingMax(int newStatPingMax);
-	int GetStatPKLTotal();
-	void SetStatPKLTotal(int newStatPKLTotal);
-	int GetStatPKLMin();
-	void SetStatPKLMin(int newStatPKLMin);
-	int GetStatPKLMax();
-	void SetStatPKLMax(int newStatPKLMax);
-	int GetStatMaxInBPS();
-	void SetStatMaxInBPS(int newStatMaxInBPS);
-	int GetStatAvgInBPS();
-	void SetStatAvgInBPS(int newStatAvgInBPS);
-	int GetStatMaxOutBPS();
-	void SetStatMaxOutBPS(int newStatMaxOutBPS);
-	int GetStatAvgOutBPS();
-	void SetStatAvgOutBPS(int newStatAvgOutBPS);
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	bool IsPrimaryPlayer();

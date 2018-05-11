@@ -10,7 +10,7 @@ class GameEventWrapper;
 class TutorialWrapper;
 class ServerWrapper;
 class CameraWrapper;
-class ReplayWrapper;
+class ReplayServerWrapper;
 class CanvasWrapper;
 class CarWrapper;
 
@@ -30,7 +30,7 @@ public:
 
 	TutorialWrapper					GetGameEventAsTutorial();
 	ServerWrapper					GetGameEventAsServer();
-	ReplayWrapper					GetGameEventAsReplay();
+	ReplayServerWrapper				GetGameEventAsReplay();
 
 	CarWrapper						GetLocalCar();
 	CameraWrapper					GetCamera();
@@ -42,7 +42,7 @@ public:
 	string							GetFNameByIndex(int index);
 	int								GetFNameIndexByString(string name);
 	void							HookEvent(string eventName, std::function<void(std::string eventName)> callback);
-
+	void							HookEventPost(string eventName, std::function<void(std::string eventName)> callback);
 	void							RegisterBot(CARBODY car, std::function<void(float deltaTime, ControllerInput* inputs, CarWrapper* ownedCar, ServerWrapper* game)> tickfunc, string botName, bool overridePlayer);
 
 	void							LogToChatbox(string text);

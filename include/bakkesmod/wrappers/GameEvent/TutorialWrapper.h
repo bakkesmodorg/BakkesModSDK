@@ -2,9 +2,10 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/ServerWrapper.h"
-class TeamWrapper;
 class CarWrapper;
 class BallWrapper;
+class GoalWrapper;
+class TeamWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT TutorialWrapper : public ServerWrapper {
 public:
@@ -85,6 +86,7 @@ public:
 	void SetRedoTotal(int newRedoTotal);
 
 	//AUTO-GENERATED FUNCTION PROXIES
+	bool AllowDynamicCrowd();
 	void SetShowBoostMeter(unsigned long bShow);
 	float GetStepLoc(int Steps, float TotalDist, unsigned long bIncrement, int* Out_CurrentStep);
 	Vector GetDebugLocationInExtent(Vector& Extent);
@@ -127,6 +129,8 @@ public:
 	CarWrapper GetGamePawn();
 	void ResetGameEvent();
 	void CheckForReset();
+	float GetGoalViewWidth(GoalWrapper Goal, Vector& ViewerLoc);
+	bool IsBallMovingTowardsGoal2(GoalWrapper Goal, BallWrapper Ball, float MinVelocityForDestroy, float InGoalDepth);
 	void SetGoalDepth2();
 	int GetShuffledSpawnIndex();
 	void DestroyCannon();
@@ -134,8 +138,10 @@ public:
 	void InitBallEffects();
 	void InitBallVelocity();
 	Vector GetRandomGoalAimLocation(int InTeamNum, Vector& BallLoc);
+	Vector GetGoalExtent2(GoalWrapper Goal);
 	void SetBallVelocity(Vector& InitialVelocity, BallWrapper Ball);
 	void InitGameSetup(CarWrapper Car);
+	bool ShouldAllowSuperBoost();
 	void OnVehicleSetup(CarWrapper Car);
 	void HandleVehicleSetup(CarWrapper Car);
 	void InitCrowdManager();

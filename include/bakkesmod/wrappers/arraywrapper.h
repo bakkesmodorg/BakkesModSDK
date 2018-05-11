@@ -7,6 +7,8 @@
 #include "./GameObject/RBActorWrapper.h"
 #include "./GameObject/CarComponent/CarComponentWrapper.h"
 #include "./GameObject/TeamWrapper.h"
+#include "./GameObject/GoalWrapper.h"
+#include "./GameObject/BoostPickupWrapper.h"
 class ActorWrapper;
 class CarWrapper;
 class BallWrapper;
@@ -15,14 +17,16 @@ class WheelWrapper;
 class RBActorWrapper;
 class CarComponentWrapper;
 class TeamWrapper;
+class GoalWrapper;
+class BoostPickupWrapper;
 
 template<typename T> 
 class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper
 {
 public:
 	ArrayWrapper(std::uintptr_t mem);
-	ArrayWrapper(const ArrayWrapper& other);
-	ArrayWrapper& operator=(ArrayWrapper rhs);
+	ArrayWrapper(const ArrayWrapper<T>& other);
+	ArrayWrapper& operator=(ArrayWrapper<T> rhs);
 	~ArrayWrapper();
 
 	int Count();
@@ -43,3 +47,5 @@ template class ArrayWrapper<PriWrapper>;
 template class ArrayWrapper<WheelWrapper>;
 template class ArrayWrapper<RBActorWrapper>;
 template class ArrayWrapper<CarComponentWrapper>;
+template class ArrayWrapper<GoalWrapper>;
+template class ArrayWrapper<BoostPickupWrapper>;

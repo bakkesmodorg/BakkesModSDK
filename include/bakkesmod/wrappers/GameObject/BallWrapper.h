@@ -2,8 +2,10 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/RBActorWrapper.h"
-class ServerWrapper;
 class CarWrapper;
+class PriWrapper;
+class ServerWrapper;
+class GoalWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT BallWrapper : public RBActorWrapper {
 public:
@@ -90,11 +92,13 @@ public:
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	Vector GetTrajectoryStartVelocity();
+	Rotator GetTrajectoryStartRotation();
 	Vector GetTrajectoryStartLocation();
 	bool ShouldDrawTrajectory();
 	float GetAdditionalCarBounceScaleZ(CarWrapper Car);
 	void SetTouchScoreValue(int NewValue);
 	void SetEndOfGameHidden();
+	void Explode(GoalWrapper ExplosionGoal, Vector& ExplodeLocation, PriWrapper Scorer);
 	bool ShouldDemolish(CarWrapper Car);
 	void DoDestroy();
 	void DoExplode();
@@ -106,6 +110,7 @@ public:
 	void RecordCarHit(CarWrapper HitCar, Vector& HitLocation, Vector& HitNormal, unsigned char HitType);
 	bool IsGroundHit(Vector& HitNormal);
 	bool IsRoundActive();
+	void eventOnHitGoal(GoalWrapper Goal, Vector& HitLoc);
 	void TurnOff();
 	void SetBallSloMoDiffSpeed2(float InDiffSpeed);
 	void SetBallSloMoRadius2(float Inradius);
@@ -117,6 +122,7 @@ public:
 	void SetBallMaxLinearSpeedScale(float InMaxLinearSpeedScale);
 	void SetBallGravityScale(float InBallGravityScale);
 	void SetBallScale(float NewScale);
+	void EventHitGoal(BallWrapper Ball, GoalWrapper Goal);
 private:
 	PIMPL
 };

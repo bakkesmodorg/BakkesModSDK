@@ -2,8 +2,8 @@
 template<class T> class ArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././GameObject/CarComponent/CarComponentWrapper.h"
-class RBActorWrapper;
 class CarWrapper;
+class RBActorWrapper;
 class BallWrapper;
 class BoostWrapper;
 

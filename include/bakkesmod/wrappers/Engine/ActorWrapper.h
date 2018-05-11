@@ -88,6 +88,8 @@ public:
 	void SetbPostRenderIfNotVisible(unsigned long newbPostRenderIfNotVisible);
 	unsigned long GetbForceNetUpdate();
 	void SetbForceNetUpdate(unsigned long newbForceNetUpdate);
+	unsigned long GetbForcePacketUpdate();
+	void SetbForcePacketUpdate(unsigned long newbForcePacketUpdate);
 	unsigned long GetbPendingNetUpdate();
 	void SetbPendingNetUpdate(unsigned long newbPendingNetUpdate);
 	unsigned long GetbGameRelevant();
@@ -134,6 +136,8 @@ public:
 	float GetNetPriority();
 	void SetNetPriority(float newNetPriority);
 	float GetLastNetUpdateTime();
+	float GetLastForcePacketUpdateTime();
+	void SetLastForcePacketUpdateTime(float newLastForcePacketUpdateTime);
 	float GetTimeSinceLastTick();
 	float GetLifeSpan();
 	float GetCreationTime();
@@ -141,6 +145,7 @@ public:
 	PrimitiveComponentWrapper GetCollisionComponent();
 
 	//AUTO-GENERATED FUNCTION PROXIES
+	void ForceNetUpdatePacket();
 	void ForceNetUpdate2();
 	bool WillOverlap(Vector& PosA, Vector& VelA, Vector& PosB, Vector& VelB, float StepSize, float Radius, float* Time);
 	void eventReplicationEnded();
@@ -165,6 +170,7 @@ public:
 	bool IsOwnedBy(ActorWrapper TestActor);
 	bool IsBasedOn(ActorWrapper TestActor);
 	float GetTerminalVelocity();
+	void EventHiddenChanged(ActorWrapper Target);
 private:
 	PIMPL
 };

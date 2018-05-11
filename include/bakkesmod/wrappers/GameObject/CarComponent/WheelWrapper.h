@@ -23,6 +23,8 @@ public:
 	void SetSuspensionTravel(float newSuspensionTravel);
 	float GetSuspensionMaxRaise();
 	void SetSuspensionMaxRaise(float newSuspensionMaxRaise);
+	float GetContactForceDistance();
+	void SetContactForceDistance(float newContactForceDistance);
 	float GetSpinSpeedDecayRate();
 	void SetSpinSpeedDecayRate(float newSpinSpeedDecayRate);
 	Vector GetBoneOffset();
