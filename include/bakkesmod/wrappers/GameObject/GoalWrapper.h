@@ -38,18 +38,20 @@ public:
 	void SetLocation(Vector newLocation);
 	Vector GetDirection();
 	void SetDirection(Vector newDirection);
+	Vector GetRight();
+	void SetRight(Vector newRight);
+	Vector GetUp();
+	void SetUp(Vector newUp);
 	Rotator GetRotation();
 	void SetRotation(Rotator newRotation);
-	Vector GetLocalMin();
-	void SetLocalMin(Vector newLocalMin);
-	Vector GetLocalMax();
-	void SetLocalMax(Vector newLocalMax);
 	Vector GetLocalExtent();
 	void SetLocalExtent(Vector newLocalExtent);
 	Vector GetWorldCenter();
 	void SetWorldCenter(Vector newWorldCenter);
 	Vector GetWorldExtent();
 	void SetWorldExtent(Vector newWorldExtent);
+	Vector GetWorldFrontCenter();
+	void SetWorldFrontCenter(Vector newWorldFrontCenter);
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	Vector GetGoalFocusExtentCenter();

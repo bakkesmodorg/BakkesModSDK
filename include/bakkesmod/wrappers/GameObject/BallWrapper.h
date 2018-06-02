@@ -2,10 +2,10 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/RBActorWrapper.h"
-class CarWrapper;
 class PriWrapper;
 class ServerWrapper;
 class GoalWrapper;
+class CarWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT BallWrapper : public RBActorWrapper {
 public:
@@ -81,8 +81,6 @@ public:
 	void SetBallSloMoNext(float newBallSloMoNext);
 	float GetBallSloMoDiffSpeed();
 	void SetBallSloMoDiffSpeed(float newBallSloMoDiffSpeed);
-	CarWrapper GetBallBelongsTo();
-	void SetBallBelongsTo(CarWrapper newBallBelongsTo);
 	int GetBallTouchScore();
 	void SetBallTouchScore(int newBallTouchScore);
 	float GetGroundForce();
@@ -106,7 +104,6 @@ public:
 	void GetBallTimeDilation();
 	void Launch(Vector& LaunchPosition, Vector& LaunchDirection);
 	void OnCarTouch(CarWrapper HitCar, unsigned char HitType);
-	void AttachToCar(CarWrapper HitCar);
 	void RecordCarHit(CarWrapper HitCar, Vector& HitLocation, Vector& HitNormal, unsigned char HitType);
 	bool IsGroundHit(Vector& HitNormal);
 	bool IsRoundActive();

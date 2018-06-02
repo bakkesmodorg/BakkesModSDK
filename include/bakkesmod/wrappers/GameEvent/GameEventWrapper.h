@@ -4,14 +4,10 @@ template<class T> class ArrayWrapper;
 #include ".././Engine/ActorWrapper.h"
 class PriWrapper;
 class CarWrapper;
-class BoostPickupWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT GameEventWrapper : public ActorWrapper {
 public:
 	CONSTRUCTORS(GameEventWrapper)
-
-
-	ArrayWrapper<BoostPickupWrapper> GetBoostPickups();
 
 	//AUTO-GENERATED FROM FIELDS
 	unsigned char GetGameMode();

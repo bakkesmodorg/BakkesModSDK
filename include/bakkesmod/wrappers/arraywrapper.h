@@ -12,13 +12,14 @@
 class ActorWrapper;
 class CarWrapper;
 class BallWrapper;
-class PriWrapper;
+
 class WheelWrapper;
 class RBActorWrapper;
 class CarComponentWrapper;
 class TeamWrapper;
 class GoalWrapper;
 class BoostPickupWrapper;
+
 
 template<typename T> 
 class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper
@@ -39,13 +40,13 @@ private:
 
 
 //
-template class ArrayWrapper<ActorWrapper>;
-template class ArrayWrapper<TeamWrapper>;
-template class ArrayWrapper<CarWrapper>;
-template class ArrayWrapper<BallWrapper>;
-template class ArrayWrapper<PriWrapper>;
-template class ArrayWrapper<WheelWrapper>;
-template class ArrayWrapper<RBActorWrapper>;
-template class ArrayWrapper<CarComponentWrapper>;
-template class ArrayWrapper<GoalWrapper>;
-template class ArrayWrapper<BoostPickupWrapper>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<ActorWrapper>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<TeamWrapper>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<CarWrapper>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<BallWrapper>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<PriWrapper>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<WheelWrapper>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<RBActorWrapper>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<CarComponentWrapper>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<GoalWrapper>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<BoostPickupWrapper>;
