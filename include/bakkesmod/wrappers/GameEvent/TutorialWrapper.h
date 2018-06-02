@@ -2,10 +2,10 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/ServerWrapper.h"
-class CarWrapper;
-class BallWrapper;
 class GoalWrapper;
 class TeamWrapper;
+class BallWrapper;
+class CarWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT TutorialWrapper : public ServerWrapper {
 public:

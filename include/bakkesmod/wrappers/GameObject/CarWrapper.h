@@ -3,16 +3,16 @@ template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/VehicleWrapper.h"
 class RBActorWrapper;
-class PrimitiveComponentWrapper;
-class BallWrapper;
 class PriWrapper;
-class RumblePickupComponentWrapper;
-class FlipCarComponentWrapper;
+class PrimitiveComponentWrapper;
 class GameEventWrapper;
-class WheelWrapper;
-class CarComponentWrapper;
 class DoubleJumpComponentWrapper;
+class CarComponentWrapper;
+class BallWrapper;
+class RumblePickupComponentWrapper;
+class WheelWrapper;
 class ActorWrapper;
+class FlipCarComponentWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT CarWrapper : public VehicleWrapper {
 public:
@@ -29,9 +29,7 @@ public:
 	void SetInput(ControllerInput input);
 	void Destroy();
 	void Demolish();
-	int GetLoadoutBody();
-	void EquipProduct(int itemID);
-	//END SELF IMPLEMENTED
+	int GetLoadoutBody();	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
 	ArrayWrapper<CarComponentWrapper> GetDefaultCarComponents();
@@ -89,7 +87,6 @@ public:
 	void OnPickupChanged(RumblePickupComponentWrapper inPickup);
 	void SetAttachedPickup2(RumblePickupComponentWrapper inPickup);
 	void EnablePodiumMode();
-	void HasBall(BallWrapper InBall);
 	void CopyPushFactorCurve();
 	void ClearAttacker();
 	void NotifyNewAttacker(PriWrapper Attacker);

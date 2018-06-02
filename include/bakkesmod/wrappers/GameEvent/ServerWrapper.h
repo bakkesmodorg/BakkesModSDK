@@ -2,13 +2,13 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/TeamGameEventWrapper.h"
-class CarWrapper;
-class BallWrapper;
 class PriWrapper;
 class GoalWrapper;
-class TeamWrapper;
 class ReplayDirectorWrapper;
 class ActorWrapper;
+class BallWrapper;
+class TeamWrapper;
+class CarWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT ServerWrapper : public TeamGameEventWrapper {
 public:
@@ -21,7 +21,7 @@ public:
 	bool HasAuthority();
 	int GetCurrentReplayFrame();
 	GETSETH(float, GameSpeed)
-	GETSETH(float, SecondsElapsed)	//END SELF IMPLEMENTED
+		GETSETH(float, SecondsElapsed)	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
 	CarWrapper GetTestCarArchetype();
@@ -66,8 +66,6 @@ public:
 	void SetbNoContest(unsigned long newbNoContest);
 	unsigned long GetbDisableGoalDelay();
 	void SetbDisableGoalDelay(unsigned long newbDisableGoalDelay);
-	unsigned long GetbDisableSpawnInRedZone();
-	void SetbDisableSpawnInRedZone(unsigned long newbDisableSpawnInRedZone);
 	unsigned long GetbShowNoScorerGoalMessage();
 	void SetbShowNoScorerGoalMessage(unsigned long newbShowNoScorerGoalMessage);
 	unsigned long GetbMatchEnded();
@@ -122,12 +120,6 @@ public:
 	void SetAssistMaxTime(float newAssistMaxTime);
 	float GetBallHasBeenHitStartDelay();
 	void SetBallHasBeenHitStartDelay(float newBallHasBeenHitStartDelay);
-	float GetLowFPSRate();
-	void SetLowFPSRate(float newLowFPSRate);
-	float GetLowFPSTimeThreshold();
-	void SetLowFPSTimeThreshold(float newLowFPSTimeThreshold);
-	float GetLowFPSTime();
-	void SetLowFPSTime(float newLowFPSTime);
 	float GetPodiumDelay();
 	void SetPodiumDelay(float newPodiumDelay);
 	float GetPodiumTime();
@@ -151,7 +143,6 @@ public:
 	bool ShowScorerGoalMessage();
 	bool CanUseBallCam();
 	bool DisableStatXP();
-	void SetDisableSpawnInRedZone(unsigned long bInDisableSpawnInRedZone);
 	void SetDisableGoalDelay(unsigned long bInDisableGoalDelay);
 	void ForceMatchStart();
 	void BeginHighlightsReplay();
@@ -186,7 +177,6 @@ public:
 	void ForceOvertime();
 	void StartOvertime();
 	bool OnMyHalf(Vector& TestLocation, unsigned char TeamNum);
-	bool InGoalZone(Vector& TestLocation);
 	TeamWrapper GetWinningTeam();
 	void ResetPickups();
 	void ResetPlayers();
