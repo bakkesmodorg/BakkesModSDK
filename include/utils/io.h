@@ -1,14 +1,14 @@
 #pragma once
-#include <vector>
-#include <string>
-#include <fstream>
 #include <algorithm> 
-#include <functional> 
 #include <cctype>
+#include <fstream>
+#include <functional> 
+#include <iomanip>
 #include <locale>
 #include <stdlib.h>
+#include <string>
+#include <vector>
 #include <Windows.h>
-#include <iomanip>
 
 static inline bool file_exists(const std::string& name) {
 	struct stat buffer;

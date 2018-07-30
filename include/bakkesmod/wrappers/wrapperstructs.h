@@ -1,5 +1,6 @@
 #pragma once
 //#include "../shared.h"
+
 #include "linmath.h"
 #include <algorithm> 
 
@@ -11,7 +12,7 @@
 //	return min(upper, max(x, lower));
 //}
 
-
+#pragma pack ( push, 0x4 )
 struct FVector;
 struct FRotator;
 
@@ -109,11 +110,14 @@ struct Vector {
 
 
 struct PredictionInfo {
-	float Time;
-	Vector Location;
-	Vector Velocity;
-	bool HitWall;
-	bool HitFloor;
+	float                                             Time;                                             		            
+	float                                             ArchTopTime;                                      		             
+	struct Vector                                     Location;                                         		              
+	struct Vector                                     Velocity;                                         		          
+	struct Vector                                     ArchTop;                                          		
+	struct Vector                                     ArchTopVelocity;         
+	unsigned long                                     bHitWall : 1;                                    
+	unsigned long                                     bHitGround : 1;
 };
 //Player rotation Min(-16364, -32768, -32768)
 //Player rotation Max(16340, 32764, 32764)
@@ -132,6 +136,11 @@ static inline float fixRotator(float newRotation) {// F THIS FOR NOW
 	//}
 	return newRotation;
 }
+
+struct SteamID
+{
+	unsigned long long ID;
+};
 
 struct LinearColor
 {
@@ -165,11 +174,11 @@ struct ControllerInput {
 	float Roll = .0f;
 	float DodgeForward = .0f;
 	float DodgeStrafe = .0f;
-	bool Jump = false;
-	bool ActivateBoost = false;
-	bool HoldingBoost = false;
-	bool Handbrake = false;
-	bool Jumped = false;
+	unsigned long Jump :1;
+	unsigned long ActivateBoost : 1;
+	unsigned long HoldingBoost : 1;
+	unsigned long Handbrake : 1;
+	unsigned long Jumped : 1;
 };
 
 //Player rotation Min(-16364, -32768, -32768)
@@ -225,6 +234,7 @@ struct ProfileCameraSettings
 	float                                              Distance;                                         		// 0x000C (0x0004) [0x0000000000000000]              
 	float                                              Stiffness;                                        		// 0x0010 (0x0004) [0x0000000000000000]              
 	float                                              SwivelSpeed;                                      		// 0x0014 (0x0004) [0x0000000000000000]              
+	float                                              TransitionSpeed;                                  		// 0x0018 (0x0004) [0x0000000000000000]             
 };
 
 
@@ -338,3 +348,5 @@ type Get##name();
 
 #define GETH(type, name)\
 type Get##name();
+
+#pragma pack ( pop )

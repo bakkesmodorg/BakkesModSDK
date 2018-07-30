@@ -1,17 +1,17 @@
 #pragma once
 
-#include <vector>
-#include <string>
-#include <windows.h>
-#include <fstream>
 #include <algorithm> 
-#include <functional> 
 #include <cctype>
-#include <locale>
-#include <stdlib.h>
-#include <iostream>
+#include <fstream>
+#include <functional> 
 #include <iomanip>
+#include <iostream>
+#include <locale>
 #include <sstream>
+#include <stdlib.h>
+#include <string>
+#include <vector>
+#include <Windows.h>
 static inline float clamp(float val, float min, float max) {
 	val = !(val<min) ? min : val;
 	val = (val<max) ? max : val;

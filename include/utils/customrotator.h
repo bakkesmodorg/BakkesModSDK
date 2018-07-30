@@ -1,7 +1,7 @@
 #pragma once
-#include "bakkesmod\plugin\bakkesmodsdk.h"
+#include "bakkesmod/plugin/bakkesmodsdk.h"
+#include "bakkesmod/wrappers/WrapperStructs.h"
 #include "finiteelement.h"
-#include "bakkesmod\wrappers\wrapperstructs.h"
 
 //Player rotation Min(-16364, -32768, -32768)
 //Player rotation Max(16340, 32764, 32764)

@@ -2,8 +2,8 @@
 template<class T> class ArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././GameObject/RumbleComponent/RumblePickupComponentWrapper.h"
-class RBActorWrapper;
 class BallWrapper;
+class RBActorWrapper;
 class CarWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT BasketballPickup : public RumblePickupComponentWrapper {

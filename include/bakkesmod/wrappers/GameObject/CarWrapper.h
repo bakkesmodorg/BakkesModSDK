@@ -2,16 +2,15 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/VehicleWrapper.h"
-class RBActorWrapper;
-class PriWrapper;
-class PrimitiveComponentWrapper;
-class GameEventWrapper;
-class DoubleJumpComponentWrapper;
-class CarComponentWrapper;
-class BallWrapper;
 class RumblePickupComponentWrapper;
+class CarComponentWrapper;
 class WheelWrapper;
+class PriWrapper;
+class RBActorWrapper;
 class ActorWrapper;
+class GameEventWrapper;
+class PrimitiveComponentWrapper;
+class BallWrapper;
 class FlipCarComponentWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT CarWrapper : public VehicleWrapper {
@@ -33,7 +32,6 @@ public:
 
 	//AUTO-GENERATED FROM FIELDS
 	ArrayWrapper<CarComponentWrapper> GetDefaultCarComponents();
-	DoubleJumpComponentWrapper GetDoubleJumpComponent();
 	FlipCarComponentWrapper GetFlipComponent();
 	unsigned char GetDemolishTarget();
 	void SetDemolishTarget(unsigned char newDemolishTarget);

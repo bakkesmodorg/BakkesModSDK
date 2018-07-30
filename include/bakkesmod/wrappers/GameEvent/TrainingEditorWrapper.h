@@ -3,6 +3,7 @@ template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/GameEditorWrapper.h"
 class ActorWrapper;
+class UnrealStringWrapper;
 class GameEditorSaveDataWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT TrainingEditorWrapper : public GameEditorWrapper {
@@ -37,6 +38,7 @@ public:
 	void SetSaveDelayTime(float newSaveDelayTime);
 	float GetSaveCooldown();
 	void SetSaveCooldown(float newSaveCooldown);
+	UnrealStringWrapper GetTrainingFileName();
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	bool AllowDynamicCrowd();

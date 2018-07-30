@@ -2,6 +2,7 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/ServerWrapper.h"
+class UnrealStringWrapper;
 class GoalWrapper;
 class TeamWrapper;
 class BallWrapper;
@@ -66,6 +67,7 @@ public:
 	void SetWaveSpawnCount(int newWaveSpawnCount);
 	int GetRandomSpawnIndex();
 	void SetRandomSpawnIndex(int newRandomSpawnIndex);
+	UnrealStringWrapper GetStartMessageArchetype();
 	Vector GetBallSpawnLocation();
 	void SetBallSpawnLocation(Vector newBallSpawnLocation);
 	int GetPointsScoredThisRound();

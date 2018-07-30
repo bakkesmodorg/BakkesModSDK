@@ -2,6 +2,7 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ActorWrapper.h"
+class UnrealStringWrapper;
 class PriWrapper;
 class CarWrapper;
 
@@ -63,10 +64,12 @@ public:
 	void SetIdleKickWarningTime(float newIdleKickWarningTime);
 	PriWrapper GetGameOwner();
 	void SetGameOwner(PriWrapper newGameOwner);
+	UnrealStringWrapper GetRichPresenceString();
 	int GetReplicatedRoundCountDownNumber();
 	void SetReplicatedRoundCountDownNumber(int newReplicatedRoundCountDownNumber);
 
 	//AUTO-GENERATED FUNCTION PROXIES
+	SteamID __GameEvent_TA__CheckForBannedPlayers(PriWrapper PRI);
 	bool SuppressModalDialogs();
 	bool ShouldShowBallIndicator();
 	void CheckInitiatedForfeit(PriWrapper PRI);
@@ -126,6 +129,8 @@ public:
 	void RestartPlayers();
 	void RemovePRI(PriWrapper PRI);
 	void AddPRI(PriWrapper PRI);
+	void AddForfeitInitiator(SteamID& PlayerID);
+	void BanPlayerID(SteamID& PlayerID);
 	int GetMaxHumans();
 	int GetNumHumans();
 	bool FindBotReplacement(PriWrapper PRI);

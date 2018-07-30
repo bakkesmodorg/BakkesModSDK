@@ -2,12 +2,12 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/TeamGameEventWrapper.h"
-class PriWrapper;
-class GoalWrapper;
-class ReplayDirectorWrapper;
 class ActorWrapper;
-class BallWrapper;
+class PriWrapper;
+class ReplayDirectorWrapper;
+class GoalWrapper;
 class TeamWrapper;
+class BallWrapper;
 class CarWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT ServerWrapper : public TeamGameEventWrapper {
@@ -19,9 +19,8 @@ public:
 	void SpawnCar(int carBody, string name);
 	BallWrapper SpawnBall(Vector position, bool wake, bool spawnCannon);
 	bool HasAuthority();
-	int GetCurrentReplayFrame();
 	GETSETH(float, GameSpeed)
-		GETSETH(float, SecondsElapsed)	//END SELF IMPLEMENTED
+	GETSETH(float, SecondsElapsed)	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
 	CarWrapper GetTestCarArchetype();
@@ -135,6 +134,7 @@ public:
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	bool __GameEvent_Soccar_TA__UpdateTeamScores(TeamWrapper T);
+	void __GameEvent_Soccar_TA__SubmitMatch(PriWrapper PRI);
 	void __GameEvent_Soccar_TA__CheckStart(TeamWrapper T);
 	void __ReplicatedServerPerformanceState__ChangeNotifyFunc();
 	void __bShowIntroScene__ChangeNotifyFunc();
@@ -191,6 +191,7 @@ public:
 	void CheckForAutoBalance();
 	bool HasWinner();
 	void SubmitSkillMatch();
+	void SubmitMatch2();
 	void OnMatchEnded();
 	bool ShouldDoPodiumSpotlight();
 	void EndGame();

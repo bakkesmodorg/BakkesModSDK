@@ -2,6 +2,7 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ObjectWrapper.h"
+class UnrealStringWrapper;
 class ActorWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT ReplayWrapper : public ObjectWrapper {
@@ -9,6 +10,7 @@ public:
 	CONSTRUCTORS(ReplayWrapper)
 
 	//AUTO-GENERATED FROM FIELDS
+	UnrealStringWrapper GetReplayName();
 	int GetEngineVersion();
 	void SetEngineVersion(int newEngineVersion);
 	int GetLicenseeVersion();
@@ -23,6 +25,7 @@ public:
 	void SetBuildID(int newBuildID);
 	int GetChangelist();
 	void SetChangelist(int newChangelist);
+	UnrealStringWrapper GetBuildVersion();
 	float GetRecordFPS();
 	void SetRecordFPS(float newRecordFPS);
 	float GetKeyframeDelay();
@@ -31,8 +34,12 @@ public:
 	void SetMaxChannels(int newMaxChannels);
 	int GetMaxReplaySizeMB();
 	void SetMaxReplaySizeMB(int newMaxReplaySizeMB);
+	UnrealStringWrapper GetFilename();
+	UnrealStringWrapper GetId();
+	UnrealStringWrapper GetDate();
 	int GetNumFrames();
 	void SetNumFrames(int newNumFrames);
+	UnrealStringWrapper GetPlayerName();
 	unsigned long GetbFileCorrupted();
 	void SetbFileCorrupted(unsigned long newbFileCorrupted);
 	unsigned long GetbForceKeyframe();

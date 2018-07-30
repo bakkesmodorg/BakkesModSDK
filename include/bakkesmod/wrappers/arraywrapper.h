@@ -32,7 +32,7 @@ public:
 
 	int Count();
 	T Get(int index);
-private:
+protected:
 	struct Impl;
 	std::unique_ptr<Impl> pimpl;
 };

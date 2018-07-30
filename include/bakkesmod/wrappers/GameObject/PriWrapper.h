@@ -2,9 +2,10 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/PlayerReplicationInfoWrapper.h"
+class UnrealStringWrapper;
 class GameEventWrapper;
-class CarWrapper;
 class AirControlComponentWrapper;
+class CarWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT PriWrapper : public PlayerReplicationInfoWrapper {
 public:
@@ -75,6 +76,8 @@ public:
 	void SetWaitingStartTime(int newWaitingStartTime);
 	float GetTotalGameTimePlayed();
 	void SetTotalGameTimePlayed(float newTotalGameTimePlayed);
+	ProfileCameraSettings GetCameraSettings();
+	void SetCameraSettings(ProfileCameraSettings newCameraSettings);
 	unsigned char GetCameraPitch();
 	void SetCameraPitch(unsigned char newCameraPitch);
 	unsigned char GetCameraYaw();
@@ -83,8 +86,11 @@ public:
 	void SetPawnType(unsigned char newPawnType);
 	unsigned char GetReplicatedWorstNetQualityBeyondLatency();
 	void SetReplicatedWorstNetQualityBeyondLatency(unsigned char newReplicatedWorstNetQualityBeyondLatency);
+	SteamID GetPartyLeader();
+	void SetPartyLeader(SteamID newPartyLeader);
 	int GetTotalXP();
 	void SetTotalXP(int newTotalXP);
+	UnrealStringWrapper GetSanitizedPlayerName();
 	float GetDodgeInputThreshold();
 	void SetDodgeInputThreshold(float newDodgeInputThreshold);
 	float GetSteeringSensitivity();
@@ -107,6 +113,7 @@ public:
 	void SetCarTouches(int newCarTouches);
 	PriWrapper GetReplacingBotPRI();
 	void SetReplacingBotPRI(PriWrapper newReplacingBotPRI);
+	UnrealStringWrapper GetPublicIP();
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	void __ClubID__ChangeNotifyFunc();
@@ -183,6 +190,8 @@ public:
 	void ServerSplitScreenStatusChanged(unsigned long bInSplitScreen);
 	void UpdateSplitScreenStatus();
 	void OnPartyLeaderChanged();
+	void ServerSetPartyLeader(SteamID& InPartyLeader, unsigned long bInParty);
+	void SetPartyLeader2(SteamID& InPartyLeader, unsigned long bInParty);
 	void UpdatePartyStatus();
 	void OnSkillTierChanged();
 	void ReplicateSkillTier(int NewTier);

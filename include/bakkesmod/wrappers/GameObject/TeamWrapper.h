@@ -2,6 +2,7 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ActorWrapper.h"
+class UnrealStringWrapper;
 class PriWrapper;
 class TeamGameEventWrapper;
 
@@ -17,6 +18,8 @@ public:
 	TeamGameEventWrapper GetGameEvent();
 	void SetGameEvent(TeamGameEventWrapper newGameEvent);
 	ArrayWrapper<PriWrapper> GetMembers();
+	UnrealStringWrapper GetCustomTeamName();
+	UnrealStringWrapper GetSanitizedTeamName();
 	unsigned long GetbForfeit();
 	void SetbForfeit(unsigned long newbForfeit);
 

@@ -2,8 +2,9 @@
 template<class T> class ArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././GameObject/CarComponent/CarComponentWrapper.h"
-class RBActorWrapper;
 class BoostWrapper;
+class RBActorWrapper;
+class UnrealStringWrapper;
 class BallWrapper;
 class CarWrapper;
 
@@ -12,6 +13,7 @@ public:
 	CONSTRUCTORS(RumblePickupComponentWrapper)
 
 	//AUTO-GENERATED FROM FIELDS
+	UnrealStringWrapper GetPickupName();
 	unsigned long GetbHudIgnoreUseTime();
 	void SetbHudIgnoreUseTime(unsigned long newbHudIgnoreUseTime);
 	unsigned long GetbHasActivated();
