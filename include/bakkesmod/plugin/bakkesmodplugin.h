@@ -1,12 +1,11 @@
 #pragma once
+#include "bakkesmod/wrappers/CVarManagerWrapper.h"
+#include "bakkesmod/wrappers/GameWrapper.h"
 #include "bakkesmodsdk.h"
-#include "bakkesmod\wrappers\cvarmanagerwrapper.h"
-#include "bakkesmod\wrappers\gamewrapper.h"
 #include <memory>
 
 namespace BakkesMod {
 	namespace Plugin {
-
 		class BakkesModPlugin;
 		typedef uintptr_t(*GetPluginFunc)();
 		typedef void(*deleteFunc)();
@@ -28,7 +27,6 @@ namespace BakkesMod {
     BAKKESMOD_PLUGIN_API_VERSION,       \
     __FILE__
 
-
 #define BAKKESMOD_PLUGIN(classType, pluginName, pluginVersion, pluginType)     \
 static std::shared_ptr<classType> singleton;\
 	extern "C" { \
@@ -42,7 +40,7 @@ static std::shared_ptr<classType> singleton;\
       }                                                      \
 	  BAKKESMOD_PLUGIN_EXPORT void deleteMe() { \
 			if(singleton) \
-				singleton.reset();\
+				singleton = nullptr;\
 		}\
       BAKKESMOD_PLUGIN_EXPORT BakkesMod::Plugin::PluginInfo exports =  \
       {                                                      \
@@ -56,7 +54,6 @@ static std::shared_ptr<classType> singleton;\
 	  };                                                     \
 	}
 
-
 		class BAKKESMOD_PLUGIN_EXPORT BakkesModPlugin
 		{
 		public:
@@ -67,7 +64,5 @@ static std::shared_ptr<classType> singleton;\
 			//Unload stuff here, notifiers/cvars are automatically cleared.
 			virtual void onUnload() {};
 		};
-
 	}
 }
-

@@ -2,6 +2,7 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ObjectWrapper.h"
+class UnrealStringWrapper;
 class ActorWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT GoalWrapper : public ObjectWrapper {
@@ -14,6 +15,7 @@ public:
 	ArrayWrapper<ActorWrapper> GetOverrideGoalIndicatorOrientations();
 	unsigned char GetTeamNum();
 	void SetTeamNum(unsigned char newTeamNum);
+	UnrealStringWrapper GetGoalIndicatorArchetype();
 	unsigned long GetbNoGoalIndicator();
 	void SetbNoGoalIndicator(unsigned long newbNoGoalIndicator);
 	unsigned long GetbOnlyGoalsFromDirection();

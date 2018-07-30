@@ -2,9 +2,9 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/RBActorWrapper.h"
-class PriWrapper;
-class ServerWrapper;
 class GoalWrapper;
+class ServerWrapper;
+class PriWrapper;
 class CarWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT BallWrapper : public RBActorWrapper {
@@ -12,7 +12,8 @@ public:
 	CONSTRUCTORS(BallWrapper)
 
 	//BEGIN SELF IMPLEMENTED
-	float GetLastTouchTime();	//END SELF IMPLEMENTED
+	float GetLastTouchTime();
+	PredictionInfo PredictPosition(float timeAhead);	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
 	unsigned long GetbAllowPlayerExplosionOverride();

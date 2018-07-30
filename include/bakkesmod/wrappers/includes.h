@@ -1,5 +1,6 @@
 #pragma once
 #include "./Engine/ActorWrapper.h"
+#include "./Engine/UnrealStringWrapper.h"
 #include "./GameEvent/GameEditorWrapper.h"
 #include "./GameEvent/GameEventWrapper.h"
 #include "./GameEvent/ReplayDirectorWrapper.h"

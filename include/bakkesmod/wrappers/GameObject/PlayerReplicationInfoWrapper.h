@@ -2,6 +2,7 @@
 template<class T> class ArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ActorWrapper.h"
+class UnrealStringWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT PlayerReplicationInfoWrapper : public ActorWrapper {
 public:
@@ -21,6 +22,8 @@ public:
 	void SetTTSSpeaker(unsigned char newTTSSpeaker);
 	int GetNumLives();
 	void SetNumLives(int newNumLives);
+	UnrealStringWrapper GetPlayerName();
+	UnrealStringWrapper GetOldName();
 	int GetPlayerID();
 	void SetPlayerID(int newPlayerID);
 	unsigned long GetbAdmin();
@@ -49,10 +52,15 @@ public:
 	void SetbUnregistered(unsigned long newbUnregistered);
 	int GetStartTime();
 	void SetStartTime(int newStartTime);
+	UnrealStringWrapper GetStringSpectating();
+	UnrealStringWrapper GetStringUnknown();
 	int GetKills();
 	void SetKills(int newKills);
 	float GetExactPing();
 	void SetExactPing(float newExactPing);
+	UnrealStringWrapper GetSavedNetworkAddress();
+	SteamID GetUniqueId();
+	void SetUniqueId(SteamID newUniqueId);
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	bool IsPrimaryPlayer();
@@ -60,6 +68,7 @@ public:
 	void RegisterPlayerWithSession();
 	bool IsInvalidName();
 	unsigned char GetTeamNum();
+	void SetUniqueId2(SteamID& PlayerUniqueId);
 	void SeamlessTravelTo(PlayerReplicationInfoWrapper NewPRI);
 	void IncrementDeaths(int Amt);
 	void CopyProperties(PlayerReplicationInfoWrapper PRI);
