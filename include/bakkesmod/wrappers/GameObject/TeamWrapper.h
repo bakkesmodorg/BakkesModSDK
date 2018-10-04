@@ -1,10 +1,12 @@
 #pragma once
 template<class T> class ArrayWrapper;
+template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ActorWrapper.h"
 class UnrealStringWrapper;
 class PriWrapper;
 class TeamGameEventWrapper;
+class WrapperStructs;
 
 class BAKKESMOD_PLUGIN_IMPORT TeamWrapper : public ActorWrapper {
 public:
@@ -15,6 +17,9 @@ public:
 	void SetFontColor(LinearColor newFontColor);
 	LinearColor GetColorBlindFontColor();
 	void SetColorBlindFontColor(LinearColor newColorBlindFontColor);
+	StructArrayWrapper<LinearColor> GetDefaultColorList();
+	StructArrayWrapper<LinearColor> GetColorBlindColorList();
+	StructArrayWrapper<LinearColor> GetCurrentColorList();
 	TeamGameEventWrapper GetGameEvent();
 	void SetGameEvent(TeamGameEventWrapper newGameEvent);
 	ArrayWrapper<PriWrapper> GetMembers();

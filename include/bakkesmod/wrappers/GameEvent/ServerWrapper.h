@@ -1,13 +1,14 @@
 #pragma once
 template<class T> class ArrayWrapper;
+template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/TeamGameEventWrapper.h"
-class ActorWrapper;
-class PriWrapper;
-class ReplayDirectorWrapper;
+class BallWrapper;
 class GoalWrapper;
 class TeamWrapper;
-class BallWrapper;
+class PriWrapper;
+class ActorWrapper;
+class ReplayDirectorWrapper;
 class CarWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT ServerWrapper : public TeamGameEventWrapper {

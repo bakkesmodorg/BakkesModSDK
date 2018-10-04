@@ -1,10 +1,11 @@
 #pragma once
 template<class T> class ArrayWrapper;
+template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/GameEditorWrapper.h"
-class ActorWrapper;
 class UnrealStringWrapper;
 class GameEditorSaveDataWrapper;
+class ActorWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT TrainingEditorWrapper : public GameEditorWrapper {
 public:

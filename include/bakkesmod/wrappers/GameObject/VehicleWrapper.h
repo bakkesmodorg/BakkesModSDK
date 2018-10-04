@@ -1,14 +1,15 @@
 #pragma once
 template<class T> class ArrayWrapper;
+template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/RBActorWrapper.h"
 class BoostWrapper;
-class DoubleJumpComponentWrapper;
-class VehicleSimWrapper;
-class DodgeComponentWrapper;
-class JumpComponentWrapper;
 class AirControlComponentWrapper;
+class DoubleJumpComponentWrapper;
 class PriWrapper;
+class VehicleSimWrapper;
+class JumpComponentWrapper;
+class DodgeComponentWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT VehicleWrapper : public RBActorWrapper {
 public:

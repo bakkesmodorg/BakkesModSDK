@@ -1,9 +1,10 @@
 #pragma once
 template<class T> class ArrayWrapper;
+template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/ServerWrapper.h"
-class ActorWrapper;
 class CarWrapper;
+class ActorWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT GameEditorWrapper : public ServerWrapper {
 public:

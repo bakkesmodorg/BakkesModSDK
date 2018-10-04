@@ -1,10 +1,11 @@
 #pragma once
 template<class T> class ArrayWrapper;
+template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/PlayerReplicationInfoWrapper.h"
-class UnrealStringWrapper;
-class GameEventWrapper;
 class AirControlComponentWrapper;
+class GameEventWrapper;
+class UnrealStringWrapper;
 class CarWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT PriWrapper : public PlayerReplicationInfoWrapper {
