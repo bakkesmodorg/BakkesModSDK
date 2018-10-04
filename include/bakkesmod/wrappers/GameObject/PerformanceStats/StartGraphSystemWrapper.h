@@ -11,9 +11,6 @@ class BAKKESMOD_PLUGIN_IMPORT StartGraphSystemWrapper : public ObjectWrapper {
 public:
 	CONSTRUCTORS(StartGraphSystemWrapper)
 
-	_NODISCARD bool IsNull() const;
-	explicit operator bool() const;
-
 	//AUTO-GENERATED FROM FIELDS
 	float GetGraphSampleTime();
 	void SetGraphSampleTime(float newGraphSampleTime);

@@ -181,6 +181,12 @@ struct ControllerInput {
 	unsigned long Jumped : 1;
 };
 
+struct RecordedSample
+{
+	float                                              Low;                                              		// 0x0000 (0x0004) [0x0000000000000000]              
+	float                                              High;                                             		// 0x0004 (0x0004) [0x0000000000000000]              
+};
+
 //Player rotation Min(-16364, -32768, -32768)
 //Player rotation Max(16340, 32764, 32764)
 struct Rotator {
@@ -307,16 +313,51 @@ enum CARBODY
 	CAR_CENTIO = 1919,
 	CAR_ANIMUSGP = 1932,
 };
+struct Quat {
+	float X, Y, Z, W;
 
+	Quat(float w, float x, float y, float z) : W(w), X(x), Y(y), Z(z) {}
+	Quat() : Quat(1.0, 0.0, 0.0, 0.0) {}
+
+	inline Quat conjugate()
+	{
+		return Quat(W, -X, -Y, -Z);
+	}
+
+	inline Quat operator*(Quat q2)
+	{
+		float mulW = W * q2.W;
+		mulW -= X * q2.X;
+		mulW -= Y * q2.Y;
+		mulW -= Z * q2.Z;
+
+		float mulX = W * q2.X;
+		mulX += X * q2.W;
+		mulX += Y * q2.Z;
+		mulX -= Z * q2.Y;
+
+		float mulY = W * q2.Y;
+		mulY -= X * q2.Z;
+		mulY += Y * q2.W;
+		mulY += Z * q2.X;
+
+		float mulZ = W * q2.Z;
+		mulZ += X * q2.Y;
+		mulZ -= Y * q2.X;
+		mulZ += Z * q2.W;
+
+		return Quat(mulW, mulX, mulY, mulZ);
+	}
+};
 struct RBState
 {
-	struct Vector                                     Location;                                         		// 0x0000 (0x000C) [0x0000000000000000]              
-	struct Rotator                                    Rotation;                                         		// 0x000C (0x000C) [0x0000000000000000]              
-	struct Vector                                     LinearVelocity;                                   		// 0x0018 (0x000C) [0x0000000000000000]              
-	struct Vector                                     AngularVelocity;                                  		// 0x0024 (0x000C) [0x0000000000000000]              
-	unsigned long                                     bSleeping : 1;                                    		// 0x0030 (0x0004) [0x0000000000000000] [0x00000001] 
-	unsigned long                                     bNewData : 1;                                     		// 0x0030 (0x0004) [0x0000000000000000] [0x00000002] 
-	float                                             Time;                                             		// 0x0034 (0x0004) [0x0000000000000000]              
+	struct Quat                                      Quaternion;                                         		// 0x0000 (0x0010) [0x0000000000000000]              
+	struct Vector                                     Location;                                         		// 0x0010 (0x000C) [0x0000000000000000]              
+	struct Vector                                     LinearVelocity;                                   		// 0x001C (0x000C) [0x0000000000000000]              
+	struct Vector                                     AngularVelocity;                                  		// 0x0028 (0x000C) [0x0000000000000000] 
+	float                                             Time;                                             		// 0x0034 (0x0004) [0x0000000000000000]              	
+	unsigned long                                     bSleeping : 1;                                    		// 0x0038 (0x0004) [0x0000000000000000] [0x00000001] 
+	unsigned long                                     bNewData : 1;                                     		// 0x0038 (0x0004) [0x0000000000000000] [0x00000002] 
 };
 
 struct WorldContactData

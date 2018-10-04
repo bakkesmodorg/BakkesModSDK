@@ -1,11 +1,12 @@
 #pragma once
 template<class T> class ArrayWrapper;
+template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././GameObject/CarComponent/CarComponentWrapper.h"
 class BoostWrapper;
 class RBActorWrapper;
-class UnrealStringWrapper;
 class BallWrapper;
+class UnrealStringWrapper;
 class CarWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT RumblePickupComponentWrapper : public CarComponentWrapper {

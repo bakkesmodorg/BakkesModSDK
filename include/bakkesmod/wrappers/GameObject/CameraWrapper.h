@@ -1,8 +1,10 @@
 #pragma once
 template<class T> class ArrayWrapper;
+template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ActorWrapper.h"
 class RBActorWrapper;
+class WrapperStructs;
 
 class BAKKESMOD_PLUGIN_IMPORT CameraWrapper : public ActorWrapper {
 public:
@@ -30,6 +32,7 @@ public:
 	void SetSwivelFastSpeed(float newSwivelFastSpeed);
 	float GetSwivelDieRate();
 	void SetSwivelDieRate(float newSwivelDieRate);
+	StructArrayWrapper<ProfileCameraSettings> GetCameraPresetSettings();
 	float GetHorizontalSplitscreenHeightOffset();
 	void SetHorizontalSplitscreenHeightOffset(float newHorizontalSplitscreenHeightOffset);
 	float GetHorizontalSplitscreenFOVOffset();

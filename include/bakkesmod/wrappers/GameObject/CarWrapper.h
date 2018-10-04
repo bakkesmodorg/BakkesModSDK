@@ -1,17 +1,18 @@
 #pragma once
 template<class T> class ArrayWrapper;
+template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/VehicleWrapper.h"
-class RumblePickupComponentWrapper;
-class CarComponentWrapper;
-class WheelWrapper;
-class PriWrapper;
 class RBActorWrapper;
-class ActorWrapper;
-class GameEventWrapper;
-class PrimitiveComponentWrapper;
+class RumblePickupComponentWrapper;
 class BallWrapper;
 class FlipCarComponentWrapper;
+class GameEventWrapper;
+class PrimitiveComponentWrapper;
+class PriWrapper;
+class CarComponentWrapper;
+class ActorWrapper;
+class WheelWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT CarWrapper : public VehicleWrapper {
 public:

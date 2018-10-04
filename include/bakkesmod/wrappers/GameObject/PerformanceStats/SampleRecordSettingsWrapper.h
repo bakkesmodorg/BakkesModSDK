@@ -8,9 +8,6 @@ class BAKKESMOD_PLUGIN_IMPORT SampleRecordSettingsWrapper : public ObjectWrapper
 public:
 	CONSTRUCTORS(SampleRecordSettingsWrapper)
 
-	_NODISCARD bool IsNull() const;
-	explicit operator bool() const;
-
 	//AUTO-GENERATED FROM FIELDS
 	float GetMaxSampleAge();
 	void SetMaxSampleAge(float newMaxSampleAge);

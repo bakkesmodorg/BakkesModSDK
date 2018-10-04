@@ -1,10 +1,12 @@
 #pragma once
 template<class T> class ArrayWrapper;
+template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ActorWrapper.h"
 class UnrealStringWrapper;
 class PriWrapper;
 class CarWrapper;
+class WrapperStructs;
 
 class BAKKESMOD_PLUGIN_IMPORT GameEventWrapper : public ActorWrapper {
 public:
@@ -62,6 +64,8 @@ public:
 	void SetIdleKickTime(float newIdleKickTime);
 	float GetIdleKickWarningTime();
 	void SetIdleKickWarningTime(float newIdleKickWarningTime);
+	StructArrayWrapper<SteamID> GetForfeitInitiatorIDs();
+	StructArrayWrapper<SteamID> GetBannedPlayers();
 	PriWrapper GetGameOwner();
 	void SetGameOwner(PriWrapper newGameOwner);
 	UnrealStringWrapper GetRichPresenceString();

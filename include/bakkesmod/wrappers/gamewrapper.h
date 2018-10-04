@@ -13,7 +13,7 @@ class CameraWrapper;
 class ReplayServerWrapper;
 class CanvasWrapper;
 class CarWrapper;
-
+class EngineTAWrapper;
 class BAKKESMOD_PLUGIN_IMPORT GameWrapper
 {
 public:
@@ -37,7 +37,7 @@ public:
 
 	CarWrapper						GetLocalCar();
 	CameraWrapper					GetCamera();
-	
+	EngineTAWrapper					GetEngine();
 	void							OverrideParams(void* src, size_t memsize);
 
 	void							SetTimeout(std::function<void(GameWrapper*)> theLambda, float time); //time in seconds, subject to change to std::shared_ptr<GameWrapper>
@@ -48,7 +48,7 @@ public:
 	int								GetFNameIndexByString(string name);
 
 	void							HookEvent(string eventName, std::function<void(std::string eventName)> callback);
-
+	void							UnhookEvent(string eventName);
 
 	void							HookEventPost(string eventName, std::function<void(std::string eventName)> callback);
 	void							RegisterBot(CARBODY car, std::function<void(float deltaTime, ControllerInput* inputs, CarWrapper* ownedCar, ServerWrapper* game)> tickfunc, string botName, bool overridePlayer);

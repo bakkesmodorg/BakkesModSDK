@@ -3,16 +3,13 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././Engine/ObjectWrapper.h"
+class UnrealStringWrapper;
 class SampleRecordSettingsWrapper;
 class WrapperStructs;
-class UnrealStringWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT SampleHistoryWrapper : public ObjectWrapper {
 public:
 	CONSTRUCTORS(SampleHistoryWrapper)
-
-	_NODISCARD bool IsNull() const;
-	explicit operator bool() const;
 
 	//AUTO-GENERATED FROM FIELDS
 	SampleRecordSettingsWrapper GetRecordSettings();
@@ -45,7 +42,6 @@ public:
 	SampleHistoryWrapper SetBaseValue2(float InBaseValue);
 	SampleHistoryWrapper SetGoodBadValues(float InGoodValue, float InBadValue);
 	SampleHistoryWrapper SetGraphMaxMin(float MaxValue, float MinValue);
-	SampleHistoryWrapper SetTitle(std::string InTitle);
 private:
 	PIMPL
 };

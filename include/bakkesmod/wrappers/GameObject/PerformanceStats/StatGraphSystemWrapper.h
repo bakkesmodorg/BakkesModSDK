@@ -3,17 +3,14 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././Engine/ObjectWrapper.h"
-class StatGraphWrapper;
-class PerfStatGraphWrapper;
 class InputBufferGraphWrapper;
 class NetStatGraphWrapper;
+class StatGraphWrapper;
+class PerfStatGraphWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT StatGraphSystemWrapper : public ObjectWrapper {
 public:
 	CONSTRUCTORS(StatGraphSystemWrapper)
-
-	_NODISCARD bool IsNull() const;
-	explicit operator bool() const;
 
 	//AUTO-GENERATED FROM FIELDS
 	float GetGraphSampleTime();
@@ -28,12 +25,8 @@ public:
 	void SetInputBufferGraph(InputBufferGraphWrapper newInputBufferGraph);
 	ArrayWrapper<StatGraphWrapper> GetStatGraphs();
 	ArrayWrapper<StatGraphWrapper> GetVisibleStatGraphs();
-	int GetPreallocGraphLines();
-	void SetPreallocGraphLines(int newPreallocGraphLines);
 
 	//AUTO-GENERATED FUNCTION PROXIES
-	void __StatGraphSystem_TA__SetGraphLevel(StatGraphWrapper G);
-	void PacketReceived(float Latency);
 	void Graphtime(float Seconds);
 	void StatGraphNext();
 	float GetGraphSampleTime2(unsigned char Level);

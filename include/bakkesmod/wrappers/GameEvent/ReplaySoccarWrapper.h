@@ -1,5 +1,6 @@
 #pragma once
 template<class T> class ArrayWrapper;
+template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/ReplayWrapper.h"
 class PriWrapper;

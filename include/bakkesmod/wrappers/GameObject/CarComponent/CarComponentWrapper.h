@@ -1,10 +1,11 @@
 #pragma once
 template<class T> class ArrayWrapper;
+template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././Engine/ActorWrapper.h"
-class VehicleWrapper;
 class PriWrapper;
 class CarWrapper;
+class VehicleWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT CarComponentWrapper : public ActorWrapper {
 public:

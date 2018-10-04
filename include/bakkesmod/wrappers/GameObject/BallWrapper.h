@@ -1,10 +1,11 @@
 #pragma once
 template<class T> class ArrayWrapper;
+template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/RBActorWrapper.h"
 class GoalWrapper;
-class ServerWrapper;
 class PriWrapper;
+class ServerWrapper;
 class CarWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT BallWrapper : public RBActorWrapper {
