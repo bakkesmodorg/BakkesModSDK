@@ -3,20 +3,18 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "WrapperStructs.h"
 #include "./Engine/ActorWrapper.h"
-//#include "ControllerWrapper.h"
-class BoostWrapper;
-class UnrealStringWrapper;
+class PlayerReplicationInfoWrapper;
+class EngineTAWrapper;
+class PriWrapper;
+class ServerWrapper;
+class GameEventWrapper;
 class CarWrapper;
 class PriXWrapper;
-class GameEventWrapper;
-class ServerWrapper;
-class BaseCameraWrapper;
 class RBActorWrapper;
-class PriWrapper;
-class EngineTAWrapper;
-class PlayerReplicationInfoWrapper;
+class UnrealStringWrapper;
+class BoostWrapper;
 
-class BAKKESMOD_PLUGIN_IMPORT PlayerControllerWrapper : public ActorWrapper /*ControllerWrapper*/ {
+class BAKKESMOD_PLUGIN_IMPORT PlayerControllerWrapper : public ActorWrapper {
 public:
 	CONSTRUCTORS(PlayerControllerWrapper)
 
@@ -29,6 +27,8 @@ public:
 	void SetVehicleInput(ControllerInput newVehicleInput);
 	unsigned long GetbReceivedServerShutdownMessage();
 	void SetbReceivedServerShutdownMessage(unsigned long newbReceivedServerShutdownMessage);
+	unsigned long GetbPendingIdleKick();
+	void SetbPendingIdleKick(unsigned long newbPendingIdleKick);
 	unsigned long GetbUseDebugInputs();
 	void SetbUseDebugInputs(unsigned long newbUseDebugInputs);
 	unsigned long GetbJumpPressed();
@@ -50,10 +50,6 @@ public:
 	void SetChatFilter(unsigned char newChatFilter);
 	PriWrapper GetFollowTarget();
 	void SetFollowTarget(PriWrapper newFollowTarget);
-	BaseCameraWrapper GetSpectatorCameraArchetype();
-	void SetSpectatorCameraArchetype(BaseCameraWrapper newSpectatorCameraArchetype);
-	BaseCameraWrapper GetEditorCameraArchetype();
-	void SetEditorCameraArchetype(BaseCameraWrapper newEditorCameraArchetype);
 	Vector GetMoveActorGrabOffset();
 	void SetMoveActorGrabOffset(Vector newMoveActorGrabOffset);
 	float GetMoveActorGrabIncrement();
@@ -180,9 +176,12 @@ public:
 	void QueSaveReplay();
 	void SetFollowTarget2(PriWrapper InTarget);
 	void FollowPlayer(PriWrapper InPlayer);
+	void OnPendingIdleKickChanged();
+	void SetPendingIdleKick(unsigned long bPending);
 	void ClientSplitscreenJoinResponse(SteamID& PlayerID, unsigned long bAllow, std::string Error);
 	void ServerRequestSplitscreenJoin(SteamID& PlayerID, std::string PlayerName);
 	bool eventPreClientTravel(std::string PendingURL, unsigned char TravelType, unsigned long bIsSeamlessTravel);
+	void KickTrialPlayer();
 	void NotifyGoalScored(int ScoredOnTeam);
 	void eventDestroyed();
 	bool ShouldBeMuted(PlayerControllerWrapper Other);
@@ -198,6 +197,8 @@ public:
 	void DebugAI();
 	void SendPendingRPCs();
 	bool CanSendMessage(unsigned long bQuickChatMessage);
+	void RemoveChatBan();
+	void ApplyChatBan(unsigned long long Expiration);
 	void ClientNotifyChatBanned(unsigned long long ChatBanExpiration);
 	void ClientNotifyChatDisabled(float Time);
 	void ChatMessage_TA(PlayerReplicationInfoWrapper InPRI, std::string Message, unsigned char ChatChannel, unsigned long bPreset);
@@ -209,6 +210,7 @@ public:
 	void PushToTalkEnd();
 	void PushToTalk2();
 	void HandleJoinGameMigrationCompleted(unsigned long bSuccess, std::string FailReason);
+	void ClientNotifyServerShutdown();
 	void eventClientUnmutePlayer(SteamID& PlayerNetId);
 	void eventClientMutePlayer(SteamID& PlayerNetId, unsigned long bAddToMuteList);
 	void ClientSetOnlineStatus();
@@ -268,41 +270,13 @@ public:
 	void ServerInitInputBuffer(unsigned char Type);
 	void eventReceivedPlayer();
 	void eventPostBeginPlay();
-	void EventChatMessage(PlayerControllerWrapper PC, std::string Message, unsigned long bPreset);
 	void EventResetPlayer(PlayerControllerWrapper PC, unsigned long bFullReset);
 	void EventSelectBallCamTarget(PlayerControllerWrapper PC, int Direction);
 	void EventTrainingEditorActorModified();
 	void EventMuteChanged(PlayerControllerWrapper PC, SteamID& PlayerID, unsigned long bMuted);
+	void EventPendingIdleKickChanged(PlayerControllerWrapper PC);
 	void EventLaunchControllerApplet();
 	void EventLaunchAccountPicker(int ControllerId);
-    bool GetbUsingGamepad();
-    void SetMouseSensitivity(float NewSensitivity);
-    float GetMouseSensitivity();
-	void SetAForward(float aForward);
-	float GetAForward();
-	void SetATurn(float aTurn);
-	float GetATurn();
-	void SetAStrafe(float aStrafe);
-	float GetAStrafe();
-	void SetAUp(float aUp);
-	float GetAUp();
-	void SetALookUp(float aLookUp);
-	float GetALookUp();
-    void SetLookRightScale(float NewScale);
-    float GetLookRightScale();
-    void SetLookUpScale(float NewScale);
-    float GetLookUpScale();
-    void SetGamepadLookScale(float NewScale);
-    float GetGamepadLookScale();
-    void SetALookRoll(float NewLookRoll);
-    float GetALookRoll();
-    void SetbRoll(bool NewRoll);
-    bool GetbRoll();
-	void SetSpectatorCameraAccel(float SpectatorCameraAccel);
-	float GetSpectatorCameraAccel();
-	void SetSpectatorCameraSpeed(float SpectatorCameraSpeed);
-	float GetSpectatorCameraSpeed();
-
 private:
 	PIMPL
 };

@@ -3,8 +3,8 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ActorWrapper.h"
-class RBActorWrapper;
 class WrapperStructs;
+class RBActorWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT CameraWrapper : public ActorWrapper {
 public:

@@ -9,12 +9,6 @@ class BAKKESMOD_PLUGIN_IMPORT GameSettingPlaylistWrapper : public ObjectWrapper 
 public:
 	CONSTRUCTORS(GameSettingPlaylistWrapper)
 
-	_NODISCARD bool IsNull() const;
-	explicit operator bool() const;
-
-	std::string GetLocalizedName();
-	std::string GetName();
-
 	//AUTO-GENERATED FROM FIELDS
 	UnrealStringWrapper GetTitle();
 	UnrealStringWrapper GetDescription();
@@ -34,10 +28,8 @@ public:
 	void SetbAllowForfeit(unsigned long newbAllowForfeit);
 	unsigned long GetbDisableRankedReconnect();
 	void SetbDisableRankedReconnect(unsigned long newbDisableRankedReconnect);
-	unsigned long GetbIgnoreAssignTeams();
-	void SetbIgnoreAssignTeams(unsigned long newbIgnoreAssignTeams);
-	unsigned long GetbKickOnMigrate();
-	void SetbKickOnMigrate(unsigned long newbKickOnMigrate);
+	unsigned long GetbUsesAssignedTeams();
+	void SetbUsesAssignedTeams(unsigned long newbUsesAssignedTeams);
 	unsigned long GetbAllowClubs();
 	void SetbAllowClubs(unsigned long newbAllowClubs);
 	unsigned long GetbPlayersVSBots();
@@ -49,11 +41,9 @@ public:
 	//AUTO-GENERATED FUNCTION PROXIES
 	bool IsLanMatch();
 	bool IsPrivateMatch();
-	bool IsTournamentMatch();
 	bool ShouldUpdateSkills();
 	bool IsValidID(int InPlaylistID);
 	bool IsValid2();
-	
 private:
 	PIMPL
 };

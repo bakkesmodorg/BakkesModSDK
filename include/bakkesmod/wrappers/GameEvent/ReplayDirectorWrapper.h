@@ -3,13 +3,15 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ActorWrapper.h"
+class ServerWrapper;
+class PriWrapper;
+class GameEventWrapper;
+class ReplayWrapper;
+class TeamWrapper;
+class TeamGameEventWrapper;
 class ReplaySoccarWrapper;
 class GoalWrapper;
 class BallWrapper;
-class TeamWrapper;
-class GameEventWrapper;
-class TeamGameEventWrapper;
-class ServerWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT ReplayDirectorWrapper : public ActorWrapper {
 public:
@@ -72,6 +74,12 @@ public:
 	void SetForceCutToFocusActors(int newForceCutToFocusActors);
 
 	//AUTO-GENERATED FUNCTION PROXIES
+	void HandleReplayFinished(ReplayWrapper InReplay);
+	bool ShouldSlomo();
+	void UpdateSlomo();
+	void UpdateFocusActors();
+	void PlayRandomHighlight();
+	int GetNextHighlightFrame();
 	void SetAutoSave();
 	void SaveUserKeyframe();
 	void BuildFocusCars();
@@ -83,13 +91,13 @@ public:
 	float GetReplayStartTime();
 	void SetSlomoForDefender(BallWrapper Ball, int DefendingTeam);
 	void OnScoreDataChanged();
-	void GoalScored(BallWrapper Ball, GoalWrapper Goal, int ScoreIndex, int AssistIndex);
 	void HandleScoreUpdated(TeamWrapper Team);
 	void HandleAllTeamsCreated(TeamGameEventWrapper TeamGame);
 	void RecordPlayers();
 	void HandleGameStateChanged(GameEventWrapper G);
 	void OnSoccarGameSet();
 	void SetGameEvent(ServerWrapper InGameEvent);
+	void EventFocusCarChanged(ActorWrapper NewFocusCar);
 	void EventAutoSaveChanged(ReplayDirectorWrapper Director);
 	void EventScoreDataChanged(ReplayDirectorWrapper Director);
 	void EventReplayFinished(ReplayDirectorWrapper Director);

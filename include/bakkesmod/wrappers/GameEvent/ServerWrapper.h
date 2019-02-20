@@ -3,13 +3,14 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/TeamGameEventWrapper.h"
-class BallWrapper;
-class GoalWrapper;
-class TeamWrapper;
 class PriWrapper;
-class ActorWrapper;
-class ReplayDirectorWrapper;
 class CarWrapper;
+class ReplayDirectorWrapper;
+class TeamWrapper;
+class ActorWrapper;
+class GoalWrapper;
+class PlayerControllerWrapper;
+class BallWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT ServerWrapper : public TeamGameEventWrapper {
 public:
@@ -18,7 +19,8 @@ public:
 	//BEGIN SELF IMPLEMENTED
 	BallWrapper GetBall();
 	void SpawnCar(int carBody, string name);
-	BallWrapper SpawnBall(Vector position, bool wake, bool spawnCannon);
+	void SpawnBot(int carBody, string name);
+	BallWrapper SpawnBall(const Vector position, bool wake, bool spawnCannon);
 	bool HasAuthority();
 	GETSETH(float, GameSpeed)
 	GETSETH(float, SecondsElapsed)	//END SELF IMPLEMENTED
@@ -48,8 +50,12 @@ public:
 	void SetGameTimeRemaining(float newGameTimeRemaining);
 	int GetSecondsRemaining();
 	void SetSecondsRemaining(int newSecondsRemaining);
+	int GetWaitTimeRemaining();
+	void SetWaitTimeRemaining(int newWaitTimeRemaining);
 	float GetTotalGameTimePlayed();
 	void SetTotalGameTimePlayed(float newTotalGameTimePlayed);
+	float GetOvertimeTimePlayed();
+	void SetOvertimeTimePlayed(float newOvertimeTimePlayed);
 	unsigned long GetbRoundActive();
 	void SetbRoundActive(unsigned long newbRoundActive);
 	unsigned long GetbPlayReplays();
@@ -132,13 +138,49 @@ public:
 	void SetLobbyTime(float newLobbyTime);
 	int GetLobbySpawnRestartTime();
 	void SetLobbySpawnRestartTime(int newLobbySpawnRestartTime);
+	PlayerControllerWrapper GetPauser();
+	void SetPauser(PlayerControllerWrapper newPauser);
 
 	//AUTO-GENERATED FUNCTION PROXIES
+	int GetPlayerCarCount();
+	void ReplicateSkillTiers();
+	void RemoveTeamSelection();
+	void CheckStart();
+	void StartLobbyTimer();
+	void HandleCountdownTick();
+	void CheckForCountdownAction();
+	void LobbyCountdownTick();
+	bool CanSpawnBots();
+	void StartRound();
+	void EndRound();
+	void SetBallEventListeners(BallWrapper Ball, unsigned long bListen);
+	bool CanAwardPoints();
+	void HandleCarTouch(BallWrapper Ball, CarWrapper HitCar, unsigned char HitType);
+	void SetBallHasBeenHit2();
+	int DetermineScoreTouchIndex(BallWrapper Ball, GoalWrapper Goal);
+	int DetermineAssistTouchIndex(BallWrapper Ball, int ScoreIdx);
+	void UpdateTotalGameTimePlayed(float DeltaTime);
+	void UpdateGameTime(float DeltaTime);
+	bool CanUpdateGameTime();
+	void WaitForBallOnGround();
+	bool BallHitGround(Vector& HitNorm);
+	void HandleBallHitGround(BallWrapper Ball, Vector& HitLoc, Vector& HitNorm);
+	void HandleBallHitGroundTimeout();
+	void StartReplay();
+	void HandleReplayFinished(ReplayDirectorWrapper InReplay);
+	void GotoPodiumSpotlight();
+	void UpdateSpotlight();
+	void SpawnPodiumCars();
+	bool CanEnableCarPodiumMovement();
+	void FinishEvent();
 	bool __GameEvent_Soccar_TA__UpdateTeamScores(TeamWrapper T);
-	void __GameEvent_Soccar_TA__SubmitMatch(PriWrapper PRI);
+	void __GameEvent_Soccar_TA__SubmitMatchComplete(PriWrapper PRI);
 	void __GameEvent_Soccar_TA__CheckStart(TeamWrapper T);
+	void __GameEvent_Soccar_TA__EndState(TeamWrapper T);
 	void __ReplicatedServerPerformanceState__ChangeNotifyFunc();
 	void __bShowIntroScene__ChangeNotifyFunc();
+	void __WaitTimeRemaining__ChangeNotifyFunc();
+	void CheckJoinInProgress(PriWrapper PRI);
 	bool AllowDynamicCrowd();
 	void AddBallTrajectory(BallWrapper InBall);
 	bool ShowScorerGoalMessage();
@@ -146,14 +188,23 @@ public:
 	bool DisableStatXP();
 	void SetDisableGoalDelay(unsigned long bInDisableGoalDelay);
 	void ForceMatchStart();
+	void RemoveLocalPlayer(PlayerControllerWrapper Player);
+	void AddLocalPlayer(PlayerControllerWrapper Player);
+	void DestroyGoalIndicators(PlayerControllerWrapper Player);
+	void CreateGoalIndicators(PlayerControllerWrapper Player);
+	PlayerControllerWrapper GetLocalPrimaryPlayer();
 	void BeginHighlightsReplay();
+	bool ShouldCountUp();
 	bool ShouldAllowVoteToForfeit();
 	bool ShouldHaveLeaveMatchPenalty();
+	void SetPaused(PlayerControllerWrapper InPauser, unsigned long bInPaused);
 	bool ShouldCountdownResumeFromPause();
+	void SetScoreAndTime(PlayerControllerWrapper PC, int NewScoreTeam0, int NewScoreTeam1, int InGameTimeRemaining, unsigned long bInOvertime, unsigned long bRestartRound);
 	void SaveLocalPlayerStats();
 	bool ShouldPlayReplay();
 	bool ShouldRecordReplay();
 	void OnBallHasBeenHit();
+	BallWrapper SpawnBall2(Vector& SpawnLoc, unsigned long bWake, unsigned long bSpawnCannon, std::string BallArch);
 	int GetTotalScore();
 	void HandleCarSet(PriWrapper InPRI);
 	void RemovePRI(PriWrapper PRI);
@@ -167,12 +218,11 @@ public:
 	void HandleScoreUpdated(TeamWrapper Team);
 	void OnAllTeamsCreated();
 	void TriggerGoalScoreEvent(int TeamScoredOn, CarWrapper Scorer);
-	bool CanAwardAchievements();
-	bool AllowScoreboard();
 	void SetTotalGameBalls2(int TotalBalls);
 	void RecordRecentPlayers();
 	void UpdateStats();
 	void NotifyKismetOfCurrentTime();
+	bool EnoughTimePassedToForfeit();
 	void OnGameTimeUpdated();
 	void OnOvertimeUpdated();
 	void ForceOvertime();
@@ -191,8 +241,8 @@ public:
 	void StartNewRound();
 	void CheckForAutoBalance();
 	bool HasWinner();
-	void SubmitSkillMatch();
 	void SubmitMatch2();
+	void SubmitMatchComplete2();
 	void OnMatchEnded();
 	bool ShouldDoPodiumSpotlight();
 	void EndGame();
@@ -201,13 +251,16 @@ public:
 	void ResetGame();
 	void ClearReplicatedStatEvent();
 	void eventDestroyed();
+	void InitBotDetection();
 	void InitCrowdManager();
 	void InitField();
 	void InitGameObserver();
-	void InitMatchRecorder();
 	void OnInit();
 	void InitMutators();
+	void OnClubMatch();
+	bool CanInitClubMatch();
 	void AssignCustomTeamSettings();
+	void InitGame2(std::string Options);
 	void EventGameWinnerSet(ServerWrapper GameEvent);
 	void EventGoalScored(ServerWrapper GameEvent, BallWrapper Ball, GoalWrapper Goal, int ScoreIndex, int AssistIdx);
 private:

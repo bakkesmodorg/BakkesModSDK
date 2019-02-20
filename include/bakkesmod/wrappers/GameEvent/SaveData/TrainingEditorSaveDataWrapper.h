@@ -20,6 +20,10 @@ public:
 	UnrealStringWrapper GetDescription();
 	int GetNumRounds();
 	void SetNumRounds(int newNumRounds);
+	unsigned long long GetCreatedAt();
+	void SetCreatedAt(unsigned long long newCreatedAt);
+	unsigned long long GetUpdatedAt();
+	void SetUpdatedAt(unsigned long long newUpdatedAt);
 	SteamID GetCreatorPlayerID();
 	void SetCreatorPlayerID(SteamID newCreatorPlayerID);
 

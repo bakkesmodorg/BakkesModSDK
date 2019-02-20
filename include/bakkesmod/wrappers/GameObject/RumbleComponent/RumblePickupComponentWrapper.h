@@ -3,11 +3,11 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././GameObject/CarComponent/CarComponentWrapper.h"
-class BoostWrapper;
-class RBActorWrapper;
 class BallWrapper;
-class UnrealStringWrapper;
 class CarWrapper;
+class RBActorWrapper;
+class UnrealStringWrapper;
+class BoostWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT RumblePickupComponentWrapper : public CarComponentWrapper {
 public:

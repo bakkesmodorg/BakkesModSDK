@@ -3,9 +3,10 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/GameEventWrapper.h"
-class TeamWrapper;
 class PriWrapper;
 class CarWrapper;
+class TeamWrapper;
+class PlayerControllerWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT TeamGameEventWrapper : public GameEventWrapper {
 public:
@@ -30,7 +31,12 @@ public:
 	void SetbAlwaysAutoSelectTeam(unsigned long newbAlwaysAutoSelectTeam);
 
 	//AUTO-GENERATED FUNCTION PROXIES
+	void StartRematchVote();
+	void CheckRematchVote();
+	bool __GameEvent_Team_TA__AllTeamsHaveHumans(TeamWrapper Team);
+	void UpdatePlayerShortcuts();
 	void ClearTemporarySpawnSpots();
+	bool ChooseTeam(int TeamIndex, PlayerControllerWrapper Player);
 	bool CanChangeTeam();
 	void OnPenaltyChanged();
 	void OnTeamForfeited(TeamWrapper Team);
@@ -46,14 +52,17 @@ public:
 	void OnAllTeamsCreated();
 	void AssignCustomTeamSettings();
 	void OnMatchSettingsChanged();
+	bool AllTeamsHaveHumans2();
 	bool AllTeamsCreated2();
 	void SetTeam(int TeamNum, TeamWrapper NewTeam);
 	void CreateTeams();
+	void PreloadBots();
 	void OnInit();
 	void SetMaxTeamSize2(int MaxSize);
 	void UpdateMaxTeamSize();
 	void SetUnfairTeams(unsigned long bUnfair);
 	void InitBotSkill();
+	void eventInitGame(std::string Options);
 private:
 	PIMPL
 };

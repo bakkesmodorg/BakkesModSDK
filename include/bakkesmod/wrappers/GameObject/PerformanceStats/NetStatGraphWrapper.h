@@ -33,6 +33,9 @@ public:
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	void eventUpdateGraphRanges();
+	SampleHistoryWrapper CreateBytesSummary(std::string Title);
+	SampleHistoryWrapper CreateLossSummary(std::string Title);
+	SampleHistoryWrapper CreatePktSummary(std::string Title);
 	void eventConstruct();
 private:
 	PIMPL

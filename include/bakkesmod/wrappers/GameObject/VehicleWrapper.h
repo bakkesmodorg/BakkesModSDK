@@ -3,13 +3,14 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/RBActorWrapper.h"
-class BoostWrapper;
-class AirControlComponentWrapper;
-class DoubleJumpComponentWrapper;
-class PriWrapper;
-class VehicleSimWrapper;
-class JumpComponentWrapper;
 class DodgeComponentWrapper;
+class JumpComponentWrapper;
+class PriWrapper;
+class AirControlComponentWrapper;
+class VehicleSimWrapper;
+class DoubleJumpComponentWrapper;
+class PlayerControllerWrapper;
+class BoostWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT VehicleWrapper : public RBActorWrapper {
 public:
@@ -22,6 +23,10 @@ public:
 	void SetbDriving(unsigned long newbDriving);
 	unsigned long GetbReplicatedHandbrake();
 	void SetbReplicatedHandbrake(unsigned long newbReplicatedHandbrake);
+	unsigned long GetbJumped();
+	void SetbJumped(unsigned long newbJumped);
+	unsigned long GetbDoubleJumped();
+	void SetbDoubleJumped(unsigned long newbDoubleJumped);
 	unsigned long GetbOnGround();
 	void SetbOnGround(unsigned long newbOnGround);
 	unsigned long GetbSuperSonic();
@@ -34,6 +39,8 @@ public:
 	void SetReplicatedThrottle(unsigned char newReplicatedThrottle);
 	unsigned char GetReplicatedSteer();
 	void SetReplicatedSteer(unsigned char newReplicatedSteer);
+	PlayerControllerWrapper GetPlayerController();
+	void SetPlayerController(PlayerControllerWrapper newPlayerController);
 	PriWrapper GetPRI();
 	void SetPRI(PriWrapper newPRI);
 	int GetVehicleUpdateTag();
@@ -42,8 +49,10 @@ public:
 	void SetLocalCollisionOffset(Vector newLocalCollisionOffset);
 	Vector GetLocalCollisionExtent();
 	void SetLocalCollisionExtent(Vector newLocalCollisionExtent);
-	int GetLastHitBallFrame();
-	void SetLastHitBallFrame(int newLastHitBallFrame);
+	int GetLastBallTouchFrame();
+	void SetLastBallTouchFrame(int newLastBallTouchFrame);
+	int GetLastBallImpactFrame();
+	void SetLastBallImpactFrame(int newLastBallImpactFrame);
 	BoostWrapper GetBoostComponent();
 	DodgeComponentWrapper GetDodgeComponent();
 	AirControlComponentWrapper GetAirControlComponent();
@@ -55,6 +64,7 @@ public:
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	void ForceNetPacketIfNearBall();
+	bool IsCarWithinForwardEllipticalCone(VehicleWrapper OtherCar, float YawAngleDegrees, float PitchAngleDegrees);
 	float GetForwardSpeed();
 	float GetTimeOffGround();
 	float GetTimeOnGround();

@@ -3,10 +3,10 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/RBActorWrapper.h"
-class GoalWrapper;
-class PriWrapper;
 class ServerWrapper;
+class PriWrapper;
 class CarWrapper;
+class GoalWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT BallWrapper : public RBActorWrapper {
 public:
@@ -31,12 +31,10 @@ public:
 	void SetbPredictionOnGround(unsigned long newbPredictionOnGround);
 	unsigned long GetbCanBeAttached();
 	void SetbCanBeAttached(unsigned long newbCanBeAttached);
-	unsigned long GetbBallDemolish();
-	void SetbBallDemolish(unsigned long newbBallDemolish);
-	unsigned long GetbNewFalling();
-	void SetbNewFalling(unsigned long newbNewFalling);
 	unsigned long GetbItemFreeze();
 	void SetbItemFreeze(unsigned long newbItemFreeze);
+	Vector GetMagnusCoefficient();
+	void SetMagnusCoefficient(Vector newMagnusCoefficient);
 	float GetRadius();
 	void SetRadius(float newRadius);
 	float GetVisualRadius();
@@ -71,20 +69,6 @@ public:
 	void SetPredictionTimestep(float newPredictionTimestep);
 	float GetLastPredictionTime();
 	void SetLastPredictionTime(float newLastPredictionTime);
-	float GetBallSloMoRadius();
-	void SetBallSloMoRadius(float newBallSloMoRadius);
-	float GetBallSloMoDuration();
-	void SetBallSloMoDuration(float newBallSloMoDuration);
-	float GetBallSloMoDilation();
-	void SetBallSloMoDilation(float newBallSloMoDilation);
-	float GetBallSloMoCooldown();
-	void SetBallSloMoCooldown(float newBallSloMoCooldown);
-	float GetBallSloMoNext();
-	void SetBallSloMoNext(float newBallSloMoNext);
-	float GetBallSloMoDiffSpeed();
-	void SetBallSloMoDiffSpeed(float newBallSloMoDiffSpeed);
-	int GetBallTouchScore();
-	void SetBallTouchScore(int newBallTouchScore);
 	float GetGroundForce();
 	void SetGroundForce(float newGroundForce);
 	CarWrapper GetCurrentAffector();
@@ -96,26 +80,18 @@ public:
 	Vector GetTrajectoryStartLocation();
 	bool ShouldDrawTrajectory();
 	float GetAdditionalCarBounceScaleZ(CarWrapper Car);
-	void SetTouchScoreValue(int NewValue);
 	void SetEndOfGameHidden();
 	void Explode(GoalWrapper ExplosionGoal, Vector& ExplodeLocation, PriWrapper Scorer);
-	bool ShouldDemolish(CarWrapper Car);
 	void DoDestroy();
 	void DoExplode();
-	void RestoreTimeDilation();
-	void GetBallTimeDilation();
 	void Launch(Vector& LaunchPosition, Vector& LaunchDirection);
 	void OnCarTouch(CarWrapper HitCar, unsigned char HitType);
 	void RecordCarHit(CarWrapper HitCar, Vector& HitLocation, Vector& HitNormal, unsigned char HitType);
 	bool IsGroundHit(Vector& HitNormal);
+	void FellOutOfWorld();
 	bool IsRoundActive();
 	void eventOnHitGoal(GoalWrapper Goal, Vector& HitLoc);
 	void TurnOff();
-	void SetBallSloMoDiffSpeed2(float InDiffSpeed);
-	void SetBallSloMoRadius2(float Inradius);
-	void SetBallSloMoCooldown2(float InCooldown);
-	void SetBallSloMoDilation2(float InDilation);
-	void SetBallSloMoDuration2(float InDuration);
 	void SetWorldBounceScale(float NewScale);
 	void SetCarBounceScale(float NewScale);
 	void SetBallMaxLinearSpeedScale(float InMaxLinearSpeedScale);
