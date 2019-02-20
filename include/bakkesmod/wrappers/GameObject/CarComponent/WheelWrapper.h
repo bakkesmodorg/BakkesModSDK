@@ -46,6 +46,10 @@ public:
 	void SetbHadContact(unsigned long newbHadContact);
 	float GetFrictionCurveInput();
 	void SetFrictionCurveInput(float newFrictionCurveInput);
+	float GetAerialThrottleToVelocityFactor();
+	void SetAerialThrottleToVelocityFactor(float newAerialThrottleToVelocityFactor);
+	float GetAerialAccelerationFactor();
+	void SetAerialAccelerationFactor(float newAerialAccelerationFactor);
 	float GetSpinSpeed();
 	void SetSpinSpeed(float newSpinSpeed);
 

@@ -4,10 +4,11 @@ template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/ServerWrapper.h"
 class BallWrapper;
-class TeamWrapper;
-class GoalWrapper;
-class UnrealStringWrapper;
 class CarWrapper;
+class GoalWrapper;
+class TeamWrapper;
+class PlayerControllerWrapper;
+class UnrealStringWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT TutorialWrapper : public ServerWrapper {
 public:
@@ -89,7 +90,12 @@ public:
 	void SetRedoTotal(int newRedoTotal);
 
 	//AUTO-GENERATED FUNCTION PROXIES
+	void InitIntro();
+	void OnLoadingMovieClosed();
+	void StartTimers();
+	void UpdateMVP();
 	bool AllowDynamicCrowd();
+	void SetTutorialTip(std::string NewTip);
 	void SetShowBoostMeter(unsigned long bShow);
 	float GetStepLoc(int Steps, float TotalDist, unsigned long bIncrement, int* Out_CurrentStep);
 	Vector GetDebugLocationInExtent(Vector& Extent);
@@ -104,6 +110,7 @@ public:
 	bool EndTutorial();
 	void CommitRedoRound();
 	void RedoRound2();
+	void PlayerResetTraining();
 	bool CanRedoRound();
 	void StartNewRound();
 	void SaveLocalPlayerStats();
@@ -119,8 +126,6 @@ public:
 	void OnPlayerRestarted(CarWrapper PlayerCar);
 	unsigned char GetTrainingType();
 	void EndGame();
-	bool CanAwardAchievements();
-	bool AllowScoreboard();
 	Vector GetRandomLocationInExtent(Vector& Extent);
 	bool Chance(int Chances);
 	int GetOppositeTeamNum();
@@ -138,6 +143,7 @@ public:
 	int GetShuffledSpawnIndex();
 	void DestroyCannon();
 	void SetCannonOrientation(Vector& NewLocation, Rotator& NewRotation);
+	BallWrapper SpawnBall(Vector& SpawnLoc, unsigned long bWake, unsigned long bSpawnCannon, std::string BallArch);
 	void InitBallEffects();
 	void InitBallVelocity();
 	Vector GetRandomGoalAimLocation(int InTeamNum, Vector& BallLoc);
@@ -151,7 +157,9 @@ public:
 	void HandleScoreUpdated(TeamWrapper Team);
 	void SetDifficulty2(int InDifficulty);
 	void UpdateStats();
+	void AddLocalPlayer(PlayerControllerWrapper Player);
 	void OnInit();
+	void EventTutorialTipChanged(TutorialWrapper GameEvent, std::string NewTip);
 private:
 	PIMPL
 };

@@ -27,6 +27,8 @@ public:
 	int GetChangelist();
 	void SetChangelist(int newChangelist);
 	UnrealStringWrapper GetBuildVersion();
+	int GetReserveMegabytes();
+	void SetReserveMegabytes(int newReserveMegabytes);
 	float GetRecordFPS();
 	void SetRecordFPS(float newRecordFPS);
 	float GetKeyframeDelay();
@@ -69,9 +71,12 @@ public:
 	//AUTO-GENERATED FUNCTION PROXIES
 	bool IsFromBeforeGameVersion(unsigned char BeforeGameVersion);
 	bool IsFromBeforeReplayVersion(unsigned char BeforeReplayVersion);
+	void SetReplayName(std::string NewName);
 	void RemoveTimelineKeyframe(int KeyframeIndex);
 	void eventTrimData(int FirstKeyframe, int FirstFrame);
 	ReplayWrapper CreateCopy(float StartTime);
+	void ImportReplay(std::string Path);
+	void ExportReplay(std::string Path);
 	void SkipToFrame(int frame, unsigned long bFlush);
 	void SkipToTime(float Time, unsigned long bFlush);
 	float GetReplayTimeSeconds();

@@ -40,6 +40,7 @@ public:
 	void SetReplicatedActivityTime(float newReplicatedActivityTime);
 
 	//AUTO-GENERATED FUNCTION PROXIES
+	void eventFellOutOfWorld();
 	float GetInactiveTime();
 	float GetActiveTime();
 	void ApplyForces(float ActiveTime);

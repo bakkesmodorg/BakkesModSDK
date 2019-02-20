@@ -42,6 +42,8 @@ public:
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	void ApplyForces(float ActiveTime);
+	void PlayCarSFX(RBActorWrapper InActor);
+	void PlayBallSFX(RBActorWrapper InActor);
 private:
 	PIMPL
 };

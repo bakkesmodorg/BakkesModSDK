@@ -58,6 +58,7 @@ public:
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	Vector GetGoalFocusExtentCenter();
+	void Init();
 	void eventBeginPlay();
 private:
 	PIMPL

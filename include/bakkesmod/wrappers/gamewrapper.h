@@ -14,6 +14,7 @@ class ReplayServerWrapper;
 class CanvasWrapper;
 class CarWrapper;
 class EngineTAWrapper;
+class PlayerControllerWrapper;
 class BAKKESMOD_PLUGIN_IMPORT GameWrapper
 {
 public:
@@ -53,14 +54,27 @@ public:
 	void							HookEventPost(string eventName, std::function<void(std::string eventName)> callback);
 	void							RegisterBot(CARBODY car, std::function<void(float deltaTime, ControllerInput* inputs, CarWrapper* ownedCar, ServerWrapper* game)> tickfunc, string botName, bool overridePlayer);
 
-	void							LogToChatbox(string text);
+	void							LogToChatbox(string text, string sender="BAKKESMOD");
 	bool							IsKeyPressed(int keyName);
 	void							ExecuteUnrealCommand(string command);
 
 	template<typename T, typename std::enable_if<std::is_base_of<ObjectWrapper, T>::value>::type* = nullptr>
 	void							HookEventWithCaller(string eventName, std::function<void(T caller, void* params, std::string eventName)> callback);
+	template<typename T, typename std::enable_if<std::is_base_of<ObjectWrapper, T>::value>::type* = nullptr>
+	void							HookEventWithCallerPost(string eventName, std::function<void(T caller, void* params, std::string eventName)> callback);
 public:
 	struct Impl;
 	std::unique_ptr<Impl> pimpl;
 };
+#include "includes.h"
+template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCaller<ServerWrapper>(string eventName, std::function<void(ServerWrapper caller, void* params, std::string eventName)> callback);
+template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCaller<CarWrapper>(string eventName, std::function<void(CarWrapper caller, void* params, std::string eventName)> callback);
+template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCaller<PlayerControllerWrapper>(string eventName, std::function<void(PlayerControllerWrapper caller, void* params, std::string eventName)> callback);
 
+template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCaller<BallWrapper>(string eventName, std::function<void(BallWrapper caller, void* params, std::string eventName)> callback);
+
+
+template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCallerPost<ServerWrapper>(string eventName, std::function<void(ServerWrapper caller, void* params, std::string eventName)> callback);
+template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCallerPost<CarWrapper>(string eventName, std::function<void(CarWrapper caller, void* params, std::string eventName)> callback);
+template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCallerPost<PlayerControllerWrapper>(string eventName, std::function<void(PlayerControllerWrapper caller, void* params, std::string eventName)> callback);
+template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCallerPost<BallWrapper>(string eventName, std::function<void(BallWrapper caller, void* params, std::string eventName)> callback);

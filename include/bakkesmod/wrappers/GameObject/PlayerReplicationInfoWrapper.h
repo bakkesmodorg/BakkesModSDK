@@ -10,7 +10,7 @@ public:
 	CONSTRUCTORS(PlayerReplicationInfoWrapper)
 
 	//BEGIN SELF IMPLEMENTED
-	unsigned long long GetSteamID();	//END SELF IMPLEMENTED
+	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
 	int GetScore();
@@ -41,8 +41,6 @@ public:
 	void SetbOutOfLives(unsigned long newbOutOfLives);
 	unsigned long GetbBot();
 	void SetbBot(unsigned long newbBot);
-	unsigned long GetbHasBeenWelcomed();
-	void SetbHasBeenWelcomed(unsigned long newbHasBeenWelcomed);
 	unsigned long GetbIsInactive();
 	void SetbIsInactive(unsigned long newbIsInactive);
 	unsigned long GetbFromPreviousLevel();
@@ -64,7 +62,6 @@ public:
 	void SetUniqueId(SteamID newUniqueId);
 
 	//AUTO-GENERATED FUNCTION PROXIES
-	bool IsPrimaryPlayer();
 	void UnregisterPlayerFromSession();
 	void RegisterPlayerWithSession();
 	bool IsInvalidName();
@@ -76,14 +73,16 @@ public:
 	void OverrideWith(PlayerReplicationInfoWrapper PRI);
 	PlayerReplicationInfoWrapper Duplicate();
 	void SetWaitingPlayer(unsigned long B);
+	void eventSetPlayerName(std::string S);
 	void Reset();
 	void eventDestroyed();
 	void Unregister2();
-	bool ShouldBroadCastWelcomeMessage(unsigned long bExiting);
 	void UpdatePing(float TimeStamp);
 	void RemoteUserDataReplicated();
 	void eventClientFillRemoteUserData();
 	void eventPostBeginPlay();
+	void eventOnOwnerChanged();
+	void eventConstruct();
 private:
 	PIMPL
 };

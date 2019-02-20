@@ -4,8 +4,8 @@ template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././Engine/ObjectWrapper.h"
 class UnrealStringWrapper;
-class SampleRecordSettingsWrapper;
 class WrapperStructs;
+class SampleRecordSettingsWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT SampleHistoryWrapper : public ObjectWrapper {
 public:
@@ -42,6 +42,7 @@ public:
 	SampleHistoryWrapper SetBaseValue2(float InBaseValue);
 	SampleHistoryWrapper SetGoodBadValues(float InGoodValue, float InBadValue);
 	SampleHistoryWrapper SetGraphMaxMin(float MaxValue, float MinValue);
+	SampleHistoryWrapper SetTitle(std::string InTitle);
 private:
 	PIMPL
 };

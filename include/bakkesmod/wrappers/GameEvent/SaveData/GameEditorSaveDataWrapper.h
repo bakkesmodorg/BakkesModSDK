@@ -3,8 +3,8 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././GameEvent/SaveData/SaveDataWrapper.h"
-class UnrealStringWrapper;
 class TrainingEditorSaveDataWrapper;
+class UnrealStringWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT GameEditorSaveDataWrapper : public SaveDataWrapper {
 public:

@@ -12,8 +12,8 @@ public:
 	//AUTO-GENERATED FROM FIELDS
 	SampleHistoryWrapper GetBuffer();
 	void SetBuffer(SampleHistoryWrapper newBuffer);
-	SampleHistoryWrapper GetBufferMax();
-	void SetBufferMax(SampleHistoryWrapper newBufferMax);
+	SampleHistoryWrapper GetBufferTarget();
+	void SetBufferTarget(SampleHistoryWrapper newBufferTarget);
 	SampleHistoryWrapper GetOverUnderFrames();
 	void SetOverUnderFrames(SampleHistoryWrapper newOverUnderFrames);
 	SampleHistoryWrapper GetPhysicsRate();
@@ -24,7 +24,7 @@ public:
 	void SetMinPhysicsRate(float newMinPhysicsRate);
 
 	//AUTO-GENERATED FUNCTION PROXIES
-	void AddSample(int InBufferLow, int InBufferHigh, int InBufferMax, int OverFrames, int UnderFrames);
+	SampleHistoryWrapper CreateBufferHistory(std::string Title);
 	void eventConstruct();
 private:
 	PIMPL

@@ -19,6 +19,7 @@ public:
 	void SetbFlipRight(unsigned long newbFlipRight);
 
 	//AUTO-GENERATED FUNCTION PROXIES
+	void InitFlip();
 	void ApplyForces(float ActiveTime);
 	bool CanActivate();
 	void OnCreated();

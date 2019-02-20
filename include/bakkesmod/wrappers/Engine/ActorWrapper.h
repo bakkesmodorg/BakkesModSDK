@@ -11,16 +11,16 @@ public:
 
 	//BEGIN SELF IMPLEMENTED
 	Vector GetLocation();
-	void SetLocation(Vector location);
+	void SetLocation(const Vector location);
 	Vector GetVelocity();
-	void SetVelocity(Vector velocity);
-	void AddVelocity(Vector velocity);
+	void SetVelocity(const Vector velocity);
+	void AddVelocity(const Vector velocity);
 	Rotator GetRotation();
-	void SetRotation(Rotator rotation);
-	void SetTorque(Vector torq);
+	void SetRotation(const Rotator rotation);
+	void SetTorque(const Vector torq);
 	void Stop();
 	Vector GetAngularVelocity();
-	void SetAngularVelocity(Vector v, bool addToCurrent);
+	void SetAngularVelocity(const Vector v, bool addToCurrent);
 	bool IsNull();
 	//END SELF IMPLEMENTED
 
@@ -47,6 +47,8 @@ public:
 	ActorWrapper GetBase();
 	unsigned long GetbStatic();
 	unsigned long GetbHidden();
+	unsigned long GetbHiddenSelf();
+	void SetbHiddenSelf(unsigned long newbHiddenSelf);
 	unsigned long GetbNoDelete();
 	void SetbNoDelete(unsigned long newbNoDelete);
 	unsigned long GetbDeleteMe();
@@ -68,7 +70,6 @@ public:
 	void SetbAlwaysEncroachCheck(unsigned long newbAlwaysEncroachCheck);
 	unsigned long GetbHasAlternateTargetLocation();
 	unsigned long GetbAlwaysRelevant();
-	unsigned long GetbGameInstanceRelevant();
 	unsigned long GetbReplicateInstigator();
 	unsigned long GetbReplicateMovement();
 	unsigned long GetbUpdateSimulatedPosition();
@@ -143,6 +144,8 @@ public:
 	float GetLifeSpan();
 	float GetCreationTime();
 	float GetLastRenderTime();
+	unsigned long long GetHiddenEditorViews();
+	void SetHiddenEditorViews(unsigned long long newHiddenEditorViews);
 	PrimitiveComponentWrapper GetCollisionComponent();
 
 	//AUTO-GENERATED FUNCTION PROXIES
@@ -157,21 +160,23 @@ public:
 	Vector GetTargetLocation(ActorWrapper RequestedBy, unsigned long bRequestAlternateLoc);
 	unsigned char eventScriptGetTeamNum();
 	unsigned char GetTeamNum2();
-	void PawnBaseDied();
 	bool IsPlayerOwned();
 	bool IsStationary();
+	void eventDebugMessagePlayer(std::string msg);
 	Vector GetGravityAcceleration();
 	Vector GetGravityDirection();
 	float GetGravityZ();
 	bool IsOverlapping(ActorWrapper A);
 	bool ContainsPoint(Vector& Spot);
+	void eventFellOutOfWorld();
 	void SetTickIsDisabled(unsigned long bInDisabled);
 	void SetPhysics2(unsigned char newPhysics);
+	void SetHidden2(unsigned long bNewHidden);
+	void ChartData(std::string DataName, float DataValue);
 	Vector GetAggregateBaseVelocity(ActorWrapper TestBase);
 	bool IsOwnedBy(ActorWrapper TestActor);
 	bool IsBasedOn(ActorWrapper TestActor);
 	float GetTerminalVelocity();
-	void EventHiddenChanged(ActorWrapper Target);
 private:
 	PIMPL
 };

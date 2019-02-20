@@ -18,6 +18,8 @@ public:
 	ArrayWrapper<SampleHistoryWrapper> GetSampleHistories();
 
 	//AUTO-GENERATED FUNCTION PROXIES
+	void StopDrawing();
+	SampleHistoryWrapper CreateSampleHistory(std::string Title);
 	SampleHistoryWrapper AddSampleHistory(SampleHistoryWrapper History);
 	void eventConstruct();
 private:

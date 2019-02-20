@@ -28,6 +28,8 @@ public:
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	void eventUpdateGraphRanges();
+	SampleHistoryWrapper CreateFrameTimeHistory(std::string Title);
+	SampleHistoryWrapper CreateFpsHistory(std::string Title);
 	void eventConstruct();
 private:
 	PIMPL

@@ -21,6 +21,7 @@ class GoalWrapper;
 class BoostPickupWrapper;
 class SampleHistoryWrapper;
 class StatGraphWrapper;
+class PlayerControllerWrapper;
 
 template<typename T> 
 class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper
@@ -53,4 +54,5 @@ template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<GoalWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<BoostPickupWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<SampleHistoryWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<StatGraphWrapper>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<PlayerControllerWrapper>;
 //template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<FSample>;

@@ -2,13 +2,13 @@
 template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
-#include ".././GameObject/PlayerReplicationInfoWrapper.h"
+#include ".././GameObject/PriXWrapper.h"
 class AirControlComponentWrapper;
 class GameEventWrapper;
-class UnrealStringWrapper;
 class CarWrapper;
+class UnrealStringWrapper;
 
-class BAKKESMOD_PLUGIN_IMPORT PriWrapper : public PlayerReplicationInfoWrapper {
+class BAKKESMOD_PLUGIN_IMPORT PriWrapper : public PriXWrapper {
 public:
 	CONSTRUCTORS(PriWrapper)
 
@@ -59,12 +59,14 @@ public:
 	void SetbIsInSplitScreen(unsigned long newbIsInSplitScreen);
 	unsigned long GetbDeveloper();
 	void SetbDeveloper(unsigned long newbDeveloper);
-	unsigned long GetbVoteToForfeitDisabled();
-	void SetbVoteToForfeitDisabled(unsigned long newbVoteToForfeitDisabled);
+	unsigned long GetbStartVoteToForfeitDisabled();
+	void SetbStartVoteToForfeitDisabled(unsigned long newbStartVoteToForfeitDisabled);
 	unsigned long GetbUsingItems();
 	void SetbUsingItems(unsigned long newbUsingItems);
 	unsigned long GetPlayerHistoryValid();
 	void SetPlayerHistoryValid(unsigned long newPlayerHistoryValid);
+	unsigned long GetbPlayedWithGamepad();
+	void SetbPlayedWithGamepad(unsigned long newbPlayedWithGamepad);
 	GameEventWrapper GetGameEvent();
 	void SetGameEvent(GameEventWrapper newGameEvent);
 	GameEventWrapper GetReplicatedGameEvent();
@@ -91,7 +93,8 @@ public:
 	void SetPartyLeader(SteamID newPartyLeader);
 	int GetTotalXP();
 	void SetTotalXP(int newTotalXP);
-	UnrealStringWrapper GetSanitizedPlayerName();
+	int GetXpLevel();
+	void SetXpLevel(int newXpLevel);
 	float GetDodgeInputThreshold();
 	void SetDodgeInputThreshold(float newDodgeInputThreshold);
 	float GetSteeringSensitivity();
@@ -114,30 +117,41 @@ public:
 	void SetCarTouches(int newCarTouches);
 	PriWrapper GetReplacingBotPRI();
 	void SetReplacingBotPRI(PriWrapper newReplacingBotPRI);
+	unsigned long long GetClubID();
+	void SetClubID(unsigned long long newClubID);
 	UnrealStringWrapper GetPublicIP();
+	int GetSpectatorShortcut();
+	void SetSpectatorShortcut(int newSpectatorShortcut);
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	void __ClubID__ChangeNotifyFunc();
+	void __PREI__ChangeNotifyFunc();
 	void __ReplicatedWorstNetQualityBeyondLatency__ChangeNotifyFunc();
 	void eventDestroyed();
+	void OnSpectatorShortcutChanged();
+	void SetSpectatorShortcut2(int InShortcut);
+	void ServerSetPublicIP(std::string IP);
 	void OnUniqueIdChanged();
+	void UpdatePlayerAvatarBorder();
 	void UpdatePlayerBanner();
-	void BindCarDelegates(unsigned long bBind);
+	void ClientAchievementProgression(int AchievementId, unsigned char AchievementType, float Progress, float MaxProgress);
 	void ClientUnlockAchievement(int AchievementId, unsigned char AchievementType);
 	void UpdateCarLocalPlayer();
 	void OnReplacingBotPRIChanged();
 	void OnTeamChanged();
 	void ClearBotReplacement();
+	void ReportCheater(std::string Reason);
 	bool ValidateLoadoutTeamPaints();
 	bool ValidateLoadoutSlots();
 	void ValidateLoadoutDLC();
-	void OnVoteToForfeitDisabled();
-	void DisablebVoteToForfeit();
+	void OnStartVoteToForfeitDisabledChanged();
+	void SetStartVoteToForfeitDisabled(unsigned long bDisabled);
 	void ServerVoteToForfeit();
 	void SetUserCarPreferences(float NewDodgeThreshold, float NewSteeringSensitivity, float NewAirControlSensitivity);
 	void ServerSetUserCarPreferences(float NewDodgeThreshold, float NewSteeringSensitivity, float NewAirControlSensitivity);
-	void ServerSetTotalXP(int NewXP);
-	void OnTotalXPChanged();
+	int ValidateUserInt(std::string Reason, int NewValue, int Min, int Max);
+	float ValidateUserFloat(std::string Reason, float NewValue, float Min, float Max);
+	void SetXPInfo(int InTotalXP, int InXPLevel);
 	void SetTotalXP2(int NewXP);
 	void OnPawnTypeChanged();
 	void SetWaitingPlayer(unsigned long B);
@@ -165,6 +179,7 @@ public:
 	void OnRespawnTimeRemainingChanged();
 	void SetRespawnTime2(int NewTime);
 	void ClientScoredGoal(Vector& BallHitLocation);
+	void OnScoredGoal(Vector& BallHitLocation);
 	void OnRep_SteeringSensitivity();
 	void OnRep_ClientScorePoint();
 	void ResetScore();
@@ -173,6 +188,7 @@ public:
 	bool CanAwardTimeRestrictedStatEvent();
 	void RecordTimeRestrictedStatEvent();
 	void ResetTimeRestrictedStatEvent();
+	int GetMatchXP();
 	void CommitStats();
 	void UpdateFromLoadout();
 	void UpdateUserCarPreferences(AirControlComponentWrapper AirControlComponent);
@@ -186,6 +202,8 @@ public:
 	bool AreLoadoutsSet();
 	void OnLoadoutsOnlineSet();
 	void OnLoadoutsSet2();
+	void RemoveCertifiedProductStat(unsigned long long InstanceID);
+	void InitLoadoutAttributesForTeam(PriXWrapper PRI);
 	bool ShouldValidateOnlineProducts();
 	void OnSplitScreenStatusChanged();
 	void ServerSplitScreenStatusChanged(unsigned long bInSplitScreen);
@@ -197,9 +215,18 @@ public:
 	void OnSkillTierChanged();
 	void ReplicateSkillTier(int NewTier);
 	void OnTitleChanged();
-	void UpdateTitle();
+	void SyncPlayerTitle();
+	void UpdateTitleFromLoadout();
+	void UpdateTitle2();
 	void GetNewFriendKey();
 	void ServerSetPlayerHistoryKey(unsigned char* HistoryKeyArray);
+	void OnRep_UniqueId();
+	void EventOwnerChanged(PriWrapper PRI);
+	void EventSpectatorShortcutChanged(PriWrapper PRI);
+	void EventServerAchievementProgression(PriWrapper PRI, int AchievementId, unsigned char AchievementType, float Progress, float MaxProgress);
+	void EventStartVoteToForfeitDisabledChanged(PriWrapper PRI);
+	void EventCarPreUpdate(PriWrapper PRI);
+	void EventVanityChanged();
 private:
 	PIMPL
 };

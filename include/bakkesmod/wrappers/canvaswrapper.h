@@ -14,7 +14,9 @@ public:
 	void DrawBox(Vector2 size);
 	void FillBox(Vector2 size);
 	void DrawString(string text);
+	void DrawString(string text, int xScale, int yScale);
 	void DrawLine(Vector2 start, Vector2 end);
+	void DrawLine(Vector2 start, Vector2 end, float width);
 	void DrawRect(Vector2 start, Vector2 end);
 	Vector2 Project(Vector location);
 	Vector2 GetSize();

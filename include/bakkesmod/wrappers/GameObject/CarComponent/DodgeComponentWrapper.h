@@ -47,6 +47,7 @@ public:
 	void SetDodgeDirection(Vector newDodgeDirection);
 
 	//AUTO-GENERATED FUNCTION PROXIES
+	void SetDodgeSettings();
 	void ApplyTorqueForces(float ActiveTime);
 	void ApplyDodgeImpulse();
 	Vector GetDodgeImpulse2(Vector& DodgeDir);

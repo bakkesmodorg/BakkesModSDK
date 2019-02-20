@@ -3,9 +3,11 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/GameEditorWrapper.h"
-class UnrealStringWrapper;
 class GameEditorSaveDataWrapper;
 class ActorWrapper;
+class UnrealStringWrapper;
+class PlayerControllerWrapper;
+class BallWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT TrainingEditorWrapper : public GameEditorWrapper {
 public:
@@ -42,6 +44,12 @@ public:
 	UnrealStringWrapper GetTrainingFileName();
 
 	//AUTO-GENERATED FUNCTION PROXIES
+	void OnLoadingMovieClosed();
+	void TagHistoryChanges();
+	void MarkAsDirty();
+	void ForceTagHistoryChanges();
+	void SetTracedCrosshairActor(PlayerControllerWrapper PC, ActorWrapper NewActor);
+	bool DestroyBall(BallWrapper Ball);
 	bool AllowDynamicCrowd();
 	void BroadcastGoMessage();
 	int GetTotalRounds();
@@ -54,10 +62,10 @@ public:
 	void SetRoundTimeLimit(float NewRoundTime);
 	bool HandleNextGame();
 	void ResetBalls();
+	void Load2(std::string SaveName, PlayerControllerWrapper PC);
 	void DestroyGoalMeshBlockers();
 	void UpdateGoalMeshBlocker();
 	int GetScore();
-	bool CanAwardAchievements();
 	void RemovePointsFromScore(int PointsToRemove, int TeamIndex);
 	bool ShowScorerGoalMessage();
 	void ShowResetRoundMessage();
@@ -80,6 +88,7 @@ public:
 	void UpdateActiveRoundData();
 	void StartNewRound();
 	bool IsValidRoundIndex(int ArrayIndex);
+	void AddLocalPlayer(PlayerControllerWrapper Player);
 	void OnInit();
 	void eventDestroyed();
 	void eventPostBeginPlay();

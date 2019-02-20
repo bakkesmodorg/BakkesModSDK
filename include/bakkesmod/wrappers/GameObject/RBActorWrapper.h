@@ -58,6 +58,8 @@ public:
 	RBState GetCurrentRBState();
 	int GetPhysicsFrame();
 	float GetPhysicsTime();
+	void InitAk();
+	void eventPreBeginPlay();
 private:
 	PIMPL
 };
