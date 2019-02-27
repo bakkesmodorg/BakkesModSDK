@@ -3,8 +3,8 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ObjectWrapper.h"
-class StatGraphSystemWrapper;
 class UnrealStringWrapper;
+class StatGraphSystemWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT EngineTAWrapper : public ObjectWrapper {
 public:

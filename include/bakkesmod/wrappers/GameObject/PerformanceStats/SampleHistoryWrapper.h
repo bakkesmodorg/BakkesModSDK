@@ -3,8 +3,8 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././Engine/ObjectWrapper.h"
-class UnrealStringWrapper;
 class WrapperStructs;
+class UnrealStringWrapper;
 class SampleRecordSettingsWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT SampleHistoryWrapper : public ObjectWrapper {

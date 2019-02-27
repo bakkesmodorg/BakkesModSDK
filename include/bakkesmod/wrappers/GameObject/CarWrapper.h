@@ -3,16 +3,16 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/VehicleWrapper.h"
-class FlipCarComponentWrapper;
-class WheelWrapper;
-class RumblePickupComponentWrapper;
-class PriWrapper;
-class PrimitiveComponentWrapper;
-class GameEventWrapper;
-class CarComponentWrapper;
 class PriXWrapper;
-class ActorWrapper;
+class RumblePickupComponentWrapper;
+class FlipCarComponentWrapper;
+class PrimitiveComponentWrapper;
+class CarComponentWrapper;
 class RBActorWrapper;
+class WheelWrapper;
+class GameEventWrapper;
+class ActorWrapper;
+class PriWrapper;
 class BallWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT CarWrapper : public VehicleWrapper {

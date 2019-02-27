@@ -5,8 +5,8 @@ template<typename T> class StructArrayWrapper;
 #include "../.././Engine/ObjectWrapper.h"
 class PerfStatGraphWrapper;
 class InputBufferGraphWrapper;
-class NetStatGraphWrapper;
 class StatGraphWrapper;
+class NetStatGraphWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT StatGraphSystemWrapper : public ObjectWrapper {
 public:

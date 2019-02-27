@@ -3,8 +3,8 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ActorWrapper.h"
-class CarWrapper;
 class PrimitiveComponentWrapper;
+class CarWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT VehiclePickupWrapper : public ActorWrapper {
 public:

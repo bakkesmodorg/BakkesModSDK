@@ -3,9 +3,9 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ActorWrapper.h"
-class PriWrapper;
 class WrapperStructs;
 class TeamGameEventWrapper;
+class PriWrapper;
 class UnrealStringWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT TeamWrapper : public ActorWrapper {
@@ -17,6 +17,10 @@ public:
 	void SetFontColor(LinearColor newFontColor);
 	LinearColor GetColorBlindFontColor();
 	void SetColorBlindFontColor(LinearColor newColorBlindFontColor);
+	UnrealColor GetTeamControllerColor();
+	void SetTeamControllerColor(UnrealColor newTeamControllerColor);
+	UnrealColor GetTeamScoreStrobeColor();
+	void SetTeamScoreStrobeColor(UnrealColor newTeamScoreStrobeColor);
 	StructArrayWrapper<LinearColor> GetDefaultColorList();
 	StructArrayWrapper<LinearColor> GetColorBlindColorList();
 	StructArrayWrapper<LinearColor> GetCurrentColorList();

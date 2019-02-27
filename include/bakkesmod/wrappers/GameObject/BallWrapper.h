@@ -4,9 +4,9 @@ template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/RBActorWrapper.h"
 class ServerWrapper;
-class PriWrapper;
 class CarWrapper;
 class GoalWrapper;
+class PriWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT BallWrapper : public RBActorWrapper {
 public:

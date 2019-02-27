@@ -3,12 +3,12 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/ServerWrapper.h"
-class BallWrapper;
-class CarWrapper;
 class GoalWrapper;
 class TeamWrapper;
-class PlayerControllerWrapper;
+class CarWrapper;
 class UnrealStringWrapper;
+class BallWrapper;
+class PlayerControllerWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT TutorialWrapper : public ServerWrapper {
 public:
@@ -20,17 +20,7 @@ public:
 	void SetCarSpawnLocation(Vector v);
 	Rotator GetCarSpawnRotation();
 	void SetCarSpawnRotation(Rotator v);
-	CarWrapper GetGameCar();
-	bool IsBallMovingTowardsGoal(int goalNo, BallWrapper bw);
-	bool IsInGoal(Vector vec);
-	void DisableGoalReset();
-	void EnableGoalReset();
-	//void SpawnCar(int body = 0);
-	//Speed from 0 to 2000 pls
-	Vector GenerateShot(Vector startPos, Vector destination, float speed);
-	Vector GenerateGoalAimLocation(int goalNumber, Vector currentBallLocation);
-	Vector GetGoalExtent(int goalNumber = 0);
-	Vector GetGoalLocation(int goalNumber = 0);	//END SELF IMPLEMENTED
+	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
 	Vector GetTotalFieldExtent();

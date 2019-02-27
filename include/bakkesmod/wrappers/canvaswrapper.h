@@ -13,6 +13,7 @@ public:
 	void SetColor(char Red, char Green, char Blue, char Alpha);//0-255
 	void DrawBox(Vector2 size);
 	void FillBox(Vector2 size);
+	void FillTriangle(Vector2 p1, Vector2 p2, Vector2 p3, LinearColor color);
 	void DrawString(string text);
 	void DrawString(string text, int xScale, int yScale);
 	void DrawLine(Vector2 start, Vector2 end);

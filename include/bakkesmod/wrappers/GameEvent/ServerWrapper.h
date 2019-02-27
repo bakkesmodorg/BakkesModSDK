@@ -3,13 +3,13 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/TeamGameEventWrapper.h"
-class PriWrapper;
-class CarWrapper;
 class ReplayDirectorWrapper;
-class TeamWrapper;
-class ActorWrapper;
+class PriWrapper;
 class GoalWrapper;
+class TeamWrapper;
 class PlayerControllerWrapper;
+class ActorWrapper;
+class CarWrapper;
 class BallWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT ServerWrapper : public TeamGameEventWrapper {
@@ -17,13 +17,25 @@ public:
 	CONSTRUCTORS(ServerWrapper)
 
 	//BEGIN SELF IMPLEMENTED
-	BallWrapper GetBall();
+		BallWrapper GetBall();
 	void SpawnCar(int carBody, string name);
 	void SpawnBot(int carBody, string name);
 	BallWrapper SpawnBall(const Vector position, bool wake, bool spawnCannon);
 	bool HasAuthority();
 	GETSETH(float, GameSpeed)
-	GETSETH(float, SecondsElapsed)	//END SELF IMPLEMENTED
+		GETSETH(float, SecondsElapsed)
+
+		CarWrapper GetGameCar();
+	bool IsBallMovingTowardsGoal(int goalNo, BallWrapper bw);
+	bool IsInGoal(Vector vec);
+	void DisableGoalReset();
+	void EnableGoalReset();
+	//void SpawnCar(int body = 0);
+	//Speed from 0 to 2000 pls
+	Vector GenerateShot(Vector startPos, Vector destination, float speed);
+	Vector GenerateGoalAimLocation(int goalNumber, Vector currentBallLocation);
+	Vector GetGoalExtent(int goalNumber = 0);
+	Vector GetGoalLocation(int goalNumber = 0);//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
 	CarWrapper GetTestCarArchetype();

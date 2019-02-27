@@ -31,6 +31,8 @@ public:
 	void SetDrawScale3D(Vector newDrawScale3D);
 	Vector GetPrePivot();
 	void SetPrePivot(Vector newPrePivot);
+	UnrealColor GetEditorIconColor();
+	void SetEditorIconColor(UnrealColor newEditorIconColor);
 	float GetCustomTimeDilation();
 	void SetCustomTimeDilation(float newCustomTimeDilation);
 	unsigned char GetPhysics();
@@ -173,6 +175,8 @@ public:
 	void SetPhysics2(unsigned char newPhysics);
 	void SetHidden2(unsigned long bNewHidden);
 	void ChartData(std::string DataName, float DataValue);
+	void DrawDebugString(Vector& TextLocation, std::string Text, ActorWrapper TestBaseActor, UnrealColor& TextColor, float Duration);
+	void DrawDebugCone(Vector& Origin, Vector& Direction, float Length, float AngleWidth, float AngleHeight, int NumSides, UnrealColor& DrawColor, unsigned long bPersistentLines);
 	Vector GetAggregateBaseVelocity(ActorWrapper TestBase);
 	bool IsOwnedBy(ActorWrapper TestActor);
 	bool IsBasedOn(ActorWrapper TestActor);

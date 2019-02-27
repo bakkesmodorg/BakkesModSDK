@@ -3,10 +3,10 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ActorWrapper.h"
-class PriWrapper;
 class WrapperStructs;
-class GameSettingPlaylistWrapper;
 class CarWrapper;
+class GameSettingPlaylistWrapper;
+class PriWrapper;
 class UnrealStringWrapper;
 class PlayerControllerWrapper;
 

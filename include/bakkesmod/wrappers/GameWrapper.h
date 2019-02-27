@@ -25,14 +25,15 @@ public:
 
 	bool IsInGame();
 	bool IsInOnlineGame();
-	bool IsInTutorial();
+	//bool IsInTutorial(); //Uncomment this later, but for now dont let plugins compile which use this as they most likely rely on broken functions
+	bool IsInFreeplay();
 	bool IsInReplay();
 	bool IsInCustomTraining();
 	bool IsSpectatingInOnlineGame();
 
 
 	ServerWrapper					GetOnlineGame();
-	TutorialWrapper					GetGameEventAsTutorial();
+	//TutorialWrapper					GetGameEventAsTutorial();
 	ServerWrapper					GetGameEventAsServer();
 	ReplayServerWrapper				GetGameEventAsReplay();
 
