@@ -3,16 +3,17 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "WrapperStructs.h"
 #include "./Engine/ActorWrapper.h"
-class PlayerReplicationInfoWrapper;
-class EngineTAWrapper;
-class PriWrapper;
+class BoostWrapper;
 class ServerWrapper;
-class GameEventWrapper;
 class CarWrapper;
 class PriXWrapper;
-class RBActorWrapper;
+class EngineTAWrapper;
+class PlayerReplicationInfoWrapper;
+class GameEventWrapper;
+class PriWrapper;
 class UnrealStringWrapper;
-class BoostWrapper;
+class RBActorWrapper;
+class BaseCameraWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT PlayerControllerWrapper : public ActorWrapper {
 public:
@@ -50,6 +51,10 @@ public:
 	void SetChatFilter(unsigned char newChatFilter);
 	PriWrapper GetFollowTarget();
 	void SetFollowTarget(PriWrapper newFollowTarget);
+	BaseCameraWrapper GetSpectatorCameraArchetype();
+	void SetSpectatorCameraArchetype(BaseCameraWrapper newSpectatorCameraArchetype);
+	BaseCameraWrapper GetEditorCameraArchetype();
+	void SetEditorCameraArchetype(BaseCameraWrapper newEditorCameraArchetype);
 	Vector GetMoveActorGrabOffset();
 	void SetMoveActorGrabOffset(Vector newMoveActorGrabOffset);
 	float GetMoveActorGrabIncrement();

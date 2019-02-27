@@ -4,13 +4,13 @@ template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ActorWrapper.h"
 class ServerWrapper;
-class PriWrapper;
-class GameEventWrapper;
-class ReplayWrapper;
-class TeamWrapper;
-class TeamGameEventWrapper;
-class ReplaySoccarWrapper;
 class GoalWrapper;
+class ReplaySoccarWrapper;
+class GameEventWrapper;
+class TeamWrapper;
+class ReplayWrapper;
+class TeamGameEventWrapper;
+class PriWrapper;
 class BallWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT ReplayDirectorWrapper : public ActorWrapper {

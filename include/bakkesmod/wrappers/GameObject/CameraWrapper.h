@@ -2,11 +2,12 @@
 template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
-#include ".././Engine/ActorWrapper.h"
+#include ".././GameObject/CameraXWrapper.h"
 class WrapperStructs;
+class ActorWrapper;
 class RBActorWrapper;
 
-class BAKKESMOD_PLUGIN_IMPORT CameraWrapper : public ActorWrapper {
+class BAKKESMOD_PLUGIN_IMPORT CameraWrapper : public CameraXWrapper {
 public:
 	CONSTRUCTORS(CameraWrapper)
 

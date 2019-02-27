@@ -3,9 +3,9 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/PriXWrapper.h"
-class AirControlComponentWrapper;
-class GameEventWrapper;
 class CarWrapper;
+class GameEventWrapper;
+class AirControlComponentWrapper;
 class UnrealStringWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT PriWrapper : public PriXWrapper {

@@ -4,11 +4,11 @@ template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/RBActorWrapper.h"
 class DodgeComponentWrapper;
-class JumpComponentWrapper;
-class PriWrapper;
-class AirControlComponentWrapper;
-class VehicleSimWrapper;
 class DoubleJumpComponentWrapper;
+class JumpComponentWrapper;
+class VehicleSimWrapper;
+class AirControlComponentWrapper;
+class PriWrapper;
 class PlayerControllerWrapper;
 class BoostWrapper;
 

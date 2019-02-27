@@ -223,6 +223,24 @@ struct POV {
 	float FOV;
 };
 
+
+struct UnrealColor {
+	unsigned char                                      B;                                                		// 0x0000 (0x0001) [0x0000000000000001]              ( CPF_Edit )
+	unsigned char                                      G;                                                		// 0x0001 (0x0001) [0x0000000000000001]              ( CPF_Edit )
+	unsigned char                                      R;                                                		// 0x0002 (0x0001) [0x0000000000000001]              ( CPF_Edit )
+	unsigned char                                      A;                                                		// 0x0003 (0x0001) [0x0000000000000001]              ( CPF_Edit )
+};
+
+
+
+struct ViewTarget {
+	void*				                               Target;                                           		// ActorWrapper(Target)
+	void*								               Controller;                                       		// PlayerControllerWrapper(Controller)
+	struct POV									       POV;                                              		// 
+	float                                              AspectRatio;                                      		// 
+	void*											   PRI;                                              		// PRIWrapper(PRI)
+};
+
 struct Vector2 {
 	int X;
 	int Y;

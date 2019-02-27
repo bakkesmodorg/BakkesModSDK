@@ -3,8 +3,8 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././GameObject/RumbleComponent/TargetedPickup.h"
-class CarWrapper;
 class BallWrapper;
+class CarWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT SpringPickup : public TargetedPickup {
 public:
