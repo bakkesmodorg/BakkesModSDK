@@ -3,10 +3,11 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/PriXWrapper.h"
+class UnrealStringWrapper;
 class CarWrapper;
 class GameEventWrapper;
+class FXActorWrapper;
 class AirControlComponentWrapper;
-class UnrealStringWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT PriWrapper : public PriXWrapper {
 public:
@@ -136,6 +137,7 @@ public:
 	void UpdatePlayerBanner();
 	void ClientAchievementProgression(int AchievementId, unsigned char AchievementType, float Progress, float MaxProgress);
 	void ClientUnlockAchievement(int AchievementId, unsigned char AchievementType);
+	void ServerSetPlayerActivatedFX(FXActorWrapper FX);
 	void UpdateCarLocalPlayer();
 	void OnReplacingBotPRIChanged();
 	void OnTeamChanged();

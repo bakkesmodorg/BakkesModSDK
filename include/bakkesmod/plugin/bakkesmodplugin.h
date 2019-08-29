@@ -3,6 +3,7 @@
 #include "bakkesmod/wrappers/GameWrapper.h"
 #include "bakkesmodsdk.h"
 #include <memory>
+#include <windows.h>
 
 namespace BakkesMod {
 	namespace Plugin {
@@ -63,6 +64,28 @@ static std::shared_ptr<classType> singleton;\
 
 			//Unload stuff here, notifiers/cvars are automatically cleared.
 			virtual void onUnload() {};
+		};
+
+
+		struct LoadedPlugin {
+			std::shared_ptr<PluginInfo> _details;
+			std::shared_ptr<BakkesModPlugin> _plugin;
+			HINSTANCE _instance;
+			std::string _filename;
+			std::shared_ptr<std::type_index> _typeid;
+
+			LoadedPlugin(std::shared_ptr<PluginInfo> details, std::shared_ptr<BakkesModPlugin> plugin, HINSTANCE instance, std::string filename) {
+				_details = details;
+				_plugin = plugin;
+				_instance = instance;
+				_filename = filename;
+				_typeid = std::make_shared<std::type_index>(typeid(*plugin));
+			}
+			~LoadedPlugin() {
+				//_details.get()->delFunc();
+				/*if (_instance)
+					FreeLibrary(_instance);*/
+			}
 		};
 	}
 }

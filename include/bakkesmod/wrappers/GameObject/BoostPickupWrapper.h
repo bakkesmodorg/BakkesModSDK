@@ -12,6 +12,8 @@ public:
 	//AUTO-GENERATED FROM FIELDS
 	float GetBoostAmount();
 	void SetBoostAmount(float newBoostAmount);
+	unsigned char GetBoostType();
+	void SetBoostType(unsigned char newBoostType);
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	void PlayPickedUpFX();

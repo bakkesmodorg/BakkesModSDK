@@ -3,9 +3,10 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/ServerWrapper.h"
-class ActorWrapper;
 class PlayerControllerWrapper;
 class CarWrapper;
+class ActorWrapper;
+class FXActorWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT GameEditorWrapper : public ServerWrapper {
 public:
@@ -20,6 +21,10 @@ public:
 	void SetHistoryPosition(int newHistoryPosition);
 	int GetMaxUndoHistory();
 	void SetMaxUndoHistory(int newMaxUndoHistory);
+	FXActorWrapper GetFXActorArchetype();
+	void SetFXActorArchetype(FXActorWrapper newFXActorArchetype);
+	FXActorWrapper GetFXActor();
+	void SetFXActor(FXActorWrapper newFXActor);
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	void RotateActor(PlayerControllerWrapper PC, unsigned long bSnapOrientation);

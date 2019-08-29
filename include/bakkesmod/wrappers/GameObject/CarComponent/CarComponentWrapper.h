@@ -3,8 +3,9 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././Engine/ActorWrapper.h"
-class PriWrapper;
 class CarWrapper;
+class PriWrapper;
+class FXActorWrapper;
 class VehicleWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT CarComponentWrapper : public ActorWrapper {
@@ -12,6 +13,8 @@ public:
 	CONSTRUCTORS(CarComponentWrapper)
 
 	//AUTO-GENERATED FROM FIELDS
+	FXActorWrapper GetFXActorArchetype();
+	void SetFXActorArchetype(FXActorWrapper newFXActorArchetype);
 	unsigned long GetbDisabled();
 	void SetbDisabled(unsigned long newbDisabled);
 	unsigned long GetbAutoActivate();
@@ -38,6 +41,8 @@ public:
 	void SetActivityTime(float newActivityTime);
 	float GetReplicatedActivityTime();
 	void SetReplicatedActivityTime(float newReplicatedActivityTime);
+	FXActorWrapper GetFXActor();
+	void SetFXActor(FXActorWrapper newFXActor);
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	void eventFellOutOfWorld();

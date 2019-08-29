@@ -10,6 +10,7 @@ public:
 	CONSTRUCTORS(UnrealStringWrapper)
 public:
 	std::string ToString();
+	bool IsNull();
 private:
 	PIMPL
 };

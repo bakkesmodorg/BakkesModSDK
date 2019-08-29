@@ -3,8 +3,9 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ActorWrapper.h"
-class PrimitiveComponentWrapper;
 class CarWrapper;
+class FXActorWrapper;
+class PrimitiveComponentWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT VehiclePickupWrapper : public ActorWrapper {
 public:
@@ -13,6 +14,10 @@ public:
 	//AUTO-GENERATED FROM FIELDS
 	float GetRespawnDelay();
 	void SetRespawnDelay(float newRespawnDelay);
+	FXActorWrapper GetFXActorArchetype();
+	void SetFXActorArchetype(FXActorWrapper newFXActorArchetype);
+	FXActorWrapper GetFXActor();
+	void SetFXActor(FXActorWrapper newFXActor);
 	unsigned long GetbPickedUp();
 	void SetbPickedUp(unsigned long newbPickedUp);
 	unsigned long GetbNetRelevant();

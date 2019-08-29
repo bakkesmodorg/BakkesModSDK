@@ -3,8 +3,8 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ObjectWrapper.h"
-class UnrealStringWrapper;
 class ActorWrapper;
+class UnrealStringWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT ReplayWrapper : public ObjectWrapper {
 public:
@@ -20,6 +20,8 @@ public:
 	void SetNetVersion(int newNetVersion);
 	int GetReplayVersion();
 	void SetReplayVersion(int newReplayVersion);
+	int GetReplayLastSaveVersion();
+	void SetReplayLastSaveVersion(int newReplayLastSaveVersion);
 	int GetGameVersion();
 	void SetGameVersion(int newGameVersion);
 	int GetBuildID();
@@ -69,6 +71,7 @@ public:
 	void SetPlayersOnlyTicks(int newPlayersOnlyTicks);
 
 	//AUTO-GENERATED FUNCTION PROXIES
+	float GetPlaybackTime();
 	bool IsFromBeforeGameVersion(unsigned char BeforeGameVersion);
 	bool IsFromBeforeReplayVersion(unsigned char BeforeReplayVersion);
 	void SetReplayName(std::string NewName);

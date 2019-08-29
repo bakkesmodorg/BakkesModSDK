@@ -12,6 +12,8 @@ public:
 	//AUTO-GENERATED FROM FIELDS
 	int GetTeamSize();
 	void SetTeamSize(int newTeamSize);
+	int GetUnfairTeamSize();
+	void SetUnfairTeamSize(int newUnfairTeamSize);
 	unsigned long GetbUnfairBots();
 	void SetbUnfairBots(unsigned long newbUnfairBots);
 	int GetPrimaryPlayerTeam();

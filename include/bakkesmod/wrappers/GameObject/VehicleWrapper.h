@@ -3,14 +3,14 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/RBActorWrapper.h"
-class DodgeComponentWrapper;
-class DoubleJumpComponentWrapper;
-class JumpComponentWrapper;
-class VehicleSimWrapper;
-class AirControlComponentWrapper;
-class PriWrapper;
 class PlayerControllerWrapper;
 class BoostWrapper;
+class DodgeComponentWrapper;
+class JumpComponentWrapper;
+class PriWrapper;
+class DoubleJumpComponentWrapper;
+class VehicleSimWrapper;
+class AirControlComponentWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT VehicleWrapper : public RBActorWrapper {
 public:
@@ -19,6 +19,8 @@ public:
 	//AUTO-GENERATED FROM FIELDS
 	VehicleSimWrapper GetVehicleSim();
 	void SetVehicleSim(VehicleSimWrapper newVehicleSim);
+	StickyForceData GetStickyForce();
+	void SetStickyForce(StickyForceData newStickyForce);
 	unsigned long GetbDriving();
 	void SetbDriving(unsigned long newbDriving);
 	unsigned long GetbReplicatedHandbrake();

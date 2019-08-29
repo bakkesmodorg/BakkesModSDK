@@ -3,8 +3,9 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ObjectWrapper.h"
-class UnrealStringWrapper;
+class FXActorWrapper;
 class ActorWrapper;
+class UnrealStringWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT GoalWrapper : public ObjectWrapper {
 public:
@@ -16,6 +17,8 @@ public:
 	ArrayWrapper<ActorWrapper> GetOverrideGoalIndicatorOrientations();
 	unsigned char GetTeamNum();
 	void SetTeamNum(unsigned char newTeamNum);
+	FXActorWrapper GetScoreFX();
+	void SetScoreFX(FXActorWrapper newScoreFX);
 	UnrealStringWrapper GetGoalIndicatorArchetype();
 	unsigned long GetbNoGoalIndicator();
 	void SetbNoGoalIndicator(unsigned long newbNoGoalIndicator);

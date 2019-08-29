@@ -59,6 +59,7 @@ public:
 	void SetRechargeRate2(float InRechargeRate);
 	void SetNoBoost(unsigned long Enabled);
 	void SetUnlimitedBoost2(unsigned long Enabled);
+	void SetUnlimitedBoostDelayed(unsigned long Enabled);
 	void SetBoostModifier2(float Modifier);
 	void SetBoostAmount(float Amount);
 	void GiveBoost2(float Amount);

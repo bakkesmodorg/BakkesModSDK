@@ -40,6 +40,8 @@ public:
 	void SetVehicleSim(VehicleSimWrapper newVehicleSim);
 	int GetWheelIndex();
 	void SetWheelIndex(int newWheelIndex);
+	WheelContactData GetContact();
+	void SetContact(WheelContactData newContact);
 	unsigned long GetbDrawDebug();
 	void SetbDrawDebug(unsigned long newbDrawDebug);
 	unsigned long GetbHadContact();

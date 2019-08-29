@@ -17,7 +17,8 @@ enum {
 	PERMISSION_CUSTOM_TRAINING = (1 << 3),
 	PERMISSION_ONLINE = (1 << 4),
 	PERMISSION_PAUSEMENU_CLOSED = (1 << 5),
-	PERMISSION_REPLAY = (1 << 6)
+	PERMISSION_REPLAY = (1 << 6),
+	PERMISSION_OFFLINE = (1 << 7) //Only when not in an online game
 };
 
 #ifdef _BAKKESMOD //Only define _BAKKESMOD if you're building bakkesmod, don't define it when building a plugin!
@@ -28,4 +29,4 @@ enum {
 #define BAKKESMOD_PLUGIN_IMPORT __declspec(dllimport)
 #endif
 
-#define BAKKESMOD_PLUGIN_API_VERSION 58
+#define BAKKESMOD_PLUGIN_API_VERSION 73
