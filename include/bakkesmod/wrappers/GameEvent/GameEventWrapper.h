@@ -3,12 +3,13 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ActorWrapper.h"
-class WrapperStructs;
+class PlayerControllerWrapper;
 class CarWrapper;
+class UnrealStringWrapper;
 class GameSettingPlaylistWrapper;
 class PriWrapper;
-class UnrealStringWrapper;
-class PlayerControllerWrapper;
+class WrapperStructs;
+class TeamInfoWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT GameEventWrapper : public ActorWrapper {
 public:
@@ -31,6 +32,8 @@ public:
 	void SetbCountdownMessagesDisabled(unsigned long newbCountdownMessagesDisabled);
 	unsigned long GetbFillWithAI();
 	void SetbFillWithAI(unsigned long newbFillWithAI);
+	unsigned long GetbAllowQueueSaveReplay();
+	void SetbAllowQueueSaveReplay(unsigned long newbAllowQueueSaveReplay);
 	unsigned long GetbAllowReadyUp();
 	void SetbAllowReadyUp(unsigned long newbAllowReadyUp);
 	unsigned long GetbRestartingMatch();
@@ -94,6 +97,7 @@ public:
 	void __GameEvent_TA__SetAllowReadyUp(PriWrapper P);
 	bool __GameEvent_TA__CheckPlayersReady(PriWrapper P);
 	SteamID __GameEvent_TA__CheckForBannedPlayers(PriWrapper PRI);
+	void __Pylon__ChangeNotifyFunc();
 	void PlayerResetTraining();
 	bool SuppressModalDialogs();
 	bool ShouldShowBallIndicator();
@@ -101,6 +105,7 @@ public:
 	void CheckChatBanned(PlayerControllerWrapper PC);
 	PlayerControllerWrapper FindPCForUniqueID(SteamID& PlayerID);
 	bool AllowSplitScreenPlayer();
+	void AddPlayerChatMessage(SteamID& PlayerID, unsigned char ChatChannel, TeamInfoWrapper Team, std::string Message);
 	void ConditionalStartSpectatorMatch();
 	bool IsPlayingTraining();
 	bool IsPlayingLan();
@@ -143,6 +148,7 @@ public:
 	void AddCar(CarWrapper Car);
 	void TickRespawnTime(float DeltaTime);
 	void SetBotSkill2(float NewSkill);
+	PlayerControllerWrapper GetLocalPrimaryPlayer();
 	bool HasPlayerNamed(std::string PlayerName);
 	void RandomizeBots();
 	bool MoveToGround(ActorWrapper Mover, float HeightCheck);
@@ -186,6 +192,7 @@ public:
 	GameSettingPlaylistWrapper GetPlaylist();
 	bool ShouldHaveLeaveMatchPenalty();
 	void OnMatchSettingsChanged();
+	void ClearGameScoreFromCustomSettings();
 	void EventPlayerResetTraining(GameEventWrapper GameEvent);
 private:
 	PIMPL

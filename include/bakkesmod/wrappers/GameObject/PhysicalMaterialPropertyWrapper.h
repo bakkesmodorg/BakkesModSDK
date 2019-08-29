@@ -8,9 +8,6 @@ class BAKKESMOD_PLUGIN_IMPORT PhysicalMaterialPropertyWrapper : public ObjectWra
 public:
 	CONSTRUCTORS(PhysicalMaterialPropertyWrapper)
 
-	_NODISCARD bool IsNull() const;
-	explicit operator bool() const;
-
 	//AUTO-GENERATED FROM FIELDS
 	float GetTireFrictionScale();
 	void SetTireFrictionScale(float newTireFrictionScale);

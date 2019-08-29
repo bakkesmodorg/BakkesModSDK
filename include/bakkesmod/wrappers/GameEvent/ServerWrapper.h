@@ -3,28 +3,28 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/TeamGameEventWrapper.h"
-class ReplayDirectorWrapper;
-class PriWrapper;
-class GoalWrapper;
-class TeamWrapper;
 class PlayerControllerWrapper;
-class ActorWrapper;
 class CarWrapper;
+class ReplayDirectorWrapper;
+class TeamWrapper;
+class ActorWrapper;
+class PriWrapper;
 class BallWrapper;
+class GoalWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT ServerWrapper : public TeamGameEventWrapper {
 public:
 	CONSTRUCTORS(ServerWrapper)
 
 	//BEGIN SELF IMPLEMENTED
-		BallWrapper GetBall();
+	BallWrapper GetBall();
 	void SpawnCar(int carBody, string name);
 	void SpawnBot(int carBody, string name);
 	BallWrapper SpawnBall(const Vector position, bool wake, bool spawnCannon);
 	bool HasAuthority();
 	GETSETH(float, GameSpeed)
-		GETSETH(float, SecondsElapsed)
-
+	GETSETH(float, SecondsElapsed)	
+		
 		CarWrapper GetGameCar();
 	bool IsBallMovingTowardsGoal(int goalNo, BallWrapper bw);
 	bool IsInGoal(Vector vec);
@@ -36,6 +36,7 @@ public:
 	Vector GenerateGoalAimLocation(int goalNumber, Vector currentBallLocation);
 	Vector GetGoalExtent(int goalNumber = 0);
 	Vector GetGoalLocation(int goalNumber = 0);//END SELF IMPLEMENTED
+		//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
 	CarWrapper GetTestCarArchetype();
@@ -190,6 +191,7 @@ public:
 	void __GameEvent_Soccar_TA__CheckStart(TeamWrapper T);
 	void __GameEvent_Soccar_TA__EndState(TeamWrapper T);
 	void __ReplicatedServerPerformanceState__ChangeNotifyFunc();
+	void __bClubMatch__ChangeNotifyFunc();
 	void __bShowIntroScene__ChangeNotifyFunc();
 	void __WaitTimeRemaining__ChangeNotifyFunc();
 	void CheckJoinInProgress(PriWrapper PRI);
@@ -204,7 +206,6 @@ public:
 	void AddLocalPlayer(PlayerControllerWrapper Player);
 	void DestroyGoalIndicators(PlayerControllerWrapper Player);
 	void CreateGoalIndicators(PlayerControllerWrapper Player);
-	PlayerControllerWrapper GetLocalPrimaryPlayer();
 	void BeginHighlightsReplay();
 	bool ShouldCountUp();
 	bool ShouldAllowVoteToForfeit();

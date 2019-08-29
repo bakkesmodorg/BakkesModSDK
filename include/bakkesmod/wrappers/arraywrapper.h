@@ -55,4 +55,5 @@ template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<BoostPickupWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<SampleHistoryWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<StatGraphWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<PlayerControllerWrapper>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<wchar_t>;
 //template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<FSample>;

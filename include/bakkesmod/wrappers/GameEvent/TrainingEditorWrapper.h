@@ -3,11 +3,11 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/GameEditorWrapper.h"
-class ActorWrapper;
-class UnrealStringWrapper;
-class BallWrapper;
-class GameEditorSaveDataWrapper;
 class PlayerControllerWrapper;
+class UnrealStringWrapper;
+class ActorWrapper;
+class GameEditorSaveDataWrapper;
+class BallWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT TrainingEditorWrapper : public GameEditorWrapper {
 public:

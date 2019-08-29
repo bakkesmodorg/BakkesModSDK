@@ -3,12 +3,13 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/ServerWrapper.h"
+class PlayerControllerWrapper;
+class UnrealStringWrapper;
+class CarWrapper;
+class GameEventWrapper;
+class BallWrapper;
 class GoalWrapper;
 class TeamWrapper;
-class CarWrapper;
-class UnrealStringWrapper;
-class BallWrapper;
-class PlayerControllerWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT TutorialWrapper : public ServerWrapper {
 public:
@@ -20,7 +21,17 @@ public:
 	void SetCarSpawnLocation(Vector v);
 	Rotator GetCarSpawnRotation();
 	void SetCarSpawnRotation(Rotator v);
-	//END SELF IMPLEMENTED
+	CarWrapper GetGameCar();
+	bool IsBallMovingTowardsGoal(int goalNo, BallWrapper bw);
+	bool IsInGoal(Vector vec);
+	void DisableGoalReset();
+	void EnableGoalReset();
+	//void SpawnCar(int body = 0);
+	//Speed from 0 to 2000 pls
+	Vector GenerateShot(Vector startPos, Vector destination, float speed);
+	Vector GenerateGoalAimLocation(int goalNumber, Vector currentBallLocation);
+	Vector GetGoalExtent(int goalNumber = 0);
+	Vector GetGoalLocation(int goalNumber = 0);	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
 	Vector GetTotalFieldExtent();
@@ -100,7 +111,6 @@ public:
 	bool EndTutorial();
 	void CommitRedoRound();
 	void RedoRound2();
-	void PlayerResetTraining();
 	bool CanRedoRound();
 	void StartNewRound();
 	void SaveLocalPlayerStats();
@@ -148,6 +158,7 @@ public:
 	void SetDifficulty2(int InDifficulty);
 	void UpdateStats();
 	void AddLocalPlayer(PlayerControllerWrapper Player);
+	void HandlePlayerResetTraining(GameEventWrapper GameEvent);
 	void OnInit();
 	void EventTutorialTipChanged(TutorialWrapper GameEvent, std::string NewTip);
 private:

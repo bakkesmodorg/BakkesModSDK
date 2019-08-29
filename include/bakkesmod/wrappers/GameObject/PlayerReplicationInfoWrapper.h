@@ -4,6 +4,7 @@ template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ActorWrapper.h"
 class UnrealStringWrapper;
+class TeamInfoWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT PlayerReplicationInfoWrapper : public ActorWrapper {
 public:
@@ -27,6 +28,8 @@ public:
 	UnrealStringWrapper GetOldName();
 	int GetPlayerID();
 	void SetPlayerID(int newPlayerID);
+	TeamInfoWrapper GetTeam();
+	void SetTeam(TeamInfoWrapper newTeam);
 	unsigned long GetbAdmin();
 	void SetbAdmin(unsigned long newbAdmin);
 	unsigned long GetbIsSpectator();
@@ -79,6 +82,7 @@ public:
 	void Unregister2();
 	void UpdatePing(float TimeStamp);
 	void RemoteUserDataReplicated();
+	void SetPlayerTeam(TeamInfoWrapper NewTeam);
 	void eventClientFillRemoteUserData();
 	void eventPostBeginPlay();
 	void eventOnOwnerChanged();

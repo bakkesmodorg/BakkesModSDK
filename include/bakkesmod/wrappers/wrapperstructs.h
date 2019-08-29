@@ -12,6 +12,14 @@
 //	return min(upper, max(x, lower));
 //}
 
+enum ToastType
+{
+	ToastType_Info = 0,
+	ToastType_OK,
+	ToastType_Warning,
+	ToastType_Error
+};
+
 #pragma pack ( push, 0x4 )
 struct FVector;
 struct FRotator;
@@ -142,6 +150,11 @@ struct SteamID
 	unsigned long long ID;
 };
 
+struct SkillRating {
+	float                                              Mu;                                               		// 0x0000 (0x0004) [0x0000000000000000]              
+	float                                              Sigma;                                            		// 0x0004 (0x0004) [0x0000000000000000]              
+};
+
 struct LinearColor
 {
 	float                                              R;                                                		// 0x0000 (0x0004) [0x0000000000000001]              ( CPF_Edit )
@@ -245,6 +258,15 @@ struct Vector2 {
 	int X;
 	int Y;
 	Vector2 minus(Vector2 other)
+	{
+		return{ X - other.X,  Y - other.Y };
+	}
+};
+
+struct Vector2F {
+	float X;
+	float Y;
+	Vector2F minus(Vector2 other)
 	{
 		return{ X - other.X,  Y - other.Y };
 	}
@@ -388,6 +410,23 @@ struct WorldContactData
 
 
 
+struct StickyForceData {
+	float                                              Ground;                                           		// 0x0000 (0x0004) [0x0000000000000001]              ( CPF_Edit )
+	float                                              Wall;                                             		// 0x0004 (0x0004) [0x0000000000000001]              ( CPF_Edit )
+};
+
+struct WheelContactData {
+	unsigned long                                      bHasContact : 1;                                  		// 0x0000 (0x0004) [0x0000000000000000] [0x00000001] 
+	unsigned long                                      bHasContactWithWorldGeometry : 1;                 		// 0x0000 (0x0004) [0x0000000000000000] [0x00000002] 
+	float                                              HasContactChangeTime;                             		// 0x0004 (0x0004) [0x0000000000000000]              
+	void*                                      Actor;                                            		// 0x0008 (0x0004) [0x0000000000000000]              
+	void*												Component;                                        		// 0x000C (0x0004) [0x0000000004080008]              ( CPF_ExportObject | CPF_Component | CPF_EditInline )
+	struct Vector                                     Location;                                         		// 0x0010 (0x000C) [0x0000000000000000]              
+	struct Vector                                     Normal;                                           		// 0x001C (0x000C) [0x0000000000000000]              
+	struct Vector                                     LatDirection;                                     		// 0x0028 (0x000C) [0x0000000000000000]              
+	struct Vector                                     LongDirection;                                    		// 0x0034 (0x000C) [0x0000000000000000]              
+	void*									PhysMatProp;                                      		// 0x0040 (0x0004) [0x0000000000000000]              
+};
 
 
 

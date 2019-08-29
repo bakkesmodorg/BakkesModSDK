@@ -4,16 +4,16 @@ template<typename T> class StructArrayWrapper;
 #include "WrapperStructs.h"
 #include "./Engine/ActorWrapper.h"
 class BoostWrapper;
-class ServerWrapper;
+class UnrealStringWrapper;
 class CarWrapper;
 class PriXWrapper;
+class GameEventWrapper;
+class ServerWrapper;
+class BaseCameraWrapper;
+class RBActorWrapper;
+class PriWrapper;
 class EngineTAWrapper;
 class PlayerReplicationInfoWrapper;
-class GameEventWrapper;
-class PriWrapper;
-class UnrealStringWrapper;
-class RBActorWrapper;
-class BaseCameraWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT PlayerControllerWrapper : public ActorWrapper {
 public:
@@ -215,7 +215,6 @@ public:
 	void PushToTalkEnd();
 	void PushToTalk2();
 	void HandleJoinGameMigrationCompleted(unsigned long bSuccess, std::string FailReason);
-	void ClientNotifyServerShutdown();
 	void eventClientUnmutePlayer(SteamID& PlayerNetId);
 	void eventClientMutePlayer(SteamID& PlayerNetId, unsigned long bAddToMuteList);
 	void ClientSetOnlineStatus();
@@ -275,6 +274,7 @@ public:
 	void ServerInitInputBuffer(unsigned char Type);
 	void eventReceivedPlayer();
 	void eventPostBeginPlay();
+	void EventChatMessage(PlayerControllerWrapper PC, std::string Message, unsigned long bPreset);
 	void EventResetPlayer(PlayerControllerWrapper PC, unsigned long bFullReset);
 	void EventSelectBallCamTarget(PlayerControllerWrapper PC, int Direction);
 	void EventTrainingEditorActorModified();

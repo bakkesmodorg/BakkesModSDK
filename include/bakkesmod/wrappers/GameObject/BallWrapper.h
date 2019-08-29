@@ -3,10 +3,11 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/RBActorWrapper.h"
-class ServerWrapper;
 class CarWrapper;
-class GoalWrapper;
+class ServerWrapper;
 class PriWrapper;
+class FXActorWrapper;
+class GoalWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT BallWrapper : public RBActorWrapper {
 public:
@@ -17,6 +18,8 @@ public:
 	PredictionInfo PredictPosition(float timeAhead);	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
+	FXActorWrapper GetEndOfGameFXArchetype();
+	void SetEndOfGameFXArchetype(FXActorWrapper newEndOfGameFXArchetype);
 	unsigned long GetbAllowPlayerExplosionOverride();
 	void SetbAllowPlayerExplosionOverride(unsigned long newbAllowPlayerExplosionOverride);
 	unsigned long GetbNotifyGroundHit();
@@ -92,6 +95,7 @@ public:
 	bool IsRoundActive();
 	void eventOnHitGoal(GoalWrapper Goal, Vector& HitLoc);
 	void TurnOff();
+	void InitAk();
 	void SetWorldBounceScale(float NewScale);
 	void SetCarBounceScale(float NewScale);
 	void SetBallMaxLinearSpeedScale(float InMaxLinearSpeedScale);

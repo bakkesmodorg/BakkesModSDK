@@ -3,17 +3,18 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/VehicleWrapper.h"
-class PriXWrapper;
-class RumblePickupComponentWrapper;
-class FlipCarComponentWrapper;
-class PrimitiveComponentWrapper;
-class CarComponentWrapper;
-class RBActorWrapper;
 class WheelWrapper;
+class PriXWrapper;
 class GameEventWrapper;
+class RumblePickupComponentWrapper;
 class ActorWrapper;
+class RBActorWrapper;
 class PriWrapper;
+class FXActorWrapper;
+class CarComponentWrapper;
+class FlipCarComponentWrapper;
 class BallWrapper;
+class PrimitiveComponentWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT CarWrapper : public VehicleWrapper {
 public:
@@ -55,12 +56,16 @@ public:
 	void SetbCollidesWithVehicles(unsigned long newbCollidesWithVehicles);
 	unsigned long GetbOverrideBoostOn();
 	void SetbOverrideBoostOn(unsigned long newbOverrideBoostOn);
+	FXActorWrapper GetExitFXArchetype();
+	void SetExitFXArchetype(FXActorWrapper newExitFXArchetype);
 	float GetMaxTimeForDodge();
 	void SetMaxTimeForDodge(float newMaxTimeForDodge);
 	float GetLastWheelsHitBallTime();
 	void SetLastWheelsHitBallTime(float newLastWheelsHitBallTime);
 	float GetReplicatedCarScale();
 	void SetReplicatedCarScale(float newReplicatedCarScale);
+	FXActorWrapper GetBodyFXActor();
+	void SetBodyFXActor(FXActorWrapper newBodyFXActor);
 	PriWrapper GetAttackerPRI();
 	void SetAttackerPRI(PriWrapper newAttackerPRI);
 	Vector GetMouseAccel();

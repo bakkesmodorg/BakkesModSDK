@@ -3,16 +3,6 @@
 #include "./Engine/ObjectWrapper.h"
 #include "wrapperstructs.h"
 #include <vector>
-
-
-namespace BakkesMod
-{
-	namespace Plugin
-	{
-		struct LoadedPlugin;
-	}
-}
-
 class BAKKESMOD_PLUGIN_IMPORT PluginManagerWrapper : public ObjectWrapper
 {
 public:

@@ -148,6 +148,11 @@ public:
 	float GetLastRenderTime();
 	unsigned long long GetHiddenEditorViews();
 	void SetHiddenEditorViews(unsigned long long newHiddenEditorViews);
+	ArrayWrapper<ActorWrapper> GetAttached();
+	Vector GetRelativeLocation();
+	void SetRelativeLocation(Vector newRelativeLocation);
+	Rotator GetRelativeRotation();
+	void SetRelativeRotation(Rotator newRelativeRotation);
 	PrimitiveComponentWrapper GetCollisionComponent();
 
 	//AUTO-GENERATED FUNCTION PROXIES

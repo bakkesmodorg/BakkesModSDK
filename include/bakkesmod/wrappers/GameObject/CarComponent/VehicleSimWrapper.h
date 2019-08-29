@@ -4,8 +4,8 @@ template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././Engine/ObjectWrapper.h"
 class VehicleWrapper;
-class WheelWrapper;
 class CarWrapper;
+class WheelWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT VehicleSimWrapper : public ObjectWrapper {
 public:
