@@ -3,9 +3,9 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././GameObject/RumbleComponent/RumblePickupComponentWrapper.h"
-class RBActorWrapper;
-class CarWrapper;
 class BallWrapper;
+class CarWrapper;
+class RBActorWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT VelcroPickup : public RumblePickupComponentWrapper {
 public:

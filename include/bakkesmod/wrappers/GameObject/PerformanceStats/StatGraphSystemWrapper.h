@@ -3,9 +3,9 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././Engine/ObjectWrapper.h"
+class StatGraphWrapper;
 class PerfStatGraphWrapper;
 class InputBufferGraphWrapper;
-class StatGraphWrapper;
 class NetStatGraphWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT StatGraphSystemWrapper : public ObjectWrapper {

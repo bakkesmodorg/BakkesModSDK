@@ -4,8 +4,8 @@
 #include "linmath.h"
 #include <algorithm> 
 
-#define CONST_RadToUnrRot                                        10430.3783504704527
-#define CONST_UnrRotToRad                                        0.00009587379924285
+#define CONST_RadToUnrRot                                        10430.3783504704527f
+#define CONST_UnrRotToRad                                        0.00009587379924285f
 
 //static inline double clamp(double x, double lower, double upper)
 //{
@@ -130,19 +130,19 @@ struct PredictionInfo {
 //Player rotation Min(-16364, -32768, -32768)
 //Player rotation Max(16340, 32764, 32764)
 
-static inline float fixRotator(float newRotation) {// F THIS FOR NOW
+static inline int fixRotator(int newRotation) {// F THIS FOR NOW
 	return newRotation;
-	newRotation = (((int)newRotation + 32768) % (32768 + 32764)) - 32768;
-	newRotation = (((int)newRotation - 32764) % (32768 + 32764)) + 32764;
-	//if (newRotation >= 32767) {
-	//	newRotation -= 65535;
-	//	//newRotation = -32767 + (newRotation - 32767);
-	//}
-	//else if (newRotation <= -32767) { //-35000 
-	//	newRotation += 65535;
-	//	//newRotation = 32767 + (newRotation + 32767);
-	//}
-	return newRotation;
+	//newRotation = (((int)newRotation + 32768) % (32768 + 32764)) - 32768;
+	//newRotation = (((int)newRotation - 32764) % (32768 + 32764)) + 32764;
+	////if (newRotation >= 32767) {
+	////	newRotation -= 65535;
+	////	//newRotation = -32767 + (newRotation - 32767);
+	////}
+	////else if (newRotation <= -32767) { //-35000 
+	////	newRotation += 65535;
+	////	//newRotation = 32767 + (newRotation + 32767);
+	////}
+	//return newRotation;
 }
 
 struct SteamID
@@ -155,6 +155,13 @@ struct SkillRating {
 	float                                              Sigma;                                            		// 0x0004 (0x0004) [0x0000000000000000]              
 };
 
+struct SkillRank
+{
+	int Tier;
+	int Division;
+	int MatchesPlayed;
+};
+
 struct LinearColor
 {
 	float                                              R;                                                		// 0x0000 (0x0004) [0x0000000000000001]              ( CPF_Edit )
@@ -163,20 +170,20 @@ struct LinearColor
 	float                                              A;                                                		// 0x000C (0x0004) [0x0000000000000001]              ( CPF_Edit )
 };
 
-static inline float fixPitch(float newRotation) {// F THIS FOR NOW
+static inline int fixPitch(int newRotation) {// F THIS FOR NOW
 	return newRotation;
-	newRotation = (((int)newRotation + 16384) % (32768)) - 16384;
-	newRotation = (((int)newRotation - 16384) % (32768)) + 16384;
+	//newRotation = (((int)newRotation + 16384) % (32768)) - 16384;
+	//newRotation = (((int)newRotation - 16384) % (32768)) + 16384;
 
-	//if (newRotation >= 16383) {
-	//	newRotation -= 32767;
-	//	//newRotation = -16383 + (newRotation - 16383);
-	//}
-	//else if (newRotation <= -16383) { //-35000 
-	//	newRotation += 32767;
-	//	//newRotation = 16383 + (newRotation + 16383);
-	//}
-	return newRotation;
+	////if (newRotation >= 16383) {
+	////	newRotation -= 32767;
+	////	//newRotation = -16383 + (newRotation - 16383);
+	////}
+	////else if (newRotation <= -16383) { //-35000 
+	////	newRotation += 32767;
+	////	//newRotation = 16383 + (newRotation + 16383);
+	////}
+	//return newRotation;
 }
 
 struct ControllerInput {
@@ -267,6 +274,11 @@ struct Vector2F {
 	float X;
 	float Y;
 	Vector2F minus(Vector2 other)
+	{
+		return{ X - (float)other.X,  Y - (float)other.Y };
+	}
+
+	Vector2F minus(Vector2F other)
 	{
 		return{ X - other.X,  Y - other.Y };
 	}

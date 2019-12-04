@@ -274,6 +274,8 @@ public:
 	bool CanInitClubMatch();
 	void AssignCustomTeamSettings();
 	void InitGame2(std::string Options);
+	std::string GetMatchGUID();
+	void SetMatchGUID(std::string s);
 	void EventGameWinnerSet(ServerWrapper GameEvent);
 	void EventGoalScored(ServerWrapper GameEvent, BallWrapper Ball, GoalWrapper Goal, int ScoreIndex, int AssistIdx);
 private:

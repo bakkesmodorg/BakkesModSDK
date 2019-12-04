@@ -27,6 +27,8 @@ public:
 	ActorWrapper GetCameraAsActor();
 	string GetCameraState();
 	Vector linterp(Vector start, Vector end, float elapsed, float speed);	//END SELF IMPLEMENTED
+	std::string GetFocusActor();
+	bool SetFocusActor(std::string actorName);
 
 	//AUTO-GENERATED FROM FIELDS
 	float GetSwivelFastSpeed();
