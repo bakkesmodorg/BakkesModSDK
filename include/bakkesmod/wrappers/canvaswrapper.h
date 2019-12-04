@@ -30,6 +30,7 @@ public:
 	void DrawRect(Vector2 start, Vector2 end);
 
 	Vector2 Project(Vector location);
+	Vector2F ProjectF(Vector location);
 	Vector2 GetSize();
 private:
 	PIMPL

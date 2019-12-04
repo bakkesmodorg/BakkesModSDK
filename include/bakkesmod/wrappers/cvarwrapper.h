@@ -4,6 +4,7 @@
 #include <memory>
 #include <typeindex>
 #include <functional>
+#include <string>
 
 class CVarWrapper;
 

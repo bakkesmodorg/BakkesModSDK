@@ -3,8 +3,8 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././Engine/ObjectWrapper.h"
-class SampleHistoryWrapper;
 class SampleRecordSettingsWrapper;
+class SampleHistoryWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT StatGraphWrapper : public ObjectWrapper {
 public:

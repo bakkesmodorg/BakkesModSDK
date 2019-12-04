@@ -3,6 +3,7 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../../WrapperStructs.h"
 #include "../.././GameObject/RumbleComponent/TargetedPickup.h"
+class FXActorWrapper;
 class BallWrapper;
 class CarWrapper;
 
@@ -11,6 +12,10 @@ public:
 	CONSTRUCTORS(BallFreezePickup)
 
 	//AUTO-GENERATED FROM FIELDS
+	FXActorWrapper GetFreezeBreakFXArchetype();
+	void SetFreezeBreakFXArchetype(FXActorWrapper newFreezeBreakFXArchetype);
+	FXActorWrapper GetFreezeFXArchetype();
+	void SetFreezeFXArchetype(FXActorWrapper newFreezeFXArchetype);
 	unsigned long GetbMaintainMomentum();
 	void SetbMaintainMomentum(unsigned long newbMaintainMomentum);
 	unsigned long GetbTouched();
@@ -29,6 +34,8 @@ public:
 	void SetOrigSpeed(float newOrigSpeed);
 	float GetRepOrigSpeed();
 	void SetRepOrigSpeed(float newRepOrigSpeed);
+	FXActorWrapper GetFreezeFX();
+	void SetFreezeFX(FXActorWrapper newFreezeFX);
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	void PickupEnd();
