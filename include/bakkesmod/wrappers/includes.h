@@ -1,4 +1,6 @@
 #pragma once
+#pragma warning(push)
+#pragma warning(disable:4251)
 #include "./Engine/ActorWrapper.h"
 #include "./Engine/EngineTAWrapper.h"
 #include "./Engine/UnrealStringWrapper.h"
@@ -71,3 +73,4 @@
 #include "./GameObject/VehicleWrapper.h"
 #include "./PlayerControllerWrapper.h"
 #include "./ReplayServerWrapper.h"
+#pragma warning(pop)

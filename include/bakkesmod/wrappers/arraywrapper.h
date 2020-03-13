@@ -1,4 +1,6 @@
 #pragma once
+#pragma warning(push)
+#pragma warning(disable:4661)
 #include "./Engine/ActorWrapper.h"
 #include "./GameObject/CarWrapper.h"
 #include "./GameObject/BallWrapper.h"
@@ -57,3 +59,4 @@ template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<StatGraphWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<PlayerControllerWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<wchar_t>;
 //template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<FSample>;
+#pragma warning(pop)

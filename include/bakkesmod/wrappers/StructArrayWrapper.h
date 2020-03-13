@@ -1,4 +1,6 @@
 #pragma once
+#pragma warning(push)
+#pragma warning(disable:4661)
 #include "bakkesmod/wrappers/WrapperStructs.h"
 #include "./Engine/ActorWrapper.h"
 //struct RecordedSample;
@@ -28,3 +30,4 @@ template class BAKKESMOD_PLUGIN_IMPORT StructArrayWrapper<RecordedSample>;
 template class BAKKESMOD_PLUGIN_IMPORT StructArrayWrapper<ProfileCameraSettings>;
 template class BAKKESMOD_PLUGIN_IMPORT StructArrayWrapper<SteamID>;
 template class BAKKESMOD_PLUGIN_IMPORT StructArrayWrapper<LinearColor>;
+#pragma warning(pop)

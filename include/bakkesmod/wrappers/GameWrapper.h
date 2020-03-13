@@ -1,4 +1,6 @@
 #pragma once
+#pragma warning(push)
+#pragma warning(disable:4251)
 
 #include <map>
 #include <queue>
@@ -16,6 +18,8 @@ class CarWrapper;
 class EngineTAWrapper;
 class PlayerControllerWrapper;
 class PluginManagerWrapper;
+class GuiManagerWrapper;
+class BindingsWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT GameWrapper
 {
@@ -44,13 +48,15 @@ public:
 	CameraWrapper					GetCamera();
 	EngineTAWrapper					GetEngine();
 	PluginManagerWrapper			GetPluginManager();
+	GuiManagerWrapper				GetGUIManager();
+	PlayerControllerWrapper			GetPlayerController();
 	void							OverrideParams(void* src, size_t memsize);
 
 	void							SetTimeout(std::function<void(GameWrapper*)> theLambda, float time); //time in seconds, subject to change to std::shared_ptr<GameWrapper>
 	void							Execute(std::function<void(GameWrapper*)> theLambda); //Use this when calling from a different thread
 	void							RegisterDrawable(std::function<void(CanvasWrapper)> callback);
 	void							UnregisterDrawables(); //Can only unregister every drawable for now, sorry!
-	std::string							GetFNameByIndex(int index);
+	std::string						GetFNameByIndex(int index);
 	int								GetFNameIndexByString(std::string name);
 
 	void							HookEvent(std::string eventName, std::function<void(std::string eventName)> callback);
@@ -75,6 +81,7 @@ public:
 	bool							IsKeyPressed(int keyName);
 	void							ExecuteUnrealCommand(std::string command);
 	std::string 					GetRandomMap();
+	std::string 					GetCurrentMap();
 	unsigned long long				GetSteamID();
 
 	template<typename T, typename std::enable_if<std::is_base_of<ObjectWrapper, T>::value>::type* = nullptr>
@@ -99,3 +106,4 @@ extern template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCallerPos
 extern template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCallerPost<CarComponentWrapper>(std::string eventName, std::function<void(CarComponentWrapper caller, void* params, std::string eventName)> callback);
 extern template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCallerPost<PlayerControllerWrapper>(std::string eventName, std::function<void(PlayerControllerWrapper caller, void* params, std::string eventName)> callback);
 extern template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCallerPost<BallWrapper>(std::string eventName, std::function<void(BallWrapper caller, void* params, std::string eventName)> callback);
+#pragma warning(pop)
