@@ -282,6 +282,26 @@ public:
 	void EventPendingIdleKickChanged(PlayerControllerWrapper PC);
 	void EventLaunchControllerApplet();
 	void EventLaunchAccountPicker(int ControllerId);
+
+	void SetAForward(float aForward);
+	float GetAForward();
+
+	void SetATurn(float aTurn);
+	float GetATurn();
+
+	void SetAStrafe(float aStrafe);
+	float GetAStrafe();
+
+	void SetAUp(float aUp);
+	float GetAUp();
+
+	void SetALookUp(float aLookUp);
+	float GetALookUp();
+	void SetSpectatorCameraAccel(float SpectatorCameraAccel);
+	float GetSpectatorCameraAccel();
+	void SetSpectatorCameraSpeed(float SpectatorCameraSpeed);
+	float GetSpectatorCameraSpeed();
+
 private:
 	PIMPL
 };

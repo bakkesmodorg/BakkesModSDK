@@ -24,6 +24,11 @@ public:
 	void log(std::string text);
 	CVarWrapper getCvar(std::string cvar);
 
+	std::string getBindStringForKey(std::string key);
+	void setBind(std::string key, std::string command);
+	std::string getAlias(std::string alias);
+	void setAlias(std::string key, std::string script);
+
 	void backupCfg(std::string path);
 	void backupBinds(std::string path);
 	void loadCfg(std::string path);
