@@ -25,6 +25,13 @@ class SampleHistoryWrapper;
 class StatGraphWrapper;
 class PlayerControllerWrapper;
 
+class SequenceWrapper;
+class SequenceObjectWrapper;
+
+class ProductWrapper;
+class OnlineProductWrapper;
+class ProductAttributeWrapper;
+
 template<typename T> 
 class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper
 {
@@ -58,5 +65,11 @@ template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<SampleHistoryWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<StatGraphWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<PlayerControllerWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<wchar_t>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<SequenceWrapper>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<SequenceObjectWrapper>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<ProductWrapper>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<OnlineProductWrapper>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<ProductAttributeWrapper>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<int>;
 //template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<FSample>;
 #pragma warning(pop)

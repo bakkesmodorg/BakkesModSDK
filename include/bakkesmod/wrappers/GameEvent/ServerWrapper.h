@@ -18,8 +18,8 @@ public:
 
 	//BEGIN SELF IMPLEMENTED
 	BallWrapper GetBall();
-	void SpawnCar(int carBody, string name);
-	void SpawnBot(int carBody, string name);
+	void SpawnCar(int carBody, std::string name);
+	void SpawnBot(int carBody, std::string name);
 	BallWrapper SpawnBall(const Vector position, bool wake, bool spawnCannon);
 	bool HasAuthority();
 	GETSETH(float, GameSpeed)

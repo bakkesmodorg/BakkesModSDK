@@ -29,4 +29,4 @@ enum {
 #define BAKKESMOD_PLUGIN_IMPORT __declspec(dllimport)
 #endif
 
-#define BAKKESMOD_PLUGIN_API_VERSION 73
+#define BAKKESMOD_PLUGIN_API_VERSION 95

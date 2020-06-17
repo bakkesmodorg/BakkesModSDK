@@ -7,10 +7,6 @@
 #define CONST_RadToUnrRot                                        10430.3783504704527f
 #define CONST_UnrRotToRad                                        0.00009587379924285f
 
-//static inline double clamp(double x, double lower, double upper)
-//{
-//	return min(upper, max(x, lower));
-//}
 
 enum ToastType
 {
@@ -20,7 +16,7 @@ enum ToastType
 	ToastType_Error
 };
 
-#pragma pack ( push, 0x4 )
+#pragma pack ( push, 0x8 )
 struct FVector;
 struct FRotator;
 
@@ -50,11 +46,15 @@ struct Vector {
 		return Vector(X / v2.X, Y / v2.Y, Z / v2.Z);
 	}
 
+	inline Vector operator*(float f) {
+		return Vector(X * f, Y * f, Z * f);
+	}
 
-	/*inline Vector operator==(Vector v2)
-	{
-	return X == v2.X && Y == v2.Y && Z = v2.Z;
-	}*/
+	inline Vector operator/(float f) {
+		return Vector(X / f, Y / f, Z / f);
+	}
+
+
 
 	inline float magnitude()
 	{
@@ -102,7 +102,6 @@ struct Vector {
 		Vector b = v2.clone();
 
 		float dot = Vector::dot(a, b);
-		//dot = clamp(dot, -1.0f, 1.0f);
 
 		float theta = acos(dot) * t;
 
@@ -268,6 +267,22 @@ struct Vector2 {
 	{
 		return{ X - other.X,  Y - other.Y };
 	}
+
+	inline Vector2 operator-(Vector2 v2) {
+		return minus(v2);
+	}
+
+	inline Vector2 operator+(Vector2 v2) {
+		return{ X + v2.X,  Y + v2.Y };
+	}
+
+	inline Vector2 operator*(int mult) {
+		return{ X * mult, Y * mult };
+	}
+
+	inline Vector2 operator/(int div) {
+		return{ X / div, Y / div };
+	}
 };
 
 struct Vector2F {
@@ -281,6 +296,30 @@ struct Vector2F {
 	Vector2F minus(Vector2F other)
 	{
 		return{ X - other.X,  Y - other.Y };
+	}
+
+	inline Vector2F operator-(Vector2 v2) {
+		return minus(v2);
+	}
+
+	inline Vector2F operator-(Vector2F v2F) {
+		return minus(v2F);
+	}
+
+	inline Vector2F operator+(Vector2 v2) {
+		return{ X + v2.X,  Y + v2.Y };
+	}
+
+	inline Vector2F operator+(Vector2F v2F) {
+		return{ X + v2F.X,  Y + v2F.Y };
+	}
+
+	inline Vector2F operator*(float mult) {
+		return{ X * mult, Y * mult };
+	}
+
+	inline Vector2F operator/(float div) {
+		return{ X / div, Y / div };
 	}
 };
 
@@ -403,7 +442,7 @@ struct Quat {
 };
 struct RBState
 {
-	struct Quat                                      Quaternion;                                         		// 0x0000 (0x0010) [0x0000000000000000]              
+	struct Quat                                       Quaternion;                                         		// 0x0000 (0x0010) [0x0000000000000000]              
 	struct Vector                                     Location;                                         		// 0x0010 (0x000C) [0x0000000000000000]              
 	struct Vector                                     LinearVelocity;                                   		// 0x001C (0x000C) [0x0000000000000000]              
 	struct Vector                                     AngularVelocity;                                  		// 0x0028 (0x000C) [0x0000000000000000] 
@@ -423,24 +462,54 @@ struct WorldContactData
 
 
 struct StickyForceData {
-	float                                              Ground;                                           		// 0x0000 (0x0004) [0x0000000000000001]              ( CPF_Edit )
-	float                                              Wall;                                             		// 0x0004 (0x0004) [0x0000000000000001]              ( CPF_Edit )
+	float                                             Ground;                                           		// 0x0000 (0x0004) [0x0000000000000001]              ( CPF_Edit )
+	float                                             Wall;                                             		// 0x0004 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 };
 
 struct WheelContactData {
-	unsigned long                                      bHasContact : 1;                                  		// 0x0000 (0x0004) [0x0000000000000000] [0x00000001] 
-	unsigned long                                      bHasContactWithWorldGeometry : 1;                 		// 0x0000 (0x0004) [0x0000000000000000] [0x00000002] 
-	float                                              HasContactChangeTime;                             		// 0x0004 (0x0004) [0x0000000000000000]              
-	void*                                      Actor;                                            		// 0x0008 (0x0004) [0x0000000000000000]              
-	void*												Component;                                        		// 0x000C (0x0004) [0x0000000004080008]              ( CPF_ExportObject | CPF_Component | CPF_EditInline )
+	unsigned long                                     bHasContact : 1;                                  		// 0x0000 (0x0004) [0x0000000000000000] [0x00000001] 
+	unsigned long                                     bHasContactWithWorldGeometry : 1;                 		// 0x0000 (0x0004) [0x0000000000000000] [0x00000002] 
+	float                                             HasContactChangeTime;                             		// 0x0004 (0x0004) [0x0000000000000000]              
+	void*                                             Actor;                                            		// 0x0008 (0x0004) [0x0000000000000000]              
+	void*										      Component;                                        		// 0x000C (0x0004) [0x0000000004080008]              ( CPF_ExportObject | CPF_Component | CPF_EditInline )
 	struct Vector                                     Location;                                         		// 0x0010 (0x000C) [0x0000000000000000]              
 	struct Vector                                     Normal;                                           		// 0x001C (0x000C) [0x0000000000000000]              
 	struct Vector                                     LatDirection;                                     		// 0x0028 (0x000C) [0x0000000000000000]              
 	struct Vector                                     LongDirection;                                    		// 0x0034 (0x000C) [0x0000000000000000]              
-	void*									PhysMatProp;                                      		// 0x0040 (0x0004) [0x0000000000000000]              
+	void*									          PhysMatProp;                                      		// 0x0040 (0x0004) [0x0000000000000000]              
 };
 
+enum TRADEHOLD
+{
+ TRADEHOLD_P2P = -2,
+ TRADEHOLD_ALL = -1,
+ TRADEHOLD_NONE = 0,
+};
 
+enum PRODUCTQUALITY
+{
+	Common = 0,
+	Uncommon = 1,
+	Rare = 2,
+	VeryRare = 3,
+	Import = 4,
+	Exotic = 5,
+	BlackMarket = 6,
+	Premium = 7,
+	Limited = 8,
+	MAX = 9
+};
+
+enum UNLOCKMETHOD
+{
+	Default = 0,
+	Drop = 1,
+	Special = 2,
+	Reward = 3,
+	DLC = 4,
+	Never = 5,
+	MAX_ = 6
+};
 
 #define CONSTRUCTORS(name)\
 name(std::uintptr_t mem);\
@@ -450,6 +519,7 @@ name& operator=(name rhs);\
 
 #define PIMPL \
 struct Impl;\
+__pragma(warning(suppress:4251));\
 std::unique_ptr<Impl> pimpl;
 
 #define GETSETH(type, name) \

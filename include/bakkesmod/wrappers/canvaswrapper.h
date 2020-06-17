@@ -11,8 +11,11 @@ public:
 	void SetPosition(Vector2F pos);
 	Vector2F GetPositionFloat();
 	void SetColor(char Red, char Green, char Blue, char Alpha);//0-255
+	void SetColor(LinearColor color);
+	LinearColor GetColor();
 	void DrawBox(Vector2F size);
 	void FillBox(Vector2F size);
+	void FillTriangle(Vector2F p1, Vector2F p2, Vector2F p3);
 	void FillTriangle(Vector2F p1, Vector2F p2, Vector2F p3, LinearColor color);
 	void DrawString(std::string text);
 	void DrawString(std::string text, float xScale, float yScale);
@@ -24,6 +27,7 @@ public:
 	Vector2 GetPosition();
 	void DrawBox(Vector2 size);
 	void FillBox(Vector2 size);
+	void FillTriangle(Vector2 p1, Vector2 p2, Vector2 p3);
 	void FillTriangle(Vector2 p1, Vector2 p2, Vector2 p3, LinearColor color);
 	void DrawLine(Vector2 start, Vector2 end);
 	void DrawLine(Vector2 start, Vector2 end, float width);
