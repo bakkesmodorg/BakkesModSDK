@@ -4,6 +4,7 @@ template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ObjectWrapper.h"
 class PrimitiveComponentWrapper;
+class WorldInfoWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT ActorWrapper : public ObjectWrapper {
 public:
@@ -22,6 +23,7 @@ public:
 	Vector GetAngularVelocity();
 	void SetAngularVelocity(const Vector v, bool addToCurrent);
 	bool IsNull();
+	WorldInfoWrapper GetWorldInfo();
 	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS

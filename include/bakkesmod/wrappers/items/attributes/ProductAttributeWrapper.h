@@ -7,8 +7,6 @@ public:
 	CONSTRUCTORS(ProductAttributeWrapper)
 
 	//BEGIN SELF IMPLEMENTED
-	_NODISCARD bool IsNull() const;
-	explicit operator bool() const;
 	std::string GetAttributeType();
 	//END SELF IMPLEMENTED
 

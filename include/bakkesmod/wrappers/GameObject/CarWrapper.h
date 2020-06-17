@@ -25,7 +25,7 @@ public:
 	void SetBoostCheap(bool b);
 	void SetCarRotation(Rotator rotation);
 	void ForceBoost(bool force);
-	string GetOwnerName();
+    std::string GetOwnerName();
 	void Unfreeze();
 	ControllerInput GetInput();
 	void SetInput(ControllerInput input);

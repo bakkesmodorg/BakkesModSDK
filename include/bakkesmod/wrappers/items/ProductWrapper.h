@@ -8,8 +8,6 @@ public:
 	CONSTRUCTORS(ProductWrapper)
 
 	//BEGIN SELF IMPLEMENTED
-	bool IsNull();
-	explicit operator bool();
 	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS

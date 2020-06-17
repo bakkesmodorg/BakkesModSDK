@@ -20,6 +20,8 @@ class PlayerControllerWrapper;
 class PluginManagerWrapper;
 class GuiManagerWrapper;
 class BindingsWrapper;
+class SequenceWrapper;
+class ItemsWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT GameWrapper
 {
@@ -37,9 +39,11 @@ public:
 	bool IsInCustomTraining();
 	bool IsSpectatingInOnlineGame();
 
+	bool IsPaused();
+
 
 	ServerWrapper					GetOnlineGame();
-	//TutorialWrapper					GetGameEventAsTutorial();
+	//TutorialWrapper				GetGameEventAsTutorial();
 	ServerWrapper					GetGameEventAsServer();
 	ReplayServerWrapper				GetGameEventAsReplay();
 
@@ -50,6 +54,7 @@ public:
 	PluginManagerWrapper			GetPluginManager();
 	GuiManagerWrapper				GetGUIManager();
 	PlayerControllerWrapper			GetPlayerController();
+	ItemsWrapper					GetItemsWrapper();
 	void							OverrideParams(void* src, size_t memsize);
 
 	void							SetTimeout(std::function<void(GameWrapper*)> theLambda, float time); //time in seconds, subject to change to std::shared_ptr<GameWrapper>
@@ -63,6 +68,7 @@ public:
 	void							UnhookEvent(std::string eventName);
 
 	void							HookEventPost(std::string eventName, std::function<void(std::string eventName)> callback);
+	void							UnhookEventPost(std::string eventName);
 	void							RegisterBot(CARBODY car, std::function<void(float deltaTime, ControllerInput* inputs, CarWrapper* ownedCar, ServerWrapper* game)> tickfunc, std::string botName, bool overridePlayer);
 
 	void							LogToChatbox(std::string text, std::string sender="BAKKESMOD");
@@ -83,6 +89,7 @@ public:
 	std::string 					GetRandomMap();
 	std::string 					GetCurrentMap();
 	unsigned long long				GetSteamID();
+	SequenceWrapper					GetMainSequence();
 
 	template<typename T, typename std::enable_if<std::is_base_of<ObjectWrapper, T>::value>::type* = nullptr>
 	void							HookEventWithCaller(std::string eventName, std::function<void(T caller, void* params, std::string eventName)> callback);

@@ -6,6 +6,8 @@ template<typename T> class StructArrayWrapper;
 class ActorWrapper;
 class UnrealStringWrapper;
 
+#undef GetCurrentTime
+
 class BAKKESMOD_PLUGIN_IMPORT ReplayWrapper : public ObjectWrapper {
 public:
 	CONSTRUCTORS(ReplayWrapper)
