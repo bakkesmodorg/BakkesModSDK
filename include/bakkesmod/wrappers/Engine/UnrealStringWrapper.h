@@ -12,6 +12,7 @@ public:
 	std::string ToString();
 	std::wstring ToWideString();
 	bool IsNull();
+	explicit operator bool();
 private:
 	PIMPL
 };

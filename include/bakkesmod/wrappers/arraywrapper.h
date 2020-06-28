@@ -32,7 +32,7 @@ class ProductWrapper;
 class OnlineProductWrapper;
 class ProductAttributeWrapper;
 
-template<typename T> 
+template<typename T>
 class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper
 {
 public:

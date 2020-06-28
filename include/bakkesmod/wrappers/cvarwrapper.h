@@ -31,9 +31,12 @@ public:
 	void setValue(int value);
 	void setValue(float value);
 	void addOnValueChanged(std::function<void(std::string, CVarWrapper)> changeFunc); //string is old value, cvarwrapper is cvar now.
+	void removeOnValueChanged();
 	void bindTo(std::shared_ptr<int> var);
 	void bindTo(std::shared_ptr<float> var);
 	void bindTo(std::shared_ptr<std::string> var);
 	void bindTo(std::shared_ptr<bool> var);
+	bool IsNull();
+	explicit operator bool();
 };
 

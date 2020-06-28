@@ -18,9 +18,11 @@ public:
 	void executeCommand(std::string command, bool log = true);
 	void registerNotifier(std::string cvar, commandNotifier notifier, std::string description, unsigned char permissions);
 	void registerNotifier(std::string cvar, std::function<void(std::vector<std::string>)> notifier, std::string description, unsigned char permissions);
+	bool removeNotifier(std::string cvar);
 
 	CVarWrapper registerCvar(std::string cvar, std::string defaultValue, std::string desc = "", bool searchAble = true, bool hasMin = false, float min = 0, bool hasMax = false, float max = 0, bool saveToCfg = true);
-	
+	bool removeCvar(std::string cvar);
+
 	void log(std::string text);
 	CVarWrapper getCvar(std::string cvar);
 

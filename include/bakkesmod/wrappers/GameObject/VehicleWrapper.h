@@ -16,6 +16,11 @@ class BAKKESMOD_PLUGIN_IMPORT VehicleWrapper : public RBActorWrapper {
 public:
 	CONSTRUCTORS(VehicleWrapper)
 
+
+	unsigned long GetbCanJump();
+	void SetbCanJump(unsigned long newbCanJump);
+	
+
 	//AUTO-GENERATED FROM FIELDS
 	VehicleSimWrapper GetVehicleSim();
 	void SetVehicleSim(VehicleSimWrapper newVehicleSim);
