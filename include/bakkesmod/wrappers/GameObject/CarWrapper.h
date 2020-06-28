@@ -31,6 +31,7 @@ public:
 	void SetInput(ControllerInput input);
 	void Destroy();
 	void Demolish();
+	unsigned long HasFlip();
 	int GetLoadoutBody();	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS

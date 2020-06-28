@@ -1,7 +1,7 @@
 #pragma once
 #pragma warning(push)
 #pragma warning(disable:4661)
-#include "bakkesmod/wrappers/WrapperStructs.h"
+#include "WrapperStructs.h"
 #include "./Engine/ActorWrapper.h"
 //struct RecordedSample;
 //struct ProfileCameraSettings;
