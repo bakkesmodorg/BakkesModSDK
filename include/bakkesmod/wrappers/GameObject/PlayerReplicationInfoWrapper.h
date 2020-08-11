@@ -11,6 +11,7 @@ public:
 	CONSTRUCTORS(PlayerReplicationInfoWrapper)
 
 	//BEGIN SELF IMPLEMENTED
+	OnlinePlatform GetPlatform();
 	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS

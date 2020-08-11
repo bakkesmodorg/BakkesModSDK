@@ -69,7 +69,6 @@ public:
 
 	void							HookEventPost(std::string eventName, std::function<void(std::string eventName)> callback);
 	void							UnhookEventPost(std::string eventName);
-	void							RegisterBot(CARBODY car, std::function<void(float deltaTime, ControllerInput* inputs, CarWrapper* ownedCar, ServerWrapper* game)> tickfunc, std::string botName, bool overridePlayer);
 
 	void							LogToChatbox(std::string text, std::string sender="BAKKESMOD");
 
