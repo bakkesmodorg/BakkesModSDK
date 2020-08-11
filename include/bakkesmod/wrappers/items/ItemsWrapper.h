@@ -24,7 +24,7 @@
 #include "dbs/DataAssetDatabase_ESportsTeamWrapper.h"
 #include "dbs/PaintDatabaseWrapper.h"
 #include "dbs/SpecialEditionDatabaseWrapper.h"
-
+#include "TradeWrapper.h"
 
 
 class BAKKESMOD_PLUGIN_IMPORT ItemsWrapper : public ObjectWrapper
@@ -43,6 +43,9 @@ public:
 	DataAssetDatabase_ESportsTeamWrapper GetEsportTeamDB();
 	PaintDatabaseWrapper GetPaintDB();
 	SpecialEditionDatabaseWrapper GetSpecialEditionDB();
+
+	TradeWrapper GetTradeWrapper();
+
 
 
 

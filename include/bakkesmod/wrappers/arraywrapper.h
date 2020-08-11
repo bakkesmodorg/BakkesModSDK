@@ -43,11 +43,56 @@ public:
 
 	int Count();
 	T Get(int index);
+    bool IsNull();
 protected:
 	struct Impl;
 	std::unique_ptr<Impl> pimpl;
 };
 
+template <typename T>
+class ArrayWrapperIterator
+{
+public:
+    ArrayWrapperIterator(ArrayWrapper<T>& collection,
+        size_t const index) :
+        index(index), collection(collection)
+    { }
+
+    bool operator!= (ArrayWrapperIterator const& other) const
+    {
+        return index != other.index;
+    }
+
+    T const& operator* () const
+    {
+        return collection.Get(index);
+    }
+
+    ArrayWrapperIterator const& operator++ ()
+    {
+        ++index;
+        return *this;
+    }
+
+private:
+    size_t   index;
+    ArrayWrapper<T>& collection;
+};
+
+template <typename T>
+inline ArrayWrapperIterator<T> begin(
+    ArrayWrapper<T>& collection)
+{
+    return ArrayWrapperIterator<T>(collection, 0);
+}
+
+template <typename T>
+inline ArrayWrapperIterator<T> end(
+    ArrayWrapper<T>& collection)
+{
+    return ArrayWrapperIterator<T>(
+        collection, collection.Count());
+}
 
 
 //
