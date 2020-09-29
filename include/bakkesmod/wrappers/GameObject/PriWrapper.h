@@ -8,6 +8,7 @@ class CarWrapper;
 class GameEventWrapper;
 class FXActorWrapper;
 class AirControlComponentWrapper;
+class ClubDetailsWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT PriWrapper : public PriXWrapper {
 public:
@@ -123,6 +124,7 @@ public:
 	UnrealStringWrapper GetPublicIP();
 	int GetSpectatorShortcut();
 	void SetSpectatorShortcut(int newSpectatorShortcut);
+	ClubDetailsWrapper GetClubDetails();
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	void __ClubID__ChangeNotifyFunc();

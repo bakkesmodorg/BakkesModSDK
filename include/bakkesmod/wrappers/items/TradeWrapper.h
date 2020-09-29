@@ -1,3 +1,4 @@
+#pragma once
 #include "../Engine/ObjectWrapper.h"
 #include "OnlineProductWrapper.h"
 

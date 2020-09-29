@@ -24,6 +24,7 @@ public:
 	bool removeCvar(std::string cvar);
 
 	void log(std::string text);
+    void log(std::wstring text);
 	CVarWrapper getCvar(std::string cvar);
 
 	std::string getBindStringForKey(std::string key);
@@ -35,7 +36,6 @@ public:
 	void backupBinds(std::string path);
 	void loadCfg(std::string path);
 private:
-	struct Impl;
-	std::unique_ptr<Impl> pimpl;
+    PIMPL
 };
 
