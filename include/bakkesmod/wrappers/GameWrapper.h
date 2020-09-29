@@ -22,6 +22,7 @@ class GuiManagerWrapper;
 class BindingsWrapper;
 class SequenceWrapper;
 class ItemsWrapper;
+class ClubDetailsWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT GameWrapper
 {
@@ -84,11 +85,21 @@ public:
 	*/
 	void							Toast(std::string title, std::string text, std::string texture = "default", float timeout = 3.5f, uint8_t toastType = 0, float width = 290.f, float height = 60.f);
 	bool							IsKeyPressed(int keyName);
+	int								IsCursorVisible(); // 1 if due to RL, 2 if ImGui
 	void							ExecuteUnrealCommand(std::string command);
 	std::string 					GetRandomMap();
 	std::string 					GetCurrentMap();
 	unsigned long long				GetSteamID();
+	class UnrealStringWrapper				GetPlayerName();
+	ClubDetailsWrapper				GetLocalClub();
 	SequenceWrapper					GetMainSequence();
+
+    Vector2							GetScreenSize();
+    float							GetSafeZoneRatio();
+    float							GetUIScale();
+    unsigned int					GetbMetric();
+    UnrealStringWrapper				GetUILanguage();
+    bool							GetbColorBlind();
 
 	template<typename T, typename std::enable_if<std::is_base_of<ObjectWrapper, T>::value>::type* = nullptr>
 	void							HookEventWithCaller(std::string eventName, std::function<void(T caller, void* params, std::string eventName)> callback);

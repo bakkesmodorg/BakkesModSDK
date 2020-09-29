@@ -16,6 +16,7 @@
 #include "attributes/ProductAttribute_PaintedWrapper.h"
 #include "attributes/ProductAttribute_QualityWrapper.h"
 #include "attributes/ProductAttribute_SpecialEditionWrapper.h"
+#include "attributes/ProductAttribute_SpecialEditionSettingsWrapper.h"
 #include "attributes/ProductAttribute_TeamEditionUploadWrapper.h"
 #include "attributes/ProductAttribute_TeamEditionWrapper.h"
 #include "attributes/ProductAttribute_UnlockMethodWrapper.h"

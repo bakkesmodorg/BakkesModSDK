@@ -1,6 +1,7 @@
 #pragma once
 #include "SequenceOpWrapper.h"
 #include "../arraywrapper.h"
+#include <map>
 
 class SequenceVariableWrapper;
 

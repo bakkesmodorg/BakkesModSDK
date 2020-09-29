@@ -159,6 +159,151 @@ static inline bool get_safe_bool(std::string val) {
 	return f >= 0.5;
 }
 
+static inline LinearColor get_safe_color_rgba(std::string val)
+{
+    LinearColor output = {0,0,0,0};
+    try
+    {
+        if(is_parsable(val))
+        {
+            val = val.substr(1, val.size() - 1);
+            std::vector<std::string> values;
+            split(val, values, ',');
+            if(values.size() == 4)
+            {
+                output.R = stof(values.at(0));
+                output.G = stof(values.at(1));
+                output.B = stof(values.at(2));
+                output.A = stof(values.at(3));
+            }
+        }
+        return output;
+    }
+    catch (...)
+    {
+		return output;
+	}
+}
+
+//Hexdecimal and LinearColor conversions
+static inline bool is_hex_valid(std::string val)
+{
+	//If empty, invalid
+	if(val.empty()) { return false; }
+
+	//Remove the hashtag if there is one at the front
+    if(val.at(0) == '#') { val.erase(0,1); }
+
+	//Check if there are enough characters
+	if(val.size() < 6) { return false; }
+
+	//Check if all characters are within charSet
+	static const std::string chars = "0123456789ABCDEF";
+	for(const auto& it : val)
+	{
+		if(chars.find(toupper(it)) == std::string::npos)
+		{
+			return false;
+		}
+	}
+
+	return true;
+}
+
+static int single_hex_char_to_int(char input)
+{
+    static const std::string Letters = "ABCDEF";
+	static const std::string Numbers = "0123456789";
+
+    if(Letters.find(input) != std::string::npos)
+    {
+        return input - 'A' + 10;
+    }
+	if(Numbers.find(input) != std::string::npos)
+    {
+        return input - '0';
+    }
+
+	return 0;
+}
+
+static int hex_chars_to_int(std::string input)
+{
+    //Convert 2 hex characters to their respective int (0-255)
+    if(input.size() < 2) { return 0; }
+
+    for(auto& c : input)
+	    c = toupper(c);
+	
+    int bigboi = single_hex_char_to_int(input.at(0)) * 16;
+    int lilboi = single_hex_char_to_int(input.at(1));
+    
+    return bigboi + lilboi;
+}
+
+static char single_hex_char_from_int(int input)
+{
+    if(input >= 0 && input <= 9)
+    {
+        return ('0' + input);
+    }
+
+    return ('A' + input - 10);
+}
+
+static std::string int_to_hex_chars(int input)
+{
+    //Convert int (0-255) to its respective 2 hex chars
+
+    char bigboi = single_hex_char_from_int(input / 16);
+    char lilboi = single_hex_char_from_int(input - (16 * bigboi));
+
+    std::string output;
+    return output + bigboi + lilboi;
+}
+
+static inline LinearColor get_color_from_hex(std::string val)
+{
+    //Color output will be in 0-255 range
+    LinearColor output = {0,0,0,0};
+
+    if(!is_hex_valid(val)) { return output; }
+
+    //Remove beginning # if it exists
+    if(val.at(0) == '#') { val.erase(0,1); }
+
+    //Add alpha characters if they don't exist
+    if(val.size() < 8)
+    {
+        if(val.size() == 6) { val += "FF"; }
+        if(val.size() == 7) { val += "F";  }
+    }
+
+    int R = hex_chars_to_int(val.substr(0,2));
+    int G = hex_chars_to_int(val.substr(2,2));
+    int B = hex_chars_to_int(val.substr(4,2));
+    int A = hex_chars_to_int(val.substr(6,2));
+
+    return LinearColor{static_cast<float>(R), static_cast<float>(G), static_cast<float>(B), static_cast<float>(A)};
+}
+
+static inline std::string get_hex_from_color(LinearColor val)
+{
+    //Color input must be in 0-255 range
+    int R = static_cast<int>(val.R);
+    int G = static_cast<int>(val.G);
+    int B = static_cast<int>(val.B);
+    int A = static_cast<int>(val.A);
+
+    std::string output = "#";
+    output += int_to_hex_chars(R) + int_to_hex_chars(G) + int_to_hex_chars(B) + int_to_hex_chars(A);
+}
+
+static inline std::string to_string_color(const LinearColor val)
+{
+    return "(" + std::to_string(val.R) + ", " + std::to_string(val.G) + ", " + std::to_string(val.B) + ", " + std::to_string(val.A) + ")";
+}
+
 // trim from start
 static inline std::string &ltrim(std::string &s) {
     /* error C2039 : 'ptr_fun' : is not a member of 'std'. */
@@ -256,6 +401,16 @@ static inline bool replace(std::string& str, const std::string& from, const std:
 		return false;
 	str.replace(start_pos, from.length(), to);
 	return true;
+}
+
+static inline bool findStringIC(const std::string& strHaystack, const std::string& strNeedle)
+{
+	auto it = std::search(
+		strHaystack.begin(), strHaystack.end(),
+		strNeedle.begin(), strNeedle.end(),
+		[](char ch1, char ch2) { return std::toupper(ch1) == std::toupper(ch2); }
+	);
+	return (it != strHaystack.end());
 }
 
 //inline static std::string to_string(std::string s) {

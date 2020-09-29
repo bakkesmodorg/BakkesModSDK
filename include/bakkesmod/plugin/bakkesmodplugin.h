@@ -58,7 +58,9 @@ static std::shared_ptr<classType> singleton;\
 		class BAKKESMOD_PLUGIN_EXPORT BakkesModPlugin
 		{
 		public:
+            __pragma(warning(suppress:4251));
 			std::shared_ptr<CVarManagerWrapper> cvarManager;
+            __pragma(warning(suppress:4251));
 			std::shared_ptr<GameWrapper> gameWrapper;
 			virtual void onLoad() {};
 

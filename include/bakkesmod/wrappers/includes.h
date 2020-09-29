@@ -73,4 +73,7 @@
 #include "./GameObject/VehicleWrapper.h"
 #include "./PlayerControllerWrapper.h"
 #include "./ReplayServerWrapper.h"
+#include "./GameObject/ClubDetailsWrapper.h"
+#include "./items/ItemsWrapper.h"
+#include "./ImageWrapper.h"
 #pragma warning(pop)

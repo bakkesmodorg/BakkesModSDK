@@ -45,8 +45,7 @@ public:
 	T Get(int index);
     bool IsNull();
 protected:
-	struct Impl;
-	std::unique_ptr<Impl> pimpl;
+	PIMPL
 };
 
 template <typename T>
