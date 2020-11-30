@@ -24,11 +24,17 @@ public:
 	void SetCreatedAt(unsigned long long newCreatedAt);
 	unsigned long long GetUpdatedAt();
 	void SetUpdatedAt(unsigned long long newUpdatedAt);
-	SteamID GetCreatorPlayerID();
+
+	[[deprecated("Use GetCreatorPlayerUniqueID instead")]]
+	SteamID GetCreatorPlayerID(); //DEPRECATED
+	
 	void SetCreatorPlayerID(SteamID newCreatorPlayerID);
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	void Init();
+
+	//SELF-IMPLEMENTED
+	UniqueIDWrapper GetCreatorPlayerUniqueID();
 private:
 	PIMPL
 };

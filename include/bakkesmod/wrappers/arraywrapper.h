@@ -11,6 +11,7 @@
 #include "./GameObject/TeamWrapper.h"
 #include "./GameObject/GoalWrapper.h"
 #include "./GameObject/BoostPickupWrapper.h"
+
 class ActorWrapper;
 class CarWrapper;
 class BallWrapper;
@@ -27,6 +28,7 @@ class PlayerControllerWrapper;
 
 class SequenceWrapper;
 class SequenceObjectWrapper;
+class SequenceVariableWrapper;
 
 class ProductWrapper;
 class OnlineProductWrapper;
@@ -111,6 +113,7 @@ template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<PlayerControllerWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<wchar_t>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<SequenceWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<SequenceObjectWrapper>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<SequenceVariableWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<ProductWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<OnlineProductWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<ProductAttributeWrapper>;

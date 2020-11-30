@@ -8,6 +8,10 @@
 #include <typeindex>
 #include "canvaswrapper.h"
 #include "mmrwrapper.h"
+
+#ifdef __cpp_lib_filesystem
+#include <filesystem>
+#endif
 class GameEventWrapper;
 class TutorialWrapper;
 class ServerWrapper;
@@ -23,6 +27,7 @@ class BindingsWrapper;
 class SequenceWrapper;
 class ItemsWrapper;
 class ClubDetailsWrapper;
+class UnrealStringWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT GameWrapper
 {
@@ -41,7 +46,11 @@ public:
 	bool IsSpectatingInOnlineGame();
 
 	bool IsPaused();
+	bool IsUsingEpicVersion();
+	bool IsUsingSteamVersion();
 
+	int GetSteamVersion();
+	std::string GetPsyBuildID();
 
 	ServerWrapper					GetOnlineGame();
 	//TutorialWrapper				GetGameEventAsTutorial();
@@ -79,7 +88,10 @@ public:
 	Supported file formats: Whatever D3DXCreateTextureFromFile supports.
 	*/
 	void							LoadToastTexture(std::string name, std::string path);
-
+	void							LoadToastTexture(std::string name, std::wstring path);
+#ifdef __cpp_lib_filesystem
+	void							LoadToastTexture(std::string name, std::filesystem::path path);
+#endif
 	/*
 	Texture is the name of the texture given in LoadToastTexture, not the path! "default" will show the normal BakkesMod logo
 	*/
@@ -90,7 +102,9 @@ public:
 	std::string 					GetRandomMap();
 	std::string 					GetCurrentMap();
 	unsigned long long				GetSteamID();
-	class UnrealStringWrapper				GetPlayerName();
+	std::string						GetEpicID();
+	UniqueIDWrapper					GetUniqueID();
+	UnrealStringWrapper				GetPlayerName();
 	ClubDetailsWrapper				GetLocalClub();
 	SequenceWrapper					GetMainSequence();
 
@@ -100,6 +114,14 @@ public:
     unsigned int					GetbMetric();
     UnrealStringWrapper				GetUILanguage();
     bool							GetbColorBlind();
+	// Path utilities
+#ifdef __cpp_lib_filesystem
+	std::filesystem::path			GetBakkesModPath();
+	std::filesystem::path			GetDataFolder();
+	std::filesystem::path			FixRelativePath(std::filesystem::path path);
+#endif
+	std::wstring					GetBakkesModPathW();
+	std::wstring					GetDataFolderW();
 
 	template<typename T, typename std::enable_if<std::is_base_of<ObjectWrapper, T>::value>::type* = nullptr>
 	void							HookEventWithCaller(std::string eventName, std::function<void(T caller, void* params, std::string eventName)> callback);

@@ -2,6 +2,7 @@
 template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
+#include "../UniqueIDWrapper.h"
 #include ".././Engine/ActorWrapper.h"
 class UnrealStringWrapper;
 class TeamInfoWrapper;
@@ -62,15 +63,22 @@ public:
 	float GetExactPing();
 	void SetExactPing(float newExactPing);
 	UnrealStringWrapper GetSavedNetworkAddress();
-	SteamID GetUniqueId();
-	void SetUniqueId(SteamID newUniqueId);
+	[[deprecated("Use GetUniqueIdWrapper instead")]]
+	SteamID GetUniqueId();//DEPRECATED
+	[[deprecated("Use SetUniqueId that takes UniqueIDWrapper instead")]]
+	void SetUniqueId(SteamID newUniqueId);//DEPRECATED
+
+	UniqueIDWrapper GetUniqueIdWrapper();
+	void SetUniqueId(UniqueIDWrapper newUniqueId);
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	void UnregisterPlayerFromSession();
 	void RegisterPlayerWithSession();
 	bool IsInvalidName();
 	unsigned char GetTeamNum();
-	void SetUniqueId2(SteamID& PlayerUniqueId);
+	[[deprecated("Use SetUniqueId2 that takes UniqueIDWrapper instead")]]
+	void SetUniqueId2(SteamID& PlayerUniqueId);//DEPRECATED
+	void SetUniqueId2(UniqueIDWrapper& PlayerUniqueId);
 	void SeamlessTravelTo(PlayerReplicationInfoWrapper NewPRI);
 	void IncrementDeaths(int Amt);
 	void CopyProperties(PlayerReplicationInfoWrapper PRI);

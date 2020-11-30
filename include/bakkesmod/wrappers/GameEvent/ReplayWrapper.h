@@ -5,7 +5,9 @@ template<typename T> class StructArrayWrapper;
 #include ".././Engine/ObjectWrapper.h"
 class ActorWrapper;
 class UnrealStringWrapper;
-
+#ifdef __cpp_lib_filesystem
+#include <filesystem>
+#endif
 #undef GetCurrentTime
 
 class BAKKESMOD_PLUGIN_IMPORT ReplayWrapper : public ObjectWrapper {
@@ -82,6 +84,12 @@ public:
 	ReplayWrapper CreateCopy(float StartTime);
 	void ImportReplay(std::string Path);
 	void ExportReplay(std::string Path);
+#ifdef __cpp_lib_filesystem
+	void ImportReplay(std::filesystem::path Path);
+	void ExportReplay(std::filesystem::path Path);
+#endif
+
+
 	void SkipToFrame(int frame, unsigned long bFlush);
 	void SkipToTime(float Time, unsigned long bFlush);
 	float GetReplayTimeSeconds();
