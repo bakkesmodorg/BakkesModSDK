@@ -20,6 +20,7 @@ public:
 	void FillTriangle(Vector2F p1, Vector2F p2, Vector2F p3, LinearColor color);
 	void DrawString(std::string text);
 	void DrawString(std::string text, float xScale, float yScale);
+	void DrawString(std::string text, float xScale, float yScale, bool dropShadow, bool wrapText=false);
     Vector2F GetStringSize(std::string text, float xScale=1, float yScale=1);
 	void DrawLine(Vector2F start, Vector2F end);
 	void DrawLine(Vector2F start, Vector2F end, float width);

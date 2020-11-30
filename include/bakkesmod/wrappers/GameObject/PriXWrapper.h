@@ -14,7 +14,8 @@ public:
 	//AUTO-GENERATED FUNCTION PROXIES
 	void eventDestroyed();
 	void OnUniqueIdChanged();
-	void SetUniqueId(SteamID& PlayerUniqueId);
+	[[deprecated("Function definition is empty and thus will not work")]]
+	void SetUniqueId(SteamID& PlayerUniqueId);//DEPRECATED
 	void UnregisterPlayerFromSession();
 	void RegisterPlayerWithSession();
 	void OnTeamChanged();

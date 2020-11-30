@@ -35,9 +35,12 @@ public:
 	ItemsWrapper(const ItemsWrapper& other);
 	ItemsWrapper& operator=(ItemsWrapper rhs);
 	~ItemsWrapper();
+	bool IsNull();
 	ArrayWrapper<ProductWrapper> GetAllProducts();
 	ProductWrapper GetProduct(int productId);
+	[[deprecated("This will 99% for sure crash")]]
 	ArrayWrapper<OnlineProductWrapper> GetUnlockedProducts();
+	ArrayWrapper<ProductWrapper> GetCachedUnlockedProducts();
 	ArrayWrapper<OnlineProductWrapper> GetOwnedProducts();
 
 	CertifiedStatDatabaseWrapper GetCertifiedStatDB();

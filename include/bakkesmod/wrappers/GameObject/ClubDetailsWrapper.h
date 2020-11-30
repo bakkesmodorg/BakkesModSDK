@@ -2,10 +2,13 @@
 #include "../Engine/UnrealStringWrapper.h"
 #include "../StructArrayWrapper.h"
 #include "ClubSettingsWrapper.h"
+#include "../UniqueIDWrapper.h"
 
 struct BAKKESMOD_PLUGIN_IMPORT ClubMember {
 	unsigned char paddingForReasons[72];
-	SteamID GetSteamId();
+	[[deprecated("Use GetUniqueID instead")]]
+	SteamID GetSteamId(); //DEPRECATED
+	UniqueIDWrapper GetUniqueID();
 	UnrealStringWrapper GetName();
 };
 
@@ -23,11 +26,14 @@ public:
 
 	//AUTO-GENERATED FROM FIELDS
 	unsigned long long GetClubID();
-	SteamID GetOwnerPlayerID();
+	[[deprecated("Use GetOwnerPlayerUniqueID instead")]]
+	SteamID GetOwnerPlayerID(); //DEPRECATED
+	UniqueIDWrapper GetOwnerPlayerUniqueID();
 	UnrealStringWrapper GetMotD();
 	unsigned long GetbVerified();
 	unsigned long long GetLastUpdatedTime();
 	StructArrayWrapper<ClubMember> GetMembers();
+
 	//END AUTO-GENERATED FROM FIELDS
 
 	//AUTO-GENERATED FROM METHODS

@@ -403,16 +403,6 @@ static inline bool replace(std::string& str, const std::string& from, const std:
 	return true;
 }
 
-static inline bool findStringIC(const std::string& strHaystack, const std::string& strNeedle)
-{
-	auto it = std::search(
-		strHaystack.begin(), strHaystack.end(),
-		strNeedle.begin(), strNeedle.end(),
-		[](char ch1, char ch2) { return std::toupper(ch1) == std::toupper(ch2); }
-	);
-	return (it != strHaystack.end());
-}
-
 //inline static std::string to_string(std::string s) {
 //	return s;
 //}
@@ -740,4 +730,15 @@ static inline std::string string_format(const std::string fmt_str, ...) {
 			break;
 	}
 	return std::string(formatted.get());
+}
+
+static inline std::string wstring_to_string(const std::wstring& InWString)
+{
+    if (InWString.empty()) return std::string();
+
+    int size_needed = WideCharToMultiByte(CP_UTF8, 0, &InWString[0], (int)InWString.size(), NULL, 0, NULL, NULL);
+    std::string strTo(size_needed, 0);
+    WideCharToMultiByte(CP_UTF8, 0, &InWString[0], (int)InWString.size(), &strTo[0], size_needed, NULL, NULL);
+
+    return strTo;
 }

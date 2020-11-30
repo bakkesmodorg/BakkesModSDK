@@ -1,8 +1,9 @@
 #pragma once
 #include "./Engine/ObjectWrapper.h"
 #include "wrapperstructs.h"
-#include "../imgui/imgui.h"
+//#include "../imgui/imgui.h"
 #include <tuple>
+
 class BAKKESMOD_PLUGIN_IMPORT GuiManagerWrapper : public ObjectWrapper
 {
 public:

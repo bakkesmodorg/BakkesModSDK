@@ -864,10 +864,10 @@ struct ControllerInput {
     float Roll = .0f;
     float DodgeForward = .0f;
     float DodgeStrafe = .0f;
+    unsigned long Handbrake : 1;
     unsigned long Jump :1;
     unsigned long ActivateBoost : 1;
     unsigned long HoldingBoost : 1;
-    unsigned long Handbrake : 1;
     unsigned long Jumped : 1;
 };
 
@@ -1032,7 +1032,8 @@ enum OnlinePlatform
     OnlinePlatform_PsyNet = 8,
     OnlinePlatform_Deleted = 9,
     OnlinePlatform_WeGame = 10,
-    OnlinePlatform_MAX = 11
+    OnlinePlatform_Epic = 11,
+    OnlinePlatform_MAX = 12
 };
 
 
