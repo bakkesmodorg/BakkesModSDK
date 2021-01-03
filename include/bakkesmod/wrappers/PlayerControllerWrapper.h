@@ -3,6 +3,7 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "WrapperStructs.h"
 #include "./Engine/ActorWrapper.h"
+//#include "ControllerWrapper.h"
 class BoostWrapper;
 class UnrealStringWrapper;
 class CarWrapper;
@@ -15,7 +16,7 @@ class PriWrapper;
 class EngineTAWrapper;
 class PlayerReplicationInfoWrapper;
 
-class BAKKESMOD_PLUGIN_IMPORT PlayerControllerWrapper : public ActorWrapper {
+class BAKKESMOD_PLUGIN_IMPORT PlayerControllerWrapper : public ActorWrapper /*ControllerWrapper*/ {
 public:
 	CONSTRUCTORS(PlayerControllerWrapper)
 

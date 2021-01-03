@@ -23,6 +23,11 @@ public:
 	Will be the EpicID if nonempty. Uid otherwise
 	*/
 	std::string str() const;
+	/// <summary>
+	/// Returns the id in the following format platform|accountId|splitScreenId
+	/// </summary>
+	/// <returns></returns>
+	std::string GetIdString() const;
 public:
 	/*
 	Not 100% with the internals here, think it depends on what the game reads. 

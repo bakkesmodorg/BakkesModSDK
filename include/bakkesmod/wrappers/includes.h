@@ -71,6 +71,8 @@
 #include "./GameObject/TeamWrapper.h"
 #include "./GameObject/VehiclePickupWrapper.h"
 #include "./GameObject/VehicleWrapper.h"
+#include "./AIControllerWrapper.h"
+#include "./ControllerWrapper.h"
 #include "./PlayerControllerWrapper.h"
 #include "./ReplayServerWrapper.h"
 #include "./GameObject/ClubDetailsWrapper.h"

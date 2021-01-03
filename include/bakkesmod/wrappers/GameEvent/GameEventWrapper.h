@@ -3,6 +3,7 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././Engine/ActorWrapper.h"
+class ControllerWrapper;
 class PlayerControllerWrapper;
 class CarWrapper;
 class UnrealStringWrapper;
@@ -63,6 +64,7 @@ public:
 	void SetActivator(PlayerControllerWrapper newActivator);
 	CarWrapper GetActivatorCar();
 	void SetActivatorCar(CarWrapper newActivatorCar);
+    ArrayWrapper<ControllerWrapper> GetPlayers();
 	ArrayWrapper<PriWrapper> GetPRIs();
 	ArrayWrapper<CarWrapper> GetCars();
 	ArrayWrapper<PlayerControllerWrapper> GetLocalPlayers();

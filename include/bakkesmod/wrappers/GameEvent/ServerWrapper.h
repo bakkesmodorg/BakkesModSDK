@@ -3,6 +3,7 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameEvent/TeamGameEventWrapper.h"
+class ControllerWrapper;
 class PlayerControllerWrapper;
 class CarWrapper;
 class ReplayDirectorWrapper;
@@ -220,6 +221,7 @@ public:
 	BallWrapper SpawnBall2(Vector& SpawnLoc, unsigned long bWake, unsigned long bSpawnCannon, std::string BallArch);
 	int GetTotalScore();
 	void HandleCarSet(PriWrapper InPRI);
+    void RemovePlayer(ControllerWrapper Player);
 	void RemovePRI(PriWrapper PRI);
 	void AddPRI(PriWrapper PRI);
 	void OnMatchWinnerSet();
