@@ -3,6 +3,7 @@ template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
 #include ".././GameObject/RBActorWrapper.h"
+class AIControllerWrapper;
 class PlayerControllerWrapper;
 class BoostWrapper;
 class DodgeComponentWrapper;
@@ -46,6 +47,7 @@ public:
 	void SetReplicatedThrottle(unsigned char newReplicatedThrottle);
 	unsigned char GetReplicatedSteer();
 	void SetReplicatedSteer(unsigned char newReplicatedSteer);
+    AIControllerWrapper GetAIController();
 	PlayerControllerWrapper GetPlayerController();
 	void SetPlayerController(PlayerControllerWrapper newPlayerController);
 	PriWrapper GetPRI();
