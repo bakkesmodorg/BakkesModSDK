@@ -37,50 +37,52 @@ public:
 	GameWrapper& operator=(GameWrapper rhs);
 	~GameWrapper();
 
-	bool IsInGame();
-	bool IsInOnlineGame();
+	bool IsInGame(); // returns true if the game is exhibition, LAN, a private match, or an online match
+			 // To find out if you're in exhibition or LAN, (!IsInOnlineGame() && IsInGame())
+	bool IsInOnlineGame(); // returns true if the game is a private match or an online match
 	//bool IsInTutorial(); //Uncomment this later, but for now dont let plugins compile which use this as they most likely rely on broken functions
-	bool IsInFreeplay();
-	bool IsInReplay();
-	bool IsInCustomTraining();
-	bool IsSpectatingInOnlineGame();
+	bool IsInFreeplay(); // returns true only if in freeplay
+	bool IsInReplay(); // returns true only if in a replay
+	bool IsInCustomTraining(); // returns true only if in custom training
+	bool IsSpectatingInOnlineGame(); // returns false. The function is currently broken
 
-	bool IsPaused();
-	bool IsUsingEpicVersion();
-	bool IsUsingSteamVersion();
+	bool IsPaused(); // returns true if the game is paused
+	bool IsUsingEpicVersion(); // returns true if the player is on epic
+	bool IsUsingSteamVersion(); // returns true if the player is on steam
 
-	int GetSteamVersion();
-	std::string GetPsyBuildID();
+	int GetSteamVersion(); // returns steam game version
+	std::string GetPsyBuildID(); // returns build ID of game version
 
-	ServerWrapper					GetOnlineGame();
+	ServerWrapper					GetOnlineGame(); // returns the serverwrapper of the current game. Returns null if not in an online game
 	//TutorialWrapper				GetGameEventAsTutorial();
-	ServerWrapper					GetGameEventAsServer();
-	ReplayServerWrapper				GetGameEventAsReplay();
+	ServerWrapper					GetGameEventAsServer(); // returns the serverwrapper of the current game. Returns null if not in a local game
+	ReplayServerWrapper				GetGameEventAsReplay(); // returns the serverwrapper of the current game. Returns null if not in a local game
 
-	MMRWrapper						GetMMRWrapper();
-	CarWrapper						GetLocalCar();
+	MMRWrapper						GetMMRWrapper(); 
+	CarWrapper						GetLocalCar(); // returns the car of the player. Returns null if you are in spectate, goal replay, or demolished
 	CameraWrapper					GetCamera();
 	EngineTAWrapper					GetEngine();
 	PluginManagerWrapper			GetPluginManager();
 	GuiManagerWrapper				GetGUIManager();
-	PlayerControllerWrapper			GetPlayerController();
+	PlayerControllerWrapper			GetPlayerController(); // returns controller of the player
 	ItemsWrapper					GetItemsWrapper();
 	void							OverrideParams(void* src, size_t memsize);
 
-	void							SetTimeout(std::function<void(GameWrapper*)> theLambda, float time); //time in seconds, subject to change to std::shared_ptr<GameWrapper>
+	void							SetTimeout(std::function<void(GameWrapper*)> theLambda, float time); // stops and calls a function. Waits time seconds before executing 
 	void							Execute(std::function<void(GameWrapper*)> theLambda); //Use this when calling from a different thread
-	void							RegisterDrawable(std::function<void(CanvasWrapper)> callback);
-	void							UnregisterDrawables(); //Can only unregister every drawable for now, sorry!
+	void							RegisterDrawable(std::function<void(CanvasWrapper)> callback); // registers a function to draw on screen. See CanvasWrapper for how to draw
+	void							UnregisterDrawables(); // Removes all drawing functions created by this plugin. Can only unregister every drawable for now, sorry!
 	std::string						GetFNameByIndex(int index);
 	int								GetFNameIndexByString(std::string name);
 
-	void							HookEvent(std::string eventName, std::function<void(std::string eventName)> callback);
-	void							UnhookEvent(std::string eventName);
+	void							HookEvent(std::string eventName, std::function<void(std::string eventName)> callback); // calls a function whenever this event happens. 
+																		       //Is inconsistent with timing, so HookEventPost is preferred
+	void							UnhookEvent(std::string eventName); // stops calling functions from this plugin when this event happens
 
-	void							HookEventPost(std::string eventName, std::function<void(std::string eventName)> callback);
-	void							UnhookEventPost(std::string eventName);
+	void							HookEventPost(std::string eventName, std::function<void(std::string eventName)> callback); // calls a function after this event happens
+	void							UnhookEventPost(std::string eventName); // stops calling functions from this plugin when this event happens
 
-	void							LogToChatbox(std::string text, std::string sender="BAKKESMOD");
+	void							LogToChatbox(std::string text, std::string sender="BAKKESMOD"); // writes to the chat window. Only works in offline modes
 
 	/*
 	Will queue up loading of a texture into memory, only has to be done once, after this it will persistently be stored in memory.
@@ -101,14 +103,14 @@ public:
 	void							ExecuteUnrealCommand(std::string command);
 	std::string 					GetRandomMap();
 	std::string 					GetCurrentMap();
-	unsigned long long				GetSteamID();
+	unsigned long long				GetSteamID(); 
 	std::string						GetEpicID();
-	UniqueIDWrapper					GetUniqueID();
+	UniqueIDWrapper					GetUniqueID(); 
 	UnrealStringWrapper				GetPlayerName();
 	ClubDetailsWrapper				GetLocalClub();
 	SequenceWrapper					GetMainSequence();
 
-    Vector2							GetScreenSize();
+    Vector2							GetScreenSize(); // returns x and y values of the current screen resolution
     float							GetSafeZoneRatio();
     float							GetUIScale();
     unsigned int					GetbMetric();
