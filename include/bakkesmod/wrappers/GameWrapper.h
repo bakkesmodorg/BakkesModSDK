@@ -103,9 +103,9 @@ public:
 	void							ExecuteUnrealCommand(std::string command);
 	std::string 					GetRandomMap();
 	std::string 					GetCurrentMap();
-	unsigned long long				GetSteamID(); 
-	std::string						GetEpicID();
-	UniqueIDWrapper					GetUniqueID(); 
+	unsigned long long				GetSteamID(); // depreciated, use GetUniqueID
+	std::string					GetEpicID(); // depreciated, use GetUniqueID
+	UniqueIDWrapper					GetUniqueID(); // returns a wrapper which handles the complexities of both epic and steam players and their ids
 	UnrealStringWrapper				GetPlayerName();
 	ClubDetailsWrapper				GetLocalClub();
 	SequenceWrapper					GetMainSequence();
@@ -117,13 +117,14 @@ public:
     UnrealStringWrapper				GetUILanguage();
     bool							GetbColorBlind();
 	// Path utilities
-#ifdef __cpp_lib_filesystem
-	std::filesystem::path			GetBakkesModPath();
-	std::filesystem::path			GetDataFolder();
-	std::filesystem::path			FixRelativePath(std::filesystem::path path);
+#ifdef __cpp_lib_filesystem // requires c++17
+	std::filesystem::path			GetBakkesModPath(); // returns path to bakkesmod, %appdata%/bakkesmod/bakkesmod
+	std::filesystem::path			GetDataFolder(); // returns path to bakkesmod/data, %appdata%/bakkesmod/bakkesmod/data
+	std::filesystem::path			FixRelativePath(std::filesystem::path path); // sets relative location so you can read and write files anywhere. 
+											     // using the bakkesmod folder is highly recommended though
 #endif
-	std::wstring					GetBakkesModPathW();
-	std::wstring					GetDataFolderW();
+	std::wstring					GetBakkesModPathW(); // returns wstring of "%appdata%/bakkesmod/bakkesmod"
+	std::wstring					GetDataFolderW(); // returns wstring of "%appdata%/bakkesmod/bakkesmod/data"
 
 	template<typename T, typename std::enable_if<std::is_base_of<ObjectWrapper, T>::value>::type* = nullptr>
 	void							HookEventWithCaller(std::string eventName, std::function<void(T caller, void* params, std::string eventName)> callback);
