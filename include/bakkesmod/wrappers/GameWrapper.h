@@ -56,7 +56,7 @@ public:
 	ServerWrapper					GetOnlineGame(); // returns the serverwrapper of the current game. Returns null if not in an online game
 	//TutorialWrapper				GetGameEventAsTutorial();
 	ServerWrapper					GetGameEventAsServer(); // returns the serverwrapper of the current game. Returns null if not in a local game
-	ReplayServerWrapper				GetGameEventAsReplay(); // returns the serverwrapper of the current game. Returns null if not in a local game
+	ReplayServerWrapper				GetGameEventAsReplay(); // returns the serverwrapper of the current game. Returns null if not in a replay
 
 	MMRWrapper						GetMMRWrapper(); 
 	CarWrapper						GetLocalCar(); // returns the car of the player. Returns null if you are in spectate, goal replay, or demolished
