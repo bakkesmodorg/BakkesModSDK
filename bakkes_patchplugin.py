@@ -17,7 +17,7 @@ swap_file = ""
 
 def replace_plugin_file():
 	filename = os.path.basename(swap_file)
-	dst_file = bakkesmod_plugin_folder + filename
+	dst_file = os.path.join(bakkesmod_plugin_folder, filename)
 	print(dst_file)
 	
 	if os.path.exists(dst_file):
