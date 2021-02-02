@@ -78,4 +78,5 @@
 #include "./GameObject/ClubDetailsWrapper.h"
 #include "./items/ItemsWrapper.h"
 #include "./ImageWrapper.h"
+#include "./MatchmakingWrapper.h"
 #pragma warning(pop)

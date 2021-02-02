@@ -28,6 +28,7 @@ class SequenceWrapper;
 class ItemsWrapper;
 class ClubDetailsWrapper;
 class UnrealStringWrapper;
+class MatchmakingWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT GameWrapper
 {
@@ -52,6 +53,7 @@ public:
 	int GetSteamVersion();
 	std::string GetPsyBuildID();
 
+    ServerWrapper                   GetCurrentGameState();
 	ServerWrapper					GetOnlineGame();
 	//TutorialWrapper				GetGameEventAsTutorial();
 	ServerWrapper					GetGameEventAsServer();
@@ -65,6 +67,8 @@ public:
 	GuiManagerWrapper				GetGUIManager();
 	PlayerControllerWrapper			GetPlayerController();
 	ItemsWrapper					GetItemsWrapper();
+	MatchmakingWrapper				GetMatchmakingWrapper();
+	
 	void							OverrideParams(void* src, size_t memsize);
 
 	void							SetTimeout(std::function<void(GameWrapper*)> theLambda, float time); //time in seconds, subject to change to std::shared_ptr<GameWrapper>
