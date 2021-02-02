@@ -14,6 +14,8 @@ public:
 	CONSTRUCTORS(TeamWrapper)
 
 	//AUTO-GENERATED FROM FIELDS
+    LinearColor GetPrimaryColor();
+    LinearColor GetSecondaryColor();
 	LinearColor GetFontColor();
 	void SetFontColor(LinearColor newFontColor);
 	LinearColor GetColorBlindFontColor();

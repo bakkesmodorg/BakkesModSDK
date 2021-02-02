@@ -255,8 +255,11 @@ static std::string int_to_hex_chars(int input)
 {
     //Convert int (0-255) to its respective 2 hex chars
 
-    char bigboi = single_hex_char_from_int(input / 16);
-    char lilboi = single_hex_char_from_int(input - (16 * bigboi));
+    int bignum = input / 16;
+    int lilnum = input - (16 * bignum);
+
+    char bigboi = single_hex_char_from_int(bignum);
+    char lilboi = single_hex_char_from_int(lilnum);
 
     std::string output;
     return output + bigboi + lilboi;
@@ -297,6 +300,8 @@ static inline std::string get_hex_from_color(LinearColor val)
 
     std::string output = "#";
     output += int_to_hex_chars(R) + int_to_hex_chars(G) + int_to_hex_chars(B) + int_to_hex_chars(A);
+
+    return output;
 }
 
 static inline std::string to_string_color(const LinearColor val)
