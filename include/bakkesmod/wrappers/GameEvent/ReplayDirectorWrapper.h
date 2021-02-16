@@ -52,6 +52,7 @@ public:
 	void SetScoreHitIndex(int newScoreHitIndex);
 	GoalWrapper GetScoredGoal();
 	void SetScoredGoal(GoalWrapper newScoredGoal);
+    ReplayScoreData GetReplayScoreData();
 	unsigned long GetbSlomo();
 	void SetbSlomo(unsigned long newbSlomo);
 	unsigned long GetbSlomoForDefender();
