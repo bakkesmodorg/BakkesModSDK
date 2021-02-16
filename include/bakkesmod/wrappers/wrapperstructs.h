@@ -939,6 +939,15 @@ struct WheelContactData {
     void* PhysMatProp;
 };
 
+struct ReplayScoreData
+{
+    uintptr_t ScoredBy;   //PriWrapper
+    uintptr_t AssistedBy; //PriWrapper
+    float Speed;
+    float Time;
+    unsigned char ScoreTeam;
+};
+
 
 // #Enums
 enum TRADEHOLD
