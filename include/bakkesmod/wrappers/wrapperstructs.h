@@ -1151,7 +1151,7 @@ enum OnlinePlatform
     OnlinePlatform_Steam = 1,
     OnlinePlatform_PS4 = 2,
     OnlinePlatform_PS3 = 3,
-    OnlinePlatform_Dingo = 4, //XBox?
+    OnlinePlatform_Dingo = 4, // XBox?
     OnlinePlatform_QQ = 5,
     OnlinePlatform_OldNNX = 6,
     OnlinePlatform_NNX = 7,
