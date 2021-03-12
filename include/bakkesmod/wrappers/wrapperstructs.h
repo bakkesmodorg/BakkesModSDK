@@ -24,7 +24,6 @@
 #define CONST_PI_F           3.1415926f
 #endif
 
-
 enum ToastType
 {
     ToastType_Info = 0,
@@ -49,7 +48,8 @@ inline Vector operator-(const Vector v1, const float f);
 inline Vector operator*(const Vector v1, const float f);
 inline Vector operator/(const Vector v1, const float f);
 
-struct Vector {
+struct Vector
+{
     float X, Y, Z;
 
     Vector(FVector v);
@@ -59,49 +59,64 @@ struct Vector {
     operator FVector();
 
     //Vector member operator overloads
-    inline Vector operator+=(const Vector v2) {
+    inline Vector operator+=(const Vector v2)
+    {
         X += v2.X;
         Y += v2.Y;
         Z += v2.Z;
         return *this;
     }
-    inline Vector operator-=(const Vector v2) {
+
+    inline Vector operator-=(const Vector v2)
+    {
         X -= v2.X;
         Y -= v2.Y;
         Z -= v2.Z;
         return *this;
     }
-    inline Vector operator*=(const Vector v2) {
+
+    inline Vector operator*=(const Vector v2)
+    {
         X *= v2.X;
         Y *= v2.Y;
         Z *= v2.Z;
         return *this;
     }
-    inline Vector operator/=(const Vector v2) {
+
+    inline Vector operator/=(const Vector v2)
+    {
         X /= v2.X;
         Y /= v2.Y;
         Z /= v2.Z;
         return *this;
     }
-    inline Vector operator+=(const float f) {
+
+    inline Vector operator+=(const float f)
+    {
         X += f;
         Y += f;
         Z += f;
         return *this;
     }
-    inline Vector operator-=(const float f) {
+
+    inline Vector operator-=(const float f)
+    {
         X -= f;
         Y -= f;
         Z -= f;
         return *this;
     }
-    inline Vector operator*=(const float f) {
+
+    inline Vector operator*=(const float f)
+    {
         X *= f;
         Y *= f;
         Z *= f;
         return *this;
     }
-    inline Vector operator/=(const float f) {
+
+    inline Vector operator/=(const float f)
+    {
         X /= f;
         Y /= f;
         Z /= f;
@@ -172,38 +187,45 @@ struct Vector {
 };
 
 //Vector non-member operator overloads
-inline Vector operator+(const Vector v1, const Vector v2) {
+inline Vector operator+(const Vector v1, const Vector v2)
+{
     return Vector(v1.X + v2.X, v1.Y + v2.Y, v1.Z + v2.Z);
 }
 
-inline Vector operator-(const Vector v1, const Vector v2) {
+inline Vector operator-(const Vector v1, const Vector v2)
+{
     return Vector(v1.X - v2.X, v1.Y - v2.Y, v1.Z - v2.Z);
 }
 
-inline Vector operator*(const Vector v1, const Vector v2) {
+inline Vector operator*(const Vector v1, const Vector v2)
+{
     return Vector(v1.X * v2.X, v1.Y * v2.Y, v1.Z * v2.Z);
 }
 
-inline Vector operator/(const Vector v1, const Vector v2) {
+inline Vector operator/(const Vector v1, const Vector v2)
+{
     return Vector(v1.X / v2.X, v1.Y / v2.Y, v1.Z / v2.Z);
 }
 
-inline Vector operator+(const Vector v1, const float f) {
+inline Vector operator+(const Vector v1, const float f)
+{
     return Vector(v1.X + f, v1.Y + f, v1.Z + f);
 }
 
-inline Vector operator-(const Vector v1, const float f) {
+inline Vector operator-(const Vector v1, const float f)
+{
     return Vector(v1.X - f, v1.Y - f, v1.Z - f);
 }
 
-inline Vector operator*(const Vector v1, const float f) {
+inline Vector operator*(const Vector v1, const float f)
+{
     return Vector(v1.X * f, v1.Y * f, v1.Z * f);
 }
 
-inline Vector operator/(const Vector v1, const float f) {
+inline Vector operator/(const Vector v1, const float f)
+{
     return Vector(v1.X / f, v1.Y / f, v1.Z / f);
 }
-
 
 // #Rotator
 //Forward declarations of Rotator non-member operator overloads
@@ -213,7 +235,8 @@ inline Rotator operator-(const Rotator r1, const Rotator r2);
 inline Rotator operator*(const Rotator r1, const Rotator r2);
 inline Rotator operator/(const Rotator r1, const Rotator r2);
 
-struct Rotator {
+struct Rotator
+{
     int Pitch, Yaw, Roll;
     //Player rotation Min(-16364, -32768, -32768)
     //Player rotation Max(16340, 32764, 32764)
@@ -224,25 +247,32 @@ struct Rotator {
     Rotator() : Rotator(0) {}
     operator FRotator();
 
-    inline Rotator operator+=(const Rotator r2) {
+    inline Rotator operator+=(const Rotator r2)
+    {
         Pitch += r2.Pitch;
         Yaw   += r2.Yaw;
         Roll  += r2.Roll;
         return *this;
     }
-    inline Rotator operator-=(const Rotator r2) {
+
+    inline Rotator operator-=(const Rotator r2)
+    {
         Pitch -= r2.Pitch;
         Yaw   -= r2.Yaw;
         Roll  -= r2.Roll;
         return *this;
     }
-    inline Rotator operator*=(const Rotator r2) {
+
+    inline Rotator operator*=(const Rotator r2)
+    {
         Pitch *= r2.Pitch;
         Yaw   *= r2.Yaw;
         Roll  *= r2.Roll;
         return *this;
     }
-    inline Rotator operator/=(const Rotator r2) {
+
+    inline Rotator operator/=(const Rotator r2)
+    {
         Pitch /= r2.Pitch;
         Yaw   /= r2.Yaw;
         Roll  /= r2.Roll;
@@ -250,7 +280,8 @@ struct Rotator {
     }
 };
 
-static inline int fixRotator(int newRotation) {// F THIS FOR NOW
+static inline int fixRotator(int newRotation) // F THIS FOR NOW
+{
     return newRotation;
     //newRotation = (((int)newRotation + 32768) % (32768 + 32764)) - 32768;
     //newRotation = (((int)newRotation - 32764) % (32768 + 32764)) + 32764;
@@ -265,7 +296,8 @@ static inline int fixRotator(int newRotation) {// F THIS FOR NOW
     //return newRotation;
 }
 
-static inline int fixPitch(int newRotation) {// F THIS FOR NOW
+static inline int fixPitch(int newRotation) // F THIS FOR NOW
+{
     return newRotation;
     //newRotation = (((int)newRotation + 16384) % (32768)) - 16384;
     //newRotation = (((int)newRotation - 16384) % (32768)) + 16384;
@@ -282,22 +314,25 @@ static inline int fixPitch(int newRotation) {// F THIS FOR NOW
 }
 
 //Rotator non-member operator overloads
-inline Rotator operator+(const Rotator r1, const Rotator r2) {
+inline Rotator operator+(const Rotator r1, const Rotator r2)
+{
     return Rotator(fixPitch(r1.Pitch + r2.Pitch), fixRotator(r1.Yaw + r2.Yaw), fixRotator(r1.Roll + r2.Roll));
 }
 
-inline Rotator operator-(const Rotator r1, const Rotator r2) {
+inline Rotator operator-(const Rotator r1, const Rotator r2)
+{
     return Rotator(fixPitch(r1.Pitch - r2.Pitch), fixRotator(r1.Yaw - r2.Yaw), fixRotator(r1.Roll - r2.Roll));
 }
 
-inline Rotator operator*(const Rotator r1, const Rotator r2) {
+inline Rotator operator*(const Rotator r1, const Rotator r2)
+{
     return Rotator(fixPitch(r1.Pitch * r2.Pitch), fixRotator(r1.Yaw * r2.Yaw), fixRotator(r1.Roll * r2.Roll));
 }
 
-inline Rotator operator/(const Rotator r1, const Rotator r2) {
+inline Rotator operator/(const Rotator r1, const Rotator r2)
+{
     return Rotator(fixPitch(r1.Pitch / r2.Pitch), fixRotator(r1.Yaw / r2.Yaw), fixRotator(r1.Roll / r2.Roll));
 }
-
 
 // #VectorRotatorConversions
 static Rotator inline VectorToRotator(const Vector vVector)
@@ -325,13 +360,13 @@ static inline Vector RotatorToVector(const Rotator R)
     return vec;
 }
 
-
 // #Quat
 //Forward declaration of Quat non-member operator overload
 struct Quat;
 inline Quat operator*(const Quat q1, const Quat q2);
 
-struct Quat {
+struct Quat
+{
     float X, Y, Z, W;
 
     Quat(float w, float x, float y, float z) : W(w), X(x), Y(y), Z(z) {}
@@ -432,6 +467,7 @@ static inline Quat QuatSlerp(const Quat q1, const Quat q2, float percent)
         q.Z = q1.Z * 0.5f + q2.Z * 0.5f;
         return q;
     }
+
     float ratioA = sinf((1.f - percent) * halfTheta) / sinHalfTheta;
     float ratioB = sinf(percent * halfTheta) / sinHalfTheta;
 
@@ -444,7 +480,6 @@ static inline Quat QuatSlerp(const Quat q1, const Quat q2, float percent)
     return q;
 }
 
-
 // #RotateVector
 static inline Vector RotateVectorWithQuat(const Vector v, const Quat q)
 {
@@ -453,7 +488,6 @@ static inline Vector RotateVectorWithQuat(const Vector v, const Quat q)
 
     return Vector{result.X, result.Y, result.Z};
 }
-
 
 // #RotatorQuatConversions
 static inline Quat RotatorToQuat(const Rotator rot)
@@ -492,21 +526,27 @@ static inline Rotator QuatToRotator(const Quat q)
     //Yaw
     float hor_mag = sqrtf(fwd.X * fwd.X + fwd.Y * fwd.Y);
     float fwd_y = asinf(fwd.Y / hor_mag);
+
     if (fwd_y >= 0)
     {
         if (fwd.X < 0)
+        {
             fwd_y = CONST_PI_F - fwd_y;
+        }
     }
     else
     {
         if (fwd.X < 0)
+        {
             fwd_y = -CONST_PI_F - fwd_y;
+        }
     }
+
     int YAW = static_cast<int>((fwd_y / CONST_PI_F) * 32768.f);
 
     //Roll
     Vector vert = (up.Z < 0) ? Vector(0, 0, -1) : Vector(0, 0, 1);
-    Vector hor_right = Vector::cross(fwd, vert) * -1;// left-handed coordinate system
+    Vector hor_right = Vector::cross(fwd, vert) * -1; // left-handed coordinate system
     hor_right.normalize();
 
     float roll_cos = Vector::dot(hor_right, right);
@@ -516,21 +556,26 @@ static inline Rotator QuatToRotator(const Quat q)
     if (right.Z >= 0)
     {
         if (up.Z >= 0)
+        {
             roll_f = -roll_f;
+        }
         else
+        {
             roll_f  = -CONST_PI_F + roll_f;
+        }
     }
     else
     {
         if (up.Z < 0)
+        {
             roll_f = CONST_PI_F - roll_f;
+        }
     }
+
     int ROLL = static_cast<int>((roll_f / CONST_PI_F) * 32768.f);
 
     return Rotator(PITCH, YAW, ROLL);
 }
-
-
 
 // #Vector2
 //Forward declarations of Vector2 non-member operator overloads
@@ -544,49 +589,66 @@ inline Vector2 operator-(const Vector2 v1, const int i);
 inline Vector2 operator*(const Vector2 v1, const int i);
 inline Vector2 operator/(const Vector2 v1, const int i);
 
-struct Vector2 {
+struct Vector2
+{
     int X, Y;
 
-    Vector2 minus(const Vector2 other) const {
+    Vector2 minus(const Vector2 other) const
+    {
         return{ X - other.X,  Y - other.Y };
     }
 
-    inline Vector2 operator+=(const Vector2 v2) {
+    inline Vector2 operator+=(const Vector2 v2)
+    {
         X += v2.X;
         Y += v2.Y;
         return *this;
     }
-    inline Vector2 operator-=(const Vector2 v2) {
+
+    inline Vector2 operator-=(const Vector2 v2)
+    {
         X -= v2.X;
         Y -= v2.Y;
         return *this;
     }
-    inline Vector2 operator*=(const Vector2 v2) {
+
+    inline Vector2 operator*=(const Vector2 v2)
+    {
         X *= v2.X;
         Y *= v2.Y;
         return *this;
     }
-    inline Vector2 operator/=(const Vector2 v2) {
+
+    inline Vector2 operator/=(const Vector2 v2)
+    {
         X /= v2.X;
         Y /= v2.Y;
         return *this;
     }
-    inline Vector2 operator+=(const int i) {
+
+    inline Vector2 operator+=(const int i)
+    {
         X += i;
         Y += i;
         return *this;
     }
-    inline Vector2 operator-=(const int i) {
+
+    inline Vector2 operator-=(const int i)
+    {
         X -= i;
         Y -= i;
         return *this;
     }
-    inline Vector2 operator*=(const int i) {
+
+    inline Vector2 operator*=(const int i)
+    {
         X *= i;
         Y *= i;
         return *this;
     }
-    inline Vector2 operator/=(const int i) {
+
+    inline Vector2 operator/=(const int i)
+    {
         X /= i;
         Y /= i;
         return *this;
@@ -594,39 +656,45 @@ struct Vector2 {
 };
 
 //Vector2 non-member operator overloads
-inline Vector2 operator+(const Vector2 v1, const Vector2 v2) {
+inline Vector2 operator+(const Vector2 v1, const Vector2 v2)
+{
     return Vector2{v1.X + v2.X, v1.Y + v2.Y};
 }
 
-inline Vector2 operator-(const Vector2 v1, const Vector2 v2) {
+inline Vector2 operator-(const Vector2 v1, const Vector2 v2)
+{
     return Vector2{v1.X - v2.X, v1.Y - v2.Y};
 }
 
-inline Vector2 operator*(const Vector2 v1, const Vector2 v2) {
+inline Vector2 operator*(const Vector2 v1, const Vector2 v2)
+{
     return Vector2{v1.X * v2.X, v1.Y * v2.Y};
 }
 
-inline Vector2 operator/(const Vector2 v1, const Vector2 v2) {
+inline Vector2 operator/(const Vector2 v1, const Vector2 v2)
+{
     return Vector2{v1.X / v2.X, v1.Y / v2.Y};
 }
 
-inline Vector2 operator+(const Vector2 v1, const int i) {
+inline Vector2 operator+(const Vector2 v1, const int i)
+{
     return Vector2{v1.X + i, v1.Y + i};
 }
 
-inline Vector2 operator-(const Vector2 v1, const int i) {
+inline Vector2 operator-(const Vector2 v1, const int i)
+{
     return Vector2{v1.X - i, v1.Y - i};
 }
 
-inline Vector2 operator*(const Vector2 v1, const int i) {
+inline Vector2 operator*(const Vector2 v1, const int i)
+{
     return Vector2{v1.X * i, v1.Y * i};
 }
 
-inline Vector2 operator/(const Vector2 v1, const int i) {
+inline Vector2 operator/(const Vector2 v1, const int i)
+{
     return Vector2{v1.X / i, v1.Y / i};
 }
-
-
 
 // #Vector2F
 //Forward declarations of Vector2F non-member operator overloads
@@ -644,73 +712,99 @@ inline Vector2F operator-(const Vector2F v1, const float f);
 inline Vector2F operator*(const Vector2F v1, const float f);
 inline Vector2F operator/(const Vector2F v1, const float f);
 
-struct Vector2F {
+struct Vector2F
+{
     float X, Y;
 
-    Vector2F minus(const Vector2 other) const {
-        return{ X - static_cast<float>(other.X),  Y - static_cast<float>(other.Y) };
+    Vector2F minus(const Vector2 other) const
+    {
+        return { X - static_cast<float>(other.X),  Y - static_cast<float>(other.Y) };
     }
 
-    Vector2F minus(const Vector2F other) const {
-        return{ X - other.X,  Y - other.Y };
+    Vector2F minus(const Vector2F other) const
+    {
+        return { X - other.X,  Y - other.Y };
     }
 
-    inline Vector2F operator+=(const Vector2 v2) {
+    inline Vector2F operator+=(const Vector2 v2)
+    {
         X += v2.X;
         Y += v2.Y;
         return *this;
     }
-    inline Vector2F operator-=(const Vector2 v2) {
+
+    inline Vector2F operator-=(const Vector2 v2)
+    {
         X -= v2.X;
         Y -= v2.Y;
         return *this;
     }
-    inline Vector2F operator*=(const Vector2 v2) {
+
+    inline Vector2F operator*=(const Vector2 v2)
+    {
         X *= v2.X;
         Y *= v2.Y;
         return *this;
     }
-    inline Vector2F operator/=(const Vector2 v2) {
+
+    inline Vector2F operator/=(const Vector2 v2)
+    {
         X /= v2.X;
         Y /= v2.Y;
         return *this;
     }
-    inline Vector2F operator+=(const Vector2F v2) {
+
+    inline Vector2F operator+=(const Vector2F v2)
+    {
         X += v2.X;
         Y += v2.Y;
         return *this;
     }
-    inline Vector2F operator-=(const Vector2F v2) {
+
+    inline Vector2F operator-=(const Vector2F v2)
+    {
         X -= v2.X;
         Y -= v2.Y;
         return *this;
     }
-    inline Vector2F operator*=(const Vector2F v2) {
+
+    inline Vector2F operator*=(const Vector2F v2)
+    {
         X *= v2.X;
         Y *= v2.Y;
         return *this;
     }
-    inline Vector2F operator/=(const Vector2F v2) {
+
+    inline Vector2F operator/=(const Vector2F v2)
+    {
         X /= v2.X;
         Y /= v2.Y;
         return *this;
     }
-    inline Vector2F operator+=(const float f) {
+
+    inline Vector2F operator+=(const float f)
+    {
         X += f;
         Y += f;
         return *this;
     }
-    inline Vector2F operator-=(const float f) {
+
+    inline Vector2F operator-=(const float f)
+    {
         X -= f;
         Y -= f;
         return *this;
     }
-    inline Vector2F operator*=(const float f) {
+
+    inline Vector2F operator*=(const float f)
+    {
         X *= f;
         Y *= f;
         return *this;
     }
-    inline Vector2F operator/=(const float f) {
+
+    inline Vector2F operator/=(const float f)
+    {
         X /= f;
         Y /= f;
         return *this;
@@ -718,55 +812,65 @@ struct Vector2F {
 };
 
 //Vector2F non-member operator overloads
-inline Vector2F operator+(const Vector2F v1, const Vector2 v2) {
+inline Vector2F operator+(const Vector2F v1, const Vector2 v2)
+{
     return Vector2F{v1.X + v2.X, v1.Y + v2.Y};
 }
 
-inline Vector2F operator-(const Vector2F v1, const Vector2 v2) {
+inline Vector2F operator-(const Vector2F v1, const Vector2 v2)
+{
     return Vector2F{v1.X - v2.X, v1.Y - v2.Y};
 }
 
-inline Vector2F operator*(const Vector2F v1, const Vector2 v2) {
+inline Vector2F operator*(const Vector2F v1, const Vector2 v2)
+{
     return Vector2F{v1.X * v2.X, v1.Y * v2.Y};
 }
 
-inline Vector2F operator/(const Vector2F v1, const Vector2 v2) {
+inline Vector2F operator/(const Vector2F v1, const Vector2 v2)
+{
     return Vector2F{v1.X / v2.X, v1.Y / v2.Y};
 }
 
-inline Vector2F operator+(const Vector2F v1, const Vector2F v2) {
+inline Vector2F operator+(const Vector2F v1, const Vector2F v2)
+{
     return Vector2F{v1.X + v2.X, v1.Y + v2.Y};
 }
 
-inline Vector2F operator-(const Vector2F v1, const Vector2F v2) {
+inline Vector2F operator-(const Vector2F v1, const Vector2F v2)
+{
     return Vector2F{v1.X - v2.X, v1.Y - v2.Y};
 }
 
-inline Vector2F operator*(const Vector2F v1, const Vector2F v2) {
+inline Vector2F operator*(const Vector2F v1, const Vector2F v2)
+{
     return Vector2F{v1.X * v2.X, v1.Y * v2.Y};
 }
 
-inline Vector2F operator/(const Vector2F v1, const Vector2F v2) {
+inline Vector2F operator/(const Vector2F v1, const Vector2F v2)
+{
     return Vector2F{v1.X / v2.X, v1.Y / v2.Y};
 }
 
-inline Vector2F operator+(const Vector2F v1, const float f) {
+inline Vector2F operator+(const Vector2F v1, const float f)
+{
     return Vector2F{v1.X + f, v1.Y + f};
 }
 
-inline Vector2F operator-(const Vector2F v1, const float f) {
+inline Vector2F operator-(const Vector2F v1, const float f)
+{
     return Vector2F{v1.X - f, v1.Y - f};
 }
 
-inline Vector2F operator*(const Vector2F v1, const float f) {
+inline Vector2F operator*(const Vector2F v1, const float f)
+{
     return Vector2F{v1.X * f, v1.Y * f};
 }
 
-inline Vector2F operator/(const Vector2F v1, const float f) {
+inline Vector2F operator/(const Vector2F v1, const float f)
+{
     return Vector2F{v1.X / f, v1.Y / f};
 }
-
-
 
 // #LinearColor
 //Forward declarations of LinearColor non-member operator overloads
@@ -779,14 +883,17 @@ struct LinearColor
 {
     float R, G, B, A;
 
-    inline LinearColor operator*=(const float f) {
+    inline LinearColor operator*=(const float f)
+    {
         R *= f;
         G *= f;
         B *= f;
         A *= f;
         return *this;
     }
-    inline LinearColor operator/=(const float f) {
+
+    inline LinearColor operator/=(const float f)
+    {
         R /= f;
         G /= f;
         B /= f;
@@ -796,32 +903,36 @@ struct LinearColor
 };
 
 //LinearColor non-member operator overloads
-inline LinearColor operator*(const LinearColor c1, const float f) {
+inline LinearColor operator*(const LinearColor c1, const float f)
+{
     return LinearColor{c1.R * f, c1.G * f, c1.B * f, c1.A * f};
 }
 
-inline LinearColor operator/(const LinearColor c1, const float f) {
+inline LinearColor operator/(const LinearColor c1, const float f)
+{
     return LinearColor{c1.R / f, c1.G / f, c1.B / f, c1.A / f};
 }
 
-inline bool operator==(const LinearColor c1, const LinearColor c2) {
+inline bool operator==(const LinearColor c1, const LinearColor c2)
+{
     return c1.R == c2.R &&
            c1.G == c2.G &&
            c1.B == c2.B &&
            c1.A == c2.A;
 }
 
-inline bool operator!=(const LinearColor c1, const LinearColor c2) {
+inline bool operator!=(const LinearColor c1, const LinearColor c2)
+{
     return c1.R != c2.R &&
            c1.G != c2.G &&
            c1.B != c2.B &&
            c1.A != c2.A;
 }
 
-
-
 // #OtherStructs
-struct PredictionInfo {
+
+struct PredictionInfo
+{
     float Time;
     float ArchTopTime;
     Vector Location;
@@ -837,7 +948,8 @@ struct SteamID
     unsigned long long ID;
 };
 
-struct SkillRating {
+struct SkillRating
+{
     float Mu;
     float Sigma;
 };
@@ -849,14 +961,16 @@ struct SkillRank
     int MatchesPlayed;
 };
 
-struct UnrealColor {
+struct UnrealColor
+{
     unsigned char B;
     unsigned char G;
     unsigned char R;
     unsigned char A;
 };
 
-struct ControllerInput {
+struct ControllerInput
+{
     float Throttle = .0f;
     float Steer = .0f;
     float Pitch = .0f;
@@ -877,18 +991,20 @@ struct RecordedSample
     float High;
 };
 
-struct POV {
+struct POV
+{
     Vector location;
     Rotator rotation;
     float FOV;
 };
 
-struct ViewTarget {
-    void* Target;      // ActorWrapper(Target)
-    void* Controller;  // PlayerControllerWrapper(Controller)
-    struct POV POV;    // 
-    float AspectRatio; // 
-    void* PRI;         // PRIWrapper(PRI)
+struct ViewTarget
+{
+    void* Target;       // ActorWrapper(Target)
+    void* Controller;   // PlayerControllerWrapper(Controller)
+    struct POV POV;
+    float AspectRatio;
+    void* PRI;          // PRIWrapper(PRI)
 };
 
 struct ProfileCameraSettings
@@ -921,12 +1037,14 @@ struct WorldContactData
     Vector Normal;
 };
 
-struct StickyForceData {
+struct StickyForceData
+{
     float Ground;
     float Wall;
 };
 
-struct WheelContactData {
+struct WheelContactData
+{
     unsigned long bHasContact : 1;
     unsigned long bHasContactWithWorldGeometry : 1;
     float HasContactChangeTime;
@@ -941,15 +1059,15 @@ struct WheelContactData {
 
 struct ReplayScoreData
 {
-    uintptr_t ScoredBy;   //PriWrapper
-    uintptr_t AssistedBy; //PriWrapper
+    uintptr_t ScoredBy;         // PriWrapper
+    uintptr_t AssistedBy;       // PriWrapper
     float Speed;
     float Time;
     unsigned char ScoreTeam;
 };
 
-
 // #Enums
+
 enum TRADEHOLD
 {
     TRADEHOLD_P2P = -2,
@@ -968,18 +1086,17 @@ enum PRODUCTQUALITY
     BlackMarket = 6,
     Premium = 7,
     Limited = 8,
-    MAX = 9
+    Legacy = 9,
+    MAX = 10
 };
 
 enum UNLOCKMETHOD
 {
     Default = 0,
-    Drop = 1,
-    Special = 2,
-    Reward = 3,
-    DLC = 4,
-    Never = 5,
-    MAX_ = 6
+    Online = 1,
+    DLC = 2,
+    Never = 3,
+    MAX_ = 4
 };
 
 enum CARBODY
@@ -993,7 +1110,7 @@ enum CARBODY
     CAR_ROADHOG = 25,
     CAR_ROADHOGXL = 1300,
     CAR_GIZMO = 26,
-    CAR_SWEETTOOTH = 27, //Will just spawn merc i guess, ps4 exclusive
+    CAR_SWEETTOOTH = 27, // Will just spawn merc i guess, ps4 exclusive
     CAR_XDEVIL = 28,
     CAR_XDEVILMK2 = 1159,
     CAR_HOTSHOT = 29,
@@ -1008,8 +1125,8 @@ enum CARBODY
     CAR_DELOREAN = 597,
     CAR_RIPPER = 600,
     CAR_GROG = 607,
-    CAR_ARMADILLO = 625, //gears of war car, XBOX exclusive?
-    CAR_WARTHOG = 723, //Halo car, XBOX exclusive
+    CAR_ARMADILLO = 625, // gears of war car, XBOX exclusive?
+    CAR_WARTHOG = 723, // Halo car, XBOX exclusive
     CAR_BATMOBILE = 803,
     CAR_MASAMUNE = 1171,
     CAR_MARAUDER = 1172,
@@ -1045,8 +1162,20 @@ enum OnlinePlatform
     OnlinePlatform_MAX = 12
 };
 
-
-
+enum MAINMENUBACKGROUND
+{
+    Default = 0,
+    UtopiaSnow = 1,
+    HauntedStation = 2,
+    Beach = 3,
+    Beach_Night = 4,
+    Halloween = 5,
+    China = 6,
+    ParkDay = 7,
+    Music = 8,
+    ThrowbackHockey = 9,
+    MAX = 10
+};
 
 // #Defines
 #define CONSTRUCTORS(name)\
