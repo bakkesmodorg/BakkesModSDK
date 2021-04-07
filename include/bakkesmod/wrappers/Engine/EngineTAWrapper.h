@@ -10,6 +10,9 @@ class BAKKESMOD_PLUGIN_IMPORT EngineTAWrapper : public ObjectWrapper {
 public:
 	CONSTRUCTORS(EngineTAWrapper)
 
+	_NODISCARD bool IsNull() const;
+	explicit operator bool() const;
+
 	//AUTO-GENERATED FROM FIELDS
 	unsigned long GetbEnableClientPrediction();
 	void SetbEnableClientPrediction(unsigned long newbEnableClientPrediction);

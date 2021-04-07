@@ -7,6 +7,8 @@ public:
 	CONSTRUCTORS(StatEventWrapper)
 
 	//BEGIN SELF IMPLEMENTED
+	_NODISCARD bool IsNull() const;
+	explicit operator bool() const;
 	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
@@ -28,6 +30,7 @@ public:
 	//AUTO-GENERATED FROM METHODS
 	float GetNextCooldownTime();
 	std::string GetGroupName();
+    std::string GetEventName();
 	//END AUTO-GENERATED FROM METHODS
 
 private:

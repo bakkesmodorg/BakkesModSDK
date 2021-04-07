@@ -9,6 +9,9 @@ class BAKKESMOD_PLUGIN_IMPORT SaveDataWrapper : public ObjectWrapper {
 public:
 	CONSTRUCTORS(SaveDataWrapper)
 
+	_NODISCARD bool IsNull() const;
+	explicit operator bool() const;
+
 	//AUTO-GENERATED FROM FIELDS
 	UnrealStringWrapper GetDirectoryPath();
 	UnrealStringWrapper GetSaveType();

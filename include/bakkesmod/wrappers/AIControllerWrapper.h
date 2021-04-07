@@ -8,6 +8,8 @@ class BAKKESMOD_PLUGIN_IMPORT AIControllerWrapper : public ControllerWrapper {
 public:
     CONSTRUCTORS(AIControllerWrapper)
 
+        void DoNothing();
+
 private:
     PIMPL
 };

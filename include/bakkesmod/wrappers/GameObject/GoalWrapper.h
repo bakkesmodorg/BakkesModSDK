@@ -11,6 +11,9 @@ class BAKKESMOD_PLUGIN_IMPORT GoalWrapper : public ObjectWrapper {
 public:
 	CONSTRUCTORS(GoalWrapper)
 
+	_NODISCARD bool IsNull() const;
+	explicit operator bool() const;
+
 	//AUTO-GENERATED FROM FIELDS
 	ActorWrapper GetGoalOrientation();
 	void SetGoalOrientation(ActorWrapper newGoalOrientation);

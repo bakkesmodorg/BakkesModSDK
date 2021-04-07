@@ -27,6 +27,14 @@ public:
     LinearColor getColorValue();//Returns {0,0,0,0} if bad formatting. Good: "(R, G, B, A)" (0-255 range), or 6/8 hex ("#123ABC" or "#1234ABCD", capitalization doesn't matter)
 	std::string getStringValue();
 	std::string getDescription();
+	const std::string GetDefaultValue();
+	bool HasMinimum();
+	bool HasMaximum();
+	float GetMinimum();
+	float GetMaximum();
+	bool IsHidden();
+	bool ShouldSaveToCfg();
+	void ResetToDefault();
 	void notify(); //Will send a notification to all listeners, (for example when new gameevent is loaded or cvar is changed)
 	void setValue(std::string value);
 	void setValue(int value);

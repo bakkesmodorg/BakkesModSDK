@@ -11,6 +11,9 @@ class BAKKESMOD_PLUGIN_IMPORT VehicleSimWrapper : public ObjectWrapper {
 public:
 	CONSTRUCTORS(VehicleSimWrapper)
 
+	_NODISCARD bool IsNull() const;
+	explicit operator bool() const;
+
 	//AUTO-GENERATED FROM FIELDS
 	ArrayWrapper<WheelWrapper> GetWheels();
 	float GetDriveTorque();

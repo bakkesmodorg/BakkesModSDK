@@ -283,21 +283,29 @@ public:
 	void EventPendingIdleKickChanged(PlayerControllerWrapper PC);
 	void EventLaunchControllerApplet();
 	void EventLaunchAccountPicker(int ControllerId);
-
+    bool GetbUsingGamepad();
+    void SetMouseSensitivity(float NewSensitivity);
+    float GetMouseSensitivity();
 	void SetAForward(float aForward);
 	float GetAForward();
-
 	void SetATurn(float aTurn);
 	float GetATurn();
-
 	void SetAStrafe(float aStrafe);
 	float GetAStrafe();
-
 	void SetAUp(float aUp);
 	float GetAUp();
-
 	void SetALookUp(float aLookUp);
 	float GetALookUp();
+    void SetLookRightScale(float NewScale);
+    float GetLookRightScale();
+    void SetLookUpScale(float NewScale);
+    float GetLookUpScale();
+    void SetGamepadLookScale(float NewScale);
+    float GetGamepadLookScale();
+    void SetALookRoll(float NewLookRoll);
+    float GetALookRoll();
+    void SetbRoll(bool NewRoll);
+    bool GetbRoll();
 	void SetSpectatorCameraAccel(float SpectatorCameraAccel);
 	float GetSpectatorCameraAccel();
 	void SetSpectatorCameraSpeed(float SpectatorCameraSpeed);

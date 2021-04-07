@@ -73,7 +73,7 @@ class BAKKESMOD_PLUGIN_IMPORT MatchmakingWrapper: public ObjectWrapper
 public:
     CONSTRUCTORS(MatchmakingWrapper)
 
-	[[nodiscard]] bool IsNull() const;
+	_NODISCARD bool IsNull() const;
 	explicit operator bool() const;
 
 	//Matchmaking queue stuff

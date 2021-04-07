@@ -6,6 +6,8 @@ public:
 	CONSTRUCTORS(CertifiedStatDatabaseWrapper)
 
 	//BEGIN SELF IMPLEMENTED
+	_NODISCARD bool IsNull() const;
+	explicit operator bool() const;
 	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
