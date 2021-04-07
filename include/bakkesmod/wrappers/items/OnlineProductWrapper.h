@@ -11,6 +11,8 @@ public:
 	CONSTRUCTORS(OnlineProductWrapper)
 
 	//BEGIN SELF IMPLEMENTED
+	_NODISCARD bool IsNull() const;
+	explicit operator bool() const;
 	std::string SeriesIdToSeriesName(int seriesID);
 	//END SELF IMPLEMENTED
 
@@ -29,6 +31,7 @@ public:
 	bool IsBlueprint();
 	ProductWrapper GetProduct();
 	bool GetIsUntradable();
+	unsigned long long GetInstanceID();
 	//END AUTO-GENERATED FROM METHODS
 
 private:

@@ -11,6 +11,9 @@ class BAKKESMOD_PLUGIN_IMPORT SampleHistoryWrapper : public ObjectWrapper {
 public:
 	CONSTRUCTORS(SampleHistoryWrapper)
 
+	_NODISCARD bool IsNull() const;
+	explicit operator bool() const;
+
 	//AUTO-GENERATED FROM FIELDS
 	SampleRecordSettingsWrapper GetRecordSettings();
 	void SetRecordSettings(SampleRecordSettingsWrapper newRecordSettings);

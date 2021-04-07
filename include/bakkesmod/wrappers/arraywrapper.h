@@ -65,7 +65,7 @@ public:
         return index != other.index;
     }
 
-    T const& operator* () const
+    T operator* () const
     {
         return collection.Get(index);
     }
@@ -120,5 +120,6 @@ template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<ProductWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<OnlineProductWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<ProductAttributeWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<int>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<unsigned long long>;
 //template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<FSample>;
 #pragma warning(pop)

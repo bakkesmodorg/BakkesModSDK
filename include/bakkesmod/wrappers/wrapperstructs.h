@@ -2,6 +2,7 @@
 //#include "../shared.h"
 
 #include "linmath.h"
+#include <map>
 #include <algorithm> 
 
 #ifndef CONST_RadToUnrRot
@@ -902,6 +903,14 @@ struct ProfileCameraSettings
     float TransitionSpeed;
 };
 
+struct GamepadSettings
+{
+    float ControllerDeadzone;
+    float DodgeInputThreshold;
+    float SteeringSensitivity;
+    float AirControlSensitivity;
+};
+
 struct RBState
 {
     Quat Quaternion;
@@ -946,6 +955,25 @@ struct ReplayScoreData
     float Speed;
     float Time;
     unsigned char ScoreTeam;
+};
+
+struct VideoSettings
+{
+    bool bVsync;
+    bool bShowWeatherFX;
+    bool bShowLightShafts;
+    bool bTranslucentArenaShaders;
+    bool bShowLensFlares;
+    bool bEnableHDRSideBySideVisualizer;
+    bool bUncappedFramerate;
+    float HDRBrightnessScale;
+    float HDRPaperWhiteScale;
+    float HDRGammaScale;
+
+    int WindowMode;
+    std::string Resolution;
+    int MaxFPS;
+    std::map<std::string, std::string> VideoOptions;
 };
 
 

@@ -14,6 +14,9 @@ class BAKKESMOD_PLUGIN_IMPORT ReplayWrapper : public ObjectWrapper {
 public:
 	CONSTRUCTORS(ReplayWrapper)
 
+	_NODISCARD bool IsNull() const;
+	explicit operator bool() const;
+
 	//AUTO-GENERATED FROM FIELDS
 	UnrealStringWrapper GetReplayName();
 	int GetEngineVersion();

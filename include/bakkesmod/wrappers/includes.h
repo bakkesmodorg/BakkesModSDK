@@ -79,4 +79,7 @@
 #include "./items/ItemsWrapper.h"
 #include "./ImageWrapper.h"
 #include "./MatchmakingWrapper.h"
+#include "./SettingsWrapper.h"
+#include "./http/HttpWrapper.h"
+#include "bakkesmod/core/bot_loadout_structs.h"
 #pragma warning(pop)

@@ -26,7 +26,7 @@
 #include "dbs/PaintDatabaseWrapper.h"
 #include "dbs/SpecialEditionDatabaseWrapper.h"
 #include "TradeWrapper.h"
-
+#include "LoadoutWrapper.h"
 
 class BAKKESMOD_PLUGIN_IMPORT ItemsWrapper : public ObjectWrapper
 {
@@ -36,8 +36,11 @@ public:
 	ItemsWrapper& operator=(ItemsWrapper rhs);
 	~ItemsWrapper();
 	bool IsNull();
+	explicit operator bool();
 	ArrayWrapper<ProductWrapper> GetAllProducts();
 	ProductWrapper GetProduct(int productId);
+	OnlineProductWrapper GetOnlineProduct(unsigned long long instanceID);
+
 	[[deprecated("This will 99% for sure crash")]]
 	ArrayWrapper<OnlineProductWrapper> GetUnlockedProducts();
 	ArrayWrapper<ProductWrapper> GetCachedUnlockedProducts();
@@ -48,6 +51,9 @@ public:
 	PaintDatabaseWrapper GetPaintDB();
 	SpecialEditionDatabaseWrapper GetSpecialEditionDB();
 
+	UnrealStringWrapper GetCurrentLoadoutName();
+	LoadoutWrapper GetCurrentLoadout(int teamIndex);
+
 	TradeWrapper GetTradeWrapper();
 
 
@@ -57,5 +63,4 @@ public:
 private:
 	PIMPL
 };
-
 

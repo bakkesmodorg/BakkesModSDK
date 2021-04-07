@@ -9,6 +9,9 @@ class BAKKESMOD_PLUGIN_IMPORT WheelWrapper : public ObjectWrapper {
 public:
 	CONSTRUCTORS(WheelWrapper)
 
+	_NODISCARD bool IsNull() const;
+	explicit operator bool() const;
+
 	//AUTO-GENERATED FROM FIELDS
 	float GetSteerFactor();
 	void SetSteerFactor(float newSteerFactor);

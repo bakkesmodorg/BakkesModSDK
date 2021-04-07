@@ -12,6 +12,9 @@ class BAKKESMOD_PLUGIN_IMPORT StatGraphSystemWrapper : public ObjectWrapper {
 public:
 	CONSTRUCTORS(StatGraphSystemWrapper)
 
+	_NODISCARD bool IsNull() const;
+	explicit operator bool() const;
+
 	//AUTO-GENERATED FROM FIELDS
 	float GetGraphSampleTime();
 	void SetGraphSampleTime(float newGraphSampleTime);

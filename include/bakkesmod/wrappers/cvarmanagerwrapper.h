@@ -29,6 +29,7 @@ public:
 
 	std::string getBindStringForKey(std::string key);
 	void setBind(std::string key, std::string command);
+	void removeBind(std::string key);
 	std::string getAlias(std::string alias);
 	void setAlias(std::string key, std::string script);
 

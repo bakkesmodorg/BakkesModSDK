@@ -9,6 +9,9 @@ class BAKKESMOD_PLUGIN_IMPORT GameSettingPlaylistWrapper : public ObjectWrapper 
 public:
 	CONSTRUCTORS(GameSettingPlaylistWrapper)
 
+	_NODISCARD bool IsNull() const;
+	explicit operator bool() const;
+
 	//AUTO-GENERATED FROM FIELDS
 	UnrealStringWrapper GetTitle();
 	UnrealStringWrapper GetDescription();

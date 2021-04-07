@@ -29,6 +29,8 @@ class ItemsWrapper;
 class ClubDetailsWrapper;
 class UnrealStringWrapper;
 class MatchmakingWrapper;
+class SettingsWrapper;
+class PriWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT GameWrapper
 {
@@ -68,6 +70,7 @@ public:
 	PlayerControllerWrapper			GetPlayerController();
 	ItemsWrapper					GetItemsWrapper();
 	MatchmakingWrapper				GetMatchmakingWrapper();
+	SettingsWrapper					GetSettings();
 	
 	void							OverrideParams(void* src, size_t memsize);
 
@@ -111,6 +114,9 @@ public:
 	UnrealStringWrapper				GetPlayerName();
 	ClubDetailsWrapper				GetLocalClub();
 	SequenceWrapper					GetMainSequence();
+	
+	[[deprecated("Experimental feature, use at your own risk. implementation and function signature subject to change")]]
+	void							SetBotLoadout(PriWrapper& bot_pri, const struct BotLoadoutData& loadout_data);
 
     Vector2							GetScreenSize();
     float							GetSafeZoneRatio();
@@ -126,6 +132,7 @@ public:
 #endif
 	std::wstring					GetBakkesModPathW();
 	std::wstring					GetDataFolderW();
+	void							PlayReplay(const std::wstring& path);
 
 	template<typename T, typename std::enable_if<std::is_base_of<ObjectWrapper, T>::value>::type* = nullptr>
 	void							HookEventWithCaller(std::string eventName, std::function<void(T caller, void* params, std::string eventName)> callback);
