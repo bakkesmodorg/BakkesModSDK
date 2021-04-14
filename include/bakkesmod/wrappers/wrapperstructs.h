@@ -3,6 +3,7 @@
 
 #include "linmath.h"
 #include <map>
+#include <string>
 #include <algorithm> 
 
 #ifndef CONST_RadToUnrRot
@@ -890,6 +891,12 @@ struct ViewTarget {
     struct POV POV;    // 
     float AspectRatio; // 
     void* PRI;         // PRIWrapper(PRI)
+};
+
+struct CameraSave
+{
+    bool InvertSwivelPitch;
+    bool CameraShake;
 };
 
 struct ProfileCameraSettings

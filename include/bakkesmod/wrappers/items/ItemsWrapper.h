@@ -26,6 +26,7 @@
 #include "dbs/PaintDatabaseWrapper.h"
 #include "dbs/SpecialEditionDatabaseWrapper.h"
 #include "TradeWrapper.h"
+#include "ProductTradeInWrapper.h"
 #include "LoadoutWrapper.h"
 
 class BAKKESMOD_PLUGIN_IMPORT ItemsWrapper : public ObjectWrapper
@@ -55,10 +56,7 @@ public:
 	LoadoutWrapper GetCurrentLoadout(int teamIndex);
 
 	TradeWrapper GetTradeWrapper();
-
-
-
-
+	ProductTradeInWrapper GetProductTradeInWrapper();
 
 private:
 	PIMPL
