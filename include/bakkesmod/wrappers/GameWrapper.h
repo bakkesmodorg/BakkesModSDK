@@ -132,6 +132,8 @@ public:
 #endif
 	std::wstring					GetBakkesModPathW();
 	std::wstring					GetDataFolderW();
+	int								GetBakkesModVersion();
+
 	void							PlayReplay(const std::wstring& path);
 
 	template<typename T, typename std::enable_if<std::is_base_of<ObjectWrapper, T>::value>::type* = nullptr>
