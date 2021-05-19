@@ -31,6 +31,8 @@ class UnrealStringWrapper;
 class MatchmakingWrapper;
 class SettingsWrapper;
 class PriWrapper;
+class ModalWrapper;
+class TextInputModalWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT GameWrapper
 {
@@ -71,6 +73,9 @@ public:
 	ItemsWrapper					GetItemsWrapper();
 	MatchmakingWrapper				GetMatchmakingWrapper();
 	SettingsWrapper					GetSettings();
+
+	ModalWrapper					CreateModal(const std::string& title);
+	TextInputModalWrapper			CreateTextInputModal(const std::string& title);
 	
 	void							OverrideParams(void* src, size_t memsize);
 

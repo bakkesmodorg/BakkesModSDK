@@ -82,4 +82,6 @@
 #include "./SettingsWrapper.h"
 #include "./http/HttpWrapper.h"
 #include "bakkesmod/core/bot_loadout_structs.h"
+#include "bakkesmod/wrappers/modals/ModalWrapper.h"
+#include "bakkesmod/wrappers/modals/TextInputModalWrapper.h"
 #pragma warning(pop)
