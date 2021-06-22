@@ -23,6 +23,7 @@ public:
 	//END AUTO-GENERATED FROM FIELDS
 
 	//AUTO-GENERATED FROM METHODS
+	std::string GetProductSeries();
 	unsigned char GetQuality();
 	ArrayWrapper<ProductAttributeWrapper> GetAttributes();
 	UnrealStringWrapper GetLongLabel();
