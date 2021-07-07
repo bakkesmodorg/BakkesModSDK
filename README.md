@@ -12,6 +12,21 @@ Currently the SDK is being extended to make it easier for plugin developers to c
 ## Getting started
 In order to create plugins for Rocket League with BakkesMod you need the SDK. By default the SDK will be included with the BakkesMod installation and can be found in [steamlibrary]\steamapps\common\rocketleague\Binaries\Win32\bakkesmod\bakkesmodsdk\. You could also simply clone this repository as this also contains the full SDK and is often more up to date.
 
+### IDE
 Now create a new empty project in your IDE. Set the build target to Release win32 and make sure it builds a .dll. Now add the "include" folder of the BakkesMod SDK to the list of include folders of your project and add the BakkesMod.lib to your solution. Next up, add the skeleton [TODO: add skeleton] and you're good to go. For examples on how to create plugins take a look at [the default plugins that come with the mod](https://github.com/Bakkes/BakkesMod2-Plugins). In order to load your plugin ingame make sure the generated .dll is placed in the plugins folder of BakkesMod. Next, in Rocket League open the console and type ```plugin load filename``` (without the .dll extension!). To unload your plugin you can use ```plugin unload filename```. Any cvars/notifiers/drawables that are registered when a plugin is loaded are automatically removed when a plugin is unloaded, so you don't have to worry about that!
+
+### Command Line
+
+You'll still need to have Visual Studio installed for its included compilers.
+
+1. Open `x64 Native Tools Command Prompt for VS 2019`.
+2. Replace the paths to `bakkesmodsdk` below with the correct ones for your system
+   and `plugin.cpp` with the actual name of the plugin.
+
+```powershell
+cl /LD -I bakkesmodsdk/include/ bakkesmodsdk/lib/pluginsdk.lib plugin.cpp
+```
+
+## Help
 
 More extensive documentation is in the making but for now hopefully the example plugins and header files should be mostly self explanatory. If you have any questions feel free to drop by the [BakkesMod discord](https://discordapp.com/invite/HsM6kAR). There is a #programming channel where you can ask your questions. Alternatively, feel free to pm me on Discord at any time! (Bakkes#8746)
