@@ -18,6 +18,8 @@ public:
 	std::vector<Currency> GetSendingCurrency() const;
 	ArrayWrapper<OnlineProductWrapper> GetReceivingProducts();
 	ArrayWrapper<OnlineProductWrapper> GetSendingProducts();
+	UniqueIDWrapper GetTradingPlayer() const;
+	GUIDWrapper GetTradeGuid() const;
 	bool IsNull();
 	explicit operator bool();
 

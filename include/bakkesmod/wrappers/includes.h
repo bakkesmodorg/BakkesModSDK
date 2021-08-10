@@ -84,4 +84,5 @@
 #include "bakkesmod/core/bot_loadout_structs.h"
 #include "bakkesmod/wrappers/modals/ModalWrapper.h"
 #include "bakkesmod/wrappers/modals/TextInputModalWrapper.h"
+#include "bakkesmod/wrappers/CareerStatsWrapper.h"
 #pragma warning(pop)

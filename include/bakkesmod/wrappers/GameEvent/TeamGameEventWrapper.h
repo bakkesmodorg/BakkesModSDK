@@ -37,6 +37,8 @@ public:
 	void UpdatePlayerShortcuts();
 	void ClearTemporarySpawnSpots();
 	bool ChooseTeam(int TeamIndex, PlayerControllerWrapper Player);
+
+	[[deprecated("Removed from Rocket League, defaults to false")]]
 	bool CanChangeTeam();
 	void OnPenaltyChanged();
 	void OnTeamForfeited(TeamWrapper Team);

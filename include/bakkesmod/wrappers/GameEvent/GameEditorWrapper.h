@@ -68,6 +68,8 @@ public:
 	void OnSpawnedArchetype(ActorWrapper SpawnedActor, unsigned char HistoryType);
 	void SpawnArchetype(PlayerControllerWrapper Controller, int ArchetypeIndex);
 	void IncrementSelectedSpawnArchetypeIndex(int Direction, int* Index);
+
+	[[deprecated("Removed from Rocket League, defaults to false")]]
 	bool CanChangeTeam();
 	void ResetBallsToDefaultPosition();
 	void FireBalls();
