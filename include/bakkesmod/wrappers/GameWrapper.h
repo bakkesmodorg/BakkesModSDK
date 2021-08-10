@@ -94,6 +94,8 @@ public:
 
 	void							LogToChatbox(std::string text, std::string sender="BAKKESMOD");
 
+	void							SpawnActor(std::string archetype);
+
 	/*
 	Will queue up loading of a texture into memory, only has to be done once, after this it will persistently be stored in memory.
 	Loading will be done at next toast render frame, any errors will be printed to the console.

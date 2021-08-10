@@ -983,6 +983,26 @@ struct VideoSettings
     std::map<std::string, std::string> VideoOptions;
 };
 
+struct GUIDWrapper
+{
+	GUIDWrapper(int32_t a, int32_t b, int32_t c, int32_t d);
+	explicit GUIDWrapper(const struct FGuid& guid);
+
+	enum class EGuidFormats : uint8_t
+	{
+		Digits =							0, // Example: 00000000000000000000000000000000
+		DigitsWithHyphens =					1, // Example: 00000000-0000-0000-0000-000000000000
+		DigitsWithHyphensInBraces =			2, // Example: {00000000-0000-0000-0000-000000000000}
+		DigitsWithHyphensInParentheses =	3, // Example: (00000000-0000-0000-0000-000000000000)
+		HexValuesInBraces =					4, // Example: {0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}
+		UniqueObjectGuid =					5, // Example: 00000000-00000000-00000000-00000000
+	};
+	int32_t A, B, C, D;
+
+	std::string ToString(EGuidFormats format = EGuidFormats::UniqueObjectGuid) const;
+	
+};
+
 
 // #Enums
 enum TRADEHOLD
