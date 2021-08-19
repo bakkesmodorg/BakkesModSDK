@@ -30,9 +30,9 @@
 enum ToastType
 {
     ToastType_Info = 0,
-    ToastType_OK,
-    ToastType_Warning,
-    ToastType_Error
+    ToastType_OK = 1,
+    ToastType_Warning = 2,
+    ToastType_Error = 3
 };
 
 #pragma pack ( push, 0x8 )
