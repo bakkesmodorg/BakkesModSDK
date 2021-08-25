@@ -1,5 +1,5 @@
 #pragma once
-enum {
+enum PLUGINTYPE {
 	PLUGINTYPE_FREEPLAY = 0x01,
 	PLUGINTYPE_CUSTOM_TRAINING = 0x02,
 	PLUGINTYPE_SPECTATOR = 0x04,
@@ -10,7 +10,7 @@ enum {
 };
 
 //Permissions you can set for notifiers, 0x00 = ALL
-enum {
+enum NOTIFIER_PERMISSION {
 	PERMISSION_ALL = 0,
 	PERMISSION_MENU = (1 << 0),
 	PERMISSION_SOCCAR = (1 << 1),
