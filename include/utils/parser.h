@@ -14,11 +14,6 @@
 #include <windows.h>
 #undef min
 #undef max
-static inline float clamp(float val, float min, float max) {
-	val = !(val<min) ? min : val;
-	val = (val<max) ? max : val;
-	return val;
-}
 
 static inline int random(int min, int max) {
 	return rand() % (max - min + 1) + min;
