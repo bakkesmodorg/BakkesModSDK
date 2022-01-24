@@ -56,8 +56,6 @@ public:
 	void SetMaxScore(int newMaxScore);
 	int GetAutoBalanceDifference();
 	void SetAutoBalanceDifference(int newAutoBalanceDifference);
-	int GetLastTrialTime();
-	void SetLastTrialTime(int newLastTrialTime);
 	float GetScoreSlomoTime();
 	void SetScoreSlomoTime(float newScoreSlomoTime);
 	float GetGameTimeRemaining();
@@ -80,8 +78,6 @@ public:
 	void SetbOverTime(unsigned long newbOverTime);
 	unsigned long GetbUnlimitedTime();
 	void SetbUnlimitedTime(unsigned long newbUnlimitedTime);
-	unsigned long GetbKickOnTrialEnd();
-	void SetbKickOnTrialEnd(unsigned long newbKickOnTrialEnd);
 	unsigned long GetbNoContest();
 	void SetbNoContest(unsigned long newbNoContest);
 	unsigned long GetbDisableGoalDelay();
@@ -134,8 +130,6 @@ public:
 	void SetReplicatedServerPerformanceState(unsigned char newReplicatedServerPerformanceState);
 	int GetRoundNum();
 	void SetRoundNum(int newRoundNum);
-	float GetKickIdleReplayOffset();
-	void SetKickIdleReplayOffset(float newKickIdleReplayOffset);
 	float GetAssistMaxTime();
 	void SetAssistMaxTime(float newAssistMaxTime);
 	float GetBallHasBeenHitStartDelay();
@@ -176,10 +170,6 @@ public:
 	void UpdateTotalGameTimePlayed(float DeltaTime);
 	void UpdateGameTime(float DeltaTime);
 	bool CanUpdateGameTime();
-	void WaitForBallOnGround();
-	bool BallHitGround(Vector& HitNorm);
-	void HandleBallHitGround(BallWrapper Ball, Vector& HitLoc, Vector& HitNorm);
-	void HandleBallHitGroundTimeout();
 	void StartReplay();
 	void HandleReplayFinished(ReplayDirectorWrapper InReplay);
 	void GotoPodiumSpotlight();

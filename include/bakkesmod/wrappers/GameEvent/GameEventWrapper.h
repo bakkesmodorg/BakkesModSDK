@@ -17,8 +17,6 @@ public:
 	CONSTRUCTORS(GameEventWrapper)
 
 	//AUTO-GENERATED FROM FIELDS
-	unsigned char GetGameMode();
-	void SetGameMode(unsigned char newGameMode);
 	unsigned char GetReplicatedStateIndex();
 	void SetReplicatedStateIndex(unsigned char newReplicatedStateIndex);
 	CarWrapper GetCarArchetype();
@@ -74,10 +72,6 @@ public:
 	void SetGameStateTimeRemaining(int newGameStateTimeRemaining);
 	int GetReplicatedGameStateTimeRemaining();
 	void SetReplicatedGameStateTimeRemaining(int newReplicatedGameStateTimeRemaining);
-	float GetIdleKickTime();
-	void SetIdleKickTime(float newIdleKickTime);
-	float GetIdleKickWarningTime();
-	void SetIdleKickWarningTime(float newIdleKickWarningTime);
 	float GetBotBoostThreshold_vsAI();
 	void SetBotBoostThreshold_vsAI(float newBotBoostThreshold_vsAI);
 	StructArrayWrapper<SteamID> GetForfeitInitiatorIDs();
@@ -132,10 +126,6 @@ public:
 	void SetAllowReadyUp2(unsigned long bAllow);
 	void AutoReadyPlayers();
 	bool ShouldAutoReadyUp(PriWrapper PRI);
-	void KickSplitscreenIdlers();
-	void KickIdlers();
-	void StopIdleKickTimer();
-	void StartIdleKickTimer(float OffsetTime);
 	void SendGoMessage(PlayerControllerWrapper Player);
 	void SendCountdownMessage(int Seconds, PlayerControllerWrapper Player);
 	void BroadcastCountdownMessage(int Seconds);

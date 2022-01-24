@@ -85,4 +85,12 @@
 #include "bakkesmod/wrappers/modals/ModalWrapper.h"
 #include "bakkesmod/wrappers/modals/TextInputModalWrapper.h"
 #include "bakkesmod/wrappers/CareerStatsWrapper.h"
+#include "bakkesmod/wrappers/GameObject/BallBreakoutWrapper.h"
+#include "bakkesmod/wrappers/GameObject/BallGodWrapper.h"
+#include "bakkesmod/wrappers/GameObject/BallHauntedWrapper.h"
+#include "bakkesmod/wrappers/GameObject/BreakOutActorPlatformWrapper.h"
+#include "bakkesmod/wrappers/GameObject/GoalHoopsWrapper.h"
+#include "bakkesmod/wrappers/PluginManagerWrapper.h"
+#include "bakkesmod/wrappers/GameObject/Stats/StatEventWrapper.h"
+
 #pragma warning(pop)

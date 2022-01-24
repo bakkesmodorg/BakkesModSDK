@@ -27,7 +27,6 @@ public:
 	void SetPrevBall(BallWrapper newPrevBall);
 
 	//AUTO-GENERATED FUNCTION PROXIES
-	void HandleHitBall(CarWrapper InCar, BallWrapper Ball);
 	void UpdateVisual();
 	void ApplyForces(float ActiveTime);
 	void PickupEnd();
