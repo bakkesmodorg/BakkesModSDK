@@ -11,24 +11,6 @@ class BAKKESMOD_PLUGIN_IMPORT BasketballPickup : public RumblePickupComponentWra
 public:
 	CONSTRUCTORS(BasketballPickup)
 
-	//AUTO-GENERATED FROM FIELDS
-	Vector GetBallOffset();
-	void SetBallOffset(Vector newBallOffset);
-	float GetAttachedBallMass();
-	void SetAttachedBallMass(float newAttachedBallMass);
-	Vector GetLaunchForce();
-	void SetLaunchForce(Vector newLaunchForce);
-	BallWrapper GetWeldedBall();
-	void SetWeldedBall(BallWrapper newWeldedBall);
-	float GetOldBallMass();
-	void SetOldBallMass(float newOldBallMass);
-
-	//AUTO-GENERATED FUNCTION PROXIES
-	void HandleCarTouch(BallWrapper InBall, CarWrapper InCar, unsigned char HitType);
-	void PickupStart();
-	void HandleHitBall(CarWrapper InCar, BallWrapper InBall);
-	bool TryActivate(RBActorWrapper TargetOverride);
-	void OnCreated();
 private:
 	PIMPL
 };

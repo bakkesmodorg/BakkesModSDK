@@ -12,6 +12,9 @@ public:
 	_NODISCARD bool IsNull() const;
 	explicit operator bool() const;
 
+	std::string GetLocalizedName();
+	std::string GetName();
+
 	//AUTO-GENERATED FROM FIELDS
 	UnrealStringWrapper GetTitle();
 	UnrealStringWrapper GetDescription();
@@ -46,9 +49,11 @@ public:
 	//AUTO-GENERATED FUNCTION PROXIES
 	bool IsLanMatch();
 	bool IsPrivateMatch();
+	bool IsTournamentMatch();
 	bool ShouldUpdateSkills();
 	bool IsValidID(int InPlaylistID);
 	bool IsValid2();
+	
 private:
 	PIMPL
 };

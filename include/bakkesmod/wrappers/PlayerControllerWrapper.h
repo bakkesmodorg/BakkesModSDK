@@ -29,8 +29,6 @@ public:
 	void SetVehicleInput(ControllerInput newVehicleInput);
 	unsigned long GetbReceivedServerShutdownMessage();
 	void SetbReceivedServerShutdownMessage(unsigned long newbReceivedServerShutdownMessage);
-	unsigned long GetbPendingIdleKick();
-	void SetbPendingIdleKick(unsigned long newbPendingIdleKick);
 	unsigned long GetbUseDebugInputs();
 	void SetbUseDebugInputs(unsigned long newbUseDebugInputs);
 	unsigned long GetbJumpPressed();
@@ -182,12 +180,9 @@ public:
 	void QueSaveReplay();
 	void SetFollowTarget2(PriWrapper InTarget);
 	void FollowPlayer(PriWrapper InPlayer);
-	void OnPendingIdleKickChanged();
-	void SetPendingIdleKick(unsigned long bPending);
 	void ClientSplitscreenJoinResponse(SteamID& PlayerID, unsigned long bAllow, std::string Error);
 	void ServerRequestSplitscreenJoin(SteamID& PlayerID, std::string PlayerName);
 	bool eventPreClientTravel(std::string PendingURL, unsigned char TravelType, unsigned long bIsSeamlessTravel);
-	void KickTrialPlayer();
 	void NotifyGoalScored(int ScoredOnTeam);
 	void eventDestroyed();
 	bool ShouldBeMuted(PlayerControllerWrapper Other);
@@ -203,8 +198,6 @@ public:
 	void DebugAI();
 	void SendPendingRPCs();
 	bool CanSendMessage(unsigned long bQuickChatMessage);
-	void RemoveChatBan();
-	void ApplyChatBan(unsigned long long Expiration);
 	void ClientNotifyChatBanned(unsigned long long ChatBanExpiration);
 	void ClientNotifyChatDisabled(float Time);
 	void ChatMessage_TA(PlayerReplicationInfoWrapper InPRI, std::string Message, unsigned char ChatChannel, unsigned long bPreset);
@@ -280,7 +273,6 @@ public:
 	void EventSelectBallCamTarget(PlayerControllerWrapper PC, int Direction);
 	void EventTrainingEditorActorModified();
 	void EventMuteChanged(PlayerControllerWrapper PC, SteamID& PlayerID, unsigned long bMuted);
-	void EventPendingIdleKickChanged(PlayerControllerWrapper PC);
 	void EventLaunchControllerApplet();
 	void EventLaunchAccountPicker(int ControllerId);
     bool GetbUsingGamepad();

@@ -4,16 +4,17 @@
 
 enum class Region
 {
-    USE = 0,    // US-East
-    EU = 1,     // Europe
-    USW = 2,    // US-West
-    ASC = 3,    // Asia-SE Mainland
-    ASM = 4,    // Asia-SE Maritime
-    JPN = 5,    // Asia-East
-    ME = 6,     // Middle-East
-    OCE = 7,    // Oceania
-    SAF = 8,    // South Africa
-    SAM = 9,     // South America
+    USE = 0,	// US-East
+    EU = 1,		// Europe
+    USW = 2,	// US-West
+    ASC = 3,	// Asia-SE Mainland
+    ASM = 4,	// Asia-SE Maritime
+    JPN = 5,	// Asia-East
+    ME = 6,		// Middle-East
+    OCE = 7,	// Oceania
+    SAF = 8,	// South Africa
+    SAM = 9,	// South America
+    IND = 10	// India
 };
 
 enum class Playlist
@@ -25,10 +26,11 @@ enum class Playlist
     RANKED_STANDARD = 4,
     RANKED_DOUBLES = 5,
     RANKED_DUELS = 6,
-    EXTRAS_RUMBLE = 12,
-    EXTRAS_DROPSHOT = 13,
-    EXTRAS_HOOPS = 14,
-    EXTRAS_SNOWDAY = 15
+    AUTO_TOURNAMENT = 12,
+    EXTRAS_RUMBLE = 13,
+    EXTRAS_DROPSHOT = 14,
+    EXTRAS_HOOPS = 15,
+    EXTRAS_SNOWDAY = 16
 };
 
 enum class PlaylistCategory
@@ -36,6 +38,53 @@ enum class PlaylistCategory
     CASUAL = 0,
     RANKED = 1,
     EXTRAS = 2
+};
+
+enum class PlaylistIds
+{
+	Unknown = -1337,
+	Casual = 0,
+	Duel = 1,
+	Doubles = 2,
+	Standard = 3,
+	Chaos = 4,
+	PrivateMatch = 6,
+	Season = 7,
+	OfflineSplitscreen = 8,
+	Training = 9,
+	RankedSoloDuel = 10,
+	RankedTeamDoubles = 11,
+	RankedStandard = 13,
+	SnowDayPromotion = 15,
+	Experimental = 16,
+	BasketballDoubles = 17,
+	Rumble = 18,
+	Workshop = 19,
+	UGCTrainingEditor = 20,
+	UGCTraining = 21,
+	Tournament = 22,
+	Breakout = 23,
+	FaceIt = 26,
+	RankedBasketballDoubles = 27,
+	RankedRumble = 28,
+	RankedBreakout = 29,
+	RankedSnowDay = 30,
+	HauntedBall = 31,
+	BeachBall = 32,
+	Rugby = 33,
+	AutoTournament = 34,
+	RocketLabs = 35,
+	RumShot = 37,
+	GodBall = 38,
+	BoomerBall = 41,
+	GodBallDoubles = 43,
+	SpecialSnowDay = 44,
+	Football = 46,
+	Cubic = 47,
+	TacticalRumble = 48,
+	SpringLoaded = 49,
+	SpeedDemon = 50,
+	RumbleBM = 52
 };
 
 struct ClubColorSet
@@ -82,12 +131,17 @@ public:
 
     void SetRegionSelection(Region region, bool bSelected);
     void SetPlaylistSelection(Playlist playlist, bool bSelected);
+    void SetViewTab(PlaylistCategory playlist_category);
     void StartMatchmaking(PlaylistCategory playlist_category);
     void CancelMatchmaking();
 
 	// Private match stuff
     void CreatePrivateMatch(Region region, const CustomMatchSettings& match_settings);
 	void JoinPrivateMatch(const std::string& server_name, const std::string& server_password = "");
+
+    // LAN stuff
+    void CreateLanMatch(Region region, const CustomMatchSettings& match_settings) const;
+    void JoinLanMatch(const std::string& server_id, const std::string& password) const;
 
 	// Season stuff
     // If no season end date has been revealed yet, these functions will return either 0 or -1.
@@ -99,6 +153,10 @@ public:
 
     bool HasSeasonEnded();
     int GetTotalPopulation();
+
+    _NODISCARD int GetTotalPlayersOnline() const;
+	_NODISCARD int GetPlayerCount(PlaylistIds playlist) const;
+
 
 	//misc
     static std::string GetRegionID(Region region); // ID Example: USE

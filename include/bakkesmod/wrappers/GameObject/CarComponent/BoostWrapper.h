@@ -28,8 +28,6 @@ public:
 	void SetLastBoostAmount(float newLastBoostAmount);
 	unsigned long GetbPendingConfirmBoostAmount();
 	void SetbPendingConfirmBoostAmount(unsigned long newbPendingConfirmBoostAmount);
-	unsigned long GetbUnlimitedBoost();
-	void SetbUnlimitedBoost(unsigned long newbUnlimitedBoost);
 	unsigned long GetbNoBoost();
 	void SetbNoBoost(unsigned long newbNoBoost);
 	float GetBoostForce();
