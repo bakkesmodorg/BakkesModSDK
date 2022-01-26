@@ -141,6 +141,7 @@ public:
 	int								GetBakkesModVersion();
 
 	void							PlayReplay(const std::wstring& path);
+	void							PlayReplayFromTime(const std::wstring& path, float time);
 
 	template<typename T, typename std::enable_if<std::is_base_of<ObjectWrapper, T>::value>::type* = nullptr>
 	void							HookEventWithCaller(std::string eventName, std::function<void(T caller, void* params, std::string eventName)> callback);

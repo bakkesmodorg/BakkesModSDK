@@ -46,7 +46,6 @@ public:
 	void HandleCarTouch(BallWrapper InBall, CarWrapper InCar, unsigned char HitType);
 	void PickupEnd();
 	void OnBallHit();
-	void HandleHitBall(CarWrapper InCar, BallWrapper InBall);
 	void PickupStart();
 private:
 	PIMPL

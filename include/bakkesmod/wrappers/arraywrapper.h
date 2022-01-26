@@ -11,6 +11,7 @@
 #include "./GameObject/TeamWrapper.h"
 #include "./GameObject/GoalWrapper.h"
 #include "./GameObject/BoostPickupWrapper.h"
+#include "GameObject/BreakOutActorPlatformWrapper.h"
 
 class ActorWrapper;
 class CarWrapper;
@@ -107,7 +108,6 @@ template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<WheelWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<RBActorWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<CarComponentWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<GoalWrapper>;
-template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<BoostPickupWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<SampleHistoryWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<StatGraphWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<ControllerWrapper>;
@@ -121,5 +121,6 @@ template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<OnlineProductWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<ProductAttributeWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<int>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<unsigned long long>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<BreakOutActorPlatformWrapper>;
 //template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<FSample>;
 #pragma warning(pop)

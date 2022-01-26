@@ -3,7 +3,12 @@
 #include "bakkesmod/wrappers/GameWrapper.h"
 #include "bakkesmodsdk.h"
 #include <memory>
-#include <windows.h>
+//#include <windows.h>
+
+#ifndef _WINDEF_
+class HINSTANCE__; // Forward or never
+typedef HINSTANCE__* HINSTANCE;
+#endif
 
 namespace BakkesMod {
 	namespace Plugin {

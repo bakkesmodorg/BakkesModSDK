@@ -60,16 +60,12 @@ public:
 	void SetbUsingFreecam(unsigned long newbUsingFreecam);
 	unsigned long GetbIsInSplitScreen();
 	void SetbIsInSplitScreen(unsigned long newbIsInSplitScreen);
-	unsigned long GetbDeveloper();
-	void SetbDeveloper(unsigned long newbDeveloper);
 	unsigned long GetbStartVoteToForfeitDisabled();
 	void SetbStartVoteToForfeitDisabled(unsigned long newbStartVoteToForfeitDisabled);
 	unsigned long GetbUsingItems();
 	void SetbUsingItems(unsigned long newbUsingItems);
 	unsigned long GetPlayerHistoryValid();
 	void SetPlayerHistoryValid(unsigned long newPlayerHistoryValid);
-	unsigned long GetbPlayedWithGamepad();
-	void SetbPlayedWithGamepad(unsigned long newbPlayedWithGamepad);
 	GameEventWrapper GetGameEvent();
 	void SetGameEvent(GameEventWrapper newGameEvent);
 	GameEventWrapper GetReplicatedGameEvent();
@@ -101,10 +97,6 @@ public:
 	UniqueIDWrapper GetPartyLeaderID();
 	void SetPartyLeader(UniqueIDWrapper newPartyLeader);
 
-	int GetTotalXP();
-	void SetTotalXP(int newTotalXP);
-	int GetXpLevel();
-	void SetXpLevel(int newXpLevel);
 	float GetDodgeInputThreshold();
 	void SetDodgeInputThreshold(float newDodgeInputThreshold);
 	float GetSteeringSensitivity();
@@ -163,8 +155,6 @@ public:
 	void ServerSetUserCarPreferences(float NewDodgeThreshold, float NewSteeringSensitivity, float NewAirControlSensitivity);
 	int ValidateUserInt(std::string Reason, int NewValue, int Min, int Max);
 	float ValidateUserFloat(std::string Reason, float NewValue, float Min, float Max);
-	void SetXPInfo(int InTotalXP, int InXPLevel);
-	void SetTotalXP2(int NewXP);
 	void OnPawnTypeChanged();
 	void SetWaitingPlayer(unsigned long B);
 	void SetPawnType2(unsigned char NewPawnType);

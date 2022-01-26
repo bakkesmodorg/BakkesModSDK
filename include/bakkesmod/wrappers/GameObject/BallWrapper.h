@@ -16,6 +16,9 @@ public:
 	//BEGIN SELF IMPLEMENTED
 	float GetLastTouchTime();
 	PredictionInfo PredictPosition(float timeAhead);	//END SELF IMPLEMENTED
+	_NODISCARD bool IsDropshotBall() const;
+	_NODISCARD bool IsHauntedtBall() const;
+	_NODISCARD bool IsGodBall() const;
 
 	//AUTO-GENERATED FROM FIELDS
 	FXActorWrapper GetEndOfGameFXArchetype();
