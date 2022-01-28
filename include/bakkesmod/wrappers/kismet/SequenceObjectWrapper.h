@@ -11,7 +11,7 @@ public:
 	_NODISCARD bool IsNull() const;
 	explicit operator bool() const;
 
-	SequenceWrapper     GetParentSequence();
+	SequenceWrapper GetParentSequence();
 	UnrealStringWrapper GetObjName();
 	UnrealStringWrapper GetObjCategory();
 	UnrealStringWrapper GetObjComment();

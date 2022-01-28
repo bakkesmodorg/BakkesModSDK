@@ -1,7 +1,6 @@
 #pragma once
 #include "ProductAttributeWrapper.h"
 
-
 class BAKKESMOD_PLUGIN_IMPORT ProductAttribute_CertifiedWrapper : public ProductAttributeWrapper {
 public:
 	CONSTRUCTORS(ProductAttribute_CertifiedWrapper)
@@ -11,15 +10,15 @@ public:
 
 	//AUTO-GENERATED FROM FIELDS
 	std::string GetValueKeyName();
-	int GetStatId();
-	int GetStatValue();
+	int32_t GetStatId();
+	int32_t GetStatValue();
 	//END AUTO-GENERATED FROM FIELDS
 
 	//AUTO-GENERATED FROM METHODS
 	UnrealStringWrapper GetSortLabel();
 	UnrealStringWrapper GetDescription();
 	UnrealStringWrapper GetRankLabel();
-	int GetRank();
+	int32_t GetRank();
 	//END AUTO-GENERATED FROM METHODS
 
 private:

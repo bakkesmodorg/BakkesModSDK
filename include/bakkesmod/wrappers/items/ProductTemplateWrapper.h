@@ -3,8 +3,6 @@
 class ProductWrapper;
 class ProductSlotWrapper;
 
-
-
 class BAKKESMOD_PLUGIN_IMPORT ProductTemplateWrapper : public ObjectWrapper {
 public:
 	CONSTRUCTORS(ProductTemplateWrapper)
@@ -16,8 +14,8 @@ public:
 
 	//AUTO-GENERATED FROM FIELDS
 	ProductSlotWrapper GetSlot();
-	unsigned char GetUnlockMethod(); // see wrapper structs for the enum
-	unsigned char GetQuality(); // see wrapper structs for the enum
+	uint8_t GetUnlockMethod(); // see wrapper structs for the enum
+	uint8_t GetQuality(); // see wrapper structs for the enum
 	ProductWrapper GetRequiredProduct();
 	unsigned long GetbLicensed();
 	//END AUTO-GENERATED FROM FIELDS

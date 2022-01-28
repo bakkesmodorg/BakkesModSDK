@@ -14,8 +14,8 @@ public:
 	//END AUTO-GENERATED FROM FIELDS
 
 	//AUTO-GENERATED FROM METHODS
-	std::string GetPaintName(int PaintID);
-	int GetPaintID(std::string& PaintName);
+	std::string GetPaintName(int32_t PaintID);
+	int32_t GetPaintID(std::string& PaintName);
 	//END AUTO-GENERATED FROM METHODS
 
 private:

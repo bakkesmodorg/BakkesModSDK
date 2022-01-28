@@ -16,7 +16,7 @@ public:
 	UnrealStringWrapper GetPluralLabel();
 	UnrealStringWrapper GetDescription();
 	UnrealStringWrapper GetOnlineLabel();
-	int GetSlotIndex();
+	int32_t GetSlotIndex();
 	//END AUTO-GENERATED FROM FIELDS
 
 	//AUTO-GENERATED FROM METHODS

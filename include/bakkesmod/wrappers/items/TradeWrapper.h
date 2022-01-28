@@ -10,8 +10,8 @@ public:
 
 	struct Currency
 	{
-		int currency_id;
-		int quantity;
+		int32_t currency_id;
+		int32_t quantity;
 	};
 
 	std::vector<Currency> GetReceivingCurrency() const;

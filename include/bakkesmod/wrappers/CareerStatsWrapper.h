@@ -7,9 +7,9 @@ public:
 	struct StatValue
 	{
 		std::string stat_name;
-		int private_;
-		int unranked;
-		int ranked;
+		int32_t private_;
+		int32_t unranked;
+		int32_t ranked;
 	};
 
 	_NODISCARD static std::vector<StatValue> GetStatValues();

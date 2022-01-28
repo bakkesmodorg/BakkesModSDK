@@ -10,7 +10,7 @@ public:
 	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
-	unsigned char GetUnlockMethod();
+	uint8_t GetUnlockMethod();
 	//END AUTO-GENERATED FROM FIELDS
 
 	//AUTO-GENERATED FROM METHODS

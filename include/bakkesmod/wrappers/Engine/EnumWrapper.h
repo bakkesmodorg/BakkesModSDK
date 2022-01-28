@@ -13,16 +13,16 @@ public:
 	_NODISCARD std::string GetEnumName() const;
 
 	// Throws if invalid value
-	_NODISCARD std::string GetEnumLabel(unsigned char enum_value) const;
+	_NODISCARD std::string GetEnumLabel(uint8_t enum_value) const;
 
 	// Throws if invalid label
-	_NODISCARD unsigned char GetEnumValue(const std::string& enum_label) const;
+	_NODISCARD uint8_t GetEnumValue(const std::string& enum_label) const;
 
 	// Get a count of how many values this enum contains
 	_NODISCARD size_t GetEnumValueCount() const;
 
 	// Get a map with all the possible enum values and their labels
-	_NODISCARD std::map<unsigned char, std::string> GetPossibleValues() const;
+	_NODISCARD std::map<uint8_t, std::string> GetPossibleValues() const;
 
 	// Don't forget the first rule of BMSDK!
 	_NODISCARD bool IsNull() const;

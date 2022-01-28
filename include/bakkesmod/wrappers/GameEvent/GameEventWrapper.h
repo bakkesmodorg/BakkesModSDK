@@ -17,14 +17,14 @@ public:
 	CONSTRUCTORS(GameEventWrapper)
 
 	//AUTO-GENERATED FROM FIELDS
-	unsigned char GetReplicatedStateIndex();
-	void SetReplicatedStateIndex(unsigned char newReplicatedStateIndex);
+	uint8_t GetReplicatedStateIndex();
+	void SetReplicatedStateIndex(uint8_t newReplicatedStateIndex);
 	CarWrapper GetCarArchetype();
 	void SetCarArchetype(CarWrapper newCarArchetype);
-	int GetCountdownTime();
-	void SetCountdownTime(int newCountdownTime);
-	int GetFinishTime();
-	void SetFinishTime(int newFinishTime);
+	int32_t GetCountdownTime();
+	void SetCountdownTime(int32_t newCountdownTime);
+	int32_t GetFinishTime();
+	void SetFinishTime(int32_t newFinishTime);
 	unsigned long GetbMultiplayer();
 	void SetbMultiplayer(unsigned long newbMultiplayer);
 	unsigned long GetbCountdownMessagesDisabled();
@@ -47,15 +47,15 @@ public:
 	void SetbDisableAimAssist(unsigned long newbDisableAimAssist);
 	unsigned long GetbAwardAchievements();
 	void SetbAwardAchievements(unsigned long newbAwardAchievements);
-	int GetMinPlayers();
-	void SetMinPlayers(int newMinPlayers);
-	int GetMaxPlayers();
-	void SetMaxPlayers(int newMaxPlayers);
+	int32_t GetMinPlayers();
+	void SetMinPlayers(int32_t newMinPlayers);
+	int32_t GetMaxPlayers();
+	void SetMaxPlayers(int32_t newMaxPlayers);
 	ArrayWrapper<ActorWrapper> GetSpawnPoints();
 	float GetBotSkill();
 	void SetBotSkill(float newBotSkill);
-	int GetRespawnTime();
-	void SetRespawnTime(int newRespawnTime);
+	int32_t GetRespawnTime();
+	void SetRespawnTime(int32_t newRespawnTime);
 	float GetMatchTimeDilation();
 	void SetMatchTimeDilation(float newMatchTimeDilation);
 	PlayerControllerWrapper GetActivator();
@@ -66,12 +66,12 @@ public:
 	ArrayWrapper<PriWrapper> GetPRIs();
 	ArrayWrapper<CarWrapper> GetCars();
 	ArrayWrapper<PlayerControllerWrapper> GetLocalPlayers();
-	int GetStartPointIndex();
-	void SetStartPointIndex(int newStartPointIndex);
-	int GetGameStateTimeRemaining();
-	void SetGameStateTimeRemaining(int newGameStateTimeRemaining);
-	int GetReplicatedGameStateTimeRemaining();
-	void SetReplicatedGameStateTimeRemaining(int newReplicatedGameStateTimeRemaining);
+	int32_t GetStartPointIndex();
+	void SetStartPointIndex(int32_t newStartPointIndex);
+	int32_t GetGameStateTimeRemaining();
+	void SetGameStateTimeRemaining(int32_t newGameStateTimeRemaining);
+	int32_t GetReplicatedGameStateTimeRemaining();
+	void SetReplicatedGameStateTimeRemaining(int32_t newReplicatedGameStateTimeRemaining);
 	float GetBotBoostThreshold_vsAI();
 	void SetBotBoostThreshold_vsAI(float newBotBoostThreshold_vsAI);
 	StructArrayWrapper<SteamID> GetForfeitInitiatorIDs();
@@ -79,8 +79,8 @@ public:
 	PriWrapper GetGameOwner();
 	void SetGameOwner(PriWrapper newGameOwner);
 	UnrealStringWrapper GetRichPresenceString();
-	int GetReplicatedRoundCountDownNumber();
-	void SetReplicatedRoundCountDownNumber(int newReplicatedRoundCountDownNumber);
+	int32_t GetReplicatedRoundCountDownNumber();
+	void SetReplicatedRoundCountDownNumber(int32_t newReplicatedRoundCountDownNumber);
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	void InitCountDown();
@@ -101,7 +101,7 @@ public:
 	void CheckChatBanned(PlayerControllerWrapper PC);
 	PlayerControllerWrapper FindPCForUniqueID(SteamID& PlayerID);
 	bool AllowSplitScreenPlayer();
-	void AddPlayerChatMessage(SteamID& PlayerID, unsigned char ChatChannel, TeamInfoWrapper Team, std::string Message);
+	void AddPlayerChatMessage(SteamID& PlayerID, uint8_t ChatChannel, TeamInfoWrapper Team, std::string Message);
 	void ConditionalStartSpectatorMatch();
 	bool IsPlayingTraining();
 	bool IsPlayingLan();
@@ -117,7 +117,7 @@ public:
 	void SaveLocalPlayerStats();
 	bool CanUseBallCam();
 	bool HandleNextGame();
-	void SetMaxPlayers2(int InMaxPlayers);
+	void SetMaxPlayers2(int32_t InMaxPlayers);
 	void SetRestartingMatch(unsigned long bRestart);
 	bool ShouldBeFullScreen();
 	bool IsFinished();
@@ -127,15 +127,15 @@ public:
 	void AutoReadyPlayers();
 	bool ShouldAutoReadyUp(PriWrapper PRI);
 	void SendGoMessage(PlayerControllerWrapper Player);
-	void SendCountdownMessage(int Seconds, PlayerControllerWrapper Player);
-	void BroadcastCountdownMessage(int Seconds);
+	void SendCountdownMessage(int32_t Seconds, PlayerControllerWrapper Player);
+	void BroadcastCountdownMessage(int32_t Seconds);
 	void BroadcastGoMessage();
 	bool AllowShutdown();
 	float GetRealDeltaTime(float ElapsedTime);
 	void SetTimeDilation(float NewTimeDilation);
 	void ClearRespawnList();
 	void ReplaceBotsWithAwaitingPlayers();
-	int GetRespawnTime2();
+	int32_t GetRespawnTime2();
 	void RemoveCar(CarWrapper Car);
 	void AddCar(CarWrapper Car);
 	void TickRespawnTime(float DeltaTime);
@@ -151,8 +151,8 @@ public:
 	void OnGameStateTimeLapsed();
 	void OnGameStateTimeUpdated();
 	void UpdateGameStateTime();
-	void SetGameStateTimeRemaining2(int StateTime, unsigned long bFromReplication);
-	void SetGameStateTime2(int StateTime);
+	void SetGameStateTimeRemaining2(int32_t StateTime, unsigned long bFromReplication);
+	void SetGameStateTime2(int32_t StateTime);
 	void OnPlayerRestarted(CarWrapper PlayerCar);
 	void TeleportCar(CarWrapper PlayerCar);
 	void OnCarSpawned(CarWrapper NewCar);
@@ -165,8 +165,8 @@ public:
 	void AddPRI(PriWrapper PRI);
 	void AddForfeitInitiator(SteamID& PlayerID);
 	void BanPlayerID(SteamID& PlayerID);
-	int GetMaxHumans();
-	int GetNumHumans();
+	int32_t GetMaxHumans();
+	int32_t GetNumHumans();
 	bool FindBotReplacement(PriWrapper PRI);
 	void UpdateBotCount();
 	void TimerUpdateBotCount();

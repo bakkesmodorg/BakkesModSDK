@@ -14,18 +14,18 @@ public:
 	UnrealStringWrapper GetLoadedSaveName();
 	TrainingEditorSaveDataWrapper GetTrainingData();
 	void SetTrainingData(TrainingEditorSaveDataWrapper newTrainingData);
-	int GetPlayerTeamNumber();
-	void SetPlayerTeamNumber(int newPlayerTeamNumber);
+	int32_t GetPlayerTeamNumber();
+	void SetPlayerTeamNumber(int32_t newPlayerTeamNumber);
 	unsigned long GetbUnowned();
 	void SetbUnowned(unsigned long newbUnowned);
-	int GetShotsCompleted();
-	void SetShotsCompleted(int newShotsCompleted);
+	int32_t GetShotsCompleted();
+	void SetShotsCompleted(int32_t newShotsCompleted);
 	UnrealStringWrapper GetFavoritesFolderPath();
 	UnrealStringWrapper GetMyTrainingFolderPath();
 	UnrealStringWrapper GetDownloadedFolderPath();
 
 	//AUTO-GENERATED FUNCTION PROXIES
-	unsigned char GetTrainingSaveType(unsigned long bOwned, unsigned long bFavorited);
+	uint8_t GetTrainingSaveType(unsigned long bOwned, unsigned long bFavorited);
 	void Init();
 private:
 	PIMPL

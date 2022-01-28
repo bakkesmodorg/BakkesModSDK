@@ -17,15 +17,14 @@ public:
 	bool IsActor();
 
 	float GetFloat();
-	int GetInt();
+	int32_t GetInt();
 	std::string GetString();
 	Vector GetVector();
 	bool GetBool();
 	ArrayWrapper<SequenceVariableWrapper> GetObjectList();
-
 	
 	void SetFloat(float value);
-	void SetInt(int value);
+	void SetInt(int32_t value);
 	void SetString(const std::string& value);
 	void SetVector(Vector value);
 	void SetBool(bool value);

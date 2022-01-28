@@ -53,7 +53,7 @@ public:
 	SpecialEditionDatabaseWrapper GetSpecialEditionDB();
 
 	UnrealStringWrapper GetCurrentLoadoutName();
-	LoadoutWrapper GetCurrentLoadout(int teamIndex);
+	LoadoutWrapper GetCurrentLoadout(int32_t teamIndex);
 
 	TradeWrapper GetTradeWrapper();
 	ProductTradeInWrapper GetProductTradeInWrapper();

@@ -15,10 +15,10 @@ public:
 	//AUTO-GENERATED FROM FIELDS
 	ArrayWrapper<TeamWrapper> GetTeamArchetypes();
 	ArrayWrapper<TeamWrapper> GetTeams();
-	int GetMaxTeamSize();
-	void SetMaxTeamSize(int newMaxTeamSize);
-	int GetNumBots();
-	void SetNumBots(int newNumBots);
+	int32_t GetMaxTeamSize();
+	void SetMaxTeamSize(int32_t newMaxTeamSize);
+	int32_t GetNumBots();
+	void SetNumBots(int32_t newNumBots);
 	unsigned long GetbMuteOppositeTeams();
 	void SetbMuteOppositeTeams(unsigned long newbMuteOppositeTeams);
 	unsigned long GetbDisableMutingOtherTeam();
@@ -36,7 +36,7 @@ public:
 	bool __GameEvent_Team_TA__AllTeamsHaveHumans(TeamWrapper Team);
 	void UpdatePlayerShortcuts();
 	void ClearTemporarySpawnSpots();
-	bool ChooseTeam(int TeamIndex, PlayerControllerWrapper Player);
+	bool ChooseTeam(int32_t TeamIndex, PlayerControllerWrapper Player);
 
 	[[deprecated("Removed from Rocket League, defaults to false")]]
 	bool CanChangeTeam();
@@ -56,11 +56,11 @@ public:
 	void OnMatchSettingsChanged();
 	bool AllTeamsHaveHumans2();
 	bool AllTeamsCreated2();
-	void SetTeam(int TeamNum, TeamWrapper NewTeam);
+	void SetTeam(int32_t TeamNum, TeamWrapper NewTeam);
 	void CreateTeams();
 	void PreloadBots();
 	void OnInit();
-	void SetMaxTeamSize2(int MaxSize);
+	void SetMaxTeamSize2(int32_t MaxSize);
 	void UpdateMaxTeamSize();
 	void SetUnfairTeams(unsigned long bUnfair);
 	void InitBotSkill();

@@ -54,7 +54,7 @@ public:
 	bool IsUsingEpicVersion();
 	bool IsUsingSteamVersion();
 
-	int GetSteamVersion();
+	int32_t GetSteamVersion();
 	std::string GetPsyBuildID();
 
     ServerWrapper                   GetCurrentGameState();
@@ -83,8 +83,8 @@ public:
 	void							Execute(std::function<void(GameWrapper*)> theLambda); //Use this when calling from a different thread
 	void							RegisterDrawable(std::function<void(CanvasWrapper)> callback);
 	void							UnregisterDrawables(); //Can only unregister every drawable for now, sorry!
-	std::string						GetFNameByIndex(int index);
-	int								GetFNameIndexByString(std::string name);
+	std::string						GetFNameByIndex(int32_t index);
+	int32_t							GetFNameIndexByString(std::string name);
 
 	void							HookEvent(std::string eventName, std::function<void(std::string eventName)> callback);
 	void							UnhookEvent(std::string eventName);
@@ -109,12 +109,12 @@ public:
 	Texture is the name of the texture given in LoadToastTexture, not the path! "default" will show the normal BakkesMod logo
 	*/
 	void							Toast(std::string title, std::string text, std::string texture = "default", float timeout = 3.5f, uint8_t toastType = 0, float width = 290.f, float height = 60.f);
-	bool							IsKeyPressed(int keyName);
-	int								IsCursorVisible(); // 1 if due to RL, 2 if ImGui
+	bool							IsKeyPressed(int32_t keyName);
+	int32_t							IsCursorVisible(); // 1 if due to RL, 2 if ImGui
 	void							ExecuteUnrealCommand(std::string command);
 	std::string 					GetRandomMap();
 	std::string 					GetCurrentMap();
-	unsigned long long				GetSteamID();
+	uint64_t						GetSteamID();
 	std::string						GetEpicID();
 	UniqueIDWrapper					GetUniqueID();
 	UnrealStringWrapper				GetPlayerName();
@@ -127,7 +127,7 @@ public:
     Vector2							GetScreenSize();
     float							GetSafeZoneRatio();
     float							GetUIScale();
-    unsigned int					GetbMetric();
+    uint32_t						GetbMetric();
     UnrealStringWrapper				GetUILanguage();
     bool							GetbColorBlind();
 	// Path utilities
@@ -138,7 +138,7 @@ public:
 #endif
 	std::wstring					GetBakkesModPathW();
 	std::wstring					GetDataFolderW();
-	int								GetBakkesModVersion();
+	int32_t							GetBakkesModVersion();
 
 	void							PlayReplay(const std::wstring& path);
 	void							PlayReplayFromTime(const std::wstring& path, float time);

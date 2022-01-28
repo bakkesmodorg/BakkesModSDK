@@ -27,7 +27,6 @@
 #define CONST_PI_F           3.1415926f
 #endif
 
-
 enum ToastType
 {
     ToastType_Info = 0,
@@ -36,7 +35,7 @@ enum ToastType
     ToastType_Error = 3
 };
 
-#pragma pack ( push, 0x8 )
+#pragma pack (push, 0x8)
 struct FVector;
 struct FRotator;
 
@@ -68,42 +67,49 @@ struct Vector {
         Z += v2.Z;
         return *this;
     }
+
     inline Vector operator-=(const Vector v2) {
         X -= v2.X;
         Y -= v2.Y;
         Z -= v2.Z;
         return *this;
     }
+
     inline Vector operator*=(const Vector v2) {
         X *= v2.X;
         Y *= v2.Y;
         Z *= v2.Z;
         return *this;
     }
+
     inline Vector operator/=(const Vector v2) {
         X /= v2.X;
         Y /= v2.Y;
         Z /= v2.Z;
         return *this;
     }
+
     inline Vector operator+=(const float f) {
         X += f;
         Y += f;
         Z += f;
         return *this;
     }
+
     inline Vector operator-=(const float f) {
         X -= f;
         Y -= f;
         Z -= f;
         return *this;
     }
+
     inline Vector operator*=(const float f) {
         X *= f;
         Y *= f;
         Z *= f;
         return *this;
     }
+
     inline Vector operator/=(const float f) {
         X /= f;
         Y /= f;
@@ -111,13 +117,11 @@ struct Vector {
         return *this;
     }
 
-    inline float magnitude() const
-    {
+    inline float magnitude() const {
         return sqrtf(X * X + Y * Y + Z * Z);
     }
 
-    inline void normalize()
-    {
+    inline void normalize() {
         float magnitudez = magnitude();
         X = X / magnitudez;
         Y = Y / magnitudez;
@@ -131,34 +135,29 @@ struct Vector {
         return normalized;
     }
 
-    inline Vector clone() const
-    {
+    inline Vector clone() const {
         return Vector(X, Y, Z);
     }
 
-    static inline float dot(const Vector v1, const Vector v2)
-    {
+    static inline float dot(const Vector v1, const Vector v2) {
         return v1.X * v2.X + v1.Y * v2.Y + v1.Z * v2.Z;
     }
 
-    static inline Vector cross(const Vector v1, const Vector v2)
-    {
+    static inline Vector cross(const Vector v1, const Vector v2) {
         float x = v1.Y * v2.Z - v1.Z * v2.Y;
         float y = v1.Z * v2.X - v1.X * v2.Z;
         float z = v1.X * v2.Y - v1.Y * v2.X;
         return Vector(x, y, z);
     }
 
-    static inline Vector lerp(const Vector v1, const Vector v2, const float t)
-    {
+    static inline Vector lerp(const Vector v1, const Vector v2, const float t) {
         float x = (1.0f - t) * v1.X + t * v2.X;
         float y = (1.0f - t) * v1.Y + t * v2.Y;
         float z = (1.0f - t) * v1.Z + t * v2.Z;
         return Vector(x, y, z);
     }
 
-    static inline Vector slerp(const Vector v1, const Vector v2, const float t)
-    {
+    static inline Vector slerp(const Vector v1, const Vector v2, const float t) {
         Vector a = v1.clone();
         Vector b = v2.clone();
         
@@ -207,7 +206,6 @@ inline Vector operator/(const Vector v1, const float f) {
     return Vector(v1.X / f, v1.Y / f, v1.Z / f);
 }
 
-
 // #Rotator
 //Forward declarations of Rotator non-member operator overloads
 struct Rotator;
@@ -217,13 +215,13 @@ inline Rotator operator*(const Rotator r1, const Rotator r2);
 inline Rotator operator/(const Rotator r1, const Rotator r2);
 
 struct Rotator {
-    int Pitch, Yaw, Roll;
+    int32_t Pitch, Yaw, Roll;
     //Player rotation Min(-16364, -32768, -32768)
     //Player rotation Max(16340, 32764, 32764)
 
     Rotator(FRotator r);
-    Rotator(int pitch, int yaw, int roll) : Pitch(pitch), Yaw(yaw), Roll(roll) {}
-    Rotator(int def) : Pitch(def), Yaw(def), Roll(def) {}
+    Rotator(int32_t pitch, int32_t yaw, int32_t roll) : Pitch(pitch), Yaw(yaw), Roll(roll) {}
+    Rotator(int32_t def) : Pitch(def), Yaw(def), Roll(def) {}
     Rotator() : Rotator(0) {}
     operator FRotator();
 
@@ -233,18 +231,21 @@ struct Rotator {
         Roll  += r2.Roll;
         return *this;
     }
+
     inline Rotator operator-=(const Rotator r2) {
         Pitch -= r2.Pitch;
         Yaw   -= r2.Yaw;
         Roll  -= r2.Roll;
         return *this;
     }
+
     inline Rotator operator*=(const Rotator r2) {
         Pitch *= r2.Pitch;
         Yaw   *= r2.Yaw;
         Roll  *= r2.Roll;
         return *this;
     }
+
     inline Rotator operator/=(const Rotator r2) {
         Pitch /= r2.Pitch;
         Yaw   /= r2.Yaw;
@@ -253,7 +254,7 @@ struct Rotator {
     }
 };
 
-static inline int fixRotator(int newRotation) {// F THIS FOR NOW
+static inline int32_t fixRotator(int32_t newRotation) {// F THIS FOR NOW
     return newRotation;
     //newRotation = (((int)newRotation + 32768) % (32768 + 32764)) - 32768;
     //newRotation = (((int)newRotation - 32764) % (32768 + 32764)) + 32764;
@@ -268,7 +269,7 @@ static inline int fixRotator(int newRotation) {// F THIS FOR NOW
     //return newRotation;
 }
 
-static inline int fixPitch(int newRotation) {// F THIS FOR NOW
+static inline int32_t fixPitch(int32_t newRotation) {// F THIS FOR NOW
     return newRotation;
     //newRotation = (((int)newRotation + 16384) % (32768)) - 16384;
     //newRotation = (((int)newRotation - 16384) % (32768)) + 16384;
@@ -301,21 +302,18 @@ inline Rotator operator/(const Rotator r1, const Rotator r2) {
     return Rotator(fixPitch(r1.Pitch / r2.Pitch), fixRotator(r1.Yaw / r2.Yaw), fixRotator(r1.Roll / r2.Roll));
 }
 
-
 // #VectorRotatorConversions
-static Rotator inline VectorToRotator(const Vector vVector)
-{
+static Rotator inline VectorToRotator(const Vector vVector) {
     Rotator rRotation;
 
-    rRotation.Yaw = static_cast<int>(atan2(vVector.Y, vVector.X) * CONST_RadToUnrRot);
-    rRotation.Pitch = static_cast<int>(atan2(vVector.Z, sqrtf(vVector.X * vVector.X + vVector.Y * vVector.Y)) * CONST_RadToUnrRot);
+    rRotation.Yaw = static_cast<int32_t>(atan2(vVector.Y, vVector.X) * CONST_RadToUnrRot);
+    rRotation.Pitch = static_cast<int32_t>(atan2(vVector.Z, sqrtf(vVector.X * vVector.X + vVector.Y * vVector.Y)) * CONST_RadToUnrRot);
     rRotation.Roll = 0;
 
     return rRotation;
 }
 
-static inline Vector RotatorToVector(const Rotator R)
-{
+static inline Vector RotatorToVector(const Rotator R) {
     Vector vec;
 
     float fYaw = R.Yaw * static_cast<float>(CONST_UnrRotToRad);
@@ -328,7 +326,6 @@ static inline Vector RotatorToVector(const Rotator R)
     return vec;
 }
 
-
 // #Quat
 //Forward declaration of Quat non-member operator overload
 struct Quat;
@@ -340,13 +337,11 @@ struct Quat {
     Quat(float w, float x, float y, float z) : W(w), X(x), Y(y), Z(z) {}
     Quat() : Quat(1.0, 0.0, 0.0, 0.0) {}
 
-    inline Quat conjugate() const
-    {
+    inline Quat conjugate() const {
         return Quat(W, -X, -Y, -Z);
     }
 
-    inline Quat normalize()
-    {
+    inline Quat normalize() {
         float mag = sqrtf(X*X + Y*Y + Z*Z + W*W);
         X /= mag;
         Y /= mag;
@@ -354,8 +349,7 @@ struct Quat {
         return *this;
     }
 
-    inline Quat operator*=(const Quat q2)
-    {
+    inline Quat operator*=(const Quat q2) {
         float mulW = W * q2.W;
         mulW -= X * q2.X;
         mulW -= Y * q2.Y;
@@ -386,8 +380,7 @@ struct Quat {
 };
 
 //Quat non-member operator overload
-inline Quat operator*(const Quat q1, const Quat q2)
-{
+inline Quat operator*(const Quat q1, const Quat q2) {
     float mulW = q1.W * q2.W;
     mulW -= q1.X * q2.X;
     mulW -= q1.Y * q2.Y;
@@ -411,14 +404,12 @@ inline Quat operator*(const Quat q1, const Quat q2)
     return Quat(mulW, mulX, mulY, mulZ);
 }
 
-static inline Quat QuatSlerp(const Quat q1, const Quat q2, float percent)
-{
+static inline Quat QuatSlerp(const Quat q1, const Quat q2, float percent) {
     //percent range: 0-1
     //https://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/slerp/index.htm
     float dot = q1.W*q2.W + q1.X*q2.X + q1.Y*q2.Y + q1.Z*q2.Z;
     // if qa=qb or qa=-qb then theta = 0 and we can return qa
-    if (abs(dot) >= 1.f)
-    {
+    if (abs(dot) >= 1.f) {
         return q1;
     }
     // Calculate temporary values.
@@ -426,8 +417,7 @@ static inline Quat QuatSlerp(const Quat q1, const Quat q2, float percent)
     float sinHalfTheta = sqrtf(1.f - dot*dot);
     // if theta = 180 degrees then result is not fully defined
     // we could rotate around any axis normal to qa or qb
-    if (fabsf(sinHalfTheta) < 0.001f)
-    {
+    if (fabsf(sinHalfTheta) < 0.001f) {
         Quat q;
         q.W = q1.W * 0.5f + q2.W * 0.5f;
         q.X = q1.X * 0.5f + q2.X * 0.5f;
@@ -435,6 +425,7 @@ static inline Quat QuatSlerp(const Quat q1, const Quat q2, float percent)
         q.Z = q1.Z * 0.5f + q2.Z * 0.5f;
         return q;
     }
+
     float ratioA = sinf((1.f - percent) * halfTheta) / sinHalfTheta;
     float ratioB = sinf(percent * halfTheta) / sinHalfTheta;
 
@@ -447,21 +438,17 @@ static inline Quat QuatSlerp(const Quat q1, const Quat q2, float percent)
     return q;
 }
 
-
 // #RotateVector
-static inline Vector RotateVectorWithQuat(const Vector v, const Quat q)
-{
+static inline Vector RotateVectorWithQuat(const Vector v, const Quat q) {
     Quat p = Quat(0 ,v.X ,v.Y ,v.Z);
     Quat result = (q * p) * q.conjugate();
 
     return Vector{result.X, result.Y, result.Z};
 }
 
-
 // #RotatorQuatConversions
-static inline Quat RotatorToQuat(const Rotator rot)
-{
-    float rotatorToRadian = ((CONST_PI_F / 180.f) * .5f) / CONST_DegToUnrRot;
+static inline Quat RotatorToQuat(const Rotator rot) {
+    float rotatorToRadian = ((CONST_PI_F / 180.f) * 0.5f) / CONST_DegToUnrRot;
     float sinPitch = sinf(rot.Pitch * rotatorToRadian);
     float cosPitch = cosf(rot.Pitch * rotatorToRadian);
     float sinYaw   = sinf(rot.Yaw   * rotatorToRadian);
@@ -478,8 +465,7 @@ static inline Quat RotatorToQuat(const Rotator rot)
     return convertedQuat;
 }
 
-static inline Rotator QuatToRotator(const Quat q)
-{
+static inline Rotator QuatToRotator(const Quat q) {
     //From Arator's HelperFunctions
     Vector fwd   = RotateVectorWithQuat(Vector(1, 0, 0), q);
     Vector right = RotateVectorWithQuat(Vector(0, 1, 0), q);
@@ -490,50 +476,49 @@ static inline Rotator QuatToRotator(const Quat q)
 
     //Pitch
     float pitch_f = asinf(fwd.Z);
-    int PITCH = static_cast<int>((pitch_f / (CONST_PI_F / 2.f)) * 16384.f);
+    int32_t PITCH = static_cast<int32_t>((pitch_f / (CONST_PI_F / 2.f)) * 16384.f);
 
     //Yaw
     float hor_mag = sqrtf(fwd.X * fwd.X + fwd.Y * fwd.Y);
     float fwd_y = asinf(fwd.Y / hor_mag);
-    if (fwd_y >= 0)
-    {
-        if (fwd.X < 0)
+
+    if (fwd_y >= 0) {
+        if (fwd.X < 0) {
             fwd_y = CONST_PI_F - fwd_y;
-    }
-    else
-    {
-        if (fwd.X < 0)
+        }
+    }  else {
+        if (fwd.X < 0) {
             fwd_y = -CONST_PI_F - fwd_y;
+        }
     }
-    int YAW = static_cast<int>((fwd_y / CONST_PI_F) * 32768.f);
+
+    int32_t YAW = static_cast<int32_t>((fwd_y / CONST_PI_F) * 32768.f);
 
     //Roll
     Vector vert = (up.Z < 0) ? Vector(0, 0, -1) : Vector(0, 0, 1);
-    Vector hor_right = Vector::cross(fwd, vert) * -1;// left-handed coordinate system
+    Vector hor_right = Vector::cross(fwd, vert) * -1; // left-handed coordinate system
     hor_right.normalize();
 
     float roll_cos = Vector::dot(hor_right, right);
     float roll_f = acosf(roll_cos);
     float up_f = asinf(up.Z);
     
-    if (right.Z >= 0)
-    {
-        if (up.Z >= 0)
+    if (right.Z >= 0) {
+        if (up.Z >= 0) {
             roll_f = -roll_f;
-        else
+        } else {
             roll_f  = -CONST_PI_F + roll_f;
-    }
-    else
-    {
-        if (up.Z < 0)
+        }
+    } else {
+        if (up.Z < 0) {
             roll_f = CONST_PI_F - roll_f;
+        }
     }
-    int ROLL = static_cast<int>((roll_f / CONST_PI_F) * 32768.f);
+
+    int32_t ROLL = static_cast<int32_t>((roll_f / CONST_PI_F) * 32768.f);
 
     return Rotator(PITCH, YAW, ROLL);
 }
-
-
 
 // #Vector2
 //Forward declarations of Vector2 non-member operator overloads
@@ -542,13 +527,13 @@ inline Vector2 operator+(const Vector2 v1, const Vector2 v2);
 inline Vector2 operator-(const Vector2 v1, const Vector2 v2);
 inline Vector2 operator*(const Vector2 v1, const Vector2 v2);
 inline Vector2 operator/(const Vector2 v1, const Vector2 v2);
-inline Vector2 operator+(const Vector2 v1, const int i);
-inline Vector2 operator-(const Vector2 v1, const int i);
-inline Vector2 operator*(const Vector2 v1, const int i);
-inline Vector2 operator/(const Vector2 v1, const int i);
+inline Vector2 operator+(const Vector2 v1, const int32_t i);
+inline Vector2 operator-(const Vector2 v1, const int32_t i);
+inline Vector2 operator*(const Vector2 v1, const int32_t i);
+inline Vector2 operator/(const Vector2 v1, const int32_t i);
 
 struct Vector2 {
-    int X, Y;
+    int32_t X, Y;
 
     Vector2 minus(const Vector2 other) const {
         return{ X - other.X,  Y - other.Y };
@@ -559,37 +544,44 @@ struct Vector2 {
         Y += v2.Y;
         return *this;
     }
+
     inline Vector2 operator-=(const Vector2 v2) {
         X -= v2.X;
         Y -= v2.Y;
         return *this;
     }
+
     inline Vector2 operator*=(const Vector2 v2) {
         X *= v2.X;
         Y *= v2.Y;
         return *this;
     }
+
     inline Vector2 operator/=(const Vector2 v2) {
         X /= v2.X;
         Y /= v2.Y;
         return *this;
     }
-    inline Vector2 operator+=(const int i) {
+
+    inline Vector2 operator+=(const int32_t i) {
         X += i;
         Y += i;
         return *this;
     }
-    inline Vector2 operator-=(const int i) {
+
+    inline Vector2 operator-=(const int32_t i) {
         X -= i;
         Y -= i;
         return *this;
     }
-    inline Vector2 operator*=(const int i) {
+
+    inline Vector2 operator*=(const int32_t i) {
         X *= i;
         Y *= i;
         return *this;
     }
-    inline Vector2 operator/=(const int i) {
+
+    inline Vector2 operator/=(const int32_t i) {
         X /= i;
         Y /= i;
         return *this;
@@ -613,23 +605,21 @@ inline Vector2 operator/(const Vector2 v1, const Vector2 v2) {
     return Vector2{v1.X / v2.X, v1.Y / v2.Y};
 }
 
-inline Vector2 operator+(const Vector2 v1, const int i) {
+inline Vector2 operator+(const Vector2 v1, const int32_t i) {
     return Vector2{v1.X + i, v1.Y + i};
 }
 
-inline Vector2 operator-(const Vector2 v1, const int i) {
+inline Vector2 operator-(const Vector2 v1, const int32_t i) {
     return Vector2{v1.X - i, v1.Y - i};
 }
 
-inline Vector2 operator*(const Vector2 v1, const int i) {
+inline Vector2 operator*(const Vector2 v1, const int32_t i) {
     return Vector2{v1.X * i, v1.Y * i};
 }
 
-inline Vector2 operator/(const Vector2 v1, const int i) {
+inline Vector2 operator/(const Vector2 v1, const int32_t i) {
     return Vector2{v1.X / i, v1.Y / i};
 }
-
-
 
 // #Vector2F
 //Forward declarations of Vector2F non-member operator overloads
@@ -663,56 +653,67 @@ struct Vector2F {
         Y += v2.Y;
         return *this;
     }
+
     inline Vector2F operator-=(const Vector2 v2) {
         X -= v2.X;
         Y -= v2.Y;
         return *this;
     }
+
     inline Vector2F operator*=(const Vector2 v2) {
         X *= v2.X;
         Y *= v2.Y;
         return *this;
     }
+
     inline Vector2F operator/=(const Vector2 v2) {
         X /= v2.X;
         Y /= v2.Y;
         return *this;
     }
+
     inline Vector2F operator+=(const Vector2F v2) {
         X += v2.X;
         Y += v2.Y;
         return *this;
     }
+
     inline Vector2F operator-=(const Vector2F v2) {
         X -= v2.X;
         Y -= v2.Y;
         return *this;
     }
+
     inline Vector2F operator*=(const Vector2F v2) {
         X *= v2.X;
         Y *= v2.Y;
         return *this;
     }
+
     inline Vector2F operator/=(const Vector2F v2) {
         X /= v2.X;
         Y /= v2.Y;
         return *this;
     }
+
     inline Vector2F operator+=(const float f) {
         X += f;
         Y += f;
         return *this;
     }
+
     inline Vector2F operator-=(const float f) {
         X -= f;
         Y -= f;
         return *this;
     }
+
     inline Vector2F operator*=(const float f) {
         X *= f;
         Y *= f;
         return *this;
     }
+
     inline Vector2F operator/=(const float f) {
         X /= f;
         Y /= f;
@@ -769,8 +770,6 @@ inline Vector2F operator/(const Vector2F v1, const float f) {
     return Vector2F{v1.X / f, v1.Y / f};
 }
 
-
-
 // #LinearColor
 //Forward declarations of LinearColor non-member operator overloads
 struct LinearColor;
@@ -778,8 +777,7 @@ inline LinearColor operator*(const LinearColor c1, const float f);
 inline LinearColor operator/(const LinearColor c1, const float f);
 inline bool operator==(const LinearColor c1, const LinearColor c2);
 
-struct LinearColor
-{
+struct LinearColor {
     float R, G, B, A;
 
     inline LinearColor operator*=(const float f) {
@@ -789,6 +787,7 @@ struct LinearColor
         A *= f;
         return *this;
     }
+
     inline LinearColor operator/=(const float f) {
         R /= f;
         G /= f;
@@ -821,8 +820,6 @@ inline bool operator!=(const LinearColor c1, const LinearColor c2) {
            c1.A != c2.A;
 }
 
-
-
 // #OtherStructs
 struct PredictionInfo {
     float Time;
@@ -835,9 +832,8 @@ struct PredictionInfo {
     unsigned long bHitGround : 1;
 };
 
-struct SteamID
-{
-    unsigned long long ID;
+struct SteamID {
+    uint64_t ID;
 };
 
 struct SkillRating {
@@ -845,18 +841,17 @@ struct SkillRating {
     float Sigma;
 };
 
-struct SkillRank
-{
-    int Tier;
-    int Division;
-    int MatchesPlayed;
+struct SkillRank {
+    int32_t Tier;
+    int32_t Division;
+    int32_t MatchesPlayed;
 };
 
 struct UnrealColor {
-    unsigned char B;
-    unsigned char G;
-    unsigned char R;
-    unsigned char A;
+    uint8_t B;
+    uint8_t G;
+    uint8_t R;
+    uint8_t A;
 };
 
 struct ControllerInput {
@@ -962,7 +957,7 @@ struct ReplayScoreData
     uintptr_t AssistedBy; //PriWrapper
     float Speed;
     float Time;
-    unsigned char ScoreTeam;
+    uint8_t ScoreTeam;
 };
 
 struct VideoSettings
@@ -978,9 +973,9 @@ struct VideoSettings
     float HDRPaperWhiteScale;
     float HDRGammaScale;
 
-    int WindowMode;
+    int32_t WindowMode;
     std::string Resolution;
-    int MaxFPS;
+    int32_t MaxFPS;
     std::map<std::string, std::string> VideoOptions;
 };
 
@@ -1000,6 +995,7 @@ struct BAKKESMOD_PLUGIN_IMPORT GUIDWrapper
 		HexValuesInBraces =					4, // Example: {0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}
 		UniqueObjectGuid =					5, // Example: 00000000-00000000-00000000-00000000
 	};
+
 	int32_t A = 0, B = 0, C = 0, D = 0;
 
     bool IsValid() const;
@@ -1103,9 +1099,6 @@ enum OnlinePlatform
     OnlinePlatform_Epic = 11,
     OnlinePlatform_MAX = 12
 };
-
-
-
 
 // #Defines
 #define CONSTRUCTORS(name)\

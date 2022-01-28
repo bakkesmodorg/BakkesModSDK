@@ -21,7 +21,7 @@ private:
 
 public:
 	std::string getCVarName();
-	int getIntValue();
+	int32_t getIntValue();
 	float getFloatValue();
 	bool getBoolValue();
     LinearColor getColorValue();//Returns {0,0,0,0} if bad formatting. Good: "(R, G, B, A)" (0-255 range), or 6/8 hex ("#123ABC" or "#1234ABCD", capitalization doesn't matter)

@@ -10,7 +10,7 @@ public:
 	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
-	ArrayWrapper<int> GetSupportedTeamEditions();
+	ArrayWrapper<int32_t> GetSupportedTeamEditions();
 	//END AUTO-GENERATED FROM FIELDS
 
 	//AUTO-GENERATED FROM METHODS

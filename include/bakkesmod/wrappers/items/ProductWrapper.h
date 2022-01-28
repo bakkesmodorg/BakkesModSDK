@@ -39,7 +39,7 @@ public:
 	std::string GetThumbnailPackageName();
 	std::string GetThumbnailAssetName();
 	UnrealStringWrapper GetTrademarkLabel();
-	int GetID();
+	int32_t GetID();
 	//END AUTO-GENERATED FROM METHODS
 
 private:

@@ -1,7 +1,6 @@
 #pragma once
 #include "ProductAttributeWrapper.h"
 
-
 class BAKKESMOD_PLUGIN_IMPORT ProductAttribute_PaintedWrapper : public ProductAttributeWrapper {
 public:
 	CONSTRUCTORS(ProductAttribute_PaintedWrapper)
@@ -10,7 +9,7 @@ public:
 	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
-	int GetPaintID();
+	int32_t GetPaintID();
 	//END AUTO-GENERATED FROM FIELDS
 
 	//AUTO-GENERATED FROM METHODS

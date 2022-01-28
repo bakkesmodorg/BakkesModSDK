@@ -18,8 +18,8 @@ public:
 	//AUTO-GENERATED FROM FIELDS
 	UnrealStringWrapper GetTitle();
 	UnrealStringWrapper GetDescription();
-	int GetPlayerCount();
-	void SetPlayerCount(int newPlayerCount);
+	int32_t GetPlayerCount();
+	void SetPlayerCount(int32_t newPlayerCount);
 	unsigned long GetbStandard();
 	void SetbStandard(unsigned long newbStandard);
 	unsigned long GetbRanked();
@@ -42,8 +42,8 @@ public:
 	void SetbAllowClubs(unsigned long newbAllowClubs);
 	unsigned long GetbPlayersVSBots();
 	void SetbPlayersVSBots(unsigned long newbPlayersVSBots);
-	int GetPlaylistId();
-	void SetPlaylistId(int newPlaylistId);
+	int32_t GetPlaylistId();
+	void SetPlaylistId(int32_t newPlaylistId);
 	UnrealStringWrapper GetServerCommand();
 
 	//AUTO-GENERATED FUNCTION PROXIES
@@ -51,7 +51,7 @@ public:
 	bool IsPrivateMatch();
 	bool IsTournamentMatch();
 	bool ShouldUpdateSkills();
-	bool IsValidID(int InPlaylistID);
+	bool IsValidID(int32_t InPlaylistID);
 	bool IsValid2();
 	
 private:

@@ -45,7 +45,7 @@ public:
 	ArrayWrapper& operator=(ArrayWrapper<T> rhs);
 	~ArrayWrapper();
 
-	int Count();
+	int32_t Count();
 	T Get(int index);
     bool IsNull();
 protected:
@@ -78,27 +78,22 @@ public:
     }
 
 private:
-    size_t   index;
+    size_t index;
     ArrayWrapper<T>& collection;
 };
 
 template <typename T>
-inline ArrayWrapperIterator<T> begin(
-    ArrayWrapper<T>& collection)
+inline ArrayWrapperIterator<T> begin(ArrayWrapper<T>& collection)
 {
     return ArrayWrapperIterator<T>(collection, 0);
 }
 
 template <typename T>
-inline ArrayWrapperIterator<T> end(
-    ArrayWrapper<T>& collection)
+inline ArrayWrapperIterator<T> end(ArrayWrapper<T>& collection)
 {
-    return ArrayWrapperIterator<T>(
-        collection, collection.Count());
+    return ArrayWrapperIterator<T>(collection, collection.Count());
 }
 
-
-//
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<ActorWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<TeamWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<CarWrapper>;

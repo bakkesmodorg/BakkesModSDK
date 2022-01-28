@@ -9,14 +9,14 @@ public:
 	~ReplayWrapper();
 	ActorWrapper GetViewTarget();
 	float GetReplayTimeElapsed();
-	int GetReplayFPS();
-	int GetCurrentReplayFrame();
-	void AddKeyFrame(int frame, string name);
-	void RemoveKeyFrame(int frame);
-	void SkipToFrame(int frame);
+	int32_t GetReplayFPS();
+	int32_t GetCurrentReplayFrame();
+	void AddKeyFrame(int32_t frame, string name);
+	void RemoveKeyFrame(int32_t frame);
+	void SkipToFrame(int32_t frame);
 	void SkipToTime(float time);
 	
-	void StartPlaybackAtFrame(int frame);
+	void StartPlaybackAtFrame(int32_t frame);
 	void StartPlaybackAtTime(float time);
 private:
 	PIMPL

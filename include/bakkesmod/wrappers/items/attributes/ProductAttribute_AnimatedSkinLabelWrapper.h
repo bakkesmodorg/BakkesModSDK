@@ -1,7 +1,6 @@
 #pragma once
 #include "ProductAttributeWrapper.h"
 
-
 class BAKKESMOD_PLUGIN_IMPORT ProductAttribute_AnimatedSkinLabelWrapper : public ProductAttributeWrapper {
 public:
 	CONSTRUCTORS(ProductAttribute_AnimatedSkinLabelWrapper)

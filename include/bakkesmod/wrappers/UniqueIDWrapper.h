@@ -15,8 +15,8 @@ public:
 
 	OnlinePlatform GetPlatform() const;
 	std::string GetEpicAccountID() const;
-	unsigned long long GetUID() const;
-	unsigned char GetSplitscreenID() const;
+	uint64_t GetUID() const;
+	uint8_t GetSplitscreenID() const;
 
 	/*
 	String representation of the ID.

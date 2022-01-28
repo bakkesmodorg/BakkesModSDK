@@ -13,14 +13,14 @@ public:
 	CONSTRUCTORS(GameEditorWrapper)
 
 	//AUTO-GENERATED FROM FIELDS
-	int GetActiveRoundNumber();
-	void SetActiveRoundNumber(int newActiveRoundNumber);
-	int GetMaxRounds();
-	void SetMaxRounds(int newMaxRounds);
-	int GetHistoryPosition();
-	void SetHistoryPosition(int newHistoryPosition);
-	int GetMaxUndoHistory();
-	void SetMaxUndoHistory(int newMaxUndoHistory);
+	int32_t GetActiveRoundNumber();
+	void SetActiveRoundNumber(int32_t newActiveRoundNumber);
+	int32_t GetMaxRounds();
+	void SetMaxRounds(int32_t newMaxRounds);
+	int32_t GetHistoryPosition();
+	void SetHistoryPosition(int32_t newHistoryPosition);
+	int32_t GetMaxUndoHistory();
+	void SetMaxUndoHistory(int32_t newMaxUndoHistory);
 	FXActorWrapper GetFXActorArchetype();
 	void SetFXActorArchetype(FXActorWrapper newFXActorArchetype);
 	FXActorWrapper GetFXActor();
@@ -44,7 +44,7 @@ public:
 	void GrabActor2(PlayerControllerWrapper PC);
 	bool CanQueSaveReplay();
 	bool ShouldUpdateCrosshair();
-	int GetPlayerTeamNumber();
+	int32_t GetPlayerTeamNumber();
 	bool CanAddHistory();
 	void ToggleEditorRound();
 	void CommitRedoRound();
@@ -52,22 +52,22 @@ public:
 	void Save2();
 	void Redo2(PlayerControllerWrapper PC);
 	void Undo2(PlayerControllerWrapper PC);
-	unsigned char GetOtherHistoryType(unsigned char HistoryType);
+	uint8_t GetOtherHistoryType(uint8_t HistoryType);
 	void ClampUndoHistory();
 	void ClearRedoHistory();
 	void ClearAllHistory();
-	bool DestroyActor(ActorWrapper A, unsigned char HistoryType);
+	bool DestroyActor(ActorWrapper A, uint8_t HistoryType);
 	bool IsInEditorMode();
-	void RemoveAllPointsFromScore(int TeamIndex);
-	void RemovePointsFromScore(int PointsToRemove, int TeamIndex);
+	void RemoveAllPointsFromScore(int32_t TeamIndex);
+	void RemovePointsFromScore(int32_t PointsToRemove, int32_t TeamIndex);
 	void DeleteAllExistingActorsBasedOffSpawnList();
 	bool RoundContainsASwitch();
 	void EnableTriggers(unsigned long bEnable);
 	void HideCarSpawnPoints(unsigned long bHide);
 	void ResetSpawnLocations();
-	void OnSpawnedArchetype(ActorWrapper SpawnedActor, unsigned char HistoryType);
-	void SpawnArchetype(PlayerControllerWrapper Controller, int ArchetypeIndex);
-	void IncrementSelectedSpawnArchetypeIndex(int Direction, int* Index);
+	void OnSpawnedArchetype(ActorWrapper SpawnedActor, uint8_t HistoryType);
+	void SpawnArchetype(PlayerControllerWrapper Controller, int32_t ArchetypeIndex);
+	void IncrementSelectedSpawnArchetypeIndex(int32_t Direction, int32_t* Index);
 
 	[[deprecated("Removed from Rocket League, defaults to false")]]
 	bool CanChangeTeam();
@@ -78,7 +78,7 @@ public:
 	void OnVehicleSetup(CarWrapper Car);
 	void HandleVehicleSetup(CarWrapper Car);
 	void OnPlayerRestarted(CarWrapper PlayerCar);
-	bool ChooseTeam(int TeamIndex, PlayerControllerWrapper Player);
+	bool ChooseTeam(int32_t TeamIndex, PlayerControllerWrapper Player);
 	void InitFX();
 	void eventPostBeginPlay();
 private:

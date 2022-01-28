@@ -10,22 +10,22 @@ public:
 	CONSTRUCTORS(ReplaySoccarWrapper)
 
 	//AUTO-GENERATED FROM FIELDS
-	int GetTeamSize();
-	void SetTeamSize(int newTeamSize);
-	int GetUnfairTeamSize();
-	void SetUnfairTeamSize(int newUnfairTeamSize);
+	int32_t GetTeamSize();
+	void SetTeamSize(int32_t newTeamSize);
+	int32_t GetUnfairTeamSize();
+	void SetUnfairTeamSize(int32_t newUnfairTeamSize);
 	unsigned long GetbUnfairBots();
 	void SetbUnfairBots(unsigned long newbUnfairBots);
-	int GetPrimaryPlayerTeam();
-	void SetPrimaryPlayerTeam(int newPrimaryPlayerTeam);
-	int GetTeam0Score();
-	void SetTeam0Score(int newTeam0Score);
-	int GetTeam1Score();
-	void SetTeam1Score(int newTeam1Score);
+	int32_t GetPrimaryPlayerTeam();
+	void SetPrimaryPlayerTeam(int32_t newPrimaryPlayerTeam);
+	int32_t GetTeam0Score();
+	void SetTeam0Score(int32_t newTeam0Score);
+	int32_t GetTeam1Score();
+	void SetTeam1Score(int32_t newTeam1Score);
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	void eventPreExport();
-	void RemoveTimelineKeyframe(int KeyframeIndex);
+	void RemoveTimelineKeyframe(int32_t KeyframeIndex);
 	void RecordUserEvent();
 	void AddPlayer(PriWrapper PRI);
 private:

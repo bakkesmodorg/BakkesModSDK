@@ -14,8 +14,8 @@ public:
 	//END AUTO-GENERATED FROM FIELDS
 
 	//AUTO-GENERATED FROM METHODS
-	std::string GetName(int DataAssetID);
-	int GetID(std::string& DataAssetName);
+	std::string GetName(int32_t DataAssetID);
+	int32_t GetID(std::string& DataAssetName);
 	//END AUTO-GENERATED FROM METHODS
 
 private:

@@ -89,8 +89,8 @@ enum class PlaylistIds
 
 struct ClubColorSet
 {
-    unsigned char TeamColorID = 0;
-    unsigned char CustomColorID = 0;
+    uint8_t TeamColorID = 0;
+    uint8_t CustomColorID = 0;
     bool bTeamColorSet = false;
     bool bCustomColorSet = false;
 };
@@ -99,7 +99,7 @@ struct CustomMatchTeamSettings
 {
     std::string Name;
     ClubColorSet Colors;
-    int GameScore = 0;
+    int32_t GameScore = 0;
 };
 
 struct CustomMatchSettings
@@ -111,8 +111,8 @@ struct CustomMatchSettings
     std::string Password;
     CustomMatchTeamSettings BlueTeamSettings;
     CustomMatchTeamSettings OrangeTeamSettings;
-    int GameMode = 0; // 0 = soccar, 1 = hoops, 2 = snowday, 3 = rumble, 5 = dropshot, 6 = heatseeker (might change)
-    int MaxPlayerCount = 8;
+    int32_t GameMode = 0; // 0 = soccar, 1 = hoops, 2 = snowday, 3 = rumble, 5 = dropshot, 6 = heatseeker (might change)
+    int32_t MaxPlayerCount = 8;
     bool bPartyMembersOnly = false;
     bool bClubServer;
 };
@@ -145,18 +145,17 @@ public:
 
 	// Season stuff
     // If no season end date has been revealed yet, these functions will return either 0 or -1.
-    int SeasonEndDays();
-    int SeasonEndHours();
-    int SeasonEndMinutes();
-    int GetSeasonTimeRemaining();
-    int GetSeasonEndTimeSeconds();
+    int32_t SeasonEndDays();
+    int32_t SeasonEndHours();
+    int32_t SeasonEndMinutes();
+    int32_t GetSeasonTimeRemaining();
+    int32_t GetSeasonEndTimeSeconds();
 
     bool HasSeasonEnded();
-    int GetTotalPopulation();
+    int32_t GetTotalPopulation();
 
-    _NODISCARD int GetTotalPlayersOnline() const;
-	_NODISCARD int GetPlayerCount(PlaylistIds playlist) const;
-
+    _NODISCARD int32_t GetTotalPlayersOnline() const;
+	_NODISCARD int32_t GetPlayerCount(PlaylistIds playlist) const;
 
 	//misc
     static std::string GetRegionID(Region region); // ID Example: USE

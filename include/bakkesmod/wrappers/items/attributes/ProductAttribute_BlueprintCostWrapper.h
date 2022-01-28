@@ -1,7 +1,6 @@
 #pragma once
 #include "ProductAttributeWrapper.h"
 
-
 class BAKKESMOD_PLUGIN_IMPORT ProductAttribute_BlueprintCostWrapper : public ProductAttributeWrapper {
 public:
 	CONSTRUCTORS(ProductAttribute_BlueprintCostWrapper)
@@ -10,7 +9,7 @@ public:
 	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
-	int GetCost();
+	int32_t GetCost();
 	//END AUTO-GENERATED FROM FIELDS
 
 	//AUTO-GENERATED FROM METHODS

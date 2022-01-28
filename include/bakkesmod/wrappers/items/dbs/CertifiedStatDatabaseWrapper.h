@@ -14,8 +14,8 @@ public:
 	//END AUTO-GENERATED FROM FIELDS
 
 	//AUTO-GENERATED FROM METHODS
-	std::string GetStatName(int StatId);
-	int GetStatId(std::string& StatName);
+	std::string GetStatName(int32_t StatId);
+	int32_t GetStatId(std::string& StatName);
 	//END AUTO-GENERATED FROM METHODS
 
 private:

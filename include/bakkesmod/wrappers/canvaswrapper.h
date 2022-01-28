@@ -3,7 +3,6 @@
 #include "./Engine/ActorWrapper.h"
 #include "ImageWrapper.h"
 
-
 class BAKKESMOD_PLUGIN_IMPORT CanvasWrapper
 {
 public:
@@ -11,7 +10,7 @@ public:
 
 	void SetPosition(Vector2F pos);
 	Vector2F GetPositionFloat();
-	void SetColor(char Red, char Green, char Blue, char Alpha);//0-255
+	void SetColor(char Red, char Green, char Blue, char Alpha); //0-255
 	void SetColor(LinearColor color);
 	LinearColor GetColor();
 	void DrawBox(Vector2F size);
@@ -28,7 +27,7 @@ public:
 	void DrawTexture(ImageWrapper* img, float scale);
 	void DrawRect(float RectX, float RectY, ImageWrapper* img);
 	// don't ask. try..
-	void DrawTile(ImageWrapper* img, float XL, float YL, float U, float V, float UL, float VL, LinearColor Color, unsigned int ClipTile, unsigned char Blend);
+	void DrawTile(ImageWrapper* img, float XL, float YL, float U, float V, float UL, float VL, LinearColor Color, uint32_t ClipTile, uint8_t Blend);
 	void DrawRotatedTile(ImageWrapper* img, Rotator& Rotation, float XL, float YL, float U, float V, float UL, float VL, float AnchorX, float AnchorY);
 
 	void SetPosition(Vector2 pos);

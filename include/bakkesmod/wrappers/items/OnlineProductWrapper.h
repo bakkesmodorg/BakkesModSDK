@@ -13,26 +13,26 @@ public:
 	//BEGIN SELF IMPLEMENTED
 	_NODISCARD bool IsNull() const;
 	explicit operator bool() const;
-	std::string SeriesIdToSeriesName(int seriesID);
+	std::string SeriesIdToSeriesName(int32_t seriesID);
 	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
-	int GetProductID();
-	int GetSeriesID();
-	int GetTradeHold(); // Se wrapperstructs for the enum
+	int32_t GetProductID();
+	int32_t GetSeriesID();
+	int32_t GetTradeHold(); // Se wrapperstructs for the enum
 	//END AUTO-GENERATED FROM FIELDS
 
 	//AUTO-GENERATED FROM METHODS
 	std::string GetProductSeries();
-	unsigned char GetQuality();
+	uint8_t GetQuality();
 	ArrayWrapper<ProductAttributeWrapper> GetAttributes();
 	UnrealStringWrapper GetLongLabel();
-	int GetBlueprintSeriesID();
-	unsigned char GetBlueprintType();
+	int32_t GetBlueprintSeriesID();
+	uint8_t GetBlueprintType();
 	bool IsBlueprint();
 	ProductWrapper GetProduct();
 	bool GetIsUntradable();
-	unsigned long long GetInstanceID();
+	uint64_t GetInstanceID();
 	//END AUTO-GENERATED FROM METHODS
 
 private:

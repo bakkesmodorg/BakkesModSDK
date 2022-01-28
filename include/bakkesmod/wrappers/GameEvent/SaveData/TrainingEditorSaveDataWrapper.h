@@ -15,18 +15,18 @@ public:
 	//AUTO-GENERATED FROM FIELDS
 	UnrealStringWrapper GetCode();
 	UnrealStringWrapper GetTM_Name();
-	unsigned char GetType();
-	void SetType(unsigned char newType);
-	unsigned char GetDifficulty();
-	void SetDifficulty(unsigned char newDifficulty);
+	uint8_t GetType();
+	void SetType(uint8_t newType);
+	uint8_t GetDifficulty();
+	void SetDifficulty(uint8_t newDifficulty);
 	UnrealStringWrapper GetCreatorName();
 	UnrealStringWrapper GetDescription();
-	int GetNumRounds();
-	void SetNumRounds(int newNumRounds);
-	unsigned long long GetCreatedAt();
-	void SetCreatedAt(unsigned long long newCreatedAt);
-	unsigned long long GetUpdatedAt();
-	void SetUpdatedAt(unsigned long long newUpdatedAt);
+	int32_t GetNumRounds();
+	void SetNumRounds(int32_t newNumRounds);
+	uint64_t GetCreatedAt();
+	void SetCreatedAt(uint64_t newCreatedAt);
+	uint64_t GetUpdatedAt();
+	void SetUpdatedAt(uint64_t newUpdatedAt);
 
 	[[deprecated("Use GetCreatorPlayerUniqueID instead")]]
 	SteamID GetCreatorPlayerID(); //DEPRECATED

@@ -22,7 +22,7 @@ struct BAKKESMOD_PLUGIN_IMPORT MMRNotifierToken
 private:
 	explicit MMRNotifierToken(unsigned long long t);
 	// Do we need pimpl here?
-	unsigned long long token;
+	uint64_t token;
 };
 
 class BAKKESMOD_PLUGIN_IMPORT MMRWrapper : public ObjectWrapper
@@ -31,19 +31,19 @@ public:
 	CONSTRUCTORS(MMRWrapper);
 	bool IsSyncing(UniqueIDWrapper playerID);
 	bool IsSyncing(SteamID playerID);
-	bool IsSynced(UniqueIDWrapper playerID, int playlistID);
-	bool IsSynced(SteamID playerID, int playlistID);
-	bool IsRanked(int playlistID);
+	bool IsSynced(UniqueIDWrapper playerID, int32_t playlistID);
+	bool IsSynced(SteamID playerID, int32_t playlistID);
+	bool IsRanked(int32_t playlistID);
 
-	SkillRating GetPlayerSkillRating(UniqueIDWrapper playerID, int playlistID);
-	SkillRank GetPlayerRank(UniqueIDWrapper playerID, int playlistID);
-	float GetPlayerMMR(UniqueIDWrapper playerID, int playlistID);
+	SkillRating GetPlayerSkillRating(UniqueIDWrapper playerID, int32_t playlistID);
+	SkillRank GetPlayerRank(UniqueIDWrapper playerID, int32_t playlistID);
+	float GetPlayerMMR(UniqueIDWrapper playerID, int32_t playlistID);
 
-	SkillRating GetPlayerSkillRating(SteamID playerID, int playlistID);
-	SkillRank GetPlayerRank(SteamID playerID, int playlistID);
-	float GetPlayerMMR(SteamID playerID, int playlistID);
+	SkillRating GetPlayerSkillRating(SteamID playerID, int32_t playlistID);
+	SkillRank GetPlayerRank(SteamID playerID, int32_t playlistID);
+	float GetPlayerMMR(SteamID playerID, int32_t playlistID);
 	float CalculateMMR(SkillRating sr, bool disregardPlacements);
-	int GetCurrentPlaylist();
+	int32_t GetCurrentPlaylist();
 
 	/// <summary>
 	/// Subscribe to MMR updates. The callback will receive a ID wrapper for the player that the MMR update is relevant for.

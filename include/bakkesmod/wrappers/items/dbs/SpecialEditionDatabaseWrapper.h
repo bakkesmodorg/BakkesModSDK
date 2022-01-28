@@ -14,8 +14,8 @@ public:
 	//END AUTO-GENERATED FROM FIELDS
 
 	//AUTO-GENERATED FROM METHODS
-	std::string GetSpecialEditionName(int EditionID);
-	int GetSpecialEditionId(std::string& EditionName);
+	std::string GetSpecialEditionName(int32_t EditionID);
+	int32_t GetSpecialEditionId(std::string& EditionName);
 	//END AUTO-GENERATED FROM METHODS
 
 private:

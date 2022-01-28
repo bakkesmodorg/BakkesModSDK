@@ -18,15 +18,12 @@ public:
 	StructArrayWrapper& operator=(StructArrayWrapper<T> rhs);
 	~StructArrayWrapper();
 
-	int Count();
+	int32_t Count();
 	T Get(int index);
 protected:
     PIMPL
 };
 
-
-
-//
 template class BAKKESMOD_PLUGIN_IMPORT StructArrayWrapper<RecordedSample>;
 template class BAKKESMOD_PLUGIN_IMPORT StructArrayWrapper<ProfileCameraSettings>;
 template class BAKKESMOD_PLUGIN_IMPORT StructArrayWrapper<SteamID>;

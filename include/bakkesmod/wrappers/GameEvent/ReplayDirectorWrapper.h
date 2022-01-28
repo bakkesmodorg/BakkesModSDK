@@ -48,8 +48,8 @@ public:
 	void SetFocusBall(ActorWrapper newFocusBall);
 	float GetScoreTime();
 	void SetScoreTime(float newScoreTime);
-	int GetScoreHitIndex();
-	void SetScoreHitIndex(int newScoreHitIndex);
+	int32_t GetScoreHitIndex();
+	void SetScoreHitIndex(int32_t newScoreHitIndex);
 	GoalWrapper GetScoredGoal();
 	void SetScoredGoal(GoalWrapper newScoredGoal);
     ReplayScoreData GetReplayScoreData();
@@ -59,20 +59,20 @@ public:
 	void SetbSlomoForDefender(unsigned long newbSlomoForDefender);
 	unsigned long GetbAutoSave();
 	void SetbAutoSave(unsigned long newbAutoSave);
-	int GetFocusHitIndex();
-	void SetFocusHitIndex(int newFocusHitIndex);
-	int GetFocusCarIdx();
-	void SetFocusCarIdx(int newFocusCarIdx);
+	int32_t GetFocusHitIndex();
+	void SetFocusHitIndex(int32_t newFocusHitIndex);
+	int32_t GetFocusCarIdx();
+	void SetFocusCarIdx(int32_t newFocusCarIdx);
 	float GetReplayStartGameTime();
 	void SetReplayStartGameTime(float newReplayStartGameTime);
 	float GetBallSpawnTime();
 	void SetBallSpawnTime(float newBallSpawnTime);
 	ServerWrapper GetSoccarGame();
 	void SetSoccarGame(ServerWrapper newSoccarGame);
-	unsigned char GetScoredOnTeam();
-	void SetScoredOnTeam(unsigned char newScoredOnTeam);
-	int GetForceCutToFocusActors();
-	void SetForceCutToFocusActors(int newForceCutToFocusActors);
+	uint8_t GetScoredOnTeam();
+	void SetScoredOnTeam(uint8_t newScoredOnTeam);
+	int32_t GetForceCutToFocusActors();
+	void SetForceCutToFocusActors(int32_t newForceCutToFocusActors);
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	void HandleReplayFinished(ReplayWrapper InReplay);
@@ -80,7 +80,7 @@ public:
 	void UpdateSlomo();
 	void UpdateFocusActors();
 	void PlayRandomHighlight();
-	int GetNextHighlightFrame();
+	int32_t GetNextHighlightFrame();
 	void SetAutoSave();
 	void SaveUserKeyframe();
 	void BuildFocusCars();
@@ -90,7 +90,7 @@ public:
 	float GetReplayTimeSeconds();
 	void SetFocusActors(ActorWrapper NewCar, ActorWrapper NewBall);
 	float GetReplayStartTime();
-	void SetSlomoForDefender(BallWrapper Ball, int DefendingTeam);
+	void SetSlomoForDefender(BallWrapper Ball, int32_t DefendingTeam);
 	void OnScoreDataChanged();
 	void HandleScoreUpdated(TeamWrapper Team);
 	void HandleAllTeamsCreated(TeamGameEventWrapper TeamGame);
