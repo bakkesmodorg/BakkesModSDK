@@ -48,6 +48,8 @@ public:
 	bool IsInFreeplay();
 	bool IsInReplay();
 	bool IsInCustomTraining();
+
+	[[deprecated("Doesn't work, use PriWrapper::IsSpectator() instead. (For local player, use GetPlayerController()/*nullcheck*/.GetPRI())")]]
 	bool IsSpectatingInOnlineGame();
 
 	bool IsPaused();
