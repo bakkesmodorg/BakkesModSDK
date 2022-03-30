@@ -33,6 +33,7 @@ class SettingsWrapper;
 class PriWrapper;
 class ModalWrapper;
 class TextInputModalWrapper;
+class MenuStackWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT GameWrapper
 {
@@ -122,12 +123,17 @@ public:
 	UnrealStringWrapper				GetPlayerName();
 	ClubDetailsWrapper				GetLocalClub();
 	SequenceWrapper					GetMainSequence();
+	_NODISCARD MenuStackWrapper				GetMenuStack() const;
 	
 	[[deprecated("Experimental feature, use at your own risk. implementation and function signature subject to change")]]
 	void							SetBotLoadout(PriWrapper& bot_pri, const struct BotLoadoutData& loadout_data);
 
     Vector2							GetScreenSize();
+    float							GetDisplayScale();
+    float							GetInterfaceScale();
+	[[deprecated("Renamed to GetDisplayScale to match the name you see in the official interface")]]
     float							GetSafeZoneRatio();
+	[[deprecated("Renamed to GetInterfaceScale to match the name you see in the official interface")]]
     float							GetUIScale();
     unsigned int					GetbMetric();
     UnrealStringWrapper				GetUILanguage();

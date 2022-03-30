@@ -14,6 +14,7 @@ public:
 	_NODISCARD bool IsNull() const;
 	explicit operator bool() const;
 	std::string SeriesIdToSeriesName(int seriesID);
+	_NODISCARD bool IsFavorited() const;
 	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
