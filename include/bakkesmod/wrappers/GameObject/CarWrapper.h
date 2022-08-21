@@ -35,6 +35,9 @@ public:
 	int GetLoadoutBody();	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
+	//Only works in freeplay
+	void SetCarColor(LinearColor mainColor, LinearColor secondaryColor);
+
 	ArrayWrapper<CarComponentWrapper> GetDefaultCarComponents();
 	FlipCarComponentWrapper GetFlipComponent();
 	unsigned char GetDemolishTarget();
