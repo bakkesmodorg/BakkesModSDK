@@ -1007,6 +1007,14 @@ struct BAKKESMOD_PLUGIN_IMPORT GUIDWrapper
 	
 };
 
+
+
+struct TrainingRoundProgress {
+    int RoundNumber; 
+    unsigned char Status; //See: EnumWrapper::GetTrainingRoundAttempts
+    unsigned char Padding[0x3];
+};
+
 // #Enums
 enum TRADEHOLD
 {

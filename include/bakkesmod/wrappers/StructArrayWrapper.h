@@ -32,4 +32,5 @@ template class BAKKESMOD_PLUGIN_IMPORT StructArrayWrapper<ProfileCameraSettings>
 template class BAKKESMOD_PLUGIN_IMPORT StructArrayWrapper<SteamID>;
 template class BAKKESMOD_PLUGIN_IMPORT StructArrayWrapper<LinearColor>;
 template class BAKKESMOD_PLUGIN_IMPORT StructArrayWrapper<ClubMember>;
+template class BAKKESMOD_PLUGIN_IMPORT StructArrayWrapper<TrainingRoundProgress>;
 #pragma warning(pop)

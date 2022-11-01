@@ -34,6 +34,7 @@ class PriWrapper;
 class ModalWrapper;
 class TextInputModalWrapper;
 class MenuStackWrapper;
+class GfxDataTrainingWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT GameWrapper
 {
@@ -123,6 +124,7 @@ public:
 	UnrealStringWrapper				GetPlayerName();
 	ClubDetailsWrapper				GetLocalClub();
 	SequenceWrapper					GetMainSequence();
+	_NODISCARD GfxDataTrainingWrapper		GetGfxTrainingData() const;
 	_NODISCARD MenuStackWrapper				GetMenuStack() const;
 	
 	[[deprecated("Experimental feature, use at your own risk. implementation and function signature subject to change")]]
