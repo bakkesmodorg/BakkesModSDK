@@ -8,6 +8,7 @@
 #include <typeindex>
 #include "canvaswrapper.h"
 #include "mmrwrapper.h"
+#include "items/LoadoutSaveWrapper.h"
 
 #ifdef __cpp_lib_filesystem
 #include <filesystem>
@@ -75,6 +76,7 @@ public:
 	GuiManagerWrapper				GetGUIManager();
 	PlayerControllerWrapper			GetPlayerController();
 	ItemsWrapper					GetItemsWrapper();
+	_NODISCARD LoadoutSaveWrapper	GetUserLoadoutSave() const;
 	MatchmakingWrapper				GetMatchmakingWrapper();
 	SettingsWrapper					GetSettings();
 

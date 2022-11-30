@@ -984,6 +984,12 @@ struct VideoSettings
     std::map<std::string, std::string> VideoOptions;
 };
 
+struct ProductInstanceID
+{
+	unsigned long long upper_bits;
+	unsigned long long lower_bits;
+};
+
 struct BAKKESMOD_PLUGIN_IMPORT GUIDWrapper
 {
     GUIDWrapper() = default;

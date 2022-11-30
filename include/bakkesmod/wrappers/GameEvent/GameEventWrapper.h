@@ -16,6 +16,8 @@ class BAKKESMOD_PLUGIN_IMPORT GameEventWrapper : public ActorWrapper {
 public:
 	CONSTRUCTORS(GameEventWrapper)
 
+	_NODISCARD std::string GetMatchTypeName() const;
+
 	//AUTO-GENERATED FROM FIELDS
 	unsigned char GetReplicatedStateIndex();
 	void SetReplicatedStateIndex(unsigned char newReplicatedStateIndex);

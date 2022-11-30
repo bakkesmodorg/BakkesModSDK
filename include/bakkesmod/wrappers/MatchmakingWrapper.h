@@ -95,7 +95,9 @@ enum class PlaylistIds
 	TacticalRumble = 48,
 	SpringLoaded = 49,
 	SpeedDemon = 50,
-	RumbleBM = 52
+	RumbleBM = 52,
+	Knockout = 54,
+	Thirdwheel = 55,
 };
 
 struct ClubColorSet
