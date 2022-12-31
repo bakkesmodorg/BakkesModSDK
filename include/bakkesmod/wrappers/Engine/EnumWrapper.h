@@ -94,7 +94,8 @@ public:
 	_NODISCARD static EnumWrapper GetReplayStates();
 	/*USampleHistory_TA_EGraphSummaryType*/
 	_NODISCARD static EnumWrapper GetGraphSummaryTypes();
-
+	/*U_TrainingTypes_TA_ETrainingRoundAttempt*/
+	_NODISCARD static EnumWrapper GetTrainingRoundAttempts();
 private:
 	PIMPL
 	

@@ -8,6 +8,7 @@
 #include <typeindex>
 #include "canvaswrapper.h"
 #include "mmrwrapper.h"
+#include "items/LoadoutSaveWrapper.h"
 
 #ifdef __cpp_lib_filesystem
 #include <filesystem>
@@ -34,6 +35,7 @@ class PriWrapper;
 class ModalWrapper;
 class TextInputModalWrapper;
 class MenuStackWrapper;
+class GfxDataTrainingWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT GameWrapper
 {
@@ -74,6 +76,7 @@ public:
 	GuiManagerWrapper				GetGUIManager();
 	PlayerControllerWrapper			GetPlayerController();
 	ItemsWrapper					GetItemsWrapper();
+	_NODISCARD LoadoutSaveWrapper	GetUserLoadoutSave() const;
 	MatchmakingWrapper				GetMatchmakingWrapper();
 	SettingsWrapper					GetSettings();
 
@@ -123,6 +126,7 @@ public:
 	UnrealStringWrapper				GetPlayerName();
 	ClubDetailsWrapper				GetLocalClub();
 	SequenceWrapper					GetMainSequence();
+	_NODISCARD GfxDataTrainingWrapper		GetGfxTrainingData() const;
 	_NODISCARD MenuStackWrapper				GetMenuStack() const;
 	
 	[[deprecated("Experimental feature, use at your own risk. implementation and function signature subject to change")]]

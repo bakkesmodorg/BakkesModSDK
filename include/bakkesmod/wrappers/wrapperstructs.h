@@ -984,6 +984,12 @@ struct VideoSettings
     std::map<std::string, std::string> VideoOptions;
 };
 
+struct ProductInstanceID
+{
+	unsigned long long upper_bits;
+	unsigned long long lower_bits;
+};
+
 struct BAKKESMOD_PLUGIN_IMPORT GUIDWrapper
 {
     GUIDWrapper() = default;
@@ -1005,6 +1011,14 @@ struct BAKKESMOD_PLUGIN_IMPORT GUIDWrapper
     bool IsValid() const;
 	std::string ToString(EGuidFormats format = EGuidFormats::UniqueObjectGuid) const;
 	
+};
+
+
+
+struct TrainingRoundProgress {
+    int RoundNumber; 
+    unsigned char Status; //See: EnumWrapper::GetTrainingRoundAttempts
+    unsigned char Padding[0x3];
 };
 
 // #Enums

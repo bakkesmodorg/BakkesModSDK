@@ -33,7 +33,9 @@ public:
 	bool IsBlueprint();
 	ProductWrapper GetProduct();
 	bool GetIsUntradable();
+	[[deprecated("Missing half the data")]]
 	unsigned long long GetInstanceID();
+	_NODISCARD ProductInstanceID GetInstanceIDV2();
 	//END AUTO-GENERATED FROM METHODS
 
 private:
