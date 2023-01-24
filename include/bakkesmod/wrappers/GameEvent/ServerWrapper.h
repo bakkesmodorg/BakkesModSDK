@@ -150,6 +150,8 @@ public:
 	void SetPauser(PlayerControllerWrapper newPauser);
 
 	//AUTO-GENERATED FUNCTION PROXIES
+	void SetNumPlayers(int numPlayers);
+	int GetNumPlayers();
 	int GetPlayerCarCount();
 	void ReplicateSkillTiers();
 	void RemoveTeamSelection();

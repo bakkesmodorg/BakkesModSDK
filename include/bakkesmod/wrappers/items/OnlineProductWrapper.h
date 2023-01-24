@@ -14,6 +14,7 @@ public:
 	_NODISCARD bool IsNull() const;
 	explicit operator bool() const;
 	std::string SeriesIdToSeriesName(int seriesID);
+	_NODISCARD bool IsFavorited() const;
 	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
@@ -32,7 +33,9 @@ public:
 	bool IsBlueprint();
 	ProductWrapper GetProduct();
 	bool GetIsUntradable();
+	[[deprecated("Missing half the data")]]
 	unsigned long long GetInstanceID();
+	_NODISCARD ProductInstanceID GetInstanceIDV2();
 	//END AUTO-GENERATED FROM METHODS
 
 private:
