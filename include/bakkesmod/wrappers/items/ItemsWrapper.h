@@ -1,4 +1,5 @@
 #pragma once
+#include "GfxProductsWrapper.h"
 #include "../Engine/ObjectWrapper.h"
 #include "../arraywrapper.h"
 
@@ -57,6 +58,7 @@ public:
 
 	TradeWrapper GetTradeWrapper();
 	ProductTradeInWrapper GetProductTradeInWrapper();
+	_NODISCARD GfxProductsWrapper GetGfxProductsWrapper();
 
 private:
 	PIMPL
