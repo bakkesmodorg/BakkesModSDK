@@ -2,6 +2,7 @@
 
 #include "LoadoutWrapper.h"
 #include "OnlineProductWrapper.h"
+#include "wrapperstructs.h"
 
 struct LoadoutSetData {
 	LoadoutWrapper blue;
