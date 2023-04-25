@@ -75,6 +75,7 @@ enum class PlaylistIds
 	UGCTraining = 21,
 	Tournament = 22,
 	Breakout = 23,
+	TenthAnniversary = 25,
 	FaceIt = 26,
 	RankedBasketballDoubles = 27,
 	RankedRumble = 28,
@@ -87,6 +88,7 @@ enum class PlaylistIds
 	RocketLabs = 35,
 	RumShot = 37,
 	GodBall = 38,
+	CoopVsAI = 40,
 	BoomerBall = 41,
 	GodBallDoubles = 43,
 	SpecialSnowDay = 44,
@@ -98,6 +100,7 @@ enum class PlaylistIds
 	RumbleBM = 52,
 	Knockout = 54,
 	Thirdwheel = 55,
+	MagnusFutball = 62
 };
 
 struct ClubColorSet
@@ -124,7 +127,7 @@ struct CustomMatchSettings
 	std::string Password;
 	CustomMatchTeamSettings BlueTeamSettings;
 	CustomMatchTeamSettings OrangeTeamSettings;
-	int GameMode = 0; // 0 = soccar, 1 = hoops, 2 = snowday, 3 = rumble, 5 = dropshot, 6 = heatseeker (might change)
+	int GameMode = 0; // 0 = soccar, 1 = hoops, 2 = snowday, 3 = rumble, 5 = dropshot, 6 = heatseeker, 7 = gridiron, 8 = knockout (might change)
 	int MaxPlayerCount = 8;
 	bool bPartyMembersOnly = false;
 	bool bClubServer;
