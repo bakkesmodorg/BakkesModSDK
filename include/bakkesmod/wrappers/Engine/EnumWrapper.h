@@ -96,6 +96,10 @@ public:
 	_NODISCARD static EnumWrapper GetGraphSummaryTypes();
 	/*U_TrainingTypes_TA_ETrainingRoundAttempt*/
 	_NODISCARD static EnumWrapper GetTrainingRoundAttempts();
+	//UGFxEngine_EWeatherVariant
+	_NODISCARD static EnumWrapper GetWeatherVariant();
+	//U_Types_TA_EPaintFinishType
+	_NODISCARD static EnumWrapper GetPaintFinishTyp();
 private:
 	PIMPL
 	

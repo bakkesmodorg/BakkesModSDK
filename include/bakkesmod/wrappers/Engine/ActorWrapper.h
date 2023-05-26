@@ -23,7 +23,9 @@ public:
 	Vector GetAngularVelocity();
 	void SetAngularVelocity(const Vector v, bool addToCurrent);
 	bool IsNull();
+	bool IsNull() const;
 	explicit operator bool();
+	explicit operator bool() const;
 	WorldInfoWrapper GetWorldInfo();
 	//END SELF IMPLEMENTED
 

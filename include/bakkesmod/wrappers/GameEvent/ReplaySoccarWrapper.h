@@ -1,13 +1,18 @@
 #pragma once
-template<class T> class ArrayWrapper;
-template<typename T> class StructArrayWrapper;
-#include "../WrapperStructs.h"
-#include ".././GameEvent/ReplayWrapper.h"
+#include "bakkesmod/wrappers/GameEvent/ReplayWrapper.h"
+#include "bakkesmod/core/replay_structs.h"
+
 class PriWrapper;
 
-class BAKKESMOD_PLUGIN_IMPORT ReplaySoccarWrapper : public ReplayWrapper {
+class BAKKESMOD_PLUGIN_IMPORT ReplaySoccarWrapper : public ReplayWrapper
+{
 public:
 	CONSTRUCTORS(ReplaySoccarWrapper)
+
+	_NODISCARD std::vector<ScoredGoal> GetGoals() const;
+	_NODISCARD std::vector<Highlight> GetHighlights() const;
+	_NODISCARD std::vector<ReplayPlayerStats> GetPlayerStats() const;
+
 
 	//AUTO-GENERATED FROM FIELDS
 	int GetTeamSize();
@@ -28,6 +33,7 @@ public:
 	void RemoveTimelineKeyframe(int KeyframeIndex);
 	void RecordUserEvent();
 	void AddPlayer(PriWrapper PRI);
+
 private:
 	PIMPL
 };

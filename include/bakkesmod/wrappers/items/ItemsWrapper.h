@@ -40,8 +40,14 @@ public:
 	bool IsNull();
 	explicit operator bool();
 	ArrayWrapper<ProductWrapper> GetAllProducts();
+	ArrayWrapper<ProductSlotWrapper> GetAllProductSlots();
 	ProductWrapper GetProduct(int productId);
+	[[deprecated("Use FProductInstanceID overload")]]
 	OnlineProductWrapper GetOnlineProduct(unsigned long long instanceID);
+	OnlineProductWrapper GetOnlineProduct(const ProductInstanceID& product_instance_id) const;
+
+	_NODISCARD static bool IsOnlineID(const ProductInstanceID& product_instance_id);
+	_NODISCARD static int GetProductIdFromInstanceId(const ProductInstanceID& product_instance_id);
 
 	[[deprecated("This will 99% for sure crash")]]
 	ArrayWrapper<OnlineProductWrapper> GetUnlockedProducts();

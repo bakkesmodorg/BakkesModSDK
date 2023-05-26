@@ -13,6 +13,9 @@
 #include "./GameObject/BoostPickupWrapper.h"
 #include "GameObject/BreakOutActorPlatformWrapper.h"
 
+class ProductPaintWrapper;
+class MapDataWrapper;
+class ProductSlotWrapper;
 class LoadingProductWrapper;
 class LoadoutSetWrapper;
 class ActorWrapper;
@@ -126,5 +129,8 @@ template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<unsigned long long>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<BreakOutActorPlatformWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<LoadoutSetWrapper>;
 template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<LoadingProductWrapper>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<ProductSlotWrapper>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<MapDataWrapper>;
+template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<ProductPaintWrapper>;
 //template class BAKKESMOD_PLUGIN_IMPORT ArrayWrapper<FSample>;
 #pragma warning(pop)

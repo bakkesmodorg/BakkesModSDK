@@ -13,6 +13,7 @@ public:
 
 	//BEGIN SELF IMPLEMENTED
 	OnlinePlatform GetPlatform();
+	_NODISCARD bool ChangeNameForScoreboardAndNameplateInReplay(const std::string& name); //sorry for long name..
 	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS

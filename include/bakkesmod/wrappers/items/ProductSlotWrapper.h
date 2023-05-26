@@ -12,6 +12,7 @@ public:
 	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
+	ProductWrapper GetDefaultProduct() const;
 	UnrealStringWrapper GetLabel();
 	UnrealStringWrapper GetPluralLabel();
 	UnrealStringWrapper GetDescription();

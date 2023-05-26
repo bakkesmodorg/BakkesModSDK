@@ -1,4 +1,5 @@
 #pragma once
+#include "CameraStates/CameraStateBlenderWrapper.h"
 template<class T> class ArrayWrapper;
 template<typename T> class StructArrayWrapper;
 #include "../WrapperStructs.h"
@@ -31,6 +32,7 @@ public:
 	std::string GetFocusActor();
 	bool SetFocusActor(std::string actorName);
     bool SetFlyCamBallTargetMode();
+	_NODISCARD CameraStateBlenderWrapper GetBlender() const;
 
 	//AUTO-GENERATED FROM FIELDS
 	float GetSwivelFastSpeed();

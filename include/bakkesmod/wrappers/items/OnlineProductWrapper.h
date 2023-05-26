@@ -33,7 +33,7 @@ public:
 	bool IsBlueprint();
 	ProductWrapper GetProduct();
 	bool GetIsUntradable();
-	[[deprecated("Missing half the data")]]
+	[[deprecated("Missing half the data. Use GetInstanceIDV2")]]
 	unsigned long long GetInstanceID();
 	_NODISCARD ProductInstanceID GetInstanceIDV2();
 	//END AUTO-GENERATED FROM METHODS

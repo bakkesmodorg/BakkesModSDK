@@ -20,6 +20,9 @@ public:
 	_NODISCARD bool IsHauntedtBall() const;
 	_NODISCARD bool IsGodBall() const;
 
+	void FadeOutBall();
+	void FadeInBall();
+
 	//AUTO-GENERATED FROM FIELDS
 	FXActorWrapper GetEndOfGameFXArchetype();
 	void SetEndOfGameFXArchetype(FXActorWrapper newEndOfGameFXArchetype);
