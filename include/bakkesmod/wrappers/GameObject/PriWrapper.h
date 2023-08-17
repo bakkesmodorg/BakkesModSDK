@@ -10,6 +10,7 @@ class FXActorWrapper;
 class AirControlComponentWrapper;
 class ClubDetailsWrapper;
 class UniqueIDWrapper;
+class CameraSettingsActorWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT PriWrapper : public PriXWrapper {
 public:
@@ -88,6 +89,7 @@ public:
 	void SetPawnType(unsigned char newPawnType);
 	unsigned char GetReplicatedWorstNetQualityBeyondLatency();
 	void SetReplicatedWorstNetQualityBeyondLatency(unsigned char newReplicatedWorstNetQualityBeyondLatency);
+	CameraSettingsActorWrapper GetPersistentCamera() const;
 
 	[[deprecated("Use GetPartyLeaderID instead")]]
 	SteamID GetPartyLeader();//DEPRECATED

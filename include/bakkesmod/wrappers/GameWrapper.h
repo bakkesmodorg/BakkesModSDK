@@ -8,6 +8,7 @@
 #include <typeindex>
 #include "canvaswrapper.h"
 #include "mmrwrapper.h"
+#include "items/LoadoutSaveWrapper.h"
 
 #ifdef __cpp_lib_filesystem
 #include <filesystem>
@@ -33,6 +34,10 @@ class SettingsWrapper;
 class PriWrapper;
 class ModalWrapper;
 class TextInputModalWrapper;
+class MenuStackWrapper;
+class GfxDataTrainingWrapper;
+class ReplayManagerWrapper;
+class MapListWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT GameWrapper
 {
@@ -48,6 +53,8 @@ public:
 	bool IsInFreeplay();
 	bool IsInReplay();
 	bool IsInCustomTraining();
+
+	[[deprecated("Doesn't work, use PriWrapper::IsSpectator() instead. (For local player, use GetPlayerController()/*nullcheck*/.GetPRI())")]]
 	bool IsSpectatingInOnlineGame();
 
 	bool IsPaused();
@@ -71,8 +78,11 @@ public:
 	GuiManagerWrapper				GetGUIManager();
 	PlayerControllerWrapper			GetPlayerController();
 	ItemsWrapper					GetItemsWrapper();
+	_NODISCARD LoadoutSaveWrapper	GetUserLoadoutSave() const;
 	MatchmakingWrapper				GetMatchmakingWrapper();
 	SettingsWrapper					GetSettings();
+	_NODISCARD ReplayManagerWrapper GetReplayManagerWrapper() const;
+	_NODISCARD MapListWrapper		GetMapListWrapper() const;
 
 	ModalWrapper					CreateModal(const std::string& title);
 	TextInputModalWrapper			CreateTextInputModal(const std::string& title);
@@ -120,12 +130,18 @@ public:
 	UnrealStringWrapper				GetPlayerName();
 	ClubDetailsWrapper				GetLocalClub();
 	SequenceWrapper					GetMainSequence();
+	_NODISCARD GfxDataTrainingWrapper		GetGfxTrainingData() const;
+	_NODISCARD MenuStackWrapper				GetMenuStack() const;
 	
 	[[deprecated("Experimental feature, use at your own risk. implementation and function signature subject to change")]]
 	void							SetBotLoadout(PriWrapper& bot_pri, const struct BotLoadoutData& loadout_data);
 
     Vector2							GetScreenSize();
+    float							GetDisplayScale();
+    float							GetInterfaceScale();
+	[[deprecated("Renamed to GetDisplayScale to match the name you see in the official interface")]]
     float							GetSafeZoneRatio();
+	[[deprecated("Renamed to GetInterfaceScale to match the name you see in the official interface")]]
     float							GetUIScale();
     unsigned int					GetbMetric();
     UnrealStringWrapper				GetUILanguage();
@@ -158,6 +174,7 @@ extern template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCaller<Ca
 extern template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCaller<CarComponentWrapper>(std::string eventName, std::function<void(CarComponentWrapper caller, void* params, std::string eventName)> callback);
 extern template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCaller<PlayerControllerWrapper>(std::string eventName, std::function<void(PlayerControllerWrapper caller, void* params, std::string eventName)> callback);
 extern template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCaller<BallWrapper>(std::string eventName, std::function<void(BallWrapper caller, void* params, std::string eventName)> callback);
+extern template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCaller<PriWrapper>(std::string eventName, std::function<void(PriWrapper caller, void* params, std::string eventName)> callback);
 
 extern template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCallerPost<ActorWrapper>(std::string eventName, std::function<void(ActorWrapper caller, void* params, std::string eventName)> callback);
 extern template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCallerPost<ServerWrapper>(std::string eventName, std::function<void(ServerWrapper caller, void* params, std::string eventName)> callback);
@@ -165,4 +182,5 @@ extern template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCallerPos
 extern template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCallerPost<CarComponentWrapper>(std::string eventName, std::function<void(CarComponentWrapper caller, void* params, std::string eventName)> callback);
 extern template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCallerPost<PlayerControllerWrapper>(std::string eventName, std::function<void(PlayerControllerWrapper caller, void* params, std::string eventName)> callback);
 extern template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCallerPost<BallWrapper>(std::string eventName, std::function<void(BallWrapper caller, void* params, std::string eventName)> callback);
+extern template void BAKKESMOD_PLUGIN_IMPORT GameWrapper::HookEventWithCallerPost<PriWrapper>(std::string eventName, std::function<void(PriWrapper caller, void* params, std::string eventName)> callback);
 #pragma warning(pop)

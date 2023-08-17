@@ -10,6 +10,7 @@ public:
 	//BEGIN SELF IMPLEMENTED
 	bool IsNull();
 	explicit operator bool();
+	bool IsFavorited() const;
 	//END SELF IMPLEMENTED
 
 	//AUTO-GENERATED FROM FIELDS
@@ -32,6 +33,7 @@ public:
 	bool IsSchematic();
 	bool IsPlatformExclusive();
 	bool IsLicensed();
+	bool CanEquip();
 	ArrayWrapper<ProductAttributeWrapper> GetAttributes();
 	UnrealStringWrapper GetSortLabel();
 	UnrealStringWrapper GetThumbnailAssetPath();

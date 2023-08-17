@@ -5,6 +5,8 @@
 #include <map>
 #include <string>
 #include <algorithm>
+
+#include "../core/compiler_toggles.h"
 #include "bakkesmod/plugin/bakkesmodsdk.h"
 
 #ifndef CONST_RadToUnrRot
@@ -60,6 +62,7 @@ struct Vector {
     Vector(float def) : X(def), Y(def), Z(def) {}
     Vector() : Vector(0.0) {}
     operator FVector();
+    explicit operator FVector() const;
 
     //Vector member operator overloads
     inline Vector operator+=(const Vector v2) {
@@ -226,6 +229,7 @@ struct Rotator {
     Rotator(int def) : Pitch(def), Yaw(def), Roll(def) {}
     Rotator() : Rotator(0) {}
     operator FRotator();
+    explicit operator FRotator() const;
 
     inline Rotator operator+=(const Rotator r2) {
         Pitch += r2.Pitch;
@@ -774,28 +778,41 @@ inline Vector2F operator/(const Vector2F v1, const float f) {
 // #LinearColor
 //Forward declarations of LinearColor non-member operator overloads
 struct LinearColor;
+struct FLinearColor;
 inline LinearColor operator*(const LinearColor c1, const float f);
 inline LinearColor operator/(const LinearColor c1, const float f);
 inline bool operator==(const LinearColor c1, const LinearColor c2);
 
+
 struct LinearColor
 {
-    float R, G, B, A;
+	LinearColor() = default;
+	explicit LinearColor(const FLinearColor& r);
 
-    inline LinearColor operator*=(const float f) {
-        R *= f;
-        G *= f;
-        B *= f;
-        A *= f;
-        return *this;
-    }
-    inline LinearColor operator/=(const float f) {
-        R /= f;
-        G /= f;
-        B /= f;
-        A /= f;
-        return *this;
-    }
+	LinearColor(float r, float g, float b, float a):
+		R{r},G{g},B{b},A{a} {}
+
+	explicit operator FLinearColor() const;
+
+	float R, G, B, A;
+
+	inline LinearColor operator*=(const float f)
+	{
+		R *= f;
+		G *= f;
+		B *= f;
+		A *= f;
+		return *this;
+	}
+
+	inline LinearColor operator/=(const float f)
+	{
+		R /= f;
+		G /= f;
+		B /= f;
+		A /= f;
+		return *this;
+	}
 };
 
 //LinearColor non-member operator overloads
@@ -815,10 +832,7 @@ inline bool operator==(const LinearColor c1, const LinearColor c2) {
 }
 
 inline bool operator!=(const LinearColor c1, const LinearColor c2) {
-    return c1.R != c2.R &&
-           c1.G != c2.G &&
-           c1.B != c2.B &&
-           c1.A != c2.A;
+    return !(c1 == c2);
 }
 
 
@@ -852,11 +866,23 @@ struct SkillRank
     int MatchesPlayed;
 };
 
-struct UnrealColor {
-    unsigned char B;
-    unsigned char G;
-    unsigned char R;
-    unsigned char A;
+struct FColor;
+
+struct UnrealColor
+{
+	unsigned char B;
+	unsigned char G;
+	unsigned char R;
+	unsigned char A;
+
+	UnrealColor() = default;
+    explicit UnrealColor(const FColor& other);
+	explicit operator FColor() const;
+	UnrealColor(unsigned char b, unsigned char g, unsigned char r, unsigned char a): B{b}, G{g}, R{r}, A{a} {}
+
+
+	DEFAULTEQUALITY(UnrealColor)
+	DEFAULTCOMPARE(UnrealColor)
 };
 
 struct ControllerInput {
@@ -900,8 +926,14 @@ struct CameraSave
     bool CameraShake;
 };
 
+struct FProfileCameraSettings;
+
 struct ProfileCameraSettings
 {
+    ProfileCameraSettings() = default;
+    explicit ProfileCameraSettings(const FProfileCameraSettings& other);
+    explicit operator FProfileCameraSettings() const;
+
     float FOV;
     float Height;
     float Pitch;
@@ -984,6 +1016,23 @@ struct VideoSettings
     std::map<std::string, std::string> VideoOptions;
 };
 
+struct ProductInstanceID
+{
+	unsigned long long upper_bits;
+	unsigned long long lower_bits;
+
+	friend bool operator==(const ProductInstanceID& lhs, const ProductInstanceID& rhs)
+	{
+		return lhs.upper_bits == rhs.upper_bits
+			&& lhs.lower_bits == rhs.lower_bits;
+	}
+
+	friend bool operator!=(const ProductInstanceID& lhs, const ProductInstanceID& rhs)
+	{
+		return !(lhs == rhs);
+	}
+};
+
 struct BAKKESMOD_PLUGIN_IMPORT GUIDWrapper
 {
     GUIDWrapper() = default;
@@ -1005,6 +1054,14 @@ struct BAKKESMOD_PLUGIN_IMPORT GUIDWrapper
     bool IsValid() const;
 	std::string ToString(EGuidFormats format = EGuidFormats::UniqueObjectGuid) const;
 	
+};
+
+
+
+struct TrainingRoundProgress {
+    int RoundNumber; 
+    unsigned char Status; //See: EnumWrapper::GetTrainingRoundAttempts
+    unsigned char Padding[0x3];
 };
 
 // #Enums

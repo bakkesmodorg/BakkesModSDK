@@ -92,5 +92,9 @@
 #include "bakkesmod/wrappers/GameObject/GoalHoopsWrapper.h"
 #include "bakkesmod/wrappers/PluginManagerWrapper.h"
 #include "bakkesmod/wrappers/GameObject/Stats/StatEventWrapper.h"
+#include "bakkesmod/wrappers/MenuStackWrapper.h"
+#include "bakkesmod/wrappers/gfx/GfxDataTrainingWrapper.h"
+#include "bakkesmod/wrappers/items/LoadingProductWrapper.h"
+#include "bakkesmod/wrappers/items/GfxProductsWrapper.h"
 
 #pragma warning(pop)

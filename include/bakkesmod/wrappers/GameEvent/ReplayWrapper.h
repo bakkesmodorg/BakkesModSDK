@@ -46,11 +46,15 @@ public:
 	void SetMaxChannels(int newMaxChannels);
 	int GetMaxReplaySizeMB();
 	void SetMaxReplaySizeMB(int newMaxReplaySizeMB);
+	[[deprecated("Removed from Rocket League, returns the same as GetId")]]
 	UnrealStringWrapper GetFilename();
+	_NODISCARD UnrealStringWrapper GetFilePath() const;
 	UnrealStringWrapper GetId();
 	UnrealStringWrapper GetDate();
+	std::string GetMapName() const;
 	int GetNumFrames();
 	void SetNumFrames(int newNumFrames);
+	std::string GetMatchType() const;
 	UnrealStringWrapper GetPlayerName();
 	unsigned long GetbFileCorrupted();
 	void SetbFileCorrupted(unsigned long newbFileCorrupted);

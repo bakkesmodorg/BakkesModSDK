@@ -1,5 +1,6 @@
 #pragma once
 #include "WrapperStructs.h"
+
 class BAKKESMOD_PLUGIN_IMPORT SettingsWrapper
 {
 public:
@@ -19,6 +20,11 @@ public:
 
 	GamepadSettings GetGamepadSettings();
 	VideoSettings GetVideoSettings();
+
+
+
+	_NODISCARD bool GetForceDefaultColors() const;
+	void SetForceDefaultColors(bool value);
 	
 };
 

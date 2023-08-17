@@ -4,40 +4,51 @@
 
 enum class Region
 {
-    USE = 0,	// US-East
-    EU = 1,		// Europe
-    USW = 2,	// US-West
-    ASC = 3,	// Asia-SE Mainland
-    ASM = 4,	// Asia-SE Maritime
-    JPN = 5,	// Asia-East
-    ME = 6,		// Middle-East
-    OCE = 7,	// Oceania
-    SAF = 8,	// South Africa
-    SAM = 9,	// South America
-    IND = 10	// India
+	// US-East
+	USE = 0,
+	// Europe
+	EU = 1,
+	// US-West
+	USW = 2,
+	// Asia-SE Mainland
+	ASC = 3,
+	// Asia-SE Maritime
+	ASM = 4,
+	// Asia-East
+	JPN = 5,
+	// Middle-East
+	ME = 6,
+	// Oceania
+	OCE = 7,
+	// South Africa
+	SAF = 8,
+	// South America
+	SAM = 9,
+	// India
+	IND = 10
 };
 
 enum class Playlist
 {
-    CASUAL_STANDARD = 0,
-    CASUAL_DOUBLES = 1,
-    CASUAL_DUELS = 2,
-    CASUAL_CHAOS = 3,
-    RANKED_STANDARD = 4,
-    RANKED_DOUBLES = 5,
-    RANKED_DUELS = 6,
-    AUTO_TOURNAMENT = 12,
-    EXTRAS_RUMBLE = 13,
-    EXTRAS_DROPSHOT = 14,
-    EXTRAS_HOOPS = 15,
-    EXTRAS_SNOWDAY = 16
+	CASUAL_STANDARD = 0,
+	CASUAL_DOUBLES = 1,
+	CASUAL_DUELS = 2,
+	CASUAL_CHAOS = 3,
+	RANKED_STANDARD = 4,
+	RANKED_DOUBLES = 5,
+	RANKED_DUELS = 6,
+	AUTO_TOURNAMENT = 12,
+	EXTRAS_RUMBLE = 13,
+	EXTRAS_DROPSHOT = 14,
+	EXTRAS_HOOPS = 15,
+	EXTRAS_SNOWDAY = 16
 };
 
 enum class PlaylistCategory
 {
-    CASUAL = 0,
-    RANKED = 1,
-    EXTRAS = 2
+	CASUAL = 0,
+	RANKED = 1,
+	EXTRAS = 2
 };
 
 enum class PlaylistIds
@@ -64,6 +75,7 @@ enum class PlaylistIds
 	UGCTraining = 21,
 	Tournament = 22,
 	Breakout = 23,
+	TenthAnniversary = 25,
 	FaceIt = 26,
 	RankedBasketballDoubles = 27,
 	RankedRumble = 28,
@@ -76,6 +88,7 @@ enum class PlaylistIds
 	RocketLabs = 35,
 	RumShot = 37,
 	GodBall = 38,
+	CoopVsAI = 40,
 	BoomerBall = 41,
 	GodBallDoubles = 43,
 	SpecialSnowDay = 44,
@@ -84,83 +97,92 @@ enum class PlaylistIds
 	TacticalRumble = 48,
 	SpringLoaded = 49,
 	SpeedDemon = 50,
-	RumbleBM = 52
+	RumbleBM = 52,
+	Knockout = 54,
+	Thirdwheel = 55,
+	MagnusFutball = 62
 };
 
 struct ClubColorSet
 {
-    unsigned char TeamColorID = 0;
-    unsigned char CustomColorID = 0;
-    bool bTeamColorSet = false;
-    bool bCustomColorSet = false;
+	unsigned char TeamColorID = 0;
+	unsigned char CustomColorID = 0;
+	bool bTeamColorSet = false;
+	bool bCustomColorSet = false;
 };
 
 struct CustomMatchTeamSettings
 {
-    std::string Name;
-    ClubColorSet Colors;
-    int GameScore = 0;
+	std::string Name;
+	ClubColorSet Colors;
+	int GameScore = 0;
 };
 
 struct CustomMatchSettings
 {
 	//  GameTags are the mutators. They should be comma separated (Launch a game manually and check your launch log for potential mutator names - or ask in #programming )
-    std::string GameTags;
-    std::string MapName;
-    std::string ServerName;
-    std::string Password;
-    CustomMatchTeamSettings BlueTeamSettings;
-    CustomMatchTeamSettings OrangeTeamSettings;
-    int GameMode = 0; // 0 = soccar, 1 = hoops, 2 = snowday, 3 = rumble, 5 = dropshot, 6 = heatseeker (might change)
-    int MaxPlayerCount = 8;
-    bool bPartyMembersOnly = false;
-    bool bClubServer;
+	std::string GameTags;
+	std::string MapName;
+	std::string ServerName;
+	std::string Password;
+	CustomMatchTeamSettings BlueTeamSettings;
+	CustomMatchTeamSettings OrangeTeamSettings;
+	int GameMode = 0; // 0 = soccar, 1 = hoops, 2 = snowday, 3 = rumble, 5 = dropshot, 6 = heatseeker, 7 = gridiron, 8 = knockout (might change)
+	int MaxPlayerCount = 8;
+	bool bPartyMembersOnly = false;
+	bool bClubServer;
 };
 
-class BAKKESMOD_PLUGIN_IMPORT MatchmakingWrapper: public ObjectWrapper
+class BAKKESMOD_PLUGIN_IMPORT MatchmakingWrapper : public ObjectWrapper
 {
 public:
-    CONSTRUCTORS(MatchmakingWrapper)
+	CONSTRUCTORS(MatchmakingWrapper)
 
 	_NODISCARD bool IsNull() const;
 	explicit operator bool() const;
 
 	//Matchmaking queue stuff
-    bool IsSearching();
-    int GetActiveViewTab();
+	bool IsSearching();
+	int GetActiveViewTab();
 
-    void SetRegionSelection(Region region, bool bSelected);
-    void SetPlaylistSelection(Playlist playlist, bool bSelected);
-    void SetViewTab(PlaylistCategory playlist_category);
-    void StartMatchmaking(PlaylistCategory playlist_category);
-    void CancelMatchmaking();
+	void SetRegionSelection(Region region, bool bSelected);
+	void SetPlaylistSelection(Playlist playlist, bool bSelected);
+	void SetViewTab(PlaylistCategory playlist_category);
+	void StartMatchmaking(PlaylistCategory playlist_category);
+	void CancelMatchmaking();
 
 	// Private match stuff
-    void CreatePrivateMatch(Region region, const CustomMatchSettings& match_settings);
+	void CreatePrivateMatch(Region region, const CustomMatchSettings& match_settings);
+	/**
+	 * \brief Updates the settings of a private match lobby
+	 * \param match_settings The lobby settings
+	 * \return returns true if updating is successful
+	 */
+	[[nodiscard]] bool UpdatePrivateMatch(const CustomMatchSettings& match_settings) const;
 	void JoinPrivateMatch(const std::string& server_name, const std::string& server_password = "");
 
-    // LAN stuff
-    void CreateLanMatch(Region region, const CustomMatchSettings& match_settings) const;
-    void JoinLanMatch(const std::string& server_id, const std::string& password) const;
+	// LAN stuff
+	void CreateLanMatch(Region region, const CustomMatchSettings& match_settings) const;
+	void JoinLanMatch(const std::string& server_id, const std::string& password) const;
 
 	// Season stuff
-    // If no season end date has been revealed yet, these functions will return either 0 or -1.
-    int SeasonEndDays();
-    int SeasonEndHours();
-    int SeasonEndMinutes();
-    int GetSeasonTimeRemaining();
-    int GetSeasonEndTimeSeconds();
+	// If no season end date has been revealed yet, these functions will return either 0 or -1.
+	int SeasonEndDays();
+	int SeasonEndHours();
+	int SeasonEndMinutes();
+	int GetSeasonTimeRemaining();
+	int GetSeasonEndTimeSeconds();
 
-    bool HasSeasonEnded();
-    int GetTotalPopulation();
+	bool HasSeasonEnded();
+	int GetTotalPopulation();
 
-    _NODISCARD int GetTotalPlayersOnline() const;
+	_NODISCARD int GetTotalPlayersOnline() const;
 	_NODISCARD int GetPlayerCount(PlaylistIds playlist) const;
 
 
 	//misc
-    static std::string GetRegionID(Region region); // ID Example: USE
-    static std::string GetRegionLabel(Region region); // Label Example: US-East
+	static std::string GetRegionID(Region region); // ID Example: USE
+	static std::string GetRegionLabel(Region region); // Label Example: US-East
 
 private:
 	PIMPL
