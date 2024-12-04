@@ -152,7 +152,7 @@ public:
 	void CancelMatchmaking();
 
 	// Private match stuff
-	void CreatePrivateMatch(Region region, const CustomMatchSettings& match_settings);
+	void CreatePrivateMatch(Region region, int playlistID, const CustomMatchSettings& match_settings);
 	/**
 	 * \brief Updates the settings of a private match lobby
 	 * \param match_settings The lobby settings
