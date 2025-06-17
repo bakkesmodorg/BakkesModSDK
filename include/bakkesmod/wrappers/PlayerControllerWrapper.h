@@ -15,6 +15,7 @@ class RBActorWrapper;
 class PriWrapper;
 class EngineTAWrapper;
 class PlayerReplicationInfoWrapper;
+class SpectatorHUDWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT PlayerControllerWrapper : public ActorWrapper /*ControllerWrapper*/ {
 public:
@@ -130,6 +131,7 @@ public:
 	void SetMouseInputMax(float newMouseInputMax);
 	EngineTAWrapper GetEngineShare();
 	void SetEngineShare(EngineTAWrapper newEngineShare);
+	_NODISCARD SpectatorHUDWrapper GetSpectatorHud();
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	void HandleCarSet(PriWrapper InPRI);

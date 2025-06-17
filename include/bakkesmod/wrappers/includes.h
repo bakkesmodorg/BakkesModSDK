@@ -96,5 +96,7 @@
 #include "bakkesmod/wrappers/gfx/GfxDataTrainingWrapper.h"
 #include "bakkesmod/wrappers/items/LoadingProductWrapper.h"
 #include "bakkesmod/wrappers/items/GfxProductsWrapper.h"
+#include "bakkesmod/wrappers/SpectatorHUDWrapper.h"
+#include "bakkesmod/wrappers/ReplayViewerDataWrapper.h"
 
 #pragma warning(pop)
