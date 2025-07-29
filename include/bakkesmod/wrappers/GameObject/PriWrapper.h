@@ -127,6 +127,7 @@ public:
 	int GetSpectatorShortcut();
 	void SetSpectatorShortcut(int newSpectatorShortcut);
 	ClubDetailsWrapper GetClubDetails();
+	int GetLastTeamIndex() const;
 
 	//AUTO-GENERATED FUNCTION PROXIES
 	void __ClubID__ChangeNotifyFunc();
