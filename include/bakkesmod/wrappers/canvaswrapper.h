@@ -3,6 +3,8 @@
 #include "./Engine/ActorWrapper.h"
 #include "ImageWrapper.h"
 
+#include <utility>
+
 
 class BAKKESMOD_PLUGIN_IMPORT CanvasWrapper
 {
@@ -43,6 +45,10 @@ public:
 
 	Vector2 Project(Vector location);
 	Vector2F ProjectF(Vector location);
+	/// <summary>Converts screen coordinates to world space</summary>
+	/// <param name="screenPos">Screen position to deproject</param>
+	/// <returns>Pair of (worldOrigin, worldDirection)</returns>
+	std::pair<Vector2F, Vector2F> DeProject(Vector2F screenPos);
 	Vector2 GetSize();
 private:
 	PIMPL
