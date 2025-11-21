@@ -47,10 +47,13 @@ static inline float get_safe_float_range(std::string val)
 template <typename T>
 std::string to_string_with_precision(const T a_value, const int n = 4)
 {
-	if (a_value <= 0.01f && a_value >= -0.01f)
-		return "0.0000";
 	std::ostringstream out;
-	out << std::fixed << std::setprecision(n) << a_value;
+	if (a_value <= 0.01f && a_value >= -0.01f) {
+		out << std::fixed << std::setprecision(n) << 0.0f;
+	}
+	else {
+		out << std::fixed << std::setprecision(n) << a_value;
+	}
 	return out.str();
 }
 
