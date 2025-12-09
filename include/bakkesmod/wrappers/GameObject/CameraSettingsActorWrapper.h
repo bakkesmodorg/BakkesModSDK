@@ -13,6 +13,9 @@ public:
 	_NODISCARD PriWrapper GetPri() const;
 	_NODISCARD ProfileCameraSettings GetProfileSettings() const;
 	_NODISCARD void SetProfileSettings(const ProfileCameraSettings& profileCameraSettings);
+	
+	_NODISCARD bool GetUsingBehindView() const;
+	void SetUsingBehindView(bool bUsingBehindView);
 
 private:
 	PIMPL

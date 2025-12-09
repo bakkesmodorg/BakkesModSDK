@@ -7,6 +7,7 @@ template<typename T> class StructArrayWrapper;
 class ActorWrapper;
 class RBActorWrapper;
 class WrapperStructs;
+class CameraSettingsActorWrapper;
 
 class BAKKESMOD_PLUGIN_IMPORT CameraWrapper : public CameraXWrapper {
 public:
@@ -33,6 +34,7 @@ public:
 	bool SetFocusActor(std::string actorName);
     bool SetFlyCamBallTargetMode();
 	_NODISCARD CameraStateBlenderWrapper GetBlender() const;
+	_NODISCARD CameraSettingsActorWrapper GetCameraSettingsActor() const;
 
 	//AUTO-GENERATED FROM FIELDS
 	float GetSwivelFastSpeed();
