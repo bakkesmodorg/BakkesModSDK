@@ -1,3 +1,4 @@
+
 #pragma once
 #include <cwchar>
 #include "../WrapperStructs.h"
